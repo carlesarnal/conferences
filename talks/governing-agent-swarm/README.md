@@ -6,35 +6,22 @@ The model metadata validation service lives in the [model-metadata](model-metada
 
 ## Architecture
 
-```
-                         ┌─────────────────────────────┐
-                         │      Apicurio Registry       │
-                         │       (CNCF Sandbox)         │
-                         │                              │
-                         │  ┌────────────────────────┐  │
-    Agent A ──register──►│  │ A2A Agent Cards        │  │◄──discover── Agent B
-                         │  │ (discovery + caps)     │  │
-                         │  ├────────────────────────┤  │
-                         │  │ Communication Schemas  │  │◄──validate── Agent C
-                         │  │ (request/response)     │  │
-                         │  ├────────────────────────┤  │
-    ML Pipeline          │  │ Model Metadata         │  │
-    ──validate──────────►│  │ (validated schemas)    │  │
-                         │  └────────────────────────┘  │
-                         │                              │
-                         │  Compatibility Rules:        │
-                         │  BACKWARD / FULL             │
-                         └─────────────────────────────┘
-                                       │
-                                       ▼
-                              ┌─────────────────┐
-                              │ Model Metadata   │
-                              │ Service (Quarkus)│
-                              │                  │
-                              │ POST /models     │
-                              │ → validate       │
-                              │ → store          │
-                              └─────────────────┘
+```mermaid
+graph TD
+    AgentA[Agent A] -->|register| Registry
+    AgentB[Agent B] -->|discover| Registry
+    AgentC[Agent C] -->|validate| Registry
+    Pipeline[ML Pipeline] -->|validate| MetadataService
+
+    subgraph Registry[Apicurio Registry - CNCF Sandbox]
+        Cards[A2A Agent Cards\ndiscovery + capabilities]
+        Contracts[Communication Schemas\nrequest / response]
+        Models[Model Metadata\nvalidated schemas]
+    end
+
+    Registry -.->|Compatibility Rules\nBACKWARD / FULL| Rules[Version Governance]
+
+    MetadataService[Model Metadata Service\nQuarkus\nPOST /models → validate → store] -.-> Registry
 ```
 
 ## Prerequisites

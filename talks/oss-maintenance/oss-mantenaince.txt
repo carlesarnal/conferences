@@ -1,3 +1,5 @@
+Title: Building the Code, Nurturing the People: Overcoming Challenges in Open Source Community Management
+
 Maintaining Apicurio — now a CNCF sandbox project — with a small core team spread across multiple time zones has taught me that the hardest problems in open source aren't technical. This is what the work actually looks like behind the commit log.
 
 In this talk, I'll share hard-won lessons from years as a Principal Software Engineer and maintainer in the Apicurio community. No platitudes — concrete stories about what worked and what failed:

@@ -4,23 +4,14 @@ This walkthrough accompanies the **security** talk. It demonstrates how to integ
 
 ## Architecture
 
-```
-Producers / Consumers
-        │
-        │ OAuth2 Bearer Token
-        ▼
-   ┌─────────┐     OAuth2 Token     ┌──────────┐
-   │ Strimzi │◄────Validation──────►│ Keycloak │
-   │ (Kafka) │                      │  (IdP)   │
-   └────┬────┘                      └────┬─────┘
-        │                                │
-   Schema Fetch                    OIDC / OAuth2
-        │                                │
-        ▼                                ▼
-   ┌───────────┐                  ┌────────────┐
-   │ Apicurio  │◄───OAuth2───────│ Applications│
-   │ Registry  │   Token Auth     └────────────┘
-   └───────────┘
+```mermaid
+graph TD
+    Clients[Producers / Consumers] -->|OAuth2 Bearer Token| Kafka[Strimzi\nKafka]
+    Apps[Applications] -->|OIDC / OAuth2| Keycloak[Keycloak\nIdentity Provider]
+    Kafka <-->|Token Validation| Keycloak
+    Apps -->|OAuth2 Token Auth| Registry[Apicurio Registry]
+    Registry <-->|OIDC| Keycloak
+    Kafka -.->|Schema Fetch| Registry
 ```
 
 ## Prerequisites

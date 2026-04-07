@@ -4,25 +4,18 @@ This walkthrough accompanies the **agent-discovery** talk. It demonstrates how A
 
 ## Architecture
 
-```
-                    ┌────────────────────┐
-                    │  Apicurio Registry │
-                    │   (CNCF Sandbox)   │
-                    │                    │
-                    │  ┌──────────────┐  │
-Agent A ──register──►  │ A2A Agent    │  │◄──discover── Agent B
-                    │  │ Cards        │  │
-                    │  ├──────────────┤  │
-                    │  │ Prompt       │  │
-                    │  │ Templates    │  │
-                    │  ├──────────────┤  │
-                    │  │ Model        │  │
-                    │  │ Schemas      │  │
-                    │  └──────────────┘  │
-                    └────────────────────┘
-                              │
-                    Compatibility Rules
-                    (BACKWARD, FULL, etc.)
+```mermaid
+graph LR
+    AgentA[Agent A] -->|register| Registry
+    AgentB[Agent B] -->|discover| Registry
+
+    subgraph Registry[Apicurio Registry - CNCF Sandbox]
+        Cards[A2A Agent Cards]
+        Prompts[Prompt Templates]
+        Models[Model Schemas]
+    end
+
+    Registry -.->|Compatibility Rules\nBACKWARD / FULL| Rules[Version\nGovernance]
 ```
 
 ## Prerequisites

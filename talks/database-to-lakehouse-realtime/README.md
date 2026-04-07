@@ -6,17 +6,16 @@ The CDC infrastructure is based on the [debezium-ocp-etc-demo](debezium-ocp-etc-
 
 ## Architecture
 
-```
-┌────────────┐   CDC    ┌──────────┐   Avro    ┌──────────────┐  Iceberg   ┌───────────┐
-│ PostgreSQL │─Debezium─►│  Kafka   │──────────►│ Flink / Sink │──────────►│  Iceberg  │
-│            │          │ (Strimzi)│           │  Connector   │  tables   │  Tables   │
-└────────────┘          └────┬─────┘           └──────────────┘           └─────┬─────┘
-                             │                        │                         │
-                       ┌─────┴──────┐          Schema Evolution           ┌─────┴─────┐
-                       │  Apicurio  │◄──── Automatic DDL from ────────────│  Trino /  │
-                       │  Registry  │      registry schemas               │  Spark    │
-                       └────────────┘                                     │  (Query)  │
-                                                                          └───────────┘
+```mermaid
+graph LR
+    PG[PostgreSQL] -->|CDC| Debezium
+    Debezium --> Kafka[Kafka\nStrimzi]
+    Kafka -->|Avro| Sink[Flink / Sink\nConnector]
+    Sink -->|Iceberg tables| Iceberg[Apache Iceberg]
+    Iceberg --> Query[Trino / Spark\nQuery Engine]
+
+    Kafka -.-> Registry[Apicurio\nRegistry]
+    Sink -.->|Auto schema\nevolution| Registry
 ```
 
 ## Prerequisites

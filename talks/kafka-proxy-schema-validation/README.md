@@ -6,23 +6,17 @@ The demo code lives in the [kroxylicious-schema-validation](kroxylicious-schema-
 
 ## Architecture
 
-```
-                                  Kroxylicious Proxy
-                              ┌────────────────────────┐
-Producer ──► Produce Request ──►│  ProduceRequestFilter  │──► Kafka Broker
-(unmodified)                   │         │               │
-                               │    Validate payload     │
-                               │    against schema       │
-                               │         │               │
-                               │         ▼               │
-                               │  ┌──────────────┐      │
-                               │  │   Apicurio   │      │
-                               │  │   Registry   │      │
-                               │  └──────────────┘      │
-                               └────────────────────────┘
-                                        │
-                               Invalid? ──► REJECT (error to producer)
-                               Valid?   ──► FORWARD to broker
+```mermaid
+graph LR
+    Producer[Producer\nunmodified] -->|Produce Request| Proxy
+
+    subgraph Proxy[Kroxylicious Proxy]
+        Filter[ProduceRequestFilter]
+        Filter -->|Validate payload| Registry[Apicurio\nRegistry]
+    end
+
+    Filter -->|Valid| Kafka[Kafka Broker]
+    Filter -->|Invalid| Reject[REJECT\nerror to producer]
 ```
 
 ## Prerequisites

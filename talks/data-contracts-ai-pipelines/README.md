@@ -6,25 +6,21 @@ The demo reuses infrastructure patterns from the [debezium-ocp-etc-demo](debeziu
 
 ## Architecture
 
-```
-┌────────────┐     CDC      ┌─────────┐   Avro (schema   ┌──────────────┐   Predictions   ┌────────────┐
-│ PostgreSQL │──Debezium───►│  Kafka  │───enforced)──────►│ ML Inference │───────────────►│  Consumer  │
-│ (source)   │              │(Strimzi)│                   │  Service     │                │  (API)     │
-└────────────┘              └────┬────┘                   └──────────────┘                └────────────┘
-                                 │
-                          ┌──────┴──────┐
-                          │  Apicurio   │
-                          │  Registry   │
-                          │             │
-                          │ Data        │
-                          │ Contracts:  │
-                          │ - Input     │
-                          │   schema    │
-                          │ - Output    │
-                          │   schema    │
-                          │ - BACKWARD  │
-                          │   compat    │
-                          └─────────────┘
+```mermaid
+graph LR
+    PG[PostgreSQL\nsource] -->|CDC| Debezium
+    Debezium --> Kafka[Kafka\nStrimzi]
+    Kafka -->|Avro\nschema enforced| ML[ML Inference\nService]
+    ML -->|Predictions| Consumer[Consumer\nAPI]
+
+    Kafka -.-> Registry
+    ML -.-> Registry
+
+    subgraph Registry[Apicurio Registry]
+        Input[Input Schema\nData Contract]
+        Output[Output Schema\nData Contract]
+        Compat[BACKWARD\nCompatibility]
+    end
 ```
 
 ## Prerequisites

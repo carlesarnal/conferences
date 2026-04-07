@@ -6,27 +6,13 @@ The demo code lives in the [apicurio-registry-support-chat](apicurio-registry-su
 
 ## Architecture
 
-```
-┌──────────┐    POST /support/chat     ┌────────────────────┐
-│  Browser │──────────────────────────►│  Support Chat App  │
-│  (UI)    │◄──────────────────────────│  (Quarkus)         │
-└──────────┘    Chat response          │                    │
-                                       │  ┌──────────────┐  │
-                                       │  │ LangChain4j  │  │
-                                       │  └──────┬───────┘  │
-                                       └─────────┼──────────┘
-                                                  │
-                              ┌────────────────┬──┴──────────────┐
-                              ▼                ▼                  ▼
-                     ┌──────────────┐  ┌─────────────┐  ┌──────────────┐
-                     │   Apicurio   │  │   Ollama    │  │  RAG Store   │
-                     │   Registry   │  │   (LLM)    │  │  (Embeddings)│
-                     │              │  │            │  │              │
-                     │ PROMPT_      │  │ llama3.2   │  │ Apicurio     │
-                     │ TEMPLATE     │  │            │  │ docs         │
-                     │ artifacts    │  │ nomic-     │  │ (12 pages)   │
-                     │              │  │ embed-text │  │              │
-                     └──────────────┘  └────────────┘  └──────────────┘
+```mermaid
+graph TD
+    Browser[Browser UI] <-->|POST /support/chat| App[Support Chat App\nQuarkus + LangChain4j]
+
+    App --> Registry[Apicurio Registry\nPROMPT_TEMPLATE\nartifacts]
+    App --> Ollama[Ollama LLM\nllama3.2 +\nnomic-embed-text]
+    App --> RAG[RAG Store\nEmbeddings from\n12 Apicurio doc pages]
 ```
 
 ## Prerequisites

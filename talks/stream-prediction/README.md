@@ -6,13 +6,20 @@ The demo code lives in the [reddit-realtime-classification](reddit-realtime-clas
 
 ## Architecture
 
-```
-Reddit API ──► Kafka Producer ──► Kafka (Strimzi) ──► Spark Streaming ──► Kafka ──► Quarkus Consumer
-                                       │                  │                              │
-                                  Apicurio Registry   Dual-Model ML              HTML Dashboards
-                                 (Schema Governance)  (DistilBERT +              + REST API
-                                                       scikit-learn)
-                                                                            Jaeger ◄── OTel ──► Prometheus ──► Grafana
+```mermaid
+graph LR
+    Reddit[Reddit API] --> Producer[Kafka Producer]
+    Producer --> Kafka[Kafka\nStrimzi]
+    Kafka --> Spark[Spark Streaming\nDual-Model ML\nDistilBERT + sklearn]
+    Spark --> Kafka2[Kafka\nPredictions]
+    Kafka2 --> Consumer[Quarkus Consumer\nHTML Dashboards\n+ REST API]
+
+    Kafka -.-> Registry[Apicurio Registry\nSchema Governance]
+    Spark -.-> Registry
+
+    Consumer -.-> Prometheus
+    Consumer -.-> Jaeger[Jaeger\nOTel Tracing]
+    Prometheus --> Grafana
 ```
 
 ## Prerequisites
