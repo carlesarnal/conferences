@@ -1,10 +1,10 @@
-We merged 2,000 PRs last year with a core team of five engineers spread across four time zones. Some months felt unstoppable; others, a single mass-unsubscribe from a mailing list nearly stalled a release. This is what maintaining Apicurio — now a CNCF sandbox project — actually looks like behind the commit log.
+Maintaining Apicurio — now a CNCF sandbox project — with a small core team spread across multiple time zones has taught me that the hardest problems in open source aren't technical. This is what the work actually looks like behind the commit log.
 
 In this talk, I'll share hard-won lessons from years as a Principal Software Engineer and maintainer in the Apicurio community. No platitudes — concrete stories about what worked and what failed:
 
-- How we turned a contributor's frustrated GitHub issue into a sustained three-year partnership
-- The async communication playbook that kept a global team aligned without meeting fatigue
-- A governance decision that split the community — and how we recovered
-- The sustainability model we adopted after nearly burning out the core team
+- Turning frustrated users into long-term contributors through deliberate engagement
+- The async communication practices that kept a global team aligned without meeting fatigue
+- Navigating governance decisions where the community disagreed — and what we learned
+- Building a sustainability model for the core team's long-term health, especially through the CNCF sandbox process
 
 Whether you maintain a project with three contributors or three hundred, you'll leave with actionable strategies for engagement, conflict resolution, and long-term project health — grounded in real examples, not theory.

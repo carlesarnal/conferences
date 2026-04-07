@@ -1,6 +1,6 @@
 Your Kafka cluster uses one auth mechanism. Your schema registry uses another. Your applications use a third. Each component is "secured" — but the gaps between them are where breaches happen.
 
-In this session, I'll live-code the integration of Keycloak with Strimzi (Kafka on Kubernetes) and Apicurio Registry (a CNCF sandbox project) to build a unified, zero-trust data platform. You'll see OAuth2/OIDC replace fragmented credentials, mutual TLS enforce identity across every connection, and fine-grained authorization control who can produce, consume, and evolve schemas — all from a single identity provider.
+In this session, I'll demonstrate the integration of Keycloak with Strimzi (Kafka on Kubernetes) and Apicurio Registry (a CNCF sandbox project) to build a unified, zero-trust data platform. You'll see OAuth2/OIDC replace fragmented credentials, mutual TLS enforce identity across every connection, and fine-grained authorization control who can produce, consume, and evolve schemas — all from a single identity provider.
 
 Attendees will walk away with:
 - A deployable reference architecture for securing Kafka + schema registry with centralized identity

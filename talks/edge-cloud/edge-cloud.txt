@@ -1,8 +1,8 @@
 A row changes in a PostgreSQL database at the edge. Milliseconds later, an Elasticsearch index in the cloud reflects that change — no batch jobs, no polling, no glue code. This talk shows you exactly how to build that pipeline using only open-source components on Kubernetes.
 
-In a live demo, I’ll walk through each stage: capturing database changes with Debezium, enforcing schemas through Apicurio Registry (a CNCF sandbox project), streaming compact Avro-serialized events through Kafka on Strimzi, and processing them with Kafka Streams, Quarkus, and Camel-K to keep an Elasticsearch index in sync with sub-second latency.
+In a live demo, I’ll walk through each stage: capturing database changes with Debezium, enforcing schemas through Apicurio Registry (a CNCF sandbox project), streaming compact Avro-serialized events through Kafka on Strimzi, and processing them with Kafka Streams, Quarkus, and Camel-K to keep an Elasticsearch index in sync with sub-second latency. Having presented this architecture at multiple conferences since 2023, I’ll also share lessons learned from real-world feedback and how the stack has evolved — including what changed when Apicurio joined the CNCF.
 
 Attendees will leave with:
 - A reproducible, fully containerized CDC pipeline they can deploy on any Kubernetes cluster
-- Practical lessons on schema evolution and compatibility enforcement in event-driven architectures
+- Practical lessons on schema evolution, compatibility enforcement, and production pitfalls we encountered along the way
 - An understanding of when CDC outperforms traditional ETL and where the tradeoffs lie

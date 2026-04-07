@@ -1,4 +1,4 @@
-Your company has five AI agents in production. One team updates a prompt template; another agent silently breaks. Sound familiar? AI agents face the same governance crisis that APIs and schemas hit years ago — discovery, versioning, and compatibility — but the tooling hasn't caught up. Until now.
+As organizations adopt AI agents, a familiar problem resurfaces: one team updates a prompt template or model schema, and downstream agents silently break. AI agents face the same governance crisis that APIs and schemas hit years ago — discovery, versioning, and compatibility — but the tooling hasn't caught up. Until now.
 
 In this session, I'll show how Apicurio Registry — a CNCF sandbox project originally built for schema and API governance — evolved to manage AI-native artifacts: A2A Agent Cards, LLM Model Schemas, and prompt templates. You'll see a live demo of agents discovering and negotiating with each other through the A2A (Agent-to-Agent) Protocol, backed by registry-enforced compatibility rules that catch breaking changes before they reach production.
 
