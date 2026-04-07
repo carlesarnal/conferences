@@ -1,11 +1,8 @@
-Integrating Keycloak with Strimzi and Apicurio transforms a data platform into a unified, production-hardened ecosystem. The primary benefit is the shift from fragmented security to a centralized identity model using OAuth2 and OIDC. This ensures seamless governance across Kafka, schemas, and applications, preventing "security silos" and unauthorized data access.
+Your Kafka cluster uses one auth mechanism. Your schema registry uses another. Your applications use a third. Each component is "secured" — but the gaps between them are where breaches happen.
 
-By applying consistent authorization and mutual TLS, the ecosystem gains:
+In this session, I'll live-code the integration of Keycloak with Strimzi (Kafka on Kubernetes) and Apicurio Registry (a CNCF sandbox project) to build a unified, zero-trust data platform. You'll see OAuth2/OIDC replace fragmented credentials, mutual TLS enforce identity across every connection, and fine-grained authorization control who can produce, consume, and evolve schemas — all from a single identity provider.
 
-End-to-End Trust: Protects the integrity of data streams and schema contracts.
-
-Operational Velocity: Aligns developer workflows with enterprise security, avoiding common integration pitfalls.
-
-Scalable Resilience: Hardens the entire cloud-native stack against evolving threats.
-
-This approach moves the platform from an open prototype to a governed, audit-ready environment, ensuring that security acts as a foundation for growth rather than a bottleneck.
+Attendees will walk away with:
+- A deployable reference architecture for securing Kafka + schema registry with centralized identity
+- The specific configuration pitfalls that cause "it works in dev, fails in prod" security setups
+- A checklist for moving a data platform from open prototype to audit-ready environment without slowing down developer workflows

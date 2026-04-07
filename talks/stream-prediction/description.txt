@@ -1,3 +1,8 @@
-Real-time data processing is critical in domains like finance, social media, and cybersecurity. In this talk, I’ll present a fully open source, end-to-end system for real-time content classification, deployed on Kubernetes. Using Reddit flair classification as a case study, the pipeline combines Apache Kafka for ingestion, Apache Spark Streaming for low-latency processing, and a machine learning model for classification, with predictions exposed through a Quarkus-based API.
+A Reddit post is published. Before a human moderator even sees it, our pipeline has ingested it through Kafka, classified it with a dual-model ML inference in Spark, and served the prediction through a Quarkus API — all running on Kubernetes, all fully open source.
 
-This session goes beyond architecture to show the system in action: how Reddit posts are streamed into Kafka, classified in Spark, and served via microservices. I’ll also cover practical deployment aspects on Kubernetes—scaling, monitoring, and extending the pipeline to other event-classification tasks. Attendees will gain hands-on insights into building and operating streaming ML systems on Kubernetes using only open source technologies.
+In this session, I’ll demo this end-to-end system live and walk through every layer: Reddit API ingestion into Kafka, Spark Structured Streaming for low-latency dual-model classification, a Quarkus microservice exposing predictions, and Prometheus/Grafana dashboards monitoring the entire pipeline. No slides-only architecture — you’ll see real posts classified in real time.
+
+Attendees will leave with:
+- A complete, deployable blueprint for streaming ML inference on Kubernetes
+- Practical guidance on scaling Spark Streaming jobs and handling backpressure in production
+- Patterns for extending the pipeline to other event-classification domains (fraud detection, content moderation, log analysis)

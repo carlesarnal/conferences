@@ -1,3 +1,8 @@
-In a world where data continues to become increasingly important, that same data can be used as a building block for event-driven architectures leveraging change data capture. Open-source projects such as Debezium, Apicurio Registry, and Strimzi, which include components required for Kafka on Kubernetes, are key enablers for designing such architectures.
+A row changes in a PostgreSQL database at the edge. Milliseconds later, an Elasticsearch index in the cloud reflects that change — no batch jobs, no polling, no glue code. This talk shows you exactly how to build that pipeline using only open-source components on Kubernetes.
 
-In this session, we’ll walk through a real-world example of capturing changes made in a relational database with a connector configured to use Apicurio Registry, publishing those changes to Kafka serialized in Avro’s compact binary form, and utilizing Kafka Streams, Quarkus, and Camel-K to build a pipeline to manage an Elastic search index with extremely low latency efficiently.
+In a live demo, I’ll walk through each stage: capturing database changes with Debezium, enforcing schemas through Apicurio Registry (a CNCF sandbox project), streaming compact Avro-serialized events through Kafka on Strimzi, and processing them with Kafka Streams, Quarkus, and Camel-K to keep an Elasticsearch index in sync with sub-second latency.
+
+Attendees will leave with:
+- A reproducible, fully containerized CDC pipeline they can deploy on any Kubernetes cluster
+- Practical lessons on schema evolution and compatibility enforcement in event-driven architectures
+- An understanding of when CDC outperforms traditional ETL and where the tradeoffs lie

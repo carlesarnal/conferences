@@ -1,9 +1,10 @@
-Maintaining a vibrant and successful open-source project involves more than just lines of code. In this talk, I'll share my experiences as a Principal Software Engineer in the Apicurio community, focusing on the often overlooked aspects of community management. From fostering a welcoming and inclusive environment to managing expectations, we'll dive into the following challenges:
+We merged 2,000 PRs last year with a core team of five engineers spread across four time zones. Some months felt unstoppable; others, a single mass-unsubscribe from a mailing list nearly stalled a release. This is what maintaining Apicurio — now a CNCF sandbox project — actually looks like behind the commit log.
 
-Engagement: Attracting new contributors and maintaining sustained participation.
-Communication: Navigating various time zones and ensuring effective information flow.
-Conflict Resolution: Managing disagreements and fostering a collaborative environment.
-Decision-making: Balancing transparency with the need for clear project direction.
-Sustainability: Finding models that encourage long-term health and project growth.
+In this talk, I'll share hard-won lessons from years as a Principal Software Engineer and maintainer in the Apicurio community. No platitudes — concrete stories about what worked and what failed:
 
-I'll provide insights and real-world examples from Apicurio, offering strategies for overcoming these hurdles and fostering a thriving open-source community. Whether you're a code contributor, project maintainer, or simply passionate about collaborative software development, this talk will highlight the vital work of community management.
+- How we turned a contributor's frustrated GitHub issue into a sustained three-year partnership
+- The async communication playbook that kept a global team aligned without meeting fatigue
+- A governance decision that split the community — and how we recovered
+- The sustainability model we adopted after nearly burning out the core team
+
+Whether you maintain a project with three contributors or three hundred, you'll leave with actionable strategies for engagement, conflict resolution, and long-term project health — grounded in real examples, not theory.
