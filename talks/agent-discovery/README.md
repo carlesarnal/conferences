@@ -30,7 +30,7 @@ graph LR
 ```bash
 docker run -d --name apicurio-registry \
   -p 8080:8080 \
-  apicurio/apicurio-registry:3.0.6
+  quay.io/apicurio/apicurio-registry:3.2.0
 
 # Wait for it to be ready
 until curl -s http://localhost:8080/health | grep -q '"status":"UP"'; do sleep 2; done
@@ -185,7 +185,7 @@ Use the model-metadata service to validate ML model metadata against a registere
 ```bash
 # Start the model-metadata validation service (from the model-metadata repo)
 # In a separate terminal:
-docker run -d --name apicurio-registry -p 8080:8080 apicurio/apicurio-registry:3.0.6
+docker run -d --name apicurio-registry -p 8080:8080 quay.io/apicurio/apicurio-registry:3.2.0
 
 # Register the model metadata schema
 curl -X POST "http://localhost:8080/apis/registry/v3/groups/mcp-models/artifacts" \

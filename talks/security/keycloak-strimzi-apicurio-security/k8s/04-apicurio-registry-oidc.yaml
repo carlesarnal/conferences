@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apicurio-registry
+  namespace: security-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apicurio-registry
+  template:
+    metadata:
+      labels:
+        app: apicurio-registry
+    spec:
+      containers:
+        - name: registry
+          image: quay.io/apicurio/apicurio-registry:3.2.0
+          env:
+            - name: APICURIO_AUTH_ENABLED
+              value: "true"
+            - name: QUARKUS_OIDC_AUTH_SERVER_URL
+              value: http://keycloak:8080/realms/kafka-security
+            - name: QUARKUS_OIDC_CLIENT_ID
+              value: apicurio-registry
+            - name: QUARKUS_OIDC_CLIENT_CREDENTIALS_SECRET
+              value: registry-secret
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apicurio-registry
+  namespace: security-demo
+spec:
+  selector:
+    app: apicurio-registry
+  ports:
+    - port: 8080
+      targetPort: 8080

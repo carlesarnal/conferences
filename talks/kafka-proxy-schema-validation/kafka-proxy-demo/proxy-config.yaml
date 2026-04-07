@@ -1,0 +1,13 @@
+virtualClusters:
+  demo:
+    targetCluster:
+      bootstrap_servers: localhost:9092
+    clusterNetworkAddressConfigProvider:
+      type: PortPerBrokerClusterNetworkAddressConfigProvider
+      config:
+        bootstrapAddress: localhost:19092
+    filters:
+      - type: SampleProduceRequestFilterFactory
+        config:
+          registryUrl: http://localhost:8080/apis/registry/v3
+          groupId: default

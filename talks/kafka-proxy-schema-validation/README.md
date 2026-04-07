@@ -44,7 +44,7 @@ docker run -d --name kafka \
 # Start Apicurio Registry
 docker run -d --name apicurio-registry \
   -p 8080:8080 \
-  apicurio/apicurio-registry:3.0.6
+  quay.io/apicurio/apicurio-registry:3.2.0
 
 # Wait for services
 until curl -s http://localhost:8080/health | grep -q '"status":"UP"'; do sleep 2; done

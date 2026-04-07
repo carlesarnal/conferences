@@ -231,7 +231,7 @@ spec:
     spec:
       containers:
         - name: registry
-          image: quay.io/apicurio/apicurio-registry:3.0.6
+          image: quay.io/apicurio/apicurio-registry:3.2.0
           env:
             - name: APICURIO_AUTH_ENABLED
               value: "true"
