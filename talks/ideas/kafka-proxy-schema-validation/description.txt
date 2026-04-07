@@ -1,0 +1,12 @@
+Title: Transparent Schema Validation at the Kafka Proxy Layer with Kroxylicious
+
+Schema validation usually happens at the producer client — but what about legacy producers you can't modify, third-party integrations, or teams that skip validation? The schema-invalid messages still reach Kafka, and by then the damage is done.
+
+In this session, I'll introduce a different approach: enforcing schema validation transparently at the Kafka proxy layer using Kroxylicious. I'll demo a setup where a Kroxylicious filter intercepts produce requests, validates payloads against schemas stored in Apicurio Registry (a CNCF sandbox project), and rejects non-compliant messages before they ever reach the broker — without any changes to producer code.
+
+Attendees will leave with:
+- An understanding of Kroxylicious and how proxy-layer filters work with Kafka
+- A deployable schema validation filter configuration for their own clusters
+- Guidance on when proxy-layer validation complements or replaces client-side validation
+
+GitHub project: kroxylicious-schema-validation

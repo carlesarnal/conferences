@@ -1,0 +1,12 @@
+Title: From Community Project to CNCF Sandbox: What We Learned Bringing Apicurio Registry to the Foundation
+
+Getting accepted into the CNCF Sandbox is a milestone — but nobody tells you about the months of governance restructuring, community alignment, and technical decisions that precede it. This talk pulls back the curtain on what the journey actually looks like from a maintainer's perspective.
+
+I'll walk through the concrete steps we took to bring Apicurio Registry into the CNCF: aligning project governance with foundation expectations, adapting our contribution model, navigating the due diligence process, and the technical changes we made to meet cloud-native standards. I'll also cover what changed after acceptance — in contributor engagement, project visibility, and the expectations that come with foundation backing.
+
+Attendees will leave with:
+- A realistic roadmap for submitting an open-source project to the CNCF Sandbox
+- Lessons on governance, licensing, and community structure that foundations look for
+- An honest assessment of the benefits and new responsibilities that come with CNCF membership
+
+GitHub project: apicurio-registry

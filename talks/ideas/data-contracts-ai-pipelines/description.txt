@@ -1,0 +1,12 @@
+Title: Data Contracts for Event-Driven AI: How Schema Registries Prevent Pipeline Failures
+
+45% of enterprise AI projects fail because of data quality issues — not model accuracy. The root cause? Producers and consumers in AI pipelines evolve independently, and without formal contracts, a silent schema change in one team's Kafka producer becomes a 3 AM page for another team's inference service.
+
+In this session, I'll show how data contracts — enforced through Apicurio Registry (a CNCF sandbox project) — bring the same discipline to AI data pipelines that API contracts brought to microservices. Using a live demo with Debezium CDC, Kafka on Strimzi, and a downstream ML inference service, I'll walk through how schema compatibility rules catch breaking changes at produce time, not at prediction time.
+
+Attendees will leave with:
+- A concrete pattern for implementing data contracts in event-driven AI architectures
+- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits AI workloads
+- A reproducible setup they can deploy to enforce schema governance across their own streaming ML pipelines
+
+GitHub projects: apicurio-registry, debezium-ocp-etc-demo

@@ -1,0 +1,12 @@
+Title: Governing the Agent Swarm: Discovery, Contracts, and Lifecycle for Multi-Agent AI
+
+Your organization deployed its first AI agent last year. Now there are twenty, built by five teams, using three frameworks, and nobody knows which agents talk to which. Welcome to agent sprawl — the microservices governance problem, all over again.
+
+In this session, I'll show how to bring order to multi-agent AI systems using the same registry-based governance patterns that solved this problem for APIs and schemas. Using Apicurio Registry (a CNCF sandbox project), I'll demo agent discovery via the A2A Protocol, schema-enforced agent communication contracts, and lifecycle management for agent capabilities. I'll also explore how the Model Context Protocol (MCP) complements A2A by standardizing how agents integrate with external tools and data sources.
+
+Attendees will leave with:
+- A working governance model for multi-agent AI: registration, discovery, versioning, and deprecation
+- An understanding of how A2A and MCP work together — and where they overlap
+- Practical patterns for preventing breaking changes when agents evolve independently
+
+GitHub projects: apicurio-registry, model-metadata

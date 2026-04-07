@@ -1,0 +1,12 @@
+Title: Prompt Engineering Meets Schema Registry: Versioning and Governing LLM Prompts with Apicurio
+
+You version your code. You version your schemas. But your prompt templates? They live in environment variables, config files, or hardcoded strings — unversioned, ungoverned, and one edit away from breaking your AI application.
+
+In this session, I'll show how to treat prompt templates as first-class registry artifacts in Apicurio Registry (a CNCF sandbox project). Using a live demo of a RAG-powered support chatbot built with LangChain4j and Ollama, I'll walk through storing, versioning, and applying compatibility rules to prompt templates — the same way you already manage Avro schemas or OpenAPI definitions. You'll see what happens when a prompt template change breaks downstream behavior, and how registry-enforced validation catches it before production.
+
+Attendees will leave with:
+- A pattern for version-controlling prompt templates with compatibility checks in a schema registry
+- A working example of a Quarkus + LangChain4j chatbot consuming prompts from Apicurio Registry
+- An understanding of when prompt governance matters and when it's overkill
+
+GitHub project: apicurio-registry-support-chat
