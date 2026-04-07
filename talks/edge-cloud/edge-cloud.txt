@@ -1,0 +1,3 @@
+In a world where data continues to become increasingly important, that same data can be used as a building block for event-driven architectures leveraging change data capture. Open-source projects such as Debezium, Apicurio Registry, and Strimzi, which include components required for Kafka on Kubernetes, are key enablers for designing such architectures.
+
+In this session, we’ll walk through a real-world example of capturing changes made in a relational database with a connector configured to use Apicurio Registry, publishing those changes to Kafka serialized in Avro’s compact binary form, and utilizing Kafka Streams, Quarkus, and Camel-K to build a pipeline to manage an Elastic search index with extremely low latency efficiently.

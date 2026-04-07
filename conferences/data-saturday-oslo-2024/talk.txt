@@ -1,0 +1,5 @@
+edge-cloud
+
+https://datasaturdays.com/Event/20240831-datasaturday0052
+
+GitHub project: https://github.com/carlesarnal/debezium-ocp-etc-demo

@@ -1,0 +1,5 @@
+As AI agents become first-class citizens in enterprise architectures, they face the same governance challenges that APIs and schemas encountered years ago: discovery, versioning, compatibility, and lifecycle management. This session explores how Apicurio Registry—traditionally a schema and API registry—evolved to support AI-native artifact types including A2A Agent Cards and LLM Model Schemas.
+
+We'll demonstrate how the A2A (Agent-to-Agent) Protocol's discovery mechanism integrates with registry semantics, enabling agents to find and negotiate with each other through standardized well-known endpoints. You'll see how prompt templates and model schemas can be version-controlled with compatibility rules, preventing breaking changes in AI pipelines.
+
+Attendees will learn practical patterns for implementing agent discovery, managing prompt template evolution, and applying schema registry principles to the emerging world of multi-agent AI systems.

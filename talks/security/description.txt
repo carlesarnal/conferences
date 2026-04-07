@@ -1,0 +1,11 @@
+Integrating Keycloak with Strimzi and Apicurio transforms a data platform into a unified, production-hardened ecosystem. The primary benefit is the shift from fragmented security to a centralized identity model using OAuth2 and OIDC. This ensures seamless governance across Kafka, schemas, and applications, preventing "security silos" and unauthorized data access.
+
+By applying consistent authorization and mutual TLS, the ecosystem gains:
+
+End-to-End Trust: Protects the integrity of data streams and schema contracts.
+
+Operational Velocity: Aligns developer workflows with enterprise security, avoiding common integration pitfalls.
+
+Scalable Resilience: Hardens the entire cloud-native stack against evolving threats.
+
+This approach moves the platform from an open prototype to a governed, audit-ready environment, ensuring that security acts as a foundation for growth rather than a bottleneck.

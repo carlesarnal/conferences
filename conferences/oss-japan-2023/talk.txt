@@ -1,0 +1,5 @@
+edge-cloud
+
+https://www.youtube.com/watch?v=apJYC5G47UE&list=PLbzoR-pLrL6oZyO3Iy-UaEb-so9H3mc1_&index=11&t=1492s
+
+GitHub project: https://github.com/carlesarnal/debezium-ocp-etc-demo

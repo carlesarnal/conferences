@@ -1,0 +1,5 @@
+edge-cloud
+
+https://www.confluent.io/ko-kr/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/
+
+GitHub project: https://github.com/carlesarnal/debezium-ocp-etc-demo

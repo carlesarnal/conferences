@@ -1,0 +1,5 @@
+real-time-classification
+
+https://www.ocxconf.org/event/2026/agenda?session=8e9346d3-d1b4-4f71-a6c3-1fe12a4ea272
+
+GitHub project: https://github.com/carlesarnal/reddit-realtime-classification
