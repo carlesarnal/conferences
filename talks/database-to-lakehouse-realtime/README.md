@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
         - name: minio
-          image: minio/minio:latest
+          image: minio/minio:RELEASE.2024-11-07T00-52-20Z
           args: ["server", "/data", "--console-address", ":9001"]
           env:
             - name: MINIO_ROOT_USER
