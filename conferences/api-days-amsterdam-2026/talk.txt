@@ -1,0 +1,5 @@
+agent-discovery
+
+API Days Amsterdam 2026
+
+GitHub project: https://github.com/carlesarnal/agent-discovery-demo

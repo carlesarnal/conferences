@@ -1,0 +1,142 @@
+MISSED CFPs — TRACK FOR 2027 SUBMISSIONS
+=========================================
+
+These conferences had their 2026 CFP closed before we could submit.
+Estimated CFP windows below so we don't miss them next time.
+
+
+EARLY CFPs (Oct-Dec 2026) — SET REMINDERS NOW
+----------------------------------------------
+
+Red Hat Summit 2027
+  Conference: ~May 2027
+  CFP window: Oct - mid Nov 2026
+  URL: https://www.redhat.com/en/summit
+  Talks: All
+
+Spring I/O 2027
+  Conference: ~Apr 2027, Barcelona
+  CFP window: Oct - Jan 2027
+  URL: https://springio.net/
+  Talks: [E][S][DC][DL][KP]
+
+Devoxx Greece 2027
+  Conference: ~Apr 2027, Athens
+  CFP window: mid Oct - late Nov 2026
+  URL: https://devoxx.gr/
+  Talks: All
+
+JCON Europe 2027
+  Conference: ~Apr 2027, Cologne
+  CFP window: Sep - mid Oct 2026
+  URL: https://jcon.one/
+  Talks: [A][E][S][DC][DL][CJ][KP]
+
+WeAreDevelopers Europe 2027
+  Conference: ~Jul 2027, Berlin
+  CFP window: Nov - Dec 2026
+  URL: https://www.wearedevelopers.com/world-congress
+  Talks: All
+
+Riviera DEV 2027
+  Conference: ~Jul 2027, French Riviera
+  CFP window: Oct - Nov 2026
+  URL: https://rivieradev.fr/
+  Talks: [A][E][O][S][DC][DL][KP][CJ]
+
+Devoxx France 2027
+  Conference: ~Apr 2027, Paris
+  CFP window: late Nov - mid Jan 2027
+  URL: https://www.devoxx.fr/
+  Talks: All
+  Note: Already in cfp-tracker.md plan-for-later section
+
+
+WINTER CFPs (Dec 2026 - Feb 2027)
+----------------------------------
+
+Open Source Summit NA 2027
+  Conference: ~May 2027
+  CFP window: Nov 2026 - mid Feb 2027
+  URL: https://events.linuxfoundation.org/open-source-summit-north-america/
+  Talks: All
+
+DevConf.CZ 2027
+  Conference: ~Jun 2027, Brno
+  CFP window: mid Dec 2026 - early Mar 2027
+  URL: https://www.devconf.info/cz/
+  Talks: All
+
+DevBcn 2027
+  Conference: ~Jun 2027, Barcelona
+  CFP window: Dec 2026 - early Mar 2027
+  URL: https://www.devbcn.com/
+  Talks: All
+
+Cloud Native Days Italy 2027
+  Conference: ~May 2027, Bologna
+  CFP window: Dec 2026 - Jan 2027
+  URL: https://cloudnativedays.org/
+  Talks: [A][E][S][M][CJ][KP]
+
+Devoxx Poland 2027
+  Conference: ~Jun 2027, Krakow
+  CFP window: Jan - late Feb 2027
+  URL: https://devoxx.pl/
+  Talks: All
+
+KubeCon Japan 2027
+  Conference: ~Jul 2027, Yokohama
+  CFP window: mid Jan - late Mar 2027
+  URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
+  Talks: [A][E][S][M][CJ][KP]
+
+Community Over Code Glasgow 2027
+  Conference: ~Oct 2027, Glasgow
+  CFP window: Nov 2026 - Mar 2027
+  URL: https://communityovercode.org/
+  Talks: [A][E][O][DC][DL][GS][CJ]
+
+
+SPRING CFPs (Feb - Apr 2027)
+-----------------------------
+
+All Things Open 2027
+  Conference: ~Oct 2027, Raleigh
+  CFP window: mid Feb - late Mar 2027
+  URL: https://allthingsopen.org/
+  Talks: [A][E][O][DC][DL][GS][CJ]
+
+Cloud Native Zurich 2027
+  Conference: ~Jun 2027
+  CFP window: late Jan - Mar 2027
+  URL: https://cloudnativezurich.ch/
+  Talks: [A][E][S][M][CJ][KP]
+
+Current (Kafka/Confluent) 2027
+  Conference: ~May 2027, London
+  CFP window: varies, check late 2026
+  Talks: [E][DC][DL][KP]
+
+
+SUMMER CFPs (May - Jul 2027)
+-----------------------------
+
+AI_dev Europe 2027
+  Conference: ~Oct 2027, Prague
+  CFP window: ~Jun - Jul 2027
+  URL: https://events.linuxfoundation.org/ai-dev-europe/
+  Talks: [A][M][DC][GS][PT]
+
+
+REMINDER SCHEDULE
+-----------------
+
+Set calendar reminders on these dates:
+
+Sep 2026:  Check JCON Europe, Devoxx Greece CFPs
+Oct 2026:  Check Red Hat Summit, Spring I/O, Riviera DEV, WeAreDevelopers CFPs
+Nov 2026:  Check Devoxx France, OSS NA, DevConf.CZ, DevBcn, Cloud Native Italy, Community Over Code CFPs
+Jan 2027:  Check Devoxx Poland, KubeCon Japan, Cloud Native Zurich CFPs
+Feb 2027:  Check All Things Open CFP
+Jun 2027:  Check AI_dev Europe CFP
