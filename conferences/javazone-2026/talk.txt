@@ -1,3 +1,5 @@
 database-to-lakehouse-realtime
 
 JavaZone 2026
+
+GitHub project: https://github.com/carlesarnal/database-to-lakehouse-demo
