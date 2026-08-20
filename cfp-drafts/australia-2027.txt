@@ -1,0 +1,101 @@
+AUSTRALIA 2027 SUBMISSIONS
+===========================
+
+Covers: NDC Sydney, KubeDay Australia, KCD Australia, Cloud Native AI Summit Melbourne, YOW! Australia
+
+
+NDC SYDNEY 2027
+----------------
+Dates: ~Apr, Hilton Sydney
+CFP: ~late 2026 (Sessionize)
+URL: https://ndcsydney.com/
+Travel covered. 60-min slots.
+
+Submission 1: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Audience: Intermediate
+Tags: AI, Architecture, Governance
+
+Submission 2: Real-Time Lakehouse
+Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+Audience: Intermediate
+Tags: Data Engineering, Kafka, Kubernetes
+
+Note: Rejected in 2026 with old abstracts. New titles and problem-first framing should perform better.
+
+
+KUBEDAY AUSTRALIA 2027
+-----------------------
+Dates: ~Oct, Melbourne
+CFP: TBD (watch LF events)
+URL: https://events.linuxfoundation.org/kubeday-australia/
+CNCF event -- CNCF Ambassador + sandbox maintainer = strong advantage.
+
+Submission 1: CNCF Sandbox Journey
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+Audience: Intermediate
+Note: Strongest submission here -- CNCF event + Ambassador + sandbox maintainer. Near-guaranteed fit.
+
+Submission 2: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Audience: Intermediate
+
+Submission 3: Streaming ML on K8s
+Title: Classify It Before a Human Sees It: Streaming ML Inference on Kubernetes
+Audience: Intermediate
+Note: Strong K8s angle for a KubeDay event.
+
+
+KCD AUSTRALIA 2027
+-------------------
+Dates: ~Aug, Melbourne
+CFP: TBD
+URL: https://community2.cncf.io/kcd-australia/
+CNCF community event. Ambassador status helps.
+
+Submission 1: CNCF Sandbox Journey
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+
+Submission 2: Zero-Trust Kafka
+Title: One Identity Provider, Zero Trust Gaps: Securing Kafka Data Platforms End-to-End
+
+
+CLOUD NATIVE AI SUMMIT MELBOURNE 2027
+---------------------------------------
+Dates: ~Oct, Melbourne
+CFP: TBD
+URL: https://www.cloudnative.ai/
+
+Submission 1: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Submission 2: Streaming ML on K8s
+Title: Classify It Before a Human Sees It: Streaming ML Inference on Kubernetes
+
+Submission 3: Data Contracts for AI
+Title: Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
+
+
+YOW! AUSTRALIA 2027
+--------------------
+Dates: ~Dec, Melbourne/Brisbane/Sydney
+CFP: Invite-based, spontaneous submissions accepted
+URL: https://yowcon.com/
+
+Submission 1: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Submission 2: Real-Time Lakehouse
+Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+
+Note: High-prestige, curated. Submit via website form + reach out to organizers directly.
+
+
+SPEAKER BIO (for all):
+Carles Arnal is a CNCF Ambassador and core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+
+
+TRIP PLANNING NOTE:
+Cluster KubeDay (~Oct) + Cloud Native AI Summit (~Oct) + KCD (~Aug) in Melbourne.
+NDC Sydney (~Apr) is a separate trip.
+YOW! (~Dec) runs in 3 cities -- can combine with other end-of-year travel.

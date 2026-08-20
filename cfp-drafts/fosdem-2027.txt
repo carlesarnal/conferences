@@ -1,0 +1,72 @@
+FOSDEM 2027 SUBMISSIONS
+=======================
+
+Dates: February 1-2, 2027, Brussels
+CFP: ~October-November 2026
+URL: https://fosdem.org/
+
+NOTE: FOSDEM talks are 20 minutes including Q&A. Keep demos tight and focused. Submit early as devrooms fill quickly.
+
+
+SUBMISSION 1: Real-Time Lakehouse (Data devroom)
+--------------------------------------------------
+
+Title:
+Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+
+Session Type:
+20-minute talk
+
+Abstract:
+Batch ETL runs nightly. Analysts query stale data. The streaming-first lakehouse replaces it with a single real-time pipeline built entirely with open-source tools. Live demo: Debezium captures row-level PostgreSQL changes, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds. I'll show how Flink's Dynamic Iceberg Sink handles automatic schema evolution, eliminating manual DDL. Presented at JavaZone and Community Over Code Asia in 2026.
+
+Room suggestion: Data or Cloud devroom
+
+
+SUBMISSION 2: Agent Governance (AI/ML devroom)
+-----------------------------------------------
+
+Title:
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Session Type:
+20-minute talk
+
+Abstract:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which. This is the same discovery and compatibility crisis that hit APIs a decade ago, except agents evolve faster and fail more quietly. I'll show how to apply proven registry-based governance patterns to AI agents using the A2A Protocol -- agents publishing discoverable Agent Cards, negotiating capabilities at runtime, and failing fast on breaking changes. The patterns apply to any registry infrastructure.
+
+Room suggestion: AI and ML devroom
+
+
+SUBMISSION 3: CNCF Sandbox Journey (Community devroom)
+-------------------------------------------------------
+
+Title:
+So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+
+Session Type:
+20-minute talk
+
+Abstract:
+Getting into the CNCF Sandbox requires months of governance restructuring, community alignment, and uncomfortable technical decisions. This talk pulls back the curtain from a maintainer who went through it. I'll cover the concrete steps, surprises, and mistakes: aligning governance with foundation expectations, adapting a contribution model that worked fine for years, navigating due diligence we weren't prepared for. Plus what changed after acceptance -- more contributors, more visibility, more responsibility than expected.
+
+Room suggestion: Community or Legal and Policy devroom
+
+
+SUBMISSION 4: Kafka Proxy (Cloud devroom)
+-------------------------------------------
+
+Title:
+Bad Messages Should Never Reach the Broker: Schema Validation at the Kafka Proxy Layer
+
+Session Type:
+20-minute talk
+
+Abstract:
+Schema validation usually happens at the producer -- but legacy producers, third-party integrations, and teams that skip validation still send bad messages to Kafka. By the time a consumer fails, the offset has moved. I'll demo enforcing schema validation transparently at the proxy layer using Kroxylicious -- a filter intercepts produce requests, validates against a registry, and rejects non-compliant messages before they reach the broker. Zero changes to producer code.
+
+Room suggestion: Cloud or Monitoring and Observability devroom
+
+
+Speaker Bio:
+Carles Arnal is a CNCF Ambassador and core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.

@@ -1,0 +1,136 @@
+APIDAYS 2026 SUBMISSIONS (ALL EVENTS)
+======================================
+
+Same submissions apply to all apidays, GenerationAI, and Hacking APIs conferences.
+Use the 3 talks below and submit to recommended events.
+
+
+WHICH EVENTS TO SUBMIT TO:
+---------------------------
+
+HIGHEST PRIORITY (submit to all):
+- Q. apidays Paris (Dec 1-3) - BIGGEST event, all 3 talks fit perfectly
+- S. GenerationAI Paris (Dec 1-3) - Co-located with Paris, AI-focused (talks 1+2)
+- K. apidays London (Sep 30-Oct 1) - Major European event
+- L. GenerationAI London (Sep 30-Oct 1) - Co-located (talks 1+2)
+
+SECOND PRIORITY:
+- C. apidays New York (May 13-14) - Major US event
+- G. apidays Amsterdam (June 9-10) - Good European timing
+- H. apidays Munich (July 8-9) - Close to Barcelona
+
+CONSIDER IF TIME PERMITS:
+- D. GenerationAI New York (May 13-14) - AI focus (talks 1+2)
+- M. Hacking APIs London (Sep 30-Oct 1) - Security angle (talk 3)
+- T. Hacking APIs Paris (Dec 1-3) - Security angle (talk 3)
+
+SKIP:
+- All Green IO events (sustainability focus, not relevant to these talks)
+- apidays Singapore, India, Toronto, Australia (farther travel, smaller events)
+
+
+SUBMISSION 1: Agent Discovery (PERFECT FIT)
+--------------------------------------------
+
+Title:
+From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+
+Session Type:
+Conference Session
+
+Abstract:
+API governance solved discovery, versioning, and compatibility for REST services. Now AI agents face the same challenges. One team updates a prompt template and downstream agents silently break. Welcome to the API governance problem all over again but for agents.
+
+This talk shows how Apicurio Registry (CNCF sandbox) evolved to manage AI-native artifacts using the same governance patterns that worked for APIs: A2A Agent Cards for discovery, LLM Model Schemas for metadata, and prompt templates with version control. Live demo: agents discovering each other through the A2A Protocol backed by registry-enforced compatibility rules.
+
+You'll see agent cards registered via REST API, agents discover peers using the same patterns as OpenAPI discovery, and the registry reject incompatible version pushes. This brings proven API governance patterns to multi-agent AI systems.
+
+Key message for API audience: if you solved API discovery and versioning, you already know how to solve agent discovery. The patterns are identical.
+
+Audience Level:
+Intermediate
+
+Tags:
+APIs, AI Agents, A2A Protocol, Governance, Discovery, REST
+
+Relevant for:
+All apidays events, all GenerationAI events
+
+
+SUBMISSION 2: Prompt Templates (API PERSPECTIVE)
+-------------------------------------------------
+
+Title:
+Prompt Engineering Meets Schema Registry: Versioning and Governing LLM Prompts with Apicurio
+
+Session Type:
+Conference Session
+
+Abstract:
+Prompt templates are APIs. They have inputs (variables), outputs (LLM responses), and they break when changed incompatibly. Yet most teams store prompts in code or databases with no versioning strategy, no compatibility checks, and no change tracking. We solved this problem for REST APIs years ago.
+
+This talk shows how to treat prompts as first-class registry artifacts using Apicurio Registry (CNCF sandbox). I'll demonstrate PROMPT_TEMPLATE artifacts with variable substitution (like OpenAPI parameters), versioning with BACKWARD compatibility (like API versioning), and how prompt changes flow through environments without redeploying code (like API gateways).
+
+Live demo: register a prompt template via REST API, version it, attempt a breaking change (registry rejects it), show how applications fetch prompts at runtime using the registry API. You'll also see MODEL_SCHEMA artifacts for LLM model metadata discovery.
+
+Key message for API audience: prompts need the same governance rigor as your REST APIs. Same patterns, same tools, same problems.
+
+Audience Level:
+Intermediate
+
+Tags:
+APIs, Prompt Engineering, Governance, LLM, Versioning, AI
+
+Relevant for:
+All apidays events, all GenerationAI events
+
+
+SUBMISSION 3: Kafka Proxy (API GATEWAY ANALOGY)
+------------------------------------------------
+
+Title:
+Transparent Schema Validation at the Kafka Proxy Layer with Kroxylicious
+
+Session Type:
+Conference Session
+
+Abstract:
+API gateways validate requests before they reach backend services. Why don't we do the same for event-driven architectures? Schema validation usually happens at the producer client but what about legacy producers, third-party integrations, or teams that skip validation? Invalid messages reach Kafka and by then the damage is done.
+
+This session introduces Kroxylicious, a protocol-aware Kafka proxy that acts like an API gateway for event streams. I'll demo a setup where a Kroxylicious filter intercepts produce requests, validates payloads against schemas stored in Apicurio Registry (CNCF sandbox), and rejects non-compliant messages before they reach the broker.
+
+You'll see invalid events rejected at the proxy and valid ones forwarded to Kafka, just like an API gateway rejects malformed requests. The same governance patterns that protect your REST APIs can protect your event streams.
+
+Key message for API audience: if you use API gateways for validation, you should use proxies for event stream validation. Same pattern, different protocol.
+
+Audience Level:
+Intermediate
+
+Tags:
+APIs, Kafka, Kroxylicious, Schema Validation, API Gateway, Event-Driven
+
+Relevant for:
+All apidays events, Hacking APIs conferences (security angle)
+
+
+SPEAKER BIO (for all submissions):
+-----------------------------------
+
+Carles Arnal is a Principal Software Engineer at Red Hat working on the API space. He maintains Apicurio Registry (CNCF sandbox) and has extended it to support AI-native artifacts including A2A Agent Cards and prompt templates. He's also an associate professor at BarcelonaTech and an active Quarkus committer with over 10 years of industry experience.
+
+
+SUBMISSION STRATEGY:
+--------------------
+
+For apidays events: Submit all 3 talks, they all have strong API governance angles
+For GenerationAI events: Submit talks 1 and 2 (AI-focused)
+For Hacking APIs events: Submit talk 3 (security/validation angle)
+
+Priority order for submissions:
+1. Paris (Dec 1-3) - Submit to apidays + GenerationAI + Hacking APIs
+2. London (Sep 30-Oct 1) - Submit to apidays + GenerationAI + Hacking APIs
+3. New York (May 13-14) - Submit to apidays + GenerationAI
+4. Amsterdam (June 9-10) - Submit to apidays
+5. Munich (July 8-9) - Submit to apidays
+
+All events use similar CFP formats. Adapt these abstracts to match specific form requirements when submitting.

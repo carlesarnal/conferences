@@ -1,0 +1,89 @@
+DEVCONF.US 2026 SUBMISSIONS
+===========================
+
+Deadline: April 20
+URL: https://www.devconf.info/us/
+
+
+SUBMISSION 1: AI Agent Governance
+----------------------------------
+
+Title:
+From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+
+Session Type:
+Presentation (40-50 minutes)
+
+Track:
+AI/ML
+
+Abstract:
+As organizations adopt AI agents they're rediscovering the governance crisis that microservices faced: discovery, versioning, and compatibility. One team updates a prompt template or model schema and downstream agents silently break.
+
+This talk shows how Apicurio Registry (CNCF sandbox) evolved to manage AI-native artifacts: A2A Agent Cards, LLM Model Schemas, and prompt templates. In a live demo you'll see agents discovering each other through the A2A Protocol, backed by registry-enforced compatibility rules that catch breaking changes before production.
+
+You'll see an agent card registered, another agent discover it, and what happens when an incompatible version is pushed, the registry rejects it. I'll also demo prompt template versioning and explain how A2A and MCP (Model Context Protocol) work together in multi-agent systems.
+
+Takeaways: a working pattern for agent discovery, strategies for version-controlling prompts with compatibility checks, and an understanding of how schema registry principles apply to AI governance.
+
+Audience Level:
+Intermediate
+
+Speaker Bio:
+Carles Arnal is a Principal Software Engineer at IBM and core maintainer of Apicurio Registry (CNCF sandbox). He specializes in event-driven architectures, CDC pipelines, and cloud-native data platforms on Kafka and Kubernetes. Based in Barcelona.
+
+
+SUBMISSION 2: Data Contracts for AI
+------------------------------------
+
+Title:
+Data Contracts for Event-Driven AI: How Schema Registries Prevent Pipeline Failures
+
+Session Type:
+Presentation (40-50 minutes)
+
+Track:
+Data / Kafka / Streaming
+
+Abstract:
+45% of enterprise AI projects fail on data quality not model accuracy. The root cause? Silent schema changes. A Kafka producer evolves its schema and downstream ML inference services crash at 3 AM.
+
+This session demonstrates how data contracts enforced through Apicurio Registry (CNCF sandbox) bring the same discipline to AI pipelines that API contracts brought to microservices. Live demo: Debezium CDC, Kafka on Strimzi, Apicurio Registry, and an ML inference service. You'll see the registry catch breaking changes at produce time not at prediction time.
+
+I'll compare schema evolution strategies (Avro, Protobuf, JSON Schema) and show when each fits AI workloads. The demo is fully open-source and deployable on Kubernetes.
+
+Takeaways: a concrete pattern for data contracts in event-driven AI, schema format guidance, and a reproducible setup for enforcing governance across streaming ML pipelines.
+
+Audience Level:
+Intermediate
+
+Speaker Bio:
+Carles Arnal is a Principal Software Engineer at IBM and core maintainer of Apicurio Registry (CNCF sandbox). He specializes in event-driven architectures, CDC pipelines, and cloud-native data platforms on Kafka and Kubernetes. Based in Barcelona.
+
+
+SUBMISSION 3: Real-Time CDC Pipeline
+-------------------------------------
+
+Title:
+From Edge to Cloud: Building Real-Time Data Pipelines with Debezium, Kafka, and Apicurio on Kubernetes
+
+Session Type:
+Presentation (40-50 minutes)
+
+Track:
+Cloud Native / Kubernetes
+
+Abstract:
+A row changes in PostgreSQL at the edge. Milliseconds later an Elasticsearch index in the cloud reflects it, no batch jobs, no polling. This talk shows how to build that pipeline using only open-source components on Kubernetes.
+
+Live demo walkthrough: Debezium captures database changes, Apicurio Registry (CNCF sandbox) enforces schemas, Kafka on Strimzi streams Avro-serialized events, and Kafka Streams/Quarkus processes them to sync Elasticsearch with sub-second latency.
+
+I've presented this architecture at Current, Data Saturday, and other conferences since 2023. This version incorporates lessons from real-world deployments and shows how Apicurio's CNCF acceptance strengthened the cloud-native integration.
+
+Takeaways: a reproducible containerized CDC pipeline for any Kubernetes cluster, practical lessons on schema evolution and compatibility, and guidance on when CDC outperforms traditional ETL.
+
+Audience Level:
+Intermediate
+
+Speaker Bio:
+Carles Arnal is a Principal Software Engineer at IBM and core maintainer of Apicurio Registry (CNCF sandbox). He specializes in event-driven architectures, CDC pipelines, and cloud-native data platforms on Kafka and Kubernetes. Based in Barcelona.

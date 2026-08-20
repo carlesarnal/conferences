@@ -1,0 +1,152 @@
+AGNTCON + MCPCON EUROPE 2026 SUBMISSIONS
+=========================================
+
+Deadline: June 8
+URL: https://events.linuxfoundation.org/agntcon-mcpcon-europe/
+CFP Guide: https://events.linuxfoundation.org/agntcon-mcpcon-europe/program/cfp/
+
+NOTE: This conference is PERFECT FIT for agent-related talks. All three submissions are highly relevant.
+
+
+SUBMISSION 1: Governing Agent Swarm (HIGHEST PRIORITY)
+-------------------------------------------------------
+
+Session Title:
+Governing the Agent Swarm: Discovery, Contracts, and Lifecycle for Multi-Agent AI
+
+Description (max 1200 characters):
+Your organization deployed its first AI agent last year. Now there are twenty, built by five teams, using three frameworks, and nobody knows which agents talk to which. Welcome to agent sprawl, the microservices governance problem all over again.
+
+In this session I'll show how to bring order to multi-agent AI systems using the same registry-based governance patterns that solved this problem for APIs and schemas. Using Apicurio Registry (a CNCF sandbox project) I'll demo agent discovery via the A2A Protocol, schema-enforced agent communication contracts, and lifecycle management for agent capabilities. I'll also explore how the Model Context Protocol (MCP) complements A2A by standardizing how agents integrate with external tools and data sources.
+
+Attendees will leave with:
+- A working governance model for multi-agent AI: registration, discovery, versioning, and deprecation
+- An understanding of how A2A and MCP work together and where they overlap
+- Practical patterns for preventing breaking changes when agents evolve independently
+
+Topic:
+Operationalizing Agentic AI (AgenticOps)
+
+Session Format:
+Session Presentation (25 minutes in length)
+
+Audience Level:
+Intermediate
+
+Benefits to the Ecosystem:
+This talk directly advances the MCP ecosystem by showing how MCP integrates with the A2A Protocol for comprehensive agent governance. While MCP standardizes agent-to-tool interactions, A2A handles agent-to-agent discovery and communication. The demo proves these protocols are complementary not competing, and shows how a registry layer (Apicurio, a CNCF sandbox project) can govern both. This benefits MCP adoption by providing a concrete reference architecture for teams deploying agents that need both MCP (for tools) and A2A (for inter-agent communication). The governance patterns prevent the agent sprawl problem that would otherwise slow MCP ecosystem growth.
+
+Presented this talk before?
+No (this is a new talk specifically tailored for the A2A/MCP ecosystem)
+
+
+SUBMISSION 2: Prompt Templates as Artifacts
+--------------------------------------------
+
+Session Title:
+Prompt Engineering Meets Schema Registry: Versioning and Governing LLM Prompts with Apicurio
+
+Description (max 1200 characters):
+Prompt templates are code. They shape agent behavior, they break when changed incompatibly, and they need the same governance rigor as API contracts. Yet most teams store prompts in code or databases with no versioning strategy and no way to catch breaking changes before production.
+
+This talk shows how to treat prompts as first-class registry artifacts using Apicurio Registry (CNCF sandbox). I'll demonstrate PROMPT_TEMPLATE artifacts with variable substitution, versioning with BACKWARD compatibility, and how prompt changes flow through environments without redeploying code.
+
+Live demo: register a prompt template, version it, attempt a breaking change (registry rejects it), show how MCP servers and agents fetch prompts at runtime. I'll also demonstrate MODEL_SCHEMA artifacts for LLM model metadata discovery, enabling model selection based on capabilities like context window and streaming support.
+
+Attendees will leave with:
+- A pattern for governing prompts with the same rigor as schemas
+- Strategies for versioning prompts without breaking MCP consumers
+- Integration patterns for MCP servers that fetch prompts from registries
+
+Topic:
+Building Agents and Agentic Systems
+
+Session Format:
+Session Presentation (25 minutes in length)
+
+Audience Level:
+Intermediate
+
+Benefits to the Ecosystem:
+This talk benefits the MCP ecosystem by addressing a gap: prompt governance. As MCP adoption grows, teams deploying MCP servers face the same prompt versioning challenges that plagued early microservices. The registry-based governance pattern shown here enables MCP servers to fetch versioned prompts at runtime with compatibility guarantees, preventing the "prompt drift breaks production" scenario. This makes MCP deployments more robust and gives teams confidence to evolve prompts without fear of breaking agents. The MODEL_SCHEMA artifact pattern also helps MCP implementations discover and select appropriate models based on capability requirements.
+
+Presented this talk before?
+No (new talk focused on MCP integration patterns)
+
+
+SUBMISSION 3: Agent Discovery with A2A
+---------------------------------------
+
+Session Title:
+From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+
+Description (max 1200 characters):
+AI agents face the same governance crisis that APIs and schemas hit years ago: discovery, versioning, and compatibility. As organizations adopt agent swarms one team updates a prompt template or model schema and downstream agents silently break. The tooling hasn't caught up. Until now.
+
+This talk shows how Apicurio Registry (CNCF sandbox) evolved to manage AI-native artifacts: A2A Agent Cards, LLM Model Schemas, and prompt templates. Live demo: agents discovering and negotiating with each other through the A2A Protocol backed by registry-enforced compatibility rules that catch breaking changes before production.
+
+You'll see an agent card registered, another agent discover it via the registry, and what happens when an incompatible version is pushed (the registry rejects it). I'll also demo prompt template versioning and explain how A2A and MCP work together in governed multi-agent architectures.
+
+Attendees will leave with:
+- Working pattern for agent-to-agent discovery using A2A well-known endpoints
+- Strategies for version-controlling prompts with compatibility checks
+- Understanding how A2A and MCP complement each other
+
+Topic:
+Building Agents and Agentic Systems
+
+Session Format:
+Session Presentation (25 minutes in length)
+
+Audience Level:
+Intermediate
+
+Benefits to the Ecosystem:
+This talk strengthens both A2A and MCP ecosystems by clarifying their relationship. Many teams are confused about whether to use A2A or MCP, this demo shows they need both: MCP for agent-to-tool integration, A2A for agent-to-agent discovery. The registry governance layer shown here works for both protocols, giving teams a unified approach. This benefits MCP by removing a common adoption blocker (perceived competition with A2A) and showing how MCP servers can participate in registry-based discovery alongside A2A agents. The demo is production-ready and deployable, helping teams adopt both protocols with confidence.
+
+Presented this talk before?
+No (new content for A2A/MCP audience)
+
+
+SPEAKER INFORMATION (for all submissions):
+-------------------------------------------
+
+Speaker:
+Carles Arnal
+
+Email:
+carnalca@redhat.com
+
+Company:
+Red Hat
+
+Speaker Title:
+Principal Software Engineer
+
+Country of residence:
+Spain
+
+Speaker Bio (max 500 characters):
+Carles Arnal is a Principal Software Engineer at Red Hat working on the API space. He's also an associate professor at BarcelonaTech and an active committer of Quarkus with over 10 years of industry experience. He maintains Apicurio Registry (CNCF sandbox) and has extended it to support AI-native artifacts including A2A Agent Cards and prompt templates.
+
+Fediverse:
+(leave blank if none)
+
+
+FORM CHECKBOXES (check all):
+-----------------------------
+✓ Code of Conduct - I have reviewed The Linux Foundation Code of Conduct
+✓ Commitment to inclusivity - I have reviewed The Linux Foundation's Inclusive Speaker Orientation and Inclusive Language Initiative
+✓ Content Quality Agreement - I understand that submitting low-quality or AI-generated slop may result in removal from the review process
+
+Are you both the submitter and speaker?
+Yes
+
+
+NOTES:
+------
+- All three talks are excellent fits for this conference
+- Submission 1 (Agent Swarm) is highest priority - addresses core AgenticOps concerns
+- Session length is 25 minutes, not 40 (shorter than other conferences)
+- Benefits to Ecosystem field specifically asks about MCP impact - emphasize A2A+MCP complementarity
+- Your bio is already optimized at 491 characters

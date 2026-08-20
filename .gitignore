@@ -1,4 +1,5 @@
 .idea/
+.DS_Store
 conferences/cfp-tracker.md
 
 # Cloned GitHub projects inside talk directories
@@ -7,3 +8,4 @@ conferences/cfp-tracker.md
 **/apicurio-registry-support-chat/
 **/kroxylicious-schema-validation/
 **/model-metadata/
+**/database-to-lakehouse-demo/

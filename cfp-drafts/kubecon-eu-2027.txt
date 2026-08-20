@@ -1,0 +1,116 @@
+KubeCon + CloudNativeCon Europe 2027 — CFP Submissions
+=======================================================
+
+Conference: Mar 15-18, 2027, Barcelona
+CFP deadline: Oct 12, 2026
+URL: https://sessionize.com/kubecon-cloudnativecon-europe-2027/
+Max submissions: 3 (+ unlimited CNCF Project Opportunities)
+
+
+SUBMISSION 1: Agent Discovery / Governance
+-------------------------------------------
+
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Description (929 chars):
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which -- or what happens when one team's update silently breaks four downstream consumers. This is the same discovery and compatibility crisis that hit APIs a decade ago, except agents evolve faster and fail more quietly.
+
+In a live demo, I'll apply proven registry-based governance patterns to AI agents using the A2A Protocol. You'll see agents publishing discoverable Agent Cards, negotiating capabilities at runtime, and failing fast on breaking changes -- before reaching production. The patterns apply to any registry infrastructure supporting versioning and compatibility checks.
+
+Takeaways:
+- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
+- Patterns for enforcing compatibility rules across independently evolving agents
+- Where A2A, MCP, and traditional API governance overlap and diverge
+
+Submitting for: KubeCon + CloudNativeCon
+Poster Session: No
+Track: AI + ML (or AI Inference + Agentic if available)
+Session format: Session Presentation
+Audience Level: Intermediate
+Case study: No
+Talk presented before: Yes -- FOST Amsterdam, June 2026 (earlier version)
+Relevant CNCF/Open Source Projects: Apicurio Registry (CNCF Sandbox), Kubernetes
+Additional resources: https://github.com/carlesarnal/agent-discovery-demo
+
+Value to the community:
+Multi-agent AI systems are scaling faster than the governance tooling around them. Without discovery and compatibility contracts, organizations face the same cascading failure patterns that plagued ungoverned microservices -- but with faster iteration cycles and more silent failures. This talk gives the cloud-native community a concrete, protocol-based governance model using the A2A standard, built on proven schema registry patterns that CNCF practitioners already understand. It directly addresses the growing intersection of AI infrastructure and cloud-native operations.
+
+
+SUBMISSION 2: CNCF Sandbox Journey
+------------------------------------
+
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+
+Description (≤1000 chars):
+Getting into the CNCF Sandbox is a milestone -- but nobody tells you about the months of governance restructuring and uncomfortable decisions that precede it. This talk pulls back the curtain from a maintainer who went through it.
+
+I'll walk through the concrete steps, surprises, and mistakes: aligning governance with foundation expectations, adapting a contribution model that had worked fine for years, navigating due diligence questions we weren't prepared for, and the technical changes required to meet cloud-native standards. I'll also cover what changed after acceptance -- more contributors, more visibility, and more responsibility than we expected.
+
+Takeaways:
+- A realistic, step-by-step roadmap for submitting a project to the CNCF Sandbox
+- The governance, licensing, and community structure decisions foundations actually evaluate
+- An honest assessment of benefits and new obligations
+
+Submitting for: KubeCon + CloudNativeCon
+Track: Community + Project Leadership (or Operations / Open Source)
+Session format: Session Presentation
+Audience Level: Intermediate
+Case study: Yes -- Apicurio Registry's journey from community project to CNCF sandbox
+Talk presented before: No
+Relevant CNCF/Open Source Projects: Apicurio Registry (CNCF Sandbox)
+
+Value to the community:
+The CNCF Sandbox is the primary on-ramp for projects entering the cloud-native ecosystem, yet the process remains opaque to most maintainers. This talk provides a reusable, honest playbook -- covering governance alignment, due diligence preparation, and post-acceptance obligations -- that lowers the barrier for future projects. It helps the ecosystem grow with projects better prepared for foundation-level governance from day one, told from the perspective of an active sandbox project maintainer.
+
+
+SUBMISSION 3: Real-Time Lakehouse
+----------------------------------
+
+Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+
+Description (≤1000 chars):
+Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single real-time pipeline built entirely with open-source tools on Kubernetes.
+
+In a live demo, I'll build a complete pipeline: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds via Trino or Spark. I'll show how Flink's Dynamic Iceberg Sink handles automatic schema evolution, eliminating manual DDL changes that plague traditional data lakes.
+
+Takeaways:
+- A deployable CDC-to-Iceberg pipeline using only open-source components on Kubernetes
+- Practical patterns for schema evolution across the Kafka-to-Iceberg boundary
+- When streaming lakehouse replaces batch ETL and where hybrid patterns still win
+
+Submitting for: KubeCon + CloudNativeCon
+Track: Application Development (or Data + AI)
+Session format: Session Presentation
+Audience Level: Intermediate
+Case study: No
+Talk presented before: Yes -- JavaZone Oslo, September 2026; Community Over Code Asia, August 2026
+Relevant CNCF/Open Source Projects: Apicurio Registry (CNCF Sandbox), Kubernetes, Strimzi
+Additional resources: https://github.com/carlesarnal/database-to-lakehouse-demo
+
+Value to the community:
+Real-time data infrastructure is increasingly deployed on Kubernetes, but most CDC-to-lakehouse architectures rely on proprietary cloud services. This talk demonstrates a fully open-source, cloud-native alternative using CNCF and Apache ecosystem projects, giving practitioners a reproducible blueprint for building streaming lakehouses without vendor lock-in. Schema evolution across streaming boundaries is a persistent pain point -- the patterns shown here address it directly.
+
+
+CNCF PROJECT OPPORTUNITY (separate, does NOT count toward 3-submission limit)
+-------------------------------------------------------------------------------
+
+Title: Apicurio Registry Project Update and ContribFest
+
+Format: Project Lightning Talk (5 min) + ContribFest (75 min)
+Note: Submit BOTH. Sandbox projects are eligible. At least one speaker must have commit bit.
+
+Lightning Talk description:
+Apicurio Registry is a CNCF sandbox project providing schema and API artifact management for cloud-native data platforms. This update covers recent milestones: A2A Agent Card support for AI governance, the Flink Dynamic Iceberg Sink integration for lakehouse pipelines, and growing adoption across the Kafka ecosystem. We'll share what's next on the roadmap and how contributors can get involved.
+
+ContribFest description:
+Hands-on session for new and existing contributors to Apicurio Registry. Participants will set up the development environment, pick from curated good-first-issues, and submit their first PR with maintainer guidance. Focus areas: A2A Agent Card support, schema compatibility rules, and Kafka serializer/deserializer improvements.
+
+
+SPEAKER BIO (for all submissions)
+-----------------------------------
+
+Carles Arnal is a CNCF Ambassador and core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+
+Speaker Title: Principal Software Engineer
+Company: IBM
+End user organization: No

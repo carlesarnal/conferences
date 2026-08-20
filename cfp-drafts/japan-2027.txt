@@ -1,0 +1,97 @@
+JAPAN 2027 SUBMISSIONS
+=======================
+
+Covers: KubeCon Japan 2027, JJUG CCC Spring & Fall, OSS Summit Japan 2027
+
+
+KUBECON JAPAN 2027
+-------------------
+Dates: ~Jul, Yokohama
+CFP: ~Mar 2027
+URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
+Submit to BOTH main CFP + CNCF Project Opportunities (Lightning Talk + ContribFest).
+
+Main CFP Submission 1: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Track: AI + ML
+Audience: Intermediate
+
+Main CFP Submission 2: CNCF Sandbox Journey
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+Track: Community / Project Leadership
+Audience: Intermediate
+
+Main CFP Submission 3: Real-Time Lakehouse
+Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+Track: Application Development / Data
+Audience: Intermediate
+
+CNCF Project Opportunity (does NOT count toward 3-submission limit):
+- Project Lightning Talk (5 min): Apicurio Registry update -- A2A Agent Card support, Iceberg integration, roadmap
+- ContribFest (75 min): Hands-on session for new contributors. Good-first-issues, dev environment setup, first PR
+
+Note: Same structure as KubeCon EU submission. CNCF Ambassador + sandbox maintainer = strong advantage. Eligible for Lightning Talks, ContribFest, Maintainer Summit.
+
+
+JJUG CCC 2027 SPRING
+----------------------
+Dates: ~May, Bellesalle Shinjuku Grand, Tokyo
+CFP: Opens a few months before (Sessionize)
+URL: https://www.java-users.jp/
+Largest Java community in Japan. 1000+ attendees.
+
+Submission 1: Agent Governance (Java angle)
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Abstract: Emphasize Java/Quarkus tooling. Demo uses Quarkus agents, Java registry client, standard REST APIs.
+
+Submission 2: Kafka Proxy
+Title: Bad Messages Should Never Reach the Broker: Schema Validation at the Kafka Proxy Layer
+Abstract: Emphasize Kroxylicious as a Java-based Kafka proxy. Filter implementation in Java.
+
+
+JJUG CCC 2027 FALL
+--------------------
+Dates: ~Nov, Tokyo
+CFP: Opens a few months before
+URL: https://www.java-users.jp/
+
+Submission 1: Real-Time Lakehouse
+Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+Abstract: Emphasize Java ecosystem -- Debezium (Java), Kafka Streams, Quarkus services.
+
+Submission 2: Data Contracts for AI
+Title: Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
+Abstract: Emphasize Java serializers, Quarkus ML service, Java schema evolution libraries.
+
+
+OSS SUMMIT JAPAN 2027
+----------------------
+Dates: ~Dec, Toranomon Hills Forum, Tokyo
+CFP: ~Jun-Aug 2027
+URL: https://events.linuxfoundation.org/open-source-summit-japan/
+
+Reuse same submissions as 2026 REWRITE (see oss-japan-2026-REWRITE.txt) with updated titles:
+
+Submission 1: CNCF Sandbox Journey
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+Track: OSS Enabling & Management
+Audience: Intermediate
+
+Submission 2: Zero-Trust Kafka
+Title: One Identity Provider, Zero Trust Gaps: Securing Kafka Data Platforms End-to-End
+Track: Cloud & Orchestration > Security
+Audience: Intermediate
+
+Submission 3: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Track: Open AI & Data > AI Agents
+Audience: Intermediate
+
+
+SPEAKER BIO (for all):
+Carles Arnal is a CNCF Ambassador and core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+
+
+TRIP PLANNING NOTE:
+JJUG Spring (~May) and KubeCon (~Jul) are separate trips.
+JJUG Fall (~Nov) and OSS Summit (~Dec) could be combined into one extended trip.

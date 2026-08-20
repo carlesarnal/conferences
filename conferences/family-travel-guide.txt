@@ -1,0 +1,80 @@
+FAMILY TRAVEL GUIDE — Conferences with wife + 2yo kid
+======================================================
+
+Based on: flight time from Barcelona, kid-friendliness, things for
+family while at the conference, weather, and travel coverage.
+
+
+TOP TIER
+--------
+
+Athens — Devoxx Greece (~Apr)
+  Short flight from BCN. Warm in April, affordable, incredible food,
+  beaches within reach. Acropolis Museum has a kids area. Very
+  stroller-friendly flat areas around Plaka. Wife can do a day trip
+  to the coast with the kid. Low stress, low cost.
+
+Tokyo / Yokohama — Japan conferences (May-Dec)
+  Counterintuitive with a toddler but Japan is arguably the best
+  country in the world for traveling with small kids. Spotlessly clean,
+  incredibly safe, trains have priority seating, every mall has nursing
+  rooms, convenience stores have everything you need. Yokohama (KubeCon,
+  Jul) has the Anpanman Museum — toddler paradise. Tokyo (JJUG, OSS
+  Summit) has Ueno Zoo, Shinjuku Gyoen park, and kid-friendly everything.
+  Long flight (~13h direct) but worth combining two conferences into one
+  extended trip. Best combo: JJUG Fall (~Nov) + OSS Summit (~Dec).
+
+Pasadena / LA — SCaLE (Apr 1-4)
+  Disneyland is 30 minutes away. Griffith Observatory, beaches, Santa
+  Monica Pier. Perfect April weather. Wife and kid will have no shortage
+  of things to do. Direct flights BCN-LAX exist.
+
+Copenhagen — GOTO (~Sep)
+  Tivoli Gardens — a toddler dream. September weather is mild. The city
+  is built for strollers (flat, bike lanes everywhere, parks on every
+  corner). Very safe. Short flight from BCN.
+
+
+GREAT OPTIONS
+-------------
+
+Berlin — Berlin Buzzwords (~Jun)
+  Cheap, excellent parks (Tiergarten, Zoo), very stroller-friendly flat
+  city. June weather is perfect. Short flight. Affordable food and
+  accommodation compared to other EU capitals.
+
+Melbourne — KubeDay + Cloud Native AI Summit (~Oct)
+  Melbourne is one of the most family-friendly cities — great parks,
+  zoo, aquarium, tram-friendly. The problem is the flight: 22+ hours
+  from Barcelona with a 2-year-old. If you're up for it, cluster
+  KubeDay + Cloud Native AI Summit in October to justify one long trip.
+  Australian spring weather.
+
+Madrid — Codemotion (May 12-13)
+  Almost cheating — it's a 1h flight or a train ride. Retiro Park, zoo,
+  warm weather. Easiest logistics imaginable. Wife and kid can even go
+  home if they want.
+
+
+SKIP WITH A TODDLER
+--------------------
+
+New Orleans (KubeCon NA, Nov) — not much for a 2-year-old, humidity,
+  not stroller-friendly
+Kansas City (KCDC) — limited family appeal
+San Francisco (Data+AI Summit, QCon SF) — steep hills are brutal with
+  a stroller, expensive
+
+
+RECOMMENDED COMBOS
+-------------------
+
+1. Japan in November: JJUG CCC Fall (~Nov) + OSS Summit Japan (~Dec)
+   = one trip, two conferences, family-friendly paradise. Add 3-4
+   tourist days in between. Kyoto day trip with the kid is magical.
+
+2. Greece in April: Devoxx Greece is cheap, short, warm, and Athens
+   is a great family destination. No extra travel stress.
+
+3. SCaLE in April: If you want to do the US — Disneyland makes it
+   an easy sell at home. Direct BCN-LAX flights available.

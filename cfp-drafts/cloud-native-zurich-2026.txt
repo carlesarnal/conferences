@@ -1,0 +1,62 @@
+CLOUD NATIVE ZURICH 2026 SUBMISSIONS
+=====================================
+
+URL: https://sessionize.com/cloud-native-zurich-2026/
+
+Relevant talks: [E][A]
+
+
+SUBMISSION 1: Real-Time CDC Pipeline
+-------------------------------------
+
+Session Title:
+From Edge to Cloud: Building Real-Time Data Pipelines with Debezium, Kafka, and Apicurio on Kubernetes
+
+Description:
+A row changes in PostgreSQL at the edge. Milliseconds later an Elasticsearch index in the cloud reflects that change, no batch jobs, no polling, no glue code. This talk shows how to build that pipeline using only open-source components on Kubernetes.
+
+Live demo: Debezium captures database changes, Apicurio Registry (CNCF sandbox) enforces schemas, Kafka on Strimzi streams Avro-serialized events, and Kafka Streams with Quarkus processes them to sync Elasticsearch with sub-second latency.
+
+Presented at Current, Data Saturday, and other conferences since 2023. This version shows how Apicurio's CNCF acceptance strengthened the cloud-native integration. You'll see schema evolution with compatibility enforcement, the full CDC flow, and how it all deploys on Kubernetes with standard manifests.
+
+Session format:
+Session (35 minutes)
+
+Tags:
+Data, Platform Engineering, Open Source
+
+Benefit to the cloud native community:
+Demonstrates integration of CNCF projects (Apicurio Registry sandbox, Strimzi for Kafka) for real-time CDC pipelines on Kubernetes. Shows practical schema governance patterns that prevent breaking changes in production. The architecture is battle-tested, addresses the common need to sync data across systems without batch ETL, and uses only Kubernetes-native open source components.
+
+Additional notes:
+Demo code at github.com/carlesarnal/debezium-ocp-etc-demo with full Kubernetes deployment manifests. Presented and refined at multiple conferences since 2023.
+
+
+SUBMISSION 2: Agent Governance
+-------------------------------
+
+Session Title:
+From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+
+Description:
+As organizations adopt AI agents they're rediscovering the governance crisis that microservices faced. One team updates a prompt template or model schema and downstream agents silently break. Discovery versioning and compatibility, the same problems we solved for REST APIs ten years ago.
+
+This talk shows how Apicurio Registry (CNCF sandbox) evolved to manage AI-native artifacts: A2A Agent Cards for discovery, LLM Model Schemas for metadata, and prompt templates with version control. Live demo: agents discovering each other through the A2A Protocol backed by registry-enforced compatibility rules that catch breaking changes before production.
+
+You'll see agent cards registered, agents discover peers, and the registry reject incompatible version pushes. This brings proven schema governance patterns from the microservices era to multi-agent AI systems running on Kubernetes.
+
+Session format:
+Session (35 minutes)
+
+Tags:
+Platform Engineering, Open Source, Artificial Intelligence
+
+Benefit to the cloud native community:
+Demonstrates how CNCF sandbox project Apicurio Registry extends schema governance to AI agent ecosystems. Shows practical A2A Protocol integration with Kubernetes infrastructure. Addresses the emerging problem of agent sprawl in cloud-native environments with proven governance patterns from the microservices era. Helps teams adopt AI agents without repeating past governance mistakes.
+
+Additional notes:
+Demo code at github.com/carlesarnal/agent-discovery-demo with A2A agent cards and prompt template versioning. All running on Kubernetes with registry-based governance.
+
+
+Speaker Bio:
+Carles Arnal is a Principal Software Engineer at Red Hat working on the API space. He's also an associate professor at BarcelonaTech and an active committer of Quarkus with over 10 years of industry experience.

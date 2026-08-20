@@ -1,12 +1,12 @@
-Title: Building the Code, Nurturing the People: Overcoming Challenges in Open Source Community Management
+Title: The Commit Log Won't Tell You This: What Actually Keeps an Open Source Project Alive
 
-Maintaining Apicurio — now a CNCF sandbox project — with a small core team spread across multiple time zones has taught me that the hardest problems in open source aren't technical. This is what the work actually looks like behind the commit log.
+Maintaining an open-source project with a small core team across multiple time zones has taught me that the hardest problems aren't technical — they're the ones that don't show up in your issue tracker. This talk is about what the work actually looks like behind the commit log.
 
-In this talk, I'll share hard-won lessons from years as a Principal Software Engineer and maintainer in the Apicurio community. No platitudes — concrete stories about what worked and what failed:
+I'll share hard-won lessons from years as a maintainer, from a project's early days through CNCF foundation acceptance. No platitudes — concrete stories about what worked and what failed:
 
 - Turning frustrated users into long-term contributors through deliberate engagement
 - The async communication practices that kept a global team aligned without meeting fatigue
 - Navigating governance decisions where the community disagreed — and what we learned
-- Building a sustainability model for the core team's long-term health, especially through the CNCF sandbox process
+- Building a sustainability model for the core team's long-term health
 
 Whether you maintain a project with three contributors or three hundred, you'll leave with actionable strategies for engagement, conflict resolution, and long-term project health — grounded in real examples, not theory.

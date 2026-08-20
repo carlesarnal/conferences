@@ -4,9 +4,230 @@ MISSED CFPs — TRACK FOR 2027 SUBMISSIONS
 These conferences had their 2026 CFP closed before we could submit.
 Estimated CFP windows below so we don't miss them next time.
 
+NOTE: Carles is a CNCF Ambassador + Apicurio Registry sandbox maintainer.
+This strengthens submissions to all CNCF/LF events (KubeCon, KCDs, KubeDays,
+OSS Summit, etc.) and provides community credibility at all conferences.
+
+
+NEW FOR 2027 — ADDED Aug 18, 2026
+----------------------------------
+
+JavaLand 2027
+  Conference: Mar 2-4, Europa-Park Rust, Germany
+  CFP window: Jul 22 - Sep 14, 2026 (NOW OPEN — in cfp-tracker)
+  URL: https://www.javaland.eu/en/speaking/
+  Talks: [A][E][DC][DL][KP][CJ]
+  Note: Java community conference in a theme park. 9 topic streams.
+
+JFokus 2027
+  Conference: Feb 8-10, Stockholm
+  CFP window: ~mid 2026 - Sep 30, 2026 (NOW OPEN — in cfp-tracker)
+  URL: https://www.jfokus.se/iamahero
+  Talks: [A][E][DC][DL][KP][CJ]
+  Note: Largest Scandinavian developer conference. Java/AI/cloud/DevOps.
+
+NDC London 2027
+  Conference: Jan 25-29, London
+  CFP window: ~Jun - Aug 30, 2026 (NOW OPEN — in cfp-tracker)
+  URL: https://sessionize.com/ndc-london-2027/
+  Talks: [A][E][DC][DL][KP]
+  Note: Travel+hotel covered. 60-min talk slots.
+
+Voxxed Days Ticino 2027
+  Conference: Feb 19, 2027, Lugano, Switzerland
+  CFP window: expected ~Oct-Dec 2026
+  URL: https://voxxeddays.com/
+  Talks: [A][E][S][DC][DL][CJ][KP]
+
+Voxxed Days CERN 2027
+  Conference: Mar 5, 2027, Geneva, Switzerland
+  CFP window: expected ~Oct-Dec 2026
+  URL: https://voxxeddays.com/
+  Talks: [A][E][S][DC][DL][CJ][KP]
+
+Voxxed Days Zurich 2027
+  Conference: Mar 9, 2027, Zurich, Switzerland
+  CFP window: expected ~Sep-Dec 2026
+  URL: https://voxxeddays.com/
+  Talks: [A][E][S][DC][DL][CJ][KP]
+
+Devoxx UK 2027
+  Conference: ~May 2027, London
+  CFP window: expected ~Dec 2026 - Jan 2027
+  URL: https://www.devoxx.co.uk/
+  Talks: All
+  Note: 2027 edition not yet confirmed — community vote in progress.
+
+Devoxx Morocco 2026
+  Conference: Nov 4-5, 2026, Casablanca
+  CFP window: open now (check dvma26.cfp.dev)
+  URL: https://devoxx.ma/
+  Talks: All
+  Note: Largest developer conference in MEA region.
+
+DevOpsDays Zurich 2027
+  Conference: Apr 14-15, 2027, Winterthur, Switzerland
+  CFP window: expected ~Dec 2026 - Feb 2027
+  URL: https://devopsdays.ch/
+  Talks: [E][DC][DL][CJ]
+
+DevOpsDays Geneva 2027
+  Conference: May 25-26, 2027, Geneva
+  CFP window: expected ~Jan - Mar 2027
+  URL: https://devopsdays.org/
+  Talks: [E][DC][DL][CJ]
+
+AGNTCon + MCPCon Europe 2027
+  Conference: ~Sep 2027 (TBD)
+  CFP window: expected ~Apr - Jun 2027
+  URL: https://events.linuxfoundation.org/agntcon-mcpcon-europe-2027/
+  Talks: [A][GS][PT]
+  Note: Page already live on LF events site. Resubmit — rejected in 2026.
+
+Open Source Summit Europe 2027
+  Conference: ~Oct 2027 (TBD)
+  CFP window: expected ~May - Jun 2027
+  URL: https://events.linuxfoundation.org/open-source-summit-europe-2027/
+  Talks: All
+  Note: Page live, no details yet.
+
+Iceberg Summit 2027
+  Conference: ~Apr 2027, San Francisco (expected)
+  CFP window: expected ~Nov 2026 - Jan 2027
+  URL: https://www.icebergsummit.org/
+  Talks: [DL][DC]
+  Note: Perfect fit for lakehouse talk. Apache Iceberg v4 focus.
+
+apidays 2027 (multiple cities)
+  London: Aug 19-20 | Munich: Sep 9-10 | Amsterdam: Jun | Paris: Dec
+  CFP: Rolling submissions via https://apidays.typeform.com/apidayscfp
+  Talks: [A][GS][PT][KP]
+  Note: API governance angle for agent/schema talks.
+
+
+AUSTRALIA / JAPAN / US — PRIORITY DESTINATIONS
+-----------------------------------------------
+
+DDD Melbourne 2027
+  Conference: Feb 20, Melbourne Town Hall
+  CFP window: open now (community-voted, voting opens Oct 7)
+  URL: https://sessionize.com/ddd-melbourne-2027/
+  Talks: [A][E][DC][DL][GS]
+  Note: Nonprofit conference. Travel NOT covered — contact organizers. Community-voted selection.
+
+NDC Sydney 2027
+  Conference: ~Apr, Hilton Sydney
+  CFP window: expected ~late 2026 (Sessionize)
+  URL: https://ndcsydney.com/
+  Talks: [A][E][DC][DL][KP]
+  Note: Travel typically covered by NDC. Resubmit with improved abstracts (rejected 2026).
+
+KubeDay Australia 2027
+  Conference: ~Oct, Melbourne
+  CFP window: TBD (watch LF events page)
+  URL: https://events.linuxfoundation.org/kubeday-australia/
+  Talks: [A][E][S][M][CJ][KP]
+  Note: CNCF event — sandbox maintainer status is a real advantage. ~200 attendees.
+
+KCD Australia 2027
+  Conference: ~Aug, Melbourne
+  CFP window: TBD
+  URL: https://community2.cncf.io/kcd-australia/
+  Talks: [A][E][S][M][CJ][KP]
+  Note: CNCF community event. Sandbox maintainer helps.
+
+Cloud Native AI Summit Melbourne 2027
+  Conference: ~Oct, Melbourne
+  CFP window: TBD
+  URL: https://www.cloudnative.ai/
+  Talks: [A][M][E][CJ][KP]
+  Note: AI-on-K8s focus. Independent, enterprise. Two-day event.
+
+YOW! Australia 2027
+  Conference: ~Dec, Melbourne / Brisbane / Sydney
+  CFP window: invite-based, spontaneous submissions accepted
+  URL: https://yowcon.com/
+  Talks: [A][E][DC][DL][GS]
+  Note: Premier Australian dev conference. ~900 attendees per city. Runs in 3 cities.
+
+JJUG CCC 2027 Spring
+  Conference: ~May, Tokyo (Bellesalle Shinjuku Grand)
+  CFP window: opens a few months before
+  URL: https://www.java-users.jp/
+  Talks: [A][E][DC][DL][KP]
+  Note: Largest Java community in Japan. 1000+ attendees, 10k member community. Twice yearly.
+
+KubeCon Japan 2027
+  Conference: ~Jul, Yokohama
+  CFP window: expected ~Mar 2027
+  URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
+  Talks: All + Project Lightning Talks + ContribFest (sandbox fast-pass)
+  Note: Submit to project opportunities track too. Separate from EU/NA.
+
+OSS Summit Japan 2027
+  Conference: ~Dec, Toranomon Hills Forum, Tokyo
+  CFP window: expected ~Jun-Aug 2027
+  URL: https://events.linuxfoundation.org/open-source-summit-japan/
+  Talks: All
+  Note: Separate cycle from 2026 submissions. Resubmit.
+
+JJUG CCC 2027 Fall
+  Conference: ~Nov, Tokyo
+  CFP window: opens a few months before
+  URL: https://www.java-users.jp/
+  Talks: [A][E][DC][DL][KP]
+
+SCaLE 24x
+  Conference: Apr 1-4, Pasadena Convention Center, CA
+  CFP window: open now — closes Nov 1, 2026
+  URL: https://www.socallinuxexpo.org/scale/24x
+  Talks: [A][E][O][DC][DL][GS][CJ]
+  Note: Largest community-run OSS conf in NA. LA area.
+
+DeveloperWeek 2027
+  Conference: Feb 9-11, Santa Clara, CA (also NYC Jun 9-10)
+  CFP window: open now on Sessionize
+  URL: https://www.developerweek.com/
+  Talks: [A][E][DC][DL][GS]
+
+KCDC 2027
+  Conference: ~Sep, Kansas City Convention Center
+  CFP window: expected ~early 2027
+  URL: https://www.kcdc.info/
+  Talks: [A][E][DC][DL][KP]
+  Note: Travel covered — economy airfare up to $500, 2 hotel nights at Hilton.
+
+QCon San Francisco 2027
+  Conference: ~Nov, Hyatt Regency, San Francisco
+  CFP window: invite + spontaneous submissions
+  URL: https://qconsf.com/
+  Talks: [A][E][DC][DL][GS]
+  Note: High-prestige, senior engineering audience.
+
+RenderATL 2027
+  Conference: Aug 18-19, Atlanta
+  CFP window: expected ~early 2027
+  URL: https://www.renderatl.com/
+  Talks: [A][GS]
+  Note: Includes AI Summit + OpenJS Summit. Part of Atlanta Tech Week.
+
+JConf.dev 2027
+  Conference: ~Sep, TBD
+  CFP window: TBD
+  URL: https://jconf.dev/
+  Talks: [A][E][DC][DL][KP]
+  Note: Community-run Java conf. Limited travel budget.
+
 
 EARLY CFPs (Oct-Dec 2026) — SET REMINDERS NOW
 ----------------------------------------------
+
+NDC Security Oslo 2027
+  Conference: Feb 15-18, Oslo
+  CFP window: open now — closes Oct 18, 2026
+  URL: https://ndcsecurity.com/call-for-papers
+  Talks: [S][KP]
+  Note: Security-focused NDC event. Travel+hotel covered. Limit 3-4 submissions.
 
 Red Hat Summit 2027
   Conference: ~May 2027
@@ -54,6 +275,69 @@ Devoxx France 2027
 
 WINTER CFPs (Dec 2026 - Feb 2027)
 ----------------------------------
+
+Agent Conference 2027
+  Conference: May 17-18, NYC (Hilton Midtown)
+  CFP window: expected ~late 2026 / early 2027
+  URL: https://www.agentconference.com/
+  Talks: [A][GS][PT]
+  Note: Enterprise agentic AI focus. 4000+ attendees. Three tracks: Enterprises, Engineering, Industries.
+
+Subsurface LIVE 2027
+  Conference: ~Spring 2027, NYC or virtual
+  CFP window: expected ~Dec 2026 - Feb 2027
+  URL: https://www.dremio.com/subsurface/
+  Talks: [DL][DC]
+  Note: Dremio's Iceberg-focused event. 18k+ cumulative attendees. Now also covering agentic AI on data.
+
+GeeCON 2027
+  Conference: ~May, Krakow
+  CFP window: expected ~late 2026 / early 2027
+  URL: https://geecon.org/
+  Talks: [A][E][S][DC][DL][KP]
+  Note: JVM-focused conference. 15+ year history. Strong Java/JVM community.
+
+Codemotion Madrid 2027
+  Conference: May 12-13, La Nave, Madrid
+  CFP window: expected ~late 2026 / early 2027 (Sessionize)
+  URL: https://conferences.codemotion.com/madrid/
+  Talks: [A][E][DC][DL][GS]
+  Note: 6000+ devs. No 101-level content accepted. Travel evaluated case by case.
+
+Berlin Buzzwords 2027
+  Conference: ~Jun, Kulturbrauerei, Berlin
+  CFP window: expected ~Jan - Mar 2027
+  URL: https://berlinbuzzwords.de/
+  Talks: [E][DC][DL][M][KP]
+  Note: Europe's leading open-source data infra conference. Kafka, Flink, search, ML ops. Vendor-neutral.
+
+Data + AI Summit 2027
+  Conference: ~Jun, Moscone Center, San Francisco
+  CFP window: expected ~Jan - Mar 2027
+  URL: https://www.databricks.com/dataaisummit
+  Talks: [DL][DC][M]
+  Note: 800+ sessions, ~10k attendees. Iceberg/lakehouse is a major track. Perfect for CDC + Iceberg talk.
+
+Cloud Native Days France 2027
+  Conference: Jun 3, CENTQUATRE-PARIS
+  CFP window: expected ~Jan - Mar 2027
+  URL: https://cloudnativedays.fr/
+  Talks: [A][E][S][M][CJ][KP]
+  Note: 1700+ attendees, 60 talks. Zero sales pitches, experience-report heavy.
+
+DevOpsCon 2027
+  Conference: TBD (Berlin / London / Amsterdam)
+  CFP window: expected ~late 2026 / early 2027
+  URL: https://devopscon.io/
+  Talks: [E][DC][DL][CJ][KP]
+  Note: Part of devmio family (alongside JAX). Multi-city. Covers CI/CD, containers, Kubernetes, DevSecOps.
+
+Data Innovation Summit 2027
+  Conference: May 18-20, Kistamässan, Stockholm
+  CFP window: rolling submissions (Apply to Speak form on website)
+  URL: https://datainnovationsummit.com/
+  Talks: [DC][DL][E][M]
+  Note: 3000+ attendees, 300+ speakers, 15 stages. Data platforms, AI governance, data engineering, ML pipelines.
 
 Open Source Summit NA 2027
   Conference: ~May 2027
@@ -119,6 +403,30 @@ Current (Kafka/Confluent) 2027
   Talks: [E][DC][DL][KP]
 
 
+NEWLY MISSED (Aug 2026)
+-----------------------
+
+Current San Francisco 2026
+  Conference: Nov 4-5, 2026, San Francisco
+  CFP window: Nov 2025 - Dec 22, 2025 (very early!)
+  URL: https://current.confluent.io/
+  Talks: [E][DC][DL][KP]
+  Note: Confluent's flagship Kafka/Flink conference. CFP opens ~Nov, closes ~Dec.
+
+DevOpsDays Istanbul 2026
+  Conference: Oct 24, 2026, Istanbul
+  CFP window: ~early 2026 - Jun 30, 2026
+  URL: https://devopsdays.istanbul/
+  Talks: [E][DC][DL][CJ]
+
+AGNTCon + MCPCon Europe 2026
+  Conference: Sep 17-18, Amsterdam
+  CFP window: ~Apr - Jun 8, 2026
+  URL: https://events.linuxfoundation.org/agntcon-mcpcon-europe/
+  Talks: [A][GS][PT]
+  Note: Was submitted but not accepted. Schedule is live — resubmit next year.
+
+
 SUMMER CFPs (May - Jul 2027)
 -----------------------------
 
@@ -128,15 +436,110 @@ AI_dev Europe 2027
   URL: https://events.linuxfoundation.org/ai-dev-europe/
   Talks: [A][M][DC][GS][PT]
 
+KCD Porto 2027
+  Conference: ~Nov 2027, Porto
+  CFP window: ~May - Jul 2027
+  URL: https://kcd.bg/ (check kube.events for future editions)
+  Talks: [A][E][S][M][CJ][KP]
+  Note: Co-located with DevOps Days Portugal. 500+ attendees. CNCF event.
+
+KCD Sofia 2027
+  Conference: ~Sep 2027, Sofia
+  CFP window: ~May - Jul 2027
+  URL: https://kcd.bg/
+  Talks: [A][E][S][M][CJ][KP]
+  Note: Single-track, 600 seats, CNCF Tier 2 event.
+
+ContainerDays Hamburg 2027
+  Conference: ~Sep 2027, Hamburg
+  CFP window: ~Nov 2026 - Feb 2027
+  URL: https://www.containerdays.io/
+  Talks: [A][E][S][M][DC][DL][CJ][KP]
+  Note: AI+ML track, cloud-native focus, historic venue on the water.
+
+NDC Oslo 2027
+  Conference: ~Sep 2027, Oslo
+  CFP window: ~Jan - Apr 2027
+  URL: https://ndcoslo.com/
+  Talks: [A][E][DC][DL][KP]
+
+API World 2027
+  Conference: ~Sep 2027, Santa Clara
+  CFP window: ~Feb - Apr 2027
+  URL: https://apiworld.co/
+  Talks: [A][GS][PT][KP]
+  Note: Co-located with CloudX and AI TechWorld.
+
+DevOpsDays Barcelona 2027
+  Conference: ~Nov 2027, Barcelona
+  CFP window: ~Apr - Jun 2027
+  URL: https://devopsdays.org/
+  Talks: [E][DC][DL][CJ]
+
+CNCF Co-located Events (KubeCon NA 2027)
+  Conference: ~Nov 2027
+  CFP window: ~May - Jun 2027
+  URL: https://events.linuxfoundation.org/
+  Talks: [A][GS][PT] (Agentics Day), [E][CJ] (Kubernetes on Edge Day, etc.)
+  Note: Includes Agentics Day: MCP + Agents — perfect fit for agent talks.
+
+KubeCon NA 2027
+  Conference: Nov 8-11, New Orleans
+  CFP window: expected ~May - Jun 2027
+  URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/
+  Talks: All
+  Note: Separate CFP from KubeCon EU. Submit to both.
+
+QCon London 2027
+  Conference: Apr 13-16, QEII Centre, London
+  CFP window: invite-based, spontaneous submissions accepted
+  URL: https://qconlondon.com/
+  Talks: [A][E][DC][DL][GS]
+  Note: High-prestige, senior engineering audience. 75+ practitioners, 15 tracks.
+
+Øredev 2027
+  Conference: ~Nov, Malmö
+  CFP window: expected ~spring / summer 2027
+  URL: https://oredev.org/
+  Talks: [A][E][DC][DL][GS]
+  Note: Premier Scandinavian developer conference. 20+ year history. Curated program.
+
+GOTO Copenhagen 2027
+  Conference: ~Sep, Copenhagen
+  CFP window: invite + submission form
+  URL: https://gotopia.tech/
+  Talks: [A][E][DC][DL][GS]
+  Note: 1200+ attendees. Also has Amsterdam and Berlin editions.
+
+Open Source Experience 2027
+  Conference: ~Dec, Porte de Versailles, Paris
+  CFP window: expected ~mid 2027
+  URL: https://www.opensource-experience.com/
+  Talks: [A][E][O][DC][DL][CJ]
+  Note: 6000+ professionals, 130+ talks. European open-source business event.
+
+P99 Conf 2027
+  Conference: ~Oct, virtual (free)
+  CFP window: expected ~mid 2027
+  URL: https://p99conf.io/
+  Talks: [E][KP][M]
+  Note: Low-latency/high-performance focus. Organized by ScyllaDB. Good for streaming perf talks.
+
 
 REMINDER SCHEDULE
 -----------------
 
 Set calendar reminders on these dates:
 
-Sep 2026:  Check JCON Europe, Devoxx Greece CFPs
-Oct 2026:  Check Red Hat Summit, Spring I/O, Riviera DEV, WeAreDevelopers CFPs
-Nov 2026:  Check Devoxx France, OSS NA, DevConf.CZ, DevBcn, Cloud Native Italy, Community Over Code CFPs
-Jan 2027:  Check Devoxx Poland, KubeCon Japan, Cloud Native Zurich CFPs
-Feb 2027:  Check All Things Open CFP
-Jun 2027:  Check AI_dev Europe CFP
+Aug 2026:  Submit DDD Melbourne (open!), DeveloperWeek 2027 (open!), NDC London (Aug 30!), DevNexus 2027 CFP check
+Sep 2026:  Submit JavaLand (Sep 14), JFokus (~Sep 30), JCON Europe 2027, Devoxx Greece CFP checks
+Oct 2026:  Submit NDC Security Oslo (Oct 18!), KubeCon EU 2027 (Oct 12!), SCaLE 24x (Nov 1!), check Red Hat Summit, Spring I/O, Riviera DEV, WeAreDevelopers, FOSDEM 2027, Voxxed Days, NDC Sydney CFPs
+Nov 2026:  Check Devoxx France/UK, OSS NA, DevConf.CZ, DevBcn, Cloud Native Italy, Community Over Code, ContainerDays Hamburg, Iceberg Summit, Agent Conference, Subsurface LIVE, GeeCON, Codemotion Madrid, DevOpsCon CFPs
+Dec 2026:  Check Devoxx UK, Current/Kafka 2027, Subsurface LIVE, Agent Conference, KCDC, RenderATL CFPs
+Jan 2027:  Check Devoxx Poland, Cloud Native Zurich, NDC Oslo, DevOpsDays Zurich, Berlin Buzzwords, Data + AI Summit, Cloud Native Days France, JConf.dev CFPs
+Feb 2027:  Check All Things Open, API World, QCon London (submit spontaneous), QCon SF CFPs
+Mar 2027:  Check KubeCon Japan 2027, Øredev, GOTO Copenhagen, JJUG CCC Spring CFPs
+Apr 2027:  Check AGNTCon Europe 2027, OSS Europe 2027 CFPs
+May 2027:  Check KubeCon NA 2027, KCD Porto, KCD Sofia, KCD Australia, CNCF Co-located Events, P99 Conf CFPs
+Jun 2027:  Check AI_dev Europe, DevOpsDays Barcelona, OSS Summit Japan 2027, KubeDay Australia, Cloud Native AI Summit Melbourne CFPs
+Jul 2027:  Check YOW! Australia, Open Source Experience, JJUG CCC Fall CFPs

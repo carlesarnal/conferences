@@ -1,12 +1,12 @@
-Title: Data Contracts for Event-Driven AI: How Schema Registries Prevent Pipeline Failures
+Title: Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
 
-45% of enterprise AI projects fail because of data quality issues — not model accuracy. The root cause? Producers and consumers in AI pipelines evolve independently, and without formal contracts, a silent schema change in one team's Kafka producer becomes a 3 AM page for another team's inference service.
+45% of enterprise AI projects fail because of data quality issues — not model accuracy. The root cause is deceptively simple: producers and consumers in streaming AI pipelines evolve independently, and without formal contracts, a silent schema change in one team's Kafka producer becomes a 3 AM page for another team's inference service.
 
-In this session, I'll show how data contracts — enforced through Apicurio Registry (a CNCF sandbox project) — bring the same discipline to AI data pipelines that API contracts brought to microservices. Using a live demo with Debezium CDC, Kafka on Strimzi, and a downstream ML inference service, I'll walk through how schema compatibility rules catch breaking changes at produce time, not at prediction time.
+This talk shows how to apply data contracts to event-driven AI architectures — the same discipline that API contracts brought to microservices, now enforced at the streaming layer. In a live demo with Debezium CDC, Kafka, and a downstream ML inference service, I'll walk through how schema compatibility rules catch breaking changes at produce time, not at prediction time. You'll see a schema evolution that would silently corrupt model inputs get rejected before it ever reaches the broker.
 
 Attendees will leave with:
-- A concrete pattern for implementing data contracts in event-driven AI architectures
-- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits AI workloads
-- A reproducible setup they can deploy to enforce schema governance across their own streaming ML pipelines
+- A concrete pattern for implementing data contracts in streaming AI architectures
+- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits ML workloads
+- A reproducible setup they can deploy to enforce schema governance across their own pipelines
 
 GitHub projects: apicurio-registry, debezium-ocp-etc-demo

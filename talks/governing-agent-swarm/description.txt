@@ -1,12 +1,12 @@
-Title: Governing the Agent Swarm: Discovery, Contracts, and Lifecycle for Multi-Agent AI
+Title: When Twenty Agents Talk to Nobody: Contracts, Discovery, and Lifecycle for AI That Scales
 
-Your organization deployed its first AI agent last year. Now there are twenty, built by five teams, using three frameworks, and nobody knows which agents talk to which. Welcome to agent sprawl — the microservices governance problem, all over again.
+Last year your organization shipped one AI agent. This year there are twenty, built by five teams, using three frameworks — and nobody knows which agents depend on which. An "innocent" capability change in one agent cascades into silent failures across four others. This is microservice governance all over again, except agents evolve faster and fail more quietly.
 
-In this session, I'll show how to bring order to multi-agent AI systems using the same registry-based governance patterns that solved this problem for APIs and schemas. Using Apicurio Registry (a CNCF sandbox project), I'll demo agent discovery via the A2A Protocol, schema-enforced agent communication contracts, and lifecycle management for agent capabilities. I'll also explore how the Model Context Protocol (MCP) complements A2A by standardizing how agents integrate with external tools and data sources.
+This talk presents a practical governance model for multi-agent AI, built on the same contract-driven patterns that tamed API and schema sprawl. In a live demo, I'll walk through the full lifecycle: agents registering discoverable capability cards via the A2A Protocol, enforcing communication contracts with compatibility rules, and deprecating agent versions without breaking consumers. I'll also show how the Model Context Protocol (MCP) fits alongside A2A — standardizing tool integration where A2A handles agent-to-agent discovery.
 
 Attendees will leave with:
 - A working governance model for multi-agent AI: registration, discovery, versioning, and deprecation
-- An understanding of how A2A and MCP work together — and where they overlap
-- Practical patterns for preventing breaking changes when agents evolve independently
+- A clear mental model for when to use A2A vs. MCP — and how they compose
+- Patterns for preventing cascading failures when agents evolve independently across teams
 
 GitHub projects: apicurio-registry, model-metadata

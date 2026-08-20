@@ -1,10 +1,10 @@
-Title: From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 
-As organizations adopt AI agents, a familiar problem resurfaces: one team updates a prompt template or model schema, and downstream agents silently break. AI agents face the same governance crisis that APIs and schemas hit years ago — discovery, versioning, and compatibility — but the tooling hasn't caught up. Until now.
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which — or what happens when one team's "minor update" silently breaks four downstream consumers. If this sounds familiar, it should: it's the same discovery and compatibility crisis that hit APIs a decade ago. The difference is that agents evolve faster, fail more silently, and have no contract layer by default.
 
-In this session, I'll show how Apicurio Registry — a CNCF sandbox project originally built for schema and API governance — evolved to manage AI-native artifacts: A2A Agent Cards, LLM Model Schemas, and prompt templates. You'll see a live demo of agents discovering and negotiating with each other through the A2A (Agent-to-Agent) Protocol, backed by registry-enforced compatibility rules that catch breaking changes before they reach production.
+In this session, I'll show how to apply proven registry-based governance patterns to AI agents using the A2A (Agent-to-Agent) Protocol. In a live demo, you'll see agents publishing discoverable Agent Cards to a central registry, negotiating capabilities at runtime, and failing fast when a breaking change is detected — all before reaching production. The demo uses Apicurio Registry (CNCF sandbox) as the governance backbone, but the patterns apply to any registry infrastructure.
 
 Attendees will walk away with:
-- A working pattern for agent-to-agent discovery using standardized well-known endpoints
-- Concrete strategies for version-controlling prompt templates with compatibility checks
-- An understanding of how schema registry principles apply directly to multi-agent AI governance
+- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
+- Concrete patterns for enforcing compatibility rules across independently evolving agents
+- A clear comparison of where A2A, MCP, and traditional API governance overlap and diverge

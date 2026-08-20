@@ -1,0 +1,89 @@
+KUBECON CHINA 2026 SUBMISSIONS
+==============================
+
+Deadline: May 3
+URL: https://sessionize.com/kubecon-cloudnativecon-openinfra-pytorch-2026/
+
+
+SUBMISSION 1: Real-Time Lakehouse
+----------------------------------
+
+Title:
+From Database to Lakehouse in Real-Time: CDC, Kafka, Apicurio, and Apache Iceberg
+
+Session Format:
+Session Presentation (35 minutes)
+
+Abstract (900 char max):
+Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces that with real-time pipelines built entirely with open-source tools on Kubernetes.
+
+This talk demos: Debezium captures PostgreSQL changes, streams through Kafka with schemas enforced by Apicurio Registry (CNCF sandbox), and lands in Apache Iceberg tables, queryable within seconds via Trino. Automatic schema evolution flows from database ALTER TABLE through Debezium and Apicurio to Iceberg DDL updates without manual intervention.
+
+You'll see a column added in PostgreSQL propagate automatically to the Iceberg table and Iceberg's time-travel queries for ML reproducibility. All components run on Kubernetes.
+
+Benefits to the Ecosystem:
+Demonstrates integration of three CNCF/cloud-native projects (Apicurio Registry sandbox, Strimzi for Kafka, Kubernetes-native deployments) with Apache Iceberg for a complete streaming lakehouse pattern. Shows real-world schema governance for data platforms on Kubernetes. The architecture is open-source and deployable by attendees.
+
+
+SUBMISSION 2: Zero-Trust Security
+----------------------------------
+
+Title:
+Zero-Trust Data Platforms: Unifying Kafka, Schema Registry, and Application Security with Keycloak
+
+Session Format:
+Session Presentation (35 minutes)
+
+Abstract (900 char max):
+Your Kafka cluster uses one auth mechanism. Your schema registry uses another. Your applications use a third. Each is secured but the gaps between them are where breaches happen.
+
+This session demonstrates Keycloak integration with Strimzi (Kafka on Kubernetes) and Apicurio Registry (CNCF sandbox) for unified zero-trust security. OAuth2/OIDC replaces fragmented credentials, mutual TLS enforces identity, and fine-grained authorization controls who can produce, consume, and evolve schemas, all from one identity provider.
+
+Live demo: Keycloak realm setup, Kafka OAuth2 listeners, Apicurio OIDC integration, client credential flows. You'll see exactly where teams get this wrong (works in dev fails in prod) and how to avoid those pitfalls.
+
+Benefits to the Ecosystem:
+Shows production-ready security integration between Keycloak, Strimzi, and Apicurio Registry (CNCF sandbox), three projects commonly deployed together but rarely shown with unified auth. Provides a deployable reference architecture for securing Kubernetes-native data platforms with zero-trust principles.
+
+
+SUBMISSION 3: Agent Discovery and Governance
+---------------------------------------------
+
+Title:
+From Schema Registry to Agent Registry: Governing AI Discovery with the A2A Protocol
+
+Session Format:
+Session Presentation (35 minutes)
+
+Abstract (900 char max):
+As organizations adopt AI agents they're rediscovering the governance crisis that microservices faced: discovery, versioning, and compatibility. One team updates a prompt template or model schema and downstream agents silently break.
+
+This talk shows how Apicurio Registry (CNCF sandbox) evolved to manage AI-native artifacts: A2A Agent Cards, LLM Model Schemas, and prompt templates. Live demo: agents discovering each other through the A2A Protocol backed by registry-enforced compatibility rules that catch breaking changes before production.
+
+You'll see an agent card registered, another agent discover it, and the registry reject incompatible version pushes. Also demo prompt template versioning with variable substitution.
+
+Benefits to the Ecosystem:
+Demonstrates how CNCF sandbox project Apicurio Registry extends schema governance patterns to AI agent ecosystems. Shows practical integration of A2A Protocol with existing Kubernetes infrastructure. Addresses the emerging problem of agent sprawl in cloud-native environments with proven governance patterns from the microservices era.
+
+
+SUBMISSION 4: ML Pipeline on Kubernetes
+----------------------------------------
+
+Title:
+Real-Time Content Classification on Kubernetes: An End-to-End Open Source ML Pipeline
+
+Session Format:
+Session Presentation (35 minutes)
+
+Abstract (900 char max):
+Production ML pipelines require more than just a model: you need streaming ingestion, feature engineering, inference serving, and observability, all deployed and scaled on Kubernetes.
+
+This talk demonstrates a complete real-time classification pipeline built with Kafka on Strimzi for streaming data, Apicurio Registry (CNCF sandbox) for schema governance, Spark Structured Streaming for ML inference, and the full observability stack (Prometheus, Grafana, Jaeger, OpenTelemetry). Live demo classifying Reddit posts in real-time.
+
+You'll see the entire flow: data ingestion, schema validation, feature transformation, model serving, and metrics collection, all running on Kubernetes with horizontal scaling.
+
+Benefits to the Ecosystem:
+Demonstrates production-grade ML infrastructure using CNCF and cloud-native projects: Strimzi, Apicurio Registry, OpenTelemetry, Prometheus. Shows how to operationalize ML on Kubernetes beyond just model serving. The architecture is fully reproducible and addresses real challenges teams face when deploying ML at scale.
+
+
+Speaker Bio (for all submissions):
+Carles Arnal is a Principal Software Engineer at IBM and a core maintainer of Apicurio Registry, a CNCF sandbox project. He specializes in event-driven architectures, CDC pipelines, and cloud-native data platforms on Kafka and Kubernetes. Based in Barcelona, Spain.

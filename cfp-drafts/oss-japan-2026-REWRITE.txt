@@ -1,0 +1,72 @@
+OSS Summit Japan 2026 — REWRITE (if editable on portal)
+========================================================
+
+STATUS: Already submitted Jun 3, 2026. Edit if portal allows.
+
+
+SUBMISSION 1: CNCF Sandbox Journey
+-----------------------------------
+
+Title: So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+
+Description:
+Getting accepted into the CNCF Sandbox is a milestone -- but nobody tells you about the months of governance restructuring, community alignment, and uncomfortable technical decisions that precede it. This talk pulls back the curtain on what the journey actually looks like from a maintainer who went through it.
+
+I'll walk through the concrete steps, the surprises, and the mistakes: aligning project governance with foundation expectations, adapting a contribution model that had worked fine for years, navigating due diligence questions we weren't prepared for, and the technical changes required to meet cloud-native standards. I'll also cover what changed after acceptance -- more contributors, more visibility, and more responsibility than we expected.
+
+Attendees will leave with:
+- A realistic, step-by-step roadmap for submitting an open-source project to the CNCF Sandbox
+- The governance, licensing, and community structure decisions that foundations actually evaluate
+- An honest assessment of the benefits and new obligations -- so you can decide if it's worth it for your project
+
+Track: OSS Enabling & Management
+Subtopic: Open Source Governance and Models (KEEP — good fit)
+Audience Level: Intermediate (CHANGE from Beginner — this is for maintainers, not newcomers)
+
+Benefits to the Ecosystem (REWRITE):
+The CNCF Sandbox is the primary on-ramp for open-source projects entering the cloud-native ecosystem, yet the submission process remains opaque to most maintainers. This talk provides a reusable, honest playbook — covering governance alignment, due diligence preparation, and post-acceptance obligations — that lowers the barrier for the next wave of projects joining the foundation. By demystifying the process, it helps the ecosystem grow with projects that are better prepared for foundation-level governance from day one.
+
+
+SUBMISSION 2: Security / Zero-Trust
+-------------------------------------
+
+Title: One Identity Provider, Zero Trust Gaps: Securing Kafka Data Platforms End-to-End
+
+Description:
+Your Kafka cluster uses one auth mechanism. Your schema registry uses another. Your applications use a third. Each component is secured individually but the gaps between them are where breaches happen. Attackers don't break your Kafka ACLs; they exploit the credential handoff between Kafka and everything around it.
+
+This session shows how to collapse three auth mechanisms into one by wiring Keycloak as the single identity provider across a Kafka data platform on Kubernetes. You'll see OAuth2/OIDC replace fragmented credentials, mutual TLS enforce identity across every connection -- broker, schema registry, consuming applications -- and fine-grained authorization control who can produce, consume, and evolve schemas.
+
+Live demo: Keycloak realm setup, Kafka OAuth2 listeners on Strimzi, schema registry OIDC integration, and client credential flows. You'll see exactly where teams get this wrong (works in dev, fails in prod) and how to avoid those pitfalls with proper configuration.
+
+Track: Cloud & Orchestration
+Topic: Security (KEEP)
+Audience Level: Intermediate (KEEP)
+
+Benefits to the Ecosystem (REWRITE):
+Kafka-based data platforms are increasingly deployed on Kubernetes, but most teams secure each component independently — creating authentication gaps between the broker, schema registry, and consuming applications that are invisible until they're exploited. This talk provides a deployable reference architecture and a concrete pitfalls checklist for unifying identity across the entire data platform with a single OAuth2/OIDC provider, directly reducing the attack surface of cloud-native data infrastructure.
+
+
+SUBMISSION 3: Agent Discovery
+-------------------------------
+
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Description:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which -- or what happens when one team's "minor update" silently breaks four downstream consumers. If this sounds familiar, it should: it's the same discovery and compatibility crisis that hit APIs a decade ago. The difference is that agents evolve faster, fail more silently, and have no contract layer by default.
+
+In this session, I'll show how to apply proven registry-based governance patterns to AI agents using the A2A (Agent-to-Agent) Protocol. In a live demo, you'll see agents publishing discoverable Agent Cards to a central registry, negotiating capabilities at runtime, and failing fast when a breaking change is detected -- all before reaching production. The patterns demonstrated apply to any registry infrastructure that supports versioning and compatibility checks.
+
+Attendees will walk away with:
+- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
+- Concrete patterns for enforcing compatibility rules across independently evolving agents
+- A clear comparison of where A2A, MCP, and traditional API governance overlap and diverge
+
+Track: Open AI & Data
+Topic: AI Agents (KEEP)
+Audience Level: Intermediate (KEEP)
+
+Benefits to the Ecosystem (REWRITE):
+Multi-agent AI systems are scaling faster than the governance tooling around them, creating the same discovery and compatibility crisis that microservices faced a decade ago. This talk introduces a concrete, protocol-based governance model — using the A2A standard for agent discovery and compatibility enforcement — that gives the ecosystem a reusable pattern for managing agent sprawl before it becomes unmanageable. The approach builds on proven schema registry principles, making it immediately adoptable by teams already familiar with API or schema governance.
+
+Presented this talk before: Yes — FOST Amsterdam, June 2026 (KEEP)

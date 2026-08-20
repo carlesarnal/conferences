@@ -1,0 +1,81 @@
+J-FALL 2026 SUBMISSIONS
+=======================
+
+Dates: ~November, Netherlands
+CFP: ~mid 2026
+URL: https://jfall.nl/
+
+Relevant talks: [A][E][S][DC][DL][KP][CJ]
+
+
+SUBMISSION 1: Data Contracts for AI
+------------------------------------
+
+Title:
+Data Contracts for Event-Driven AI: How Schema Registries Prevent Pipeline Failures
+
+Session Type:
+Regular Session (45-60 minutes)
+
+Abstract:
+45% of enterprise AI projects fail on data quality not model accuracy. The root cause? Silent schema changes. A Kafka producer evolves its schema and downstream ML inference services crash at 3 AM.
+
+This session demonstrates how data contracts enforced through Apicurio Registry (CNCF sandbox) bring the same discipline to AI pipelines that API contracts brought to microservices. Live demo with Debezium CDC, Kafka on Strimzi, Apicurio Registry, and an ML inference service built in Java. You'll see the registry catch breaking changes at produce time not at prediction time.
+
+I'll compare schema evolution strategies (Avro, Protobuf, JSON Schema) and show when each fits AI workloads. The demo uses Java serializers, Quarkus for the ML service, and deploys on Kubernetes.
+
+Audience Level:
+Intermediate
+
+Tags:
+Java, Kafka, AI/ML, Event-Driven Architecture, Quarkus
+
+
+SUBMISSION 2: Edge to Cloud
+----------------------------
+
+Title:
+From Edge to Cloud: Building Real-Time Data Pipelines with Debezium, Kafka, and Apicurio on Kubernetes
+
+Session Type:
+Regular Session (45-60 minutes)
+
+Abstract:
+A row changes in PostgreSQL at the edge. Milliseconds later an Elasticsearch index in the cloud reflects it, no batch jobs, no polling. This talk shows how to build that pipeline using only open-source Java tools on Kubernetes.
+
+Live demo: Debezium for CDC, Apicurio Registry (CNCF sandbox) for schema enforcement, Kafka on Strimzi for streaming, and Quarkus for stream processing. You'll see data flow from PostgreSQL to Elasticsearch with sub-second latency, schema evolution with Avro, and how it all deploys on Kubernetes.
+
+Presented at Current, Data Saturday, and other conferences since 2023. All components are Java-based and open-source.
+
+Audience Level:
+Intermediate
+
+Tags:
+Java, Kafka, CDC, Kubernetes, Quarkus
+
+
+SUBMISSION 3: Kafka Proxy Validation
+-------------------------------------
+
+Title:
+Transparent Schema Validation at the Kafka Proxy Layer with Kroxylicious
+
+Session Type:
+Regular Session (45-60 minutes)
+
+Abstract:
+Schema validation usually happens at the producer client but what about legacy producers you can't modify or teams that skip validation? The schema-invalid messages still reach Kafka and by then the damage is done.
+
+This session introduces Kroxylicious, a protocol-aware Kafka proxy written in Java. I'll demo a setup where a Kroxylicious filter intercepts produce requests, validates payloads against schemas stored in Apicurio Registry (CNCF sandbox), and rejects non-compliant messages before they reach the broker.
+
+You'll see invalid JSON rejected at the proxy and valid messages forwarded to Kafka. I'll cover the Java filter implementation, the registry integration, and deployment on Kubernetes.
+
+Audience Level:
+Intermediate
+
+Tags:
+Java, Kafka, Kroxylicious, Schema Validation
+
+
+Speaker Bio:
+Carles Arnal is a Principal Software Engineer at Red Hat working on the API space. He's also an associate professor at BarcelonaTech and an active committer of Quarkus with over 10 years of industry experience.

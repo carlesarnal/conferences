@@ -1,0 +1,48 @@
+JCON EUROPE 2027 SUBMISSIONS
+=============================
+
+Dates: Apr 26-29, 2027, Cologne
+CFP: ~Sep-Oct 2026
+URL: https://2027.europe.jcon.one/
+
+
+SUBMISSION 1: Agent Governance
+-------------------------------
+
+Title:
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Abstract:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which -- or what happens when one team's update silently breaks four downstream consumers. This is the same discovery and compatibility crisis that hit APIs a decade ago, except agents evolve faster and fail more quietly.
+
+In a live demo, I'll apply proven registry-based governance patterns to AI agents using the A2A Protocol. Agents publish discoverable Agent Cards, negotiate capabilities at runtime, and fail fast on breaking changes. All Java-based tooling -- Quarkus agents, Java registry client, standard REST APIs.
+
+Audience Level: Intermediate
+
+
+SUBMISSION 2: Real-Time Lakehouse
+----------------------------------
+
+Title:
+Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+
+Abstract:
+Batch ETL runs nightly. Analysts query stale data. The streaming-first lakehouse replaces all of that with a single, real-time pipeline built with open-source Java tools on Kubernetes. Live demo: Debezium captures PostgreSQL changes, streams through Kafka with schema enforcement, and lands in Apache Iceberg tables -- queryable within seconds via Trino or Spark.
+
+Audience Level: Intermediate
+
+
+SUBMISSION 3: Kafka Proxy
+--------------------------
+
+Title:
+Bad Messages Should Never Reach the Broker: Schema Validation at the Kafka Proxy Layer
+
+Abstract:
+Schema validation usually happens at the producer -- but legacy producers, third-party integrations, and teams that skip validation still send bad data to Kafka. I'll demo enforcing schema validation transparently at the proxy layer using Kroxylicious. A Java-based proxy filter intercepts produce requests, validates payloads against a schema registry, and rejects non-compliant messages before they reach the broker -- zero changes to producer code.
+
+Audience Level: Intermediate
+
+
+Speaker Bio:
+Carles Arnal is a CNCF Ambassador and core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
