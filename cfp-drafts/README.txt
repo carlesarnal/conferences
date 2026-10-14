@@ -1,6 +1,6 @@
 CFP DRAFTS — INDEX
 ==================
-Updated: September 28, 2026 (two discovery rounds + reorganisation)
+Updated: September 30, 2026 (three discovery rounds + reorganisation)
 
 Folders are named by EVENT month (YYYY-MM). 2027-tbd = event date unknown.
 "~" = estimated month. Past 2026 events were removed; they remain in git history.
@@ -28,6 +28,10 @@ Oct 23  voxxed-days-switzerland-2027     2027-02  CFP open — Ticino, CERN, Zur
 Oct 31  java-day-istanbul-2027           2027-04  new — Java + cloud native data + agentic tracks
 Nov 1   touraine-tech-2027               2027-02  new
 Nov 1   scale-24x-2027                   2027-04  drafted
+Nov 27  programmable-2027                2027-03  new — Australia; clashes with KubeCon EU
+Nov 30  civo-navigate-london-2027        2027-09  new, lower priority
+Dec 1   containerdays-ai-context-2027    2027-02  new — London (Warsaw Dec 15)
+Dec 1   voxxed-days-amsterdam-2027       2027-03  new
 Nov     berlin-buzzwords-2027            2027-06  CFP opens in November
 Nov 8   foss-backstage-2027              2027-03  new — story talks (verify CFP)
 Nov 22  devfest-nantes-2027              2027-03  new — mostly French talks; verify CFP
@@ -52,15 +56,20 @@ BY EVENT MONTH
   ndc-security-oslo-2027            Feb 15-18, Oslo         drafted — CFP Oct 18
   state-of-open-con-2027            Feb 9-10, London        new — CFP TBA; clashes with JFokus/AI DevWorld
   touraine-tech-2027                Feb 18, Tours           new — CFP Nov 1
+  containerdays-ai-context-2027     Feb 10 London / Feb 22 Warsaw  new — CFP Dec 1 / Dec 15
   voxxed-days-switzerland-2027      Feb 19 / Mar 5 / Mar 9  CFP open — Oct 23
   coderioja-2027                    Feb 27, Logroño         new — CFP Jan 31
 
 2027-03
+  foss-backstage-2027               Mar 2-3, Berlin         new — CFP ~Nov 8
   incontro-devops-italia-2027       Mar 9, Bologna          new — CFP Dec 13
   future-tech-2027                  Mar 10, Utrecht         new — CFP Oct 12
   devfest-nantes-2027               Mar 11-12, Nantes       new — CFP ~Nov 22
   cncf-colocated-europe-2027        Mar 15, Barcelona       new — CFP Oct 18
   kubecon-eu-2027                   Mar 15-18, Barcelona    submitted
+  programmable-2027                 Mar 16 Melbourne / Mar 18 Sydney  new — CFP Nov 27; clashes with KubeCon EU
+  javaone-2027                      Mar 23-25, Redwood City new — CFP Oct 9
+  voxxed-days-amsterdam-2027        Mar 31, Amsterdam       new — CFP Dec 1
   foss-land-openchain-2027          Mar 22, Stuttgart       new — lower priority
 
 2027-04
@@ -72,6 +81,7 @@ BY EVENT MONTH
   qcon-london-2027                  Apr 13-16, London       watch — invite / spontaneous
   devopsdays-zurich-2027            Apr 14-15, Winterthur   watch
   java-day-istanbul-2027            Apr 17, Istanbul        new — CFP Oct 31
+  keycloak-devday-2027              Apr 8-9, Darmstadt      new — CFP Oct 24
   ndc-sydney-2027                   ~Apr, Sydney            watch — 2027 not announced
   jcon-europe-2027                  Apr 26-29, Cologne      drafted — ready
   agntcon-mcpcon-na-2027            Apr 28-29, San Francisco new — CFP not open
@@ -88,6 +98,7 @@ BY EVENT MONTH
 
 2027-06
   cloud-native-days-france-2027     Jun 3, Paris            watch
+  api-conference-london-2027        Jun 7, London           new, lower priority
   ai-con-usa-2027                   Jun 6, Seattle          new — CFP Oct 18
   berlin-buzzwords-2027             Jun 13-15, Berlin       watch — CFP opens Nov
   apidays-2027                      Jun Amsterdam / Aug London / Sep Munich — rolling
@@ -105,6 +116,7 @@ BY EVENT MONTH
   goto-copenhagen-2027              ~Sep                    watch
   jconf-dev-2027                    ~Sep                    watch
   kcdc-2027                         ~Sep, Kansas City       watch
+  civo-navigate-london-2027         Sep 27, London          new — CFP Nov 30
 
 2027-10
   dataengbytes-2027                 Oct 12 Melbourne / Oct 15 Sydney (also Mar-May cities) new
