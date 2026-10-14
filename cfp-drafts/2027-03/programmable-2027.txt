@@ -1,0 +1,16 @@
+Programmable 2027 (Melbourne / Sydney)
+======================================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: Melbourne March 16, Sydney March 18, 2027
+CFP: Closes November 27, 2026 (aggregator; verify)
+URL: https://programmable.tech
+Source: developers.events; verify before submitting.
+
+Why it fits: Australia priority destination. You were declined at Programmable 2026 with the older streaming-ML abstract. Clashes with KubeCon EU Barcelona (Mar 15-18).
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- database-to-lakehouse-realtime
+- agent-discovery
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

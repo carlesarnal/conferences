@@ -1,0 +1,16 @@
+ContainerDays & AI Context London / Warsaw 2027
+===============================================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: London Feb 10, 2027; Warsaw Feb 22, 2027
+CFP: London closes Dec 1, 2026; Warsaw closes Dec 15, 2026 (aggregator; verify)
+URL: https://www.containerdays.io/containerdays-warsaw-2027/ ; https://pretix.eu/docklandmedia/cdsaicontextlondon27/
+Source: developers.events; verify before submitting.
+
+Why it fits: ContainerDays spin-offs focused on containers and AI context (agents, MCP).
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- agent-discovery
+- governing-agent-swarm (A2A or MCP?)
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

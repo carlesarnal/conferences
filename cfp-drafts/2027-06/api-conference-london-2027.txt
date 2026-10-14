@@ -1,0 +1,16 @@
+API Conference London 2027
+==========================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: June 7, 2027, London (with DevOpsCon London)
+CFP: Not listed
+URL: https://apiconference.net/london
+Source: confs.tech; verify before submitting. Lower priority.
+
+Why it fits: API design and governance audience; Agent Cards as API contracts fits.
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- agent-discovery
+- prompt-templates-as-artifacts
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

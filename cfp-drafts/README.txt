@@ -16,17 +16,20 @@ data contracts, stream prediction.
 
 DEADLINES — NEXT 8 WEEKS (verify on the official page before submitting)
 -------------------------------------------------------------------------
+Oct 9   javaone-2027                     2027-03  new — Java flagship, US travel
 Oct 12  future-tech-2027                 2027-03  new, lower priority
 Oct 15  snowcamp-2027                    2027-01  new
 Oct 16  jcon-europe-2027 (target)        2027-04  drafted — both demos verified; hard close Oct 23
 Oct 18  cncf-colocated-europe-2027       2027-03  new — Agentics Day, KeycloakCon, CN AI + Inference Day
 Oct 18  ndc-security-oslo-2027           2027-02  drafted — security demo needs fixing
 Oct 18  ai-con-usa-2027                  2027-06  new, lower priority
+Oct 24  keycloak-devday-2027             2027-04  new — security talk once demo is done
 Oct 23  voxxed-days-switzerland-2027     2027-02  CFP open — Ticino, CERN, Zurich
 Oct 31  java-day-istanbul-2027           2027-04  new — Java + cloud native data + agentic tracks
 Nov 1   touraine-tech-2027               2027-02  new
 Nov 1   scale-24x-2027                   2027-04  drafted
 Nov     berlin-buzzwords-2027            2027-06  CFP opens in November
+Nov 8   foss-backstage-2027              2027-03  new — story talks (verify CFP)
 Nov 22  devfest-nantes-2027              2027-03  new — mostly French talks; verify CFP
 Dec 13  incontro-devops-italia-2027      2027-03  new
 Jan 31  coderioja-2027                   2027-02  new, small, near Barcelona

@@ -1,0 +1,16 @@
+FOSS Backstage 2027
+===================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: March 2-3, 2027, Berlin (verified Sep 30)
+CFP: Closes ~November 8, 2026 (aggregator; verify on the site)
+URL: https://foss-backstage.de/
+Source: Official site (dates); CFP date from developers.events.
+
+Why it fits: Conference on the non-code side of open source: governance, community, sustainability, compliance. The best fit found so far for your story talks.
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- oss-maintenance
+- cncf-sandbox-journey
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

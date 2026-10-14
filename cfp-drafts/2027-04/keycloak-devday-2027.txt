@@ -1,0 +1,15 @@
+KEYCLOAK DevDay 2027
+====================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: April 8-9, 2027, Darmstadt, Germany (verified Sep 30)
+CFP: Closes October 24, 2026; talks accepted in batches, submit early
+URL: https://keycloak-day.dev
+Source: Official site.
+
+Why it fits: Largest Keycloak community conference (200+ attendees). No beginner talks wanted. No travel support. You were declined at KEYCLOAK DevDay 2026 with the older security abstract; the rewritten one is more specific.
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- security (only after finishing the demo)
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

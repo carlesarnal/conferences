@@ -1,0 +1,16 @@
+Voxxed Days Amsterdam 2027
+==========================
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: March 31, 2027, Amsterdam
+CFP: Closes December 1, 2026 (aggregator; verify)
+URL: https://amsterdam.voxxeddays.com/
+Source: developers.events; verify before submitting.
+
+Why it fits: Java-heavy community conference, same family as Devoxx.
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- kafka-proxy-schema-validation
+- database-to-lakehouse-realtime
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt

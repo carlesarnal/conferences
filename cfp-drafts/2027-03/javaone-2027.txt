@@ -1,0 +1,17 @@
+JavaOne 2027
+============
+
+Status: New in the September 30, 2026 discovery round; no submission.
+Event: March 23-25, 2027, Redwood City, CA (verified Sep 30)
+CFP: Closes October 9, 2026
+URL: https://javaone.com
+Source: Official site.
+
+Why it fits: Oracle's flagship Java conference; topics include core Java, cloud, AI, frameworks, tooling. Quarkus + Kafka content fits. Travel to the US; needs approval under the travel policy.
+
+Suggested talks (paste abstracts from talks/<topic>/description.txt):
+- kafka-proxy-schema-validation (Java proxy, verified demo)
+- database-to-lakehouse-realtime (JVM pipeline, verified demo)
+- agent-discovery (Quarkus + LangChain4j agents, verified demo)
+
+Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt
