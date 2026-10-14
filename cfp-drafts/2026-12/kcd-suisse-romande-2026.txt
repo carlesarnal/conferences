@@ -1,0 +1,100 @@
+KCD Suisse Romande 2026 — CFP Submissions
+==========================================
+
+Conference: Dec 9-10, 2026 — CERN Science Gateway, Genève, Switzerland
+CFP deadline: Aug 22, 2026, 23:59 CEST (URGENT — submit today)
+URL: https://kcd.cloud-native-romandy.ch/
+Max submissions: 2 per speaker
+Audience: ~300, cloud-native community, talks in French and English
+Overlap warning: Sessionize flags OSS Summit Japan 2026 (Dec 7-9) — dates overlap.
+  Geneva Dec 9-10 vs Japan Dec 7-9. Note when submitting; KCD likely fine since
+  OSS Japan submissions were rewrites awaiting results.
+
+================================================================
+SUBMISSION 1: CNCF Sandbox Journey (community/maintainer story)
+================================================================
+
+Session Title:
+So You Want to Join the CNCF: A Maintainer's Honest Guide to the Sandbox Process
+
+Description:
+What does applying to the CNCF Sandbox involve from the maintainer's side? I'll share my experience participating in Apicurio Registry's submission and explain how to prepare a project's application.
+
+We'll discuss documenting governance, licensing, contribution processes, and project scope; finding the current submission requirements; and planning for ongoing maintenance. I'll distinguish lessons from our application from general advice, without treating acceptance as a guarantee of adoption, contributor growth, or funding.
+
+Attendees will leave with:
+- A realistic, step-by-step roadmap for submitting an open-source project to the CNCF Sandbox
+- The governance, licensing, and community structure decisions that foundations actually evaluate
+- An honest assessment of the benefits and new obligations — so you can decide if it's worth it for your project
+
+Submission format: Session (solo speaker, 30-45 min, whichever the form offers)
+Language: English
+Additional speakers: None
+Additional accommodations: None
+
+Benefits to the ecosystem:
+The CNCF Sandbox is the main on-ramp for projects entering the cloud-native ecosystem, yet the process remains opaque to most maintainers. This talk provides an honest, reusable playbook — governance alignment, due diligence preparation, and post-acceptance obligations — told from the perspective of an active sandbox project maintainer. It lowers the barrier for future projects and helps the ecosystem grow with projects better prepared for foundation-level governance from day one.
+
+Additional resources:
+- Apicurio Registry: https://github.com/Apicurio/apicurio-registry
+- LinkedIn: https://www.linkedin.com/in/carlesarnal/
+- CNCF project page: https://www.cncf.io/projects/apicurio-registry/
+
+CNCF Speaker Bureau: Yes
+Code of Conduct: Accept
+
+
+================================================================
+SUBMISSION 2: Agent Governance (flagship talk)
+================================================================
+
+Session Title:
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Description:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which — or what happens when one team's "minor update" silently breaks four downstream consumers. If this sounds familiar, it should: it's the same discovery and compatibility crisis that hit APIs a decade ago. The difference is that agents evolve faster, fail more silently, and have no contract layer by default.
+
+I'll demonstrate publishing, discovering, and versioning A2A Agent Cards with Apicurio Registry, then show how communication schemas can be checked independently. We'll distinguish metadata discovery from runtime negotiation and structural compatibility from behavioral correctness. Integration tests are still needed when an agent's behavior changes without changing its advertised interface.
+
+Attendees will walk away with:
+- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
+- Concrete patterns for enforcing compatibility rules across independently evolving agents
+- A clear comparison of where A2A, MCP, and traditional API governance overlap and diverge
+
+Submission format: Session (solo speaker, 30-45 min)
+Language: English
+Additional speakers: None
+Additional accommodations: None
+
+Benefits to the ecosystem:
+Multi-agent AI systems are scaling faster than the governance tooling around them. Without discovery and compatibility contracts, organizations face the same cascading failure patterns that plagued ungoverned microservices — but with faster iteration cycles and more silent failures. This talk gives the cloud-native community a concrete, protocol-based governance model using the A2A standard, built on proven schema-registry patterns that CNCF practitioners already understand. It directly addresses the growing intersection of AI infrastructure and cloud-native operations.
+
+Additional resources:
+- Demo repo: https://github.com/carlesarnal/agent-discovery-demo
+- Apicurio Registry: https://github.com/Apicurio/apicurio-registry
+- LinkedIn: https://www.linkedin.com/in/carlesarnal/
+
+CNCF Speaker Bureau: Yes
+Code of Conduct: Accept
+
+
+================================================================
+SPEAKER PROFILE FIELDS (form)
+================================================================
+
+Speaker: Carles Arnal
+Email: carnalca@redhat.com
+Job Title: Principal Software Engineer
+Company: IBM
+Location (travel from): Barcelona, Spain
+Pronouns: he/him
+
+Bio (update the prefilled one to this — updated bio):
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+
+NOTE: The form's prefilled bio is the older version. Replace it with the one above
+use this version.
+
+Blog: (leave blank or personal site)
+Phone number: (fill in)
+Co-speakers: none

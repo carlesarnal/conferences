@@ -1,12 +1,12 @@
-Title: Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
 
-Batch ETL runs nightly. Your analysts query stale data. Your ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline — and you can build it entirely with open-source tools on Kubernetes.
+Streaming database changes into Apache Iceberg looks like three components and a diagram. Building it on current releases took longer: metadata files corrupted on S3-compatible storage, a sink that reported RUNNING while committing nothing, and "real time" that turned out to depend on one setting most people never change.
 
-In a live demo, I'll build a complete pipeline end to end: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables — queryable within seconds via Trino or Spark. I'll show how the Flink Dynamic Iceberg Sink handles automatic schema evolution, eliminating the manual DDL changes that plague traditional data lakes. You'll also see what happens when an upstream schema change propagates through the entire pipeline — and how compatibility rules prevent it from corrupting your lakehouse.
+In this session, we build the pipeline live with Strimzi, Debezium, Apicurio Registry (CNCF sandbox), the Apache Iceberg Kafka Connect sink and Trino. We time a new row from PostgreSQL into Iceberg (30-45 seconds with a 10-second commit interval; the default is five minutes), add a column and follow it through a new registry version to an evolved table, and query an append-only changelog for current state and past snapshots.
 
 Attendees will leave with:
-- A deployable CDC-to-Iceberg pipeline architecture using only open-source components on Kubernetes
-- Practical patterns for handling schema evolution across the Kafka-to-Iceberg boundary
-- A clear framework for when streaming lakehouse replaces batch ETL and where hybrid patterns still win
+- A reproducible CDC-to-Iceberg pipeline on Kubernetes using only open source
+- The settings that decide freshness, and the trade-offs of shortening them
+- The failure modes we hit and how to detect them before your analysts do
 
-GitHub projects: debezium-ocp-etc-demo, apicurio-registry
+Demo: talks/database-to-lakehouse-realtime (verified end to end, September 2026)

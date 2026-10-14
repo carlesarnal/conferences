@@ -1,0 +1,7 @@
+I've been accepted to speak at Cloud Native AI Summit Europe in Paris (Dec 2-3).
+
+The talk is about the growing number of AI agents companies deploy across teams, and how to discover, version and govern them with open standards like A2A and MCP, including a live demo.
+
+It's good visibility for us in the AI agents space, which the BU is keen on.
+
+Estimated cost is around €1,650: flight €350, hotel €900 (4 nights; I'm extending my stay through Dec 6 and happy to cover the extra nights if needed), meals €300 and local transport €100. The conference pass is free for speakers.

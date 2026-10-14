@@ -1,0 +1,118 @@
+AI DevWorld 2027 — CFP Submissions
+====================================
+
+Conference: Feb 9-11, 2027 — Santa Clara Convention Center, CA (in-person required)
+Part of DeveloperWeek 2027 (25+ tracks, 3,000+ attendees, 115+ countries)
+CFP deadline: First Round Aug 28, 2026 / Final Round Sep 18, 2026, 23:59 PDT
+URL: https://www.developerweek.com/ai-devworld/
+Max submissions: 3 per speaker
+Speaker benefit: 1 Speaker PRO Pass + 1 Speaker Guest PRO Pass
+
+Tracks available (pick 2 per submission):
+- Agentic AI
+- AI & ML Engineering
+- AI-Augmented Software Development
+- AI Data Storage, Management & Training
+- AI Executive Summit
+- AI in the Enterprise
+- AI Ops, Infrastructure & MCP
+- AI Security
+
+================================================================
+SUBMISSION 1: Agent Governance (flagship)
+================================================================
+
+Session Title:
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+
+Description:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which — or what happens when one team's "minor update" silently breaks four downstream consumers. If this sounds familiar, it should: it's the same discovery and compatibility crisis that hit APIs a decade ago. The difference is that agents evolve faster, fail more silently, and have no contract layer by default.
+
+I'll demonstrate publishing, discovering, and versioning A2A Agent Cards with Apicurio Registry, then show how communication schemas can be checked independently. We'll distinguish metadata discovery from runtime negotiation and structural compatibility from behavioral correctness. Integration tests are still needed when an agent's behavior changes without changing its advertised interface.
+
+Attendees will walk away with:
+- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
+- Concrete patterns for enforcing compatibility rules across independently evolving agents
+- A clear comparison of where A2A, MCP, and traditional API governance overlap and diverge
+
+1st Track: Agentic AI
+2nd Track: AI Ops, Infrastructure & MCP
+Session format: Conference Session / Talk (select the standard talk option)
+
+
+================================================================
+SUBMISSION 2: Prompt Governance
+================================================================
+
+Session Title:
+Your Prompts Are Unversioned: Applying Schema Governance to LLM Templates
+
+Description:
+You version your code. You version your schemas. But your prompt templates live in environment variables, config files, or hardcoded strings — unversioned, ungoverned, and one edit away from breaking your AI application in ways that no test suite catches.
+
+I'll demonstrate registering, versioning, and rendering prompt templates with Apicurio Registry, then discuss how a Quarkus/LangChain4j application can consume a selected version. We'll separate structural checks on template inputs from behavioral evaluation of model outputs: a compatible template can still produce worse answers. Version selection and rollback support controlled releases, while evaluation tests remain necessary to detect quality regressions.
+
+Attendees will leave with:
+- A reusable pattern for versioning prompt templates and checking their inputs
+- An integration approach for Quarkus + LangChain4j applications consuming selected prompt versions
+- A clear framework for deciding when prompt governance pays off and when it's overkill
+
+1st Track: AI-Augmented Software Development
+2nd Track: AI & ML Engineering
+Session format: Conference Session / Talk
+
+
+================================================================
+SUBMISSION 3: Data Contracts for AI Pipelines
+================================================================
+
+Session Title:
+Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
+
+Description:
+An inference service can fail even when its model has not changed: an upstream producer changes a field type, and the consumer can no longer read its inputs. Independently evolving producers and consumers need explicit data contracts.
+
+Using a Kafka-based AI pipeline as the architectural context, I'll demonstrate registering Avro contracts, accepting a compatible change, and rejecting an incompatible schema version in Apicurio Registry. We'll identify the serializer and deployment checks needed to enforce these contracts. A registry is not a broker-side firewall, and structural compatibility does not validate feature semantics or model quality.
+
+Attendees will leave with:
+- A concrete pattern for implementing data contracts in streaming AI architectures
+- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits ML workloads
+- A reproducible setup they can deploy to enforce schema governance across their own pipelines
+
+1st Track: AI Data Storage, Management & Training
+2nd Track: AI & ML Engineering
+Session format: Conference Session / Talk
+
+
+================================================================
+SPEAKER PROFILE FIELDS (form)
+================================================================
+
+Speaker: Carles Arnal
+Email: carnalca@redhat.com
+Speaker Company: IBM
+Job Title: Principal Software Engineer
+Speaker Country: Spain
+Speaker Phone Number: (fill in)
+Speaker Address: (fill in — current mailing address)
+Submitting for yourself: Yes
+Name & Email of PR/Media Contact: (leave blank, or your own email)
+Co-speakers: none
+
+Speaker Bio — NOTE: form has the OLD version prefilled. Replace prefilled bio with:
+  Carles Arnal is a core maintainer of Apicurio Registry
+  (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to
+  Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also
+  an associate professor at BarcelonaTech (UPC) and speaks regularly at
+  international conferences on event-driven architectures, real-time data
+  pipelines, and AI-ready platforms.
+Review the bio against your current profile before pasting.
+
+List all previous speaking engagements (confirm actual delivery and titles before pasting):
+- JavaZone 2026 (Oslo) — "Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg"
+- Community Over Code Asia 2026 — conflicting acceptance/rejection records; omit until confirmed
+- FOST Munich 2026 — "From OpenAPI to Agent Cards: AI discovery with open standards"
+- API Days Amsterdam 2026 — Agent discovery talk
+- OCX 2026 — "From data stream to prediction: Deploying real-time ML pipelines on Kubernetes"
+- Add older engagements only from confirmed delivery records; a submission or
+  acceptance alone is not evidence of a past presentation.

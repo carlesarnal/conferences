@@ -1,0 +1,50 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+DATA INNOVATION SUMMIT 2027
+============================
+
+Dates: May 18-20, 2027, Kistamässan, Stockholm
+CFP: Speaker nomination form available; no closing date published on that form.
+Verified: September 21, 2026
+Apply: https://hyperight.com/nominate/
+Select event: Data Innovation Summit; region: Nordics.
+Organizers prioritize applied enterprise case studies. These drafts describe
+demonstrations; do not label them production case studies without evidence.
+URL: https://datainnovationsummit.com/
+3000+ attendees, 300+ speakers, 15 stages. Data platforms, AI governance, data engineering, ML pipelines.
+
+
+SUBMISSION 1: Real-Time Lakehouse
+----------------------------------
+
+Title:
+The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+
+Abstract:
+Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline built entirely with open-source tools on Kubernetes.
+
+In a live demo, I'll build a complete pipeline end to end: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds via Trino or Spark. I'll show how Flink's Dynamic Iceberg Sink handles automatic schema evolution, eliminating the manual DDL changes that plague traditional data lakes.
+
+Audience Level: Intermediate
+Track: Data Engineering / Data Platforms
+
+
+SUBMISSION 2: Data Contracts for AI
+-------------------------------------
+
+Title:
+Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
+
+Abstract:
+Independently evolving producers and consumers can break AI pipelines when an upstream field type changes. Explicit data contracts help teams detect structural incompatibilities before rolling out a new schema.
+
+I'll demonstrate compatible and incompatible schema registrations using Apicurio Registry, then explain where serializer and deployment checks fit into a Kafka-based AI pipeline. Structural compatibility does not validate feature semantics or model quality, and enforcement depends on integrating the checks into the write path.
+
+Audience Level: Intermediate
+Track: AI Governance / Data Quality
+
+
+Speaker Bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.

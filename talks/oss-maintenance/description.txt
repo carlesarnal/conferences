@@ -1,12 +1,12 @@
-Title: The Commit Log Won't Tell You This: What Actually Keeps an Open Source Project Alive
+Title: Five Years Maintaining Apicurio Registry: What We Got Wrong About Contributors
 
-Maintaining an open-source project with a small core team across multiple time zones has taught me that the hardest problems aren't technical — they're the ones that don't show up in your issue tracker. This talk is about what the work actually looks like behind the commit log.
+Most maintainer talks agree that community matters. Fewer say which specific decisions grew a contributor base and which ones quietly pushed people away.
 
-I'll share hard-won lessons from years as a maintainer, from a project's early days through CNCF foundation acceptance. No platitudes — concrete stories about what worked and what failed:
+This is a maintainer's account from Apicurio Registry, from a small company-led team to a CNCF Sandbox project: the issues labelled "good first issue" that nobody picked up, the review delays that cost us contributors, the async practices that worked across time zones, and a governance disagreement we handled badly and what we changed afterwards.
 
-- Turning frustrated users into long-term contributors through deliberate engagement
-- The async communication practices that kept a global team aligned without meeting fatigue
-- Navigating governance decisions where the community disagreed — and what we learned
-- Building a sustainability model for the core team's long-term health
+Attendees will leave with:
+- Concrete practices that turned users into repeat contributors, and the ones that didn't
+- How to set review and response expectations a small team can actually keep
+- Warning signs of maintainer burnout and what helped
 
-Whether you maintain a project with three contributors or three hundred, you'll leave with actionable strategies for engagement, conflict resolution, and long-term project health — grounded in real examples, not theory.
+TODO before submitting: pick three real stories and add at least one number (time to first review, repeat contributors, etc.). Recording of an earlier version: DevConf 2024.

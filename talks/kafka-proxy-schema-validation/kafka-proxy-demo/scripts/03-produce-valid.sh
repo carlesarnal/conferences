@@ -1,25 +1,8 @@
 #!/bin/bash
-# Produce valid messages through the Kroxylicious proxy
+# Produce a valid order through the proxy — expected to be accepted
 set -euo pipefail
+source "$(dirname "$0")/lib.sh"
 
-PROXY_BOOTSTRAP="${PROXY_BOOTSTRAP:-localhost:19092}"
-
-echo "=== Producing Valid Messages (through proxy at $PROXY_BOOTSTRAP) ==="
-echo ""
-
-echo "--- Order ORD-001: Valid EUR order ---"
-echo '{"orderId":"ORD-001","customerId":"CUST-42","amount":99.95,"currency":"EUR"}' | \
-  docker exec -i kafka kafka-console-producer.sh \
-    --bootstrap-server "$PROXY_BOOTSTRAP" \
-    --topic orders
-echo "Sent ORD-001"
-
-echo "--- Order ORD-005: Valid USD order ---"
-echo '{"orderId":"ORD-005","customerId":"CUST-99","amount":250.00,"currency":"USD"}' | \
-  docker exec -i kafka kafka-console-producer.sh \
-    --bootstrap-server "$PROXY_BOOTSTRAP" \
-    --topic orders
-echo "Sent ORD-005"
-
-echo ""
-echo "Both messages passed schema validation and reached Kafka"
+echo "=== Valid order (expected: accepted) ==="
+produce_via_proxy "ORD-001: valid order" \
+  '{"orderId":"ORD-001","customerId":"CUST-42","amount":99.95,"currency":"EUR"}'

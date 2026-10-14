@@ -1,4 +1,6 @@
-# Governing the Agent Swarm — Demo Walkthrough
+# A2A or MCP? — Demo Walkthrough
+
+> The talk now reuses the verified [agent-discovery-demo](https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026), which has both A2A agents and an MCP server. The curl-based walkthrough below is older and kept for reference.
 
 This walkthrough accompanies the **governing-agent-swarm** talk. It demonstrates governance patterns for multi-agent AI systems using Apicurio Registry for agent discovery, communication contracts, and model metadata validation.
 

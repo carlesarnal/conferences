@@ -1,0 +1,300 @@
+2027 CONFERENCE PRIORITIES
+=========================
+As of September 21, 2026 (updated September 28)
+
+UPDATE SEPTEMBER 29: IBM allows no travel in 2026; 2027 travel not yet decided. Until it is,
+favour Barcelona events (KubeCon EU, CNCF co-located, DevBcn) and events that pay travel
+(NDC Security). 2026 events (Paris, KCD Suisse Romande, OSS Japan waitlist) are affected.
+
+UPDATE SEPTEMBER 28: Devnexus closed September 22 with no submission recorded.
+JCON's Sessionize deadline is October 23, 23:59 CEST (website says October 16),
+with no travel support. Next order: JCON -> NDC Security -> SCaLE. Both JCON
+demos were rebuilt and verified end to end on September 28 (Kroxylicious 0.24.0
+proxy validation; Strimzi 1.2 / Debezium 3.6 / Iceberg 1.11 lakehouse). Both
+JCON proposals are ready; see cfp-drafts/2027-04/jcon-europe-2027.txt.
+Cloud Native AI Summit Paris (Dec 2-3, 2026): Agent Sprawl ACCEPTED; other three rejected.
+OSS Japan 2026: two rejected, one waitlisted; feedback requested September 28.
+
+RECOMMENDATION
+--------------
+Submit Devnexus first, then JCON Europe, NDC Security, and SCaLE. Prepare for
+Berlin Buzzwords when its CFP opens in November. Keep Japan and Australia
+as priority destinations, with travel decisions following confirmed dates
+and acceptances. KubeCon EU, JFokus, and AI DevWorld are already submitted.
+
+Scope: events taking place in 2027 only. Many application deadlines fall in
+2026. No further 2026 events are part of this plan.
+
+Selection criteria: fit with Apicurio/Quarkus/Kafka/AI governance expertise,
+useful technical audience, travel practicality from Barcelona, family travel
+with wife and young child, and interest in Japan, Australia, and selected US
+destinations. Rankings are recommendations, not acceptance predictions.
+
+1. APPLY NOW — IN DEADLINE ORDER
+--------------------------------
+
+DEVNEXUS — highest immediate priority
+  Event: March 29-31, 2027, Atlanta, USA
+  Deadline: September 22, 2026, 23:59 EDT
+            September 23, 2026, 05:59 Barcelona time
+  Why: Direct Java/JVM fit, with explicit AI Engineering & Infrastructure and
+       Architecture tracks. Strong match for Quarkus and event-driven systems.
+  Lead topics: Agent governance, data contracts, real-time lakehouse.
+  Format: 55-minute regular sessions; six-hour workshops also available.
+  Funding: Speaker admission free; travel/hotel coverage not established.
+  Status: Drafted; no submission confirmed.
+  Draft: removed September 28 (CFP closed, not submitted)
+  Action: Adapt corrected descriptions from the submitted-event drafts;
+          older Devnexus copy still needs technical-claim review.
+  Apply: https://sessionize.com/devnexus-2027/
+
+JCON EUROPE — strongest near-term Java option in continental Europe
+  Event: April 26-29, 2027, Cologne, Germany
+  Deadline: October 16, 2026 (exact closing time not verified)
+  Why: Practical Java audience and a shorter trip than the US options.
+  Lead topics: Kafka proxy validation, lakehouse, agent governance.
+  Funding: Not verified for 2027.
+  Status: Drafted; no submission confirmed.
+  Draft: cfp-drafts/2027-04/jcon-europe-2027.txt
+  Action: Review legacy abstract claims before pasting.
+  CFP: https://2027.europe.jcon.one/call-for-papers
+  Apply: https://sessionize.com/jcon-europe-2027
+
+NDC SECURITY — strongest focused security option
+  Event: February 15-18, 2027, Oslo, Norway
+  Deadline: October 18, 2026, 23:59 CEST (Barcelona time)
+  Why: Dedicated security audience; good home for concrete authentication,
+       authorization, and input-validation material.
+  Lead proposal: One Identity Provider, Separate Trust Boundaries: Securing
+                 Kafka and Its Schema Registry
+  Second proposal: Validate Before Kafka: Schema Enforcement at the Proxy Boundary
+  Format: Two 60-minute talks prepared.
+  Funding: Travel and accommodation covered on the official CFP page.
+           This does not establish coverage for family expenses.
+  Status: Revised package prepared; not submitted.
+  Draft: cfp-drafts/2027-02/ndc-security-oslo-2027.txt
+  Apply: https://sessionize.com/ndc-security-2027/
+
+SCALE 24x — strongest currently open OSS/family-trip US option
+  Event: April 1-4, 2027, Pasadena, California, USA
+  Deadline: November 1, 2026 (exact closing time not verified)
+  Why: Community-run open-source audience; lakehouse and maintainer content
+       fit naturally. Potential to extend the trip around Southern California.
+  Lead topics: Real-time lakehouse, CNCF Sandbox journey; agent governance optional.
+  Funding: Travel/hotel coverage not verified.
+  Status: Drafted; no submission confirmed.
+  Draft: cfp-drafts/2027-04/scale-24x-2027.txt
+  CFP: https://www.socallinuxexpo.org/scale/24x/cfp
+
+DATA INNOVATION SUMMIT — selective, lower-priority application
+  Event: May 18-20, 2027, Stockholm, Sweden
+  Deadline: None published on the speaker-nomination form checked.
+  Why: Relevant data/AI audience, but organizers prioritize applied enterprise
+       case studies. Stronger if supported by specific implementation lessons.
+  Lead topics: Lakehouse or data contracts. Label demos as demos.
+  Funding: Not verified.
+  Status: Drafted; no submission confirmed.
+  Draft: cfp-drafts/2027-05/data-innovation-summit-2027.txt
+  Apply: https://hyperight.com/nominate/
+         Select Data Innovation Summit / Nordics.
+
+The event dates and application status above were checked against official
+pages on September 21, 2026. "Open" describes the CFP on that date.
+
+2. ALREADY SUBMITTED — AWAIT RESULTS
+-----------------------------------
+
+KubeCon + CloudNativeCon EU — March 15-18, Barcelona
+  Best local cloud-native opportunity and low travel burden.
+  Draft topics: Agent governance, Sandbox journey, lakehouse.
+  Submission confirmed by user. Exact sessions and submission of the separate
+  Project Opportunity still need confirmation from receipts.
+  Draft: cfp-drafts/2027-03/kubecon-eu-2027.txt
+
+JFokus — February 8-10, Stockholm
+  Strong Java/JVM audience. Draft topics: data contracts, CDC pipelines,
+  Kafka proxy validation, lakehouse.
+  Submission confirmed by user. Travel support is case-by-case in the supplied CFP.
+  Draft: cfp-drafts/2027-02/jfokus-2027.txt
+
+AI DevWorld — February 9-11, Santa Clara, California
+  AI-focused US opportunity, part of DeveloperWeek.
+  Draft topics: Agent governance, prompt governance, data contracts.
+  Submission confirmed by user. Speaker and guest passes offered; travel/hotel
+  coverage not established by the supplied CFP.
+  Draft: cfp-drafts/2027-02/ai-devworld-2027.txt
+
+These are three submitted 2027 events, not three acceptances. Exact proposal
+counts and submission dates have not been verified. DeveloperWeek and AI
+DevWorld should not be counted as two separate submissions here.
+
+Conflict: JFokus and AI DevWorld overlap across continents. Choose one if both
+accept: JFokus for JVM community and easier travel; AI DevWorld for an AI-focused
+California trip. Do not plan to attend both in full.
+
+3. BEST UPCOMING TECHNICAL TARGETS
+---------------------------------
+
+BERLIN BUZZWORDS — top upcoming data-infrastructure target
+  Confirmed event: June 13-15, 2027, Kulturbrauerei, Berlin.
+  Official announcement says the CFP opens in November 2026; closing date TBD.
+  Lead with lakehouse, Kafka proxy validation, or data contracts.
+  This deserves higher priority than generic developer conferences for the
+  Kafka/Flink/Iceberg material. Also a practical European family-trip candidate.
+  Draft: cfp-drafts/README.txt (split per event) (Berlin Buzzwords section)
+  https://berlinbuzzwords.de/
+
+FOSDEM — focused open-source community exposure
+  Confirmed event: January 30-31, 2027, Brussels.
+  Watch relevant devroom CFPs. Talk lengths and deadlines are devroom-specific;
+  the old blanket "20 minutes" rule is not a verified 2027 requirement.
+  Lead with one narrow demonstration or maintainer lesson rather than a full
+  pipeline tour. Draft: cfp-drafts/2027-01/fosdem-2027.txt
+  https://fosdem.org/
+
+ICEBERG SUMMIT — strongest specialist lakehouse watchlist entry
+  Official site confirms 2027 planning, but dates/location/CFP are not announced
+  there. Do not rely on the old "April, San Francisco" estimate.
+  Lead with CDC-to-Iceberg and schema evolution, grounded in the actual demo.
+  Draft: cfp-drafts/README.txt (split per event) (Iceberg Summit section)
+  https://www.icebergsummit.org/
+
+KUBECON NORTH AMERICA — later-year cloud-native target
+  Announced event: November 8-11, 2027, New Orleans.
+  CFP timing not verified; older notes estimate May-June. Watch from spring.
+  Lead with agent governance or Sandbox experience; check the actual 2027
+  project-opportunity rules when published.
+  Draft: cfp-drafts/README.txt (split per event)
+  https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/
+
+4. JAPAN AND AUSTRALIA — DESTINATION PRIORITIES
+----------------------------------------------
+
+Japan — recommendation order:
+  1. KubeCon Japan: strongest cloud-native/maintainer alignment.
+  2. JJUG CCC: strong Java/Quarkus fit; check English-language speaking options.
+  3. Open Source Summit Japan: broader open-source and maintainer audience.
+
+The KubeCon Japan page checked still describes 2026. No 2027 dates or CFP were
+established. JJUG's spring/fall and OSS Japan's late-year timing in older notes
+are planning estimates, not confirmed schedules. Project opportunities are
+subject to published eligibility rules and selection; there is no fast-pass.
+Drafts: cfp-drafts/README.txt (split per event)
+Sources to watch:
+  https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
+  https://www.java-users.jp/
+  https://events.linuxfoundation.org/open-source-summit-japan/
+
+Australia — recommendation order:
+  1. NDC Sydney: broad architecture/data/AI fit; first general-developer target.
+  2. KubeDay / KCD Australia: cloud-native maintainer and governance content.
+  3. Cloud Native AI Summit Melbourne: agent/prompt/inference topics.
+  4. YOW!: worthwhile curated-program target, lower priority than confirmed CFPs.
+
+NDC Sydney's checked site still shows 2026. None of these Australian 2027
+dates, application windows, or travel policies are confirmed in this summary.
+Older assertions that NDC Sydney travel is covered must be rechecked for 2027.
+Drafts: cfp-drafts/README.txt (split per event)
+Sources to watch:
+  https://ndcsydney.com/
+  https://events.linuxfoundation.org/kubeday-australia/
+  https://community2.cncf.io/kcd-australia/
+  https://www.cloudnative.ai/
+  https://yowcon.com/
+
+Family planning: choose a confirmed anchor event, then consider an extended
+stay. Do not assume separate events can be combined from estimated months.
+The old November/December Japan and August/October Melbourne combinations
+are not established short-trip itineraries. Confirm routing, budget, and
+family accommodation separately from any speaker reimbursement.
+
+5. SECONDARY WATCHLIST FROM THE OTHER DOCUMENTS
+----------------------------------------------
+All entries in this section are candidates, not verified open 2027 CFPs.
+
+High thematic fit:
+  - Current: Kafka, CDC, schema contracts, proxy validation.
+  - AGNTCon + MCPCon Europe, AI_dev, Agent Conference: agent/prompt governance.
+  - Subsurface LIVE and Data + AI Summit: lakehouse/data contracts.
+  - DevConf.CZ, DevBcn, Devoxx France/Greece/Poland, GeeCON: Java/open-source demos.
+  - Cloud Native Days France/Italy/Zurich, ContainerDays: cloud-native operations.
+  - Open Source Summits NA/Europe: maintainer experience and open data platforms.
+
+Convenient European/family options to check when schedules appear:
+  - Devoxx Greece (official site still shows 2026), Codemotion Madrid, DevBcn.
+  - Voxxed Days Ticino/CERN/Zurich; DevOpsDays Zurich/Geneva; Riviera DEV.
+  - apidays Amsterdam/Munich/London for protocol and API-governance content.
+  - GOTO Copenhagen, subject to its actual submission/curation process.
+
+Additional options if capacity remains:
+  - US: KCDC, JConf.dev, RenderATL, All Things Open, API World, QCon SF.
+  - Europe: QCon London (distinct from excluded NDC London), Devoxx UK if
+    confirmed, NDC Oslo, DevOpsCon, Oredev, Open Source Experience,
+    WeAreDevelopers, Community Over Code, KCD Porto/Sofia.
+  - Local/specialist: Spring I/O with genuinely Spring-relevant content;
+    DevOpsDays Barcelona; Red Hat Summit where the session fits the audience.
+  - Remote: P99 Conf, only with measured performance material.
+
+Draft locations: cfp-drafts/README.txt (split per event), cfp-drafts/README.txt (split per event),
+cfp-drafts/2027-04/devoxx-france-2027.txt, cfp-drafts/2027-04/devoxx-greece-2027.txt.
+The full discovery inventory is conferences/missed-cfps-next-year.txt.
+
+Explicitly excluded by preference: NDC London, DDD Melbourne, JavaLand, ConFoo.
+JFokus was previously excluded but later explicitly approved and submitted.
+
+6. PRACTICAL PLAN
+-----------------
+Now:     Devnexus by September 22 EDT; verify receipts for existing submissions.
+October: JCON by October 16, NDC Security by October 18; prepare SCaLE.
+November: SCaLE by November 1; watch Berlin Buzzwords and FOSDEM devroom CFPs.
+Ongoing: Check Japan/Australia announcements monthly; shortlist one anchor trip
+         once dates, acceptance, and funding are known.
+
+Devnexus ends March 31 and SCaLE starts April 1, across the US. They could be
+one extended trip only with appropriate session scheduling and a flight buffer;
+do not promise full attendance at both. KubeCon EU is earlier in March locally.
+
+For lower travel burden, favor Barcelona/Madrid and selected European events.
+For a US family extension, SCaLE is a candidate, but plan LA-area transfers
+realistically; the old "Disneyland is 30 minutes from Pasadena" is not a
+reliable planning assumption. Avoid categorical city suitability judgments.
+
+7. SOURCE NOTES AND CORRECTIONS
+-------------------------------
+Reviewed sources: root README; conference tracker; missed-CFP inventory;
+family travel guide; submission follow-ups; draft index; regional Europe/US/
+Japan/Australia plans; event-specific 2027 drafts and related talk materials.
+
+Use this dated summary for priorities. Older draft metadata and reminder
+lists contain estimates, obsolete "open now" labels, and superseded preferences.
+Draft existence does not mean an abstract is ready to paste without review.
+
+Corrections carried into this summary:
+  - Devnexus: March 29-31; CFP September 22; talks 55 minutes, not 50.
+  - JCON: CFP October 16, not an estimated September-October window.
+  - FOSDEM: January 30-31, not February 1-2.
+  - Berlin Buzzwords: June 13-15; CFP opens November, not a January start.
+  - Iceberg Summit, Japan, Australia: distinguish estimates from announcements.
+  - Current speaker profile: IBM Principal Engineer, Apicurio core maintainer,
+    Quarkus committer, UPC associate professor; no CNCF Ambassador claim.
+  - Online bio/abstract corrections remain separate actions; see
+    conferences/submission-follow-ups.txt, especially JFokus's AI disclosure.
+
+Official checks used (September 21, 2026):
+  https://sessionize.com/devnexus-2027/
+  https://2027.europe.jcon.one/call-for-papers
+  https://sessionize.com/ndc-security-2027/
+  https://www.socallinuxexpo.org/scale/24x
+  https://datainnovationsummit.com/
+  https://hyperight.com/nominate/
+  https://fosdem.org/
+  https://2026.berlinbuzzwords.de/2026/07/22/mark-your-calendars-for-2027/
+  https://www.icebergsummit.org/
+  https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
+    (also lists the announced KubeCon EU/NA 2027 dates)
+  https://ndcsydney.com/
+  https://devoxx.gr/
+
+JFokus and AI DevWorld details use the CFP forms supplied by the user.
+Unverified secondary-watchlist dates have deliberately not been promoted
+to confirmed calendar commitments.

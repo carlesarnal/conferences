@@ -1,0 +1,32 @@
+TALK REVIEW — KubeCon rubric (Content / Originality / Relevance / Speaker / Not a pitch)
+Reviewed against the public rubric only. Speaker scores assume the recordings in
+conferences/recordings.txt are linked.
+
+Talk                              Before (avg)              After rewrite (expected)
+--------------------------------  ------------------------  ---------------------------------
+database-to-lakehouse-realtime    3.5 4 3.5 4 5   (4.0)     4.5 4 4 4 5   (4.3)  READY
+kafka-proxy-schema-validation     4 4 3.5 4 5     (4.1)     4.5 4.5 4 4 5 (4.4)  READY
+agent-discovery                   3.5 3.5 4 4 3   (3.6)     4.5 4 4.5 4 4 (4.2)  READY
+governing-agent-swarm             3 3 4 4 3       (3.4)     4 4 4.5 4 4   (4.1)  needs MCP/A2A comparison segment
+security                          3 3 3.5 4 5     (3.7)     4 3.5 4 4 5   (4.1)  demo incomplete
+data-contracts-ai-pipelines       3.5 3 3.5 4 5   (3.8)     4 3.5 4 4 5   (4.1)  demo unverified
+prompt-templates-as-artifacts     3.5 3.5 3.5 4 4 (3.7)     4 3.5 4 4 4   (3.9)  demo unverified
+stream-prediction                 3 3 3.5 4 5     (3.7)     4 3.5 3.5 4 5 (4.0)  demo unverified
+edge-cloud                        3 2.5 3.5 4 5   (3.6)     3.5 3 3.5 4 5 (3.8)  old topic; rebuild demo
+cncf-sandbox-journey              3 2.5 3 4 4     (3.3)     4 3.5 3 4 4   (3.7)  needs real specifics
+oss-maintenance                   2.5 2.5 3 4 5   (3.4)     4 3.5 3 4 5   (3.9)  needs real stories
+
+What moved scores
+- Removed unverifiable claims (sub-second, "ran in production", mTLS, negotiation).
+- Led every abstract with one specific failure instead of a generic trend.
+- Added measured numbers and observed failure modes where the demo is verified.
+- Named CNCF projects; stated limits openly (reads as expertise, not pitch).
+- Titles now promise a finding, not a topic.
+
+To reach the top 10% (avg 4.5+)
+1. Only submit talks whose demo is verified; finish the TODOs first.
+2. Link a recording for every submission (Speaker 4 -> 4.5).
+3. One submission per event; send the strongest fit for the track.
+4. Add an upstream angle when true (Kroxylicious filter, quarkus-langchain4j fix):
+   reviewers rate maintainers who fixed the problem highly on Speaker and Originality.
+5. Merge or alternate agent-discovery and governing-agent-swarm; never both at once.

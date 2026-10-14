@@ -1,10 +1,13 @@
-Title: One Identity Provider, Zero Trust Gaps: Securing Kafka Data Platforms End-to-End
+Title: One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
 
-Your Kafka cluster uses one auth mechanism. Your schema registry uses another. Your applications use a third. Each component is "secured" — but the gaps between them are where breaches happen. Attackers don't break your Kafka ACLs; they exploit the credential handoff between Kafka and everything around it.
+A producer can authenticate to Kafka and still have far too much power in the schema registry. A consumer can hold a valid token and still be denied its topic. Putting one identity provider in front of a data platform simplifies credentials, but it doesn't make authorization consistent on its own.
 
-In this session, I'll show how to collapse three auth mechanisms into one by wiring Keycloak as the single identity provider across a Kafka data platform on Kubernetes. You'll see OAuth2/OIDC replace fragmented credentials, mutual TLS enforce identity across every connection — broker, schema registry, consuming applications — and fine-grained authorization control who can produce, consume, and evolve schemas. The demo runs on Strimzi and Apicurio Registry (CNCF sandbox), but the zero-trust pattern applies to any Kafka deployment with pluggable auth.
+This session follows a producer and a consumer through a Kafka platform built with Keycloak, Strimzi and Apicurio Registry. We'll separate token issuance and validation, Kafka principal mapping and ACLs, and registry permissions, then trace one authorized request and one denial live. We finish with what usually breaks in production: token expiry in long-running consumers, signing-key rotation, and who is allowed to change a schema.
 
-Attendees will walk away with:
-- A deployable reference architecture for securing Kafka pipelines with centralized identity on Kubernetes
-- The specific configuration pitfalls that cause "it works in dev, fails in prod" security setups
-- A checklist for moving a data platform from open prototype to audit-ready without slowing down developer workflows
+Attendees will leave with:
+- A map of the authentication and authorization boundaries in a Kafka platform
+- How to tell a token problem from a permission problem quickly
+- A checklist for topic access, schema access and credential lifecycle
+
+CNCF projects: Keycloak, Strimzi, Apicurio Registry.
+TODO before submitting: complete the demo (working ACL denial, registry permissions); remove mTLS claims unless implemented.

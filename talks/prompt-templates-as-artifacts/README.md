@@ -1,4 +1,6 @@
-# Prompt Engineering Meets Schema Registry — Demo Walkthrough
+# Your Prompts Are Unversioned — Demo Walkthrough
+
+> Status: not yet verified end to end.
 
 This walkthrough accompanies the **prompt-templates-as-artifacts** talk. It demonstrates how to treat prompt templates as first-class registry artifacts in Apicurio Registry, using a RAG-powered support chatbot as the case study.
 

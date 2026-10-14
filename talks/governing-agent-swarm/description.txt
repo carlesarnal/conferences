@@ -1,12 +1,12 @@
-Title: When Twenty Agents Talk to Nobody: Contracts, Discovery, and Lifecycle for AI That Scales
+Title: A2A or MCP? Composing Agents and Tools Without Building a Distributed Monolith
 
-Last year your organization shipped one AI agent. This year there are twenty, built by five teams, using three frameworks — and nobody knows which agents depend on which. An "innocent" capability change in one agent cascades into silent failures across four others. This is microservice governance all over again, except agents evolve faster and fail more quietly.
+Teams adopting agentic AI hit the same question early: should this capability be an A2A agent or an MCP tool? Get it wrong and you end up with agents that are really tools, tools that hide whole workflows, and a call graph nobody can trace.
 
-This talk presents a practical governance model for multi-agent AI, built on the same contract-driven patterns that tamed API and schema sprawl. In a live demo, I'll walk through the full lifecycle: agents registering discoverable capability cards via the A2A Protocol, enforcing communication contracts with compatibility rules, and deprecating agent versions without breaking consumers. I'll also show how the Model Context Protocol (MCP) fits alongside A2A — standardizing tool integration where A2A handles agent-to-agent discovery.
+This session compares the two protocols where it matters for design: who owns the reasoning, what the contract describes (Agent Card skills vs tool schemas), how each is discovered, and how each fails. Using one demo with A2A agents and an MCP server published in the same registry, we'll follow a request that delegates to an agent and one that calls a tool, then change each contract and see what breaks and what the registry catches.
 
 Attendees will leave with:
-- A working governance model for multi-agent AI: registration, discovery, versioning, and deprecation
-- A clear mental model for when to use A2A vs. MCP — and how they compose
-- Patterns for preventing cascading failures when agents evolve independently across teams
+- A decision guide for exposing a capability as an A2A agent or an MCP tool
+- How discovery, versioning and failure differ between the two protocols
+- Anti-patterns that turn multi-agent systems into distributed monoliths
 
-GitHub projects: apicurio-registry, model-metadata
+Note: shares the demo with agent-discovery; do not submit both talks to the same event.

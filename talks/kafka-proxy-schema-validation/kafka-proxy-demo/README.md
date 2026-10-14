@@ -1,37 +1,12 @@
-# Transparent Schema Validation at the Kafka Proxy Layer — Demo
+# Kafka Proxy Schema Validation — Demo
 
-Self-contained demo for the "Kafka Proxy Schema Validation" talk. Uses Kafka, Apicurio Registry, and Kroxylicious to demonstrate transparent schema validation.
-
-## Quick Start
+Runnable demo for the "Kafka Proxy Schema Validation" talk, using the Record Validation
+filter in Kroxylicious 0.24.0, Apicurio Registry 3.3.3, and Apache Kafka 3.9.1.
 
 ```bash
-# Start Kafka and Apicurio Registry
-docker compose up -d
-
-# Build Kroxylicious (from cloned project)
-cd ../kroxylicious-schema-validation && mvn verify && cd -
-
-# Start the proxy
-java -jar ../kroxylicious-schema-validation/target/kroxylicious-schema-validation-*.jar \
-  --config proxy-config.yaml
-
-# In another terminal, run the demo
-./scripts/run-demo.sh
+./scripts/run-demo.sh   # full walkthrough with pauses
+./scripts/99-stop.sh    # tear down
 ```
 
-## Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `01-register-schema.sh` | Register JSON Schema for orders topic with FULL validity |
-| `02-create-topic.sh` | Create the orders topic in Kafka |
-| `03-produce-valid.sh` | Send valid messages through proxy (accepted) |
-| `04-produce-invalid.sh` | Send invalid messages through proxy (rejected) |
-| `05-verify-kafka.sh` | Verify only valid messages reached Kafka |
-| `run-demo.sh` | Run all steps end-to-end with pauses |
-
-## Components
-
-- **Kafka 3.9** (Bitnami, KRaft mode)
-- **Apicurio Registry 3.2.0** — schema storage and validation
-- **Kroxylicious** — Kafka proxy with schema validation filter (from [kroxylicious-schema-validation](../kroxylicious-schema-validation/))
+Verified end to end on September 28, 2026. See `../README.md` for the observed results
+and talking points.

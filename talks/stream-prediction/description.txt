@@ -1,10 +1,13 @@
-Title: Classify It Before a Human Sees It: Streaming ML Inference on Kubernetes
+Title: Classify It Before a Human Sees It: Operating Streaming ML Inference on Kubernetes
 
-A Reddit post is published. Before a human moderator even sees it, a pipeline has ingested it through Kafka, classified it with dual-model ML inference in Spark, and served the prediction through a REST API — all running on Kubernetes, all open source, all under a second.
+Classifying content as it arrives is easy to sketch: a queue, a model, an API. Running it is harder: input spikes, a model slower than the stream, and dashboards that show everything except why predictions are late.
 
-In this session, I’ll build and run this system live. No slides-only architecture diagrams — you’ll see real posts classified in real time across every layer: Reddit API ingestion into Kafka, Spark Structured Streaming for low-latency dual-model classification, a Quarkus microservice exposing predictions, and Prometheus/Grafana dashboards showing the pipeline’s health. I’ll also walk through the parts that were harder than expected: tuning Spark micro-batch intervals, handling backpressure when Reddit spikes, and the monitoring gaps that bit us.
+In this session, a live pipeline classifies posts as they arrive: ingestion into Kafka on Strimzi, Spark Structured Streaming running two models, and a Quarkus service serving predictions, with Prometheus and Grafana watching it. We'll push it into backpressure, change micro-batch intervals and watch latency and throughput move, and look at the metrics that separate input lag from slow inference.
 
 Attendees will leave with:
-- A complete, deployable blueprint for streaming ML inference on Kubernetes
-- Practical guidance on scaling Spark Streaming jobs and handling backpressure
-- Patterns for extending the pipeline to other classification domains (fraud detection, content moderation, log analysis)
+- A reproducible streaming inference pipeline on Kubernetes
+- How micro-batch interval, backpressure and model cost trade against each other
+- The metrics to alert on before predictions go stale
+
+Recording of an earlier version: OCX 2026.
+TODO before submitting: verify the demo and replace "under a second" style claims with measured numbers.

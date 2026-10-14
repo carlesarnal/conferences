@@ -1,0 +1,18 @@
+Split from europe-2027.txt on September 28, 2026.
+Use the verified abstracts in talks/<topic>/description.txt; older wording
+below may contain unverified claims. Check dates and CFP on the official site.
+
+DEVOPSDAYS GENEVA 2027
+------------------------
+Dates: May 25-26, Geneva
+CFP: ~Jan-Mar 2027
+URL: https://devopsdays.org/
+
+Same submissions as DevOpsDays Zurich.
+
+Speaker bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.

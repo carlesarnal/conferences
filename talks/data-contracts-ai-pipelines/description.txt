@@ -1,12 +1,12 @@
-Title: Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
+Title: Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
 
-45% of enterprise AI projects fail because of data quality issues — not model accuracy. The root cause is deceptively simple: producers and consumers in streaming AI pipelines evolve independently, and without formal contracts, a silent schema change in one team's Kafka producer becomes a 3 AM page for another team's inference service.
+An inference service can break with no model change at all: an upstream team renames a field or changes its type, and the consumer quietly gets nulls or stops reading. In event-driven AI pipelines, producers and consumers evolve independently, and nothing stops them from drifting apart.
 
-This talk shows how to apply data contracts to event-driven AI architectures — the same discipline that API contracts brought to microservices, now enforced at the streaming layer. In a live demo with Debezium CDC, Kafka, and a downstream ML inference service, I'll walk through how schema compatibility rules catch breaking changes at produce time, not at prediction time. You'll see a schema evolution that would silently corrupt model inputs get rejected before it ever reaches the broker.
+This session treats the event schema as a contract. With Kafka on Strimzi and Apicurio Registry (CNCF sandbox), we'll register Avro contracts, accept a compatible change and see an incompatible one rejected before it reaches the topic. Then the harder part: where enforcement actually happens (serializers, CI, deployment), what slips through when a producer bypasses it, and why structural compatibility says nothing about whether the values still mean the same thing to the model.
 
 Attendees will leave with:
-- A concrete pattern for implementing data contracts in streaming AI architectures
-- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits ML workloads
-- A reproducible setup they can deploy to enforce schema governance across their own pipelines
+- A contract workflow for streaming AI pipelines, from schema registration to CI checks
+- How Avro, Protobuf and JSON Schema compatibility rules differ for ML features
+- A list of the failures schema rules cannot catch, and what to use for them
 
-GitHub projects: apicurio-registry, debezium-ocp-etc-demo
+TODO before submitting: verify the demo end to end (talks/data-contracts-ai-pipelines).

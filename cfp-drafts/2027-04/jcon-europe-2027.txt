@@ -1,0 +1,173 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+JCON EUROPE 2027 — SUBMISSION PACKAGE
+====================================
+
+Status: Drafted; not submitted.
+Verified: September 28, 2026, on https://sessionize.com/jcon-europe-2027
+Event: April 26-29, 2027, Cinedom, Cologne, Germany
+Deadline: October 23, 2026, 23:59 CEST (Sessionize). The JCON website lists
+  October 16; treat October 16 as the safe target and October 23 as the hard close.
+Formats: 45-minute session INCLUDING Q&A (organizers suggest 30-35 min talk +
+  10-15 min Q&A); 20-minute lightning talk; 2-hour workshop.
+Travel support: NOT provided. Speaker pass + 5 guest passes + speaker dinner.
+Selection: Practical applicability and shared experience are explicit criteria.
+
+Recommendation: both demos are verified. Submit both; the proxy talk first.
+
+================================================================
+SUBMISSION 1 — READY TO SUBMIT (demo verified September 28, 2026)
+================================================================
+
+Title:
+Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
+
+Format: 45-minute session (about 32 minutes of content + Q&A)
+Level: Intermediate
+Suggested tags: Java, Kafka, Architecture, Data Quality
+
+Description:
+Client-side schema validation only works when every producer is configured
+correctly. Legacy clients, third-party integrations, and misconfigured
+services can still write records that downstream consumers cannot parse.
+
+This session moves validation onto the path to the broker. Using the Record
+Validation filter in Kroxylicious, an open-source Kafka proxy written in Java,
+together with Apicurio Registry, we'll validate record values against a
+registered schema before produce requests reach Kafka. In a live demo, a valid
+order goes through; orders with a missing field, a wrong type, and an invalid
+enum value are rejected, and the producer receives an error naming the exact
+constraint that failed.
+
+Then we'll look at what the design means in practice. One invalid record
+rejects its entire batch, including valid records sent alongside it. A
+producer that connects to the broker directly skips validation. And when the
+registry is unreachable, the filter fails closed, rejecting valid records with
+the same exception type used for invalid data. We'll walk through the Java
+filter code and discuss how to handle each case in producers and deployment.
+
+Attendees will leave with:
+- An understanding of how a Kroxylicious filter intercepts and rejects produce requests
+- A decision framework for client-side versus proxy-side validation
+- A checklist for batch failures, bypass paths, and registry availability
+
+Message to the program committee:
+I contributed the Avro and Protobuf schema validation support to Kroxylicious's
+Record Validation filter (kroxylicious/kroxylicious#3498, released in 0.21.0),
+and I'm a core maintainer of Apicurio Registry, the registry the filter uses.
+The demo runs on released Kroxylicious 0.24.0 and shows each behavior above
+live: precise rejection errors, whole-batch rejection, a bypass through the
+broker, and fail-closed behavior during a registry outage. The filter is a
+Preview feature upstream, and I'll say so.
+
+Proposed timing (45 minutes total):
+  0-5:   Why client-side validation leaves gaps
+  5-11:  Kroxylicious architecture and where the filter sits
+  11-19: Demo: valid order, three rejections with producer-side errors
+  19-25: Demo: mixed batch, direct-to-broker bypass, registry outage
+  25-31: Java filter walkthrough: produce-request handling and schema lookup
+  31-34: When to use proxy validation, and what it cannot do
+  34-45: Q&A
+
+Additional resources:
+- Kroxylicious PR: https://github.com/kroxylicious/kroxylicious/pull/3498
+- Kroxylicious: https://github.com/kroxylicious/kroxylicious
+- Demo: push talks/kafka-proxy-schema-validation/ to a public repository and
+  link it here (not yet public).
+
+Before the talk (not blocking submission):
+[ ] Record a backup video of run-demo.sh.
+[ ] Publish the demo repository.
+[ ] Re-run against the Kroxylicious release current at the time of the talk.
+
+================================================================
+SUBMISSION 2 — READY TO SUBMIT (demo verified September 28, 2026)
+================================================================
+
+Title:
+The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+
+Format: 45-minute session (about 32 minutes of content + Q&A)
+Level: Intermediate
+Suggested tags: Java, Kafka, Data Engineering, Apache Iceberg
+
+Description:
+Nightly batch jobs leave analytics and ML teams working on stale data. Change
+data capture can stream row-level changes from an operational database into
+an open table format instead. This session builds that pipeline with
+open-source JVM tools on Kubernetes, and is honest about what "real time"
+means in practice.
+
+Debezium captures changes from PostgreSQL, Kafka carries them as Avro events
+with schemas managed in Apicurio Registry, and Apache Iceberg's Kafka Connect
+sink writes them to Iceberg tables that Trino can query. In a live demo, we'll
+insert a row and time how long it takes to become queryable, then add a
+column in PostgreSQL and follow it through a new schema version in the
+registry to an evolved Iceberg table, with no manual DDL.
+
+Along the way, we'll look at the details that decide whether this works:
+freshness is bounded by the sink's commit cycle (the default commit interval
+is five minutes), the table is an append-only changelog that needs "latest
+row per key" queries, and each commit creates a snapshot you can time-travel
+to. We'll also cover the failures hit while building the demo, from corrupted
+metadata on S3-compatible storage to a sink that reported RUNNING while
+committing nothing.
+
+Attendees will leave with:
+- A reproducible CDC-to-Iceberg pipeline built from open-source components
+- A clear picture of how a schema change propagates across each boundary
+- Practical criteria for commit intervals, changelog queries, and when streaming ingestion is worth its cost
+
+Message to the program committee:
+The demo runs on current releases (Strimzi 1.2 with Kafka 4.3, Debezium 3.6,
+Apicurio Registry 3.3, Apache Iceberg 1.11) and every behavior in the abstract
+is shown live and was measured: rows queryable in Iceberg 30-45 seconds after
+the insert with a 10-second commit interval, automatic column addition, and
+snapshot time travel. I'm a core maintainer of Apicurio Registry, the schema
+registry in the pipeline. An earlier version of this topic was accepted at
+JavaZone 2026; this version is rebuilt on the Apache Iceberg sink.
+
+Proposed timing (45 minutes total):
+  0-4:   Batch versus streaming ingestion: the actual trade-offs
+  4-10:  Architecture: Debezium, Kafka, registry, Iceberg sink, REST catalog, Trino
+  10-17: Demo: insert a row, time it into Iceberg; commit intervals explained
+  17-24: Demo: add a column; registry version 2 and the evolved table
+  24-29: Changelog semantics, latest-per-key queries, snapshots and time travel
+  29-34: What broke while building it, and what's not covered (merges, breaking changes)
+  34-45: Q&A
+
+Before the talk (not blocking submission):
+[ ] Publish talks/database-to-lakehouse-realtime/ to a public repository.
+[ ] Record a backup video: the pipeline needs ~2 minutes to become ready.
+[ ] Consider testing a breaking schema change and a DELETE for Q&A.
+[ ] Re-run on current releases before the talk.
+
+================================================================
+SHARED FIELDS
+================================================================
+
+Name: Carles Arnal
+Email: carnalca@redhat.com
+Job title: Principal Software Engineer
+Company: IBM
+Travel from: Barcelona, Spain
+
+Bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.
+
+Resources:
+- Apicurio Registry: https://github.com/Apicurio/apicurio-registry
+- Add public demo repository URLs once the demos are fixed and pushed.
+- Recordings: OCX 2026 https://www.youtube.com/watch?v=9vEvUUL82w4 ;
+  OSS Japan 2023 https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s ;
+  DevConf 2024 https://www.youtube.com/watch?v=GVYEcvDPFzw ;
+  Current 2023 https://www.confluent.io/es-es/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/
+
+AI disclosure, if asked: draft wording was generated with AI assistance;
+report the actual share of the submitted text after your edits.

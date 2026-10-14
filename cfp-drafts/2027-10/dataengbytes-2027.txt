@@ -1,0 +1,16 @@
+DataEngBytes 2027 (Australia / New Zealand tour)
+================================================
+
+Status: New in the second September 28, 2026 discovery round; no submission.
+Event: Six one-day city conferences: Brisbane Mar 16, Auckland Mar 19, Perth May 25, Adelaide May 28, Melbourne Oct 12, Sydney Oct 15, 2027 (verified September 28)
+CFP: OPEN now for Brisbane & Auckland (closing date not published on the home page); Perth, Adelaide, Melbourne and Sydney windows open later in 2026-27
+URL: https://dataengbytes.com/
+Source: Official event site.
+
+Why it fits: Largest independent data-engineering community in Oceania, vendor-neutral, deep technical talks. Australia is a priority destination. Melbourne/Sydney (Oct 12/15) pair with KubeDay Australia and Cloud Native AI Summit Melbourne (~Oct) for one Australian trip. You were declined at DataEngBytes Sydney 2024 with the older edge-to-cloud abstract; the rebuilt lakehouse talk is a much stronger fit.
+
+Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+- database-to-lakehouse-realtime (demo verified; lead)
+- data-contracts-ai-pipelines
+
+Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).

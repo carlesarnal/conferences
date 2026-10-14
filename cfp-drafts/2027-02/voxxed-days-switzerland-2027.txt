@@ -1,0 +1,35 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+Split from europe-2027.txt on September 28, 2026.
+Use the verified abstracts in talks/<topic>/description.txt; older wording
+below may contain unverified claims. Check dates and CFP on the official site.
+
+VOXXED DAYS 2027 (Ticino Feb 19 / CERN Mar 5 / Zurich Mar 9)
+--------------------------------------------------------------
+CFP: OPEN — closes October 23, 2026 (per developers.events, September 28)
+Ticino (Feb 19): https://vdt27.cfp.dev/
+CERN (Mar 5):    https://vdcern27.cfp.dev/
+Zurich (Mar 9):  https://vdz27.cfp.dev/
+Verify the deadline on cfp.dev (JavaScript-only; could not be fetched).
+Same CFP system for all three. Submit once, select multiple events.
+
+Submission 1: Agent Governance
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Audience: Intermediate
+
+Submission 2: Real-Time Lakehouse
+Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Audience: Intermediate
+
+Submission 3: Kafka Proxy
+Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
+Audience: Intermediate
+
+Speaker bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.

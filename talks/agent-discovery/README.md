@@ -1,4 +1,6 @@
-# AI Agent Discovery and Registry — Demo Walkthrough
+# Agent Sprawl Is the New Microservice Sprawl — Demo Walkthrough
+
+> The maintained, verified demo for this talk is [agent-discovery-demo, branch cloud-native-paris-2026](https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026) (`./scripts/paris-2026-demo.sh`). The walkthrough below is older and kept for reference.
 
 This walkthrough accompanies the **agent-discovery** talk. It demonstrates how Apicurio Registry manages AI-native artifact types — A2A Agent Cards, prompt templates, and model schemas — enabling agent discovery, versioning, and compatibility enforcement.
 

@@ -1,0 +1,31 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+Split from europe-2027.txt on September 28, 2026.
+Use the verified abstracts in talks/<topic>/description.txt; older wording
+below may contain unverified claims. Check dates and CFP on the official site.
+
+BERLIN BUZZWORDS 2027
+----------------------
+Dates: June 13-15, 2027, Kulturbrauerei, Berlin (verified September 21)
+CFP: Opens November 2026 per official announcement; closing date TBD
+URL: https://berlinbuzzwords.de/
+Europe's leading open-source data infrastructure conference. Vendor-neutral. Kafka, Flink, search, ML ops.
+
+Submission 1: Real-Time Lakehouse
+Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Note: PERFECT FIT -- data infra conference, Iceberg/Kafka are headline topics.
+
+Submission 2: Kafka Proxy
+Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
+
+Submission 3: Data Contracts for AI
+Title: Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
+
+Speaker bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.

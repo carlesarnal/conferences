@@ -1,10 +1,13 @@
-Title: Zero Glue Code: Real-Time CDC Pipelines from Edge Database to Cloud Search on Kubernetes
+Title: Keeping Search in Sync Without Glue Code: CDC from PostgreSQL to Elasticsearch on Kubernetes
 
-A row changes in a PostgreSQL database at the edge. Milliseconds later, an Elasticsearch index in the cloud reflects that change — no batch jobs, no polling, no glue code. This talk shows you exactly how to build that pipeline using only open-source components on Kubernetes.
+Every team that adds search ends up with the same job: keep the index in sync with the database. Nightly reindexing is stale; dual writes from the application drift apart on the first partial failure.
 
-In a live demo, I’ll walk through each stage: capturing database changes with Debezium, enforcing schemas through a registry, streaming compact Avro-serialized events through Kafka on Strimzi, and processing them with Kafka Streams, Quarkus, and Camel-K to keep Elasticsearch in sync with sub-second latency. Having run this architecture in production and presented it at conferences since 2023, I’ll share what broke, what we changed, and the operational lessons you won’t find in the docs.
+This session replaces both with change data capture. Debezium reads PostgreSQL's log, Kafka on Strimzi carries Avro events with schemas in Apicurio Registry (CNCF sandbox), and a Quarkus stream processor keeps Elasticsearch updated. We'll change rows live, evolve a schema, and break things on purpose: a connector restart, a poison message, an incompatible schema change, and look at how the pipeline recovers and what it costs to operate.
 
 Attendees will leave with:
-- A reproducible, fully containerized CDC pipeline they can deploy on any Kubernetes cluster
-- Practical lessons on schema evolution, compatibility enforcement, and production pitfalls
-- A clear framework for when CDC outperforms traditional ETL and where the tradeoffs lie
+- A reproducible CDC-to-search pipeline built from open-source components on Kubernetes
+- Recovery patterns for restarts, poison messages and schema changes
+- When CDC is worth it compared with dual writes and batch reindexing
+
+Presented at Current 2023 and Open Source Summit Japan 2023; this version is rebuilt on current releases.
+TODO before submitting: rebuild and verify the demo; replace any latency claim with a measured number.

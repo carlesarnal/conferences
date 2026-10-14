@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trino-catalog
+data:
+  iceberg.properties: |
+    connector.name=iceberg
+    iceberg.catalog.type=rest
+    iceberg.rest-catalog.uri=http://iceberg-rest:8181
+    fs.native-s3.enabled=true
+    s3.endpoint=http://seaweedfs:8333
+    s3.region=us-east-1
+    s3.aws-access-key=admin
+    s3.aws-secret-key=password
+    s3.path-style-access=true
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trino
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trino
+  template:
+    metadata:
+      labels:
+        app: trino
+    spec:
+      containers:
+        - name: trino
+          image: trinodb/trino:480
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: catalog
+              mountPath: /etc/trino/catalog/iceberg.properties
+              subPath: iceberg.properties
+      volumes:
+        - name: catalog
+          configMap:
+            name: trino-catalog
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trino
+spec:
+  selector:
+    app: trino
+  ports:
+    - port: 8080

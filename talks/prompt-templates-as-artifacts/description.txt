@@ -1,12 +1,12 @@
-Title: Your Prompts Are Unversioned: Applying Schema Governance to LLM Templates
+Title: Your Prompts Are Unversioned: Releasing and Rolling Back LLM Prompts Like Code
 
-You version your code. You version your schemas. But your prompt templates live in environment variables, config files, or hardcoded strings — unversioned, ungoverned, and one edit away from breaking your AI application in ways that no test suite catches.
+Prompt templates change application behavior as much as code does, yet most live in environment variables or hardcoded strings: no history, no review, no rollback when an "improved" prompt makes answers worse.
 
-In this session, I'll show how to treat prompt templates as first-class versioned artifacts with compatibility rules — the same governance you already apply to Avro schemas or OpenAPI definitions. Using a live demo of a RAG-powered support chatbot built with LangChain4j and Ollama, I'll walk through what happens when a prompt template change silently degrades downstream behavior, and how registry-enforced validation catches it before production. The demo uses a schema registry as the governance layer, but the patterns work with any artifact store that supports versioning and compatibility checks.
+This session treats prompts as versioned artifacts. With Apicurio Registry (CNCF sandbox), we'll register and render templates, have a Quarkus + LangChain4j application load a selected version at runtime, and roll a change forward and back without a redeploy. Structural rules reject breaking changes such as removing a variable the template still uses or changing its type. And we'll be honest about the limit: a compatible prompt can still produce worse answers, so versioning has to be paired with evaluation tests.
 
 Attendees will leave with:
-- A reusable pattern for version-controlling prompt templates with compatibility enforcement
-- A working example of a Quarkus + LangChain4j chatbot consuming governed prompts at runtime
-- A clear framework for deciding when prompt governance pays off and when it's overkill
+- A release workflow for prompts: version, review, select, roll back
+- Which prompt changes structural rules can catch, and which need evaluation
+- When prompt governance is worth it and when it's overkill
 
-GitHub project: apicurio-registry-support-chat
+TODO before submitting: verify the prompt demo end to end and add a small evaluation step.

@@ -1,6 +1,8 @@
-# Securing the Data Platform with Keycloak, Strimzi, and Apicurio — Demo Walkthrough
+# One Keycloak Realm, Separate Trust Boundaries — Demo Walkthrough
 
-This walkthrough accompanies the **security** talk. It demonstrates how to integrate Keycloak as a centralized identity provider with Strimzi (Kafka on Kubernetes) and Apicurio Registry to build a unified, zero-trust data platform.
+> Status: not yet verified end to end. Known gaps: the authorization-failure step is incomplete and Keycloak is reached over plain HTTP; the talk does not claim mTLS.
+
+This walkthrough accompanies the **security** talk. It demonstrates how to integrate Keycloak as a centralized identity provider with Strimzi (Kafka on Kubernetes) and Apicurio Registry so that Kafka and the schema registry share one identity model.
 
 ## Architecture
 
@@ -335,7 +337,7 @@ curl -s -H "Authorization: Bearer $PRODUCER_TOKEN" \
 1. **Centralized identity** — Keycloak provides one OAuth2/OIDC identity for Kafka, Apicurio Registry, and applications. No more fragmented credentials per component.
 2. **Fine-grained authorization** — Kafka ACLs map to OAuth2 client identities. Producers can write, consumers can read, and these permissions are managed centrally.
 3. **Schema governance with authentication** — Apicurio Registry's OIDC integration means schema evolution is also access-controlled. Not everyone can modify production schemas.
-4. **Zero-trust posture** — Every connection is authenticated (OAuth2 tokens) and encrypted (mTLS). No implicit trust between components.
+4. **Every request carries an identity** — Kafka and the registry both validate OAuth2 tokens. Transport encryption (TLS/mTLS) is a separate choice and is not configured in this demo.
 5. **Common pitfalls to discuss:**
    - Token expiration handling in long-running Kafka consumers
    - JWKS endpoint caching and refresh intervals

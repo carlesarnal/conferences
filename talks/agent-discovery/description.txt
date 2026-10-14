@@ -1,10 +1,14 @@
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
 
-Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which — or what happens when one team's "minor update" silently breaks four downstream consumers. If this sounds familiar, it should: it's the same discovery and compatibility crisis that hit APIs a decade ago. The difference is that agents evolve faster, fail more silently, and have no contract layer by default.
+Five teams, twenty agents, three frameworks. Nobody knows which agent depends on which, and a "minor update" that drops a skill breaks its callers without an error. Microservices went through the same thing; registries, contracts and lifecycle rules got them out of it.
 
-In this session, I'll show how to apply proven registry-based governance patterns to AI agents using the A2A (Agent-to-Agent) Protocol. In a live demo, you'll see agents publishing discoverable Agent Cards to a central registry, negotiating capabilities at runtime, and failing fast when a breaking change is detected — all before reaching production. The demo uses Apicurio Registry (CNCF sandbox) as the governance backbone, but the patterns apply to any registry infrastructure.
+This session applies those patterns to A2A agents and MCP tools, live, on open source. Quarkus agents publish their own A2A Agent Cards to Apicurio Registry (CNCF sandbox) on startup. An orchestrator discovers them, picks one per request and delegates over A2A; an MCP tool is found through the same registry. Then we break things: removing a skill from a card is rejected before it reaches anyone, and marking an agent DEPRECATED stops new traffic to it without a redeploy.
 
-Attendees will walk away with:
-- A governance architecture for agent discovery, versioning, and deprecation using A2A Agent Cards
-- Concrete patterns for enforcing compatibility rules across independently evolving agents
-- A clear comparison of where A2A, MCP, and traditional API governance overlap and diverge
+We'll also be precise about the limits found while building it: discovery is not capability negotiation, consumers that ignore deprecation keep calling, and a released card publisher kept stale cards after restarts (fixed upstream in quarkus-langchain4j).
+
+Attendees will leave with:
+- A working pattern for agent and tool discovery from a registry, without hardcoded URLs
+- Compatibility rules that catch breaking Agent Card changes before production
+- A lifecycle model (version, deprecate, retire) and what consumers must do for it to work
+
+Demo: github.com/carlesarnal/agent-discovery-demo (branch cloud-native-paris-2026)

@@ -1,0 +1,24 @@
+# Rendered into generated/proxy-config.yaml by scripts/01-register-schema.sh.
+# __CONTENT_ID__ is replaced with the Apicurio Registry contentId of the order schema.
+virtualClusters:
+  - name: demo
+    targetCluster:
+      bootstrapServers: kafka:9092
+    gateways:
+      - name: default
+        portIdentifiesNode:
+          bootstrapAddress: kroxylicious:9192
+filterDefinitions:
+  - name: order-validation
+    type: RecordValidation
+    config:
+      rules:
+        - topicNames:
+            - orders
+          valueRule:
+            schemaValidationConfig:
+              apicurioRegistryUrl: http://apicurio-registry:8080
+              apicurioId: __CONTENT_ID__
+              schemaType: JSON_SCHEMA
+defaultFilters:
+  - order-validation

@@ -1,0 +1,16 @@
+DevOpsDays Los Angeles 2027
+===========================
+
+Status: New in the second September 28, 2026 discovery round; no submission.
+Event: April 2, 2027, Los Angeles (co-located with SCaLE 24x, Apr 1-4, Pasadena)
+CFP: Not listed yet
+URL: https://devopsdays.org/events/2027-los-angeles
+Source: developers.events; verify.
+
+Why it fits: Same trip as SCaLE. Operational content fits DevOpsDays.
+
+Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+- database-to-lakehouse-realtime (what broke building it)
+- kafka-proxy-schema-validation (failure modes)
+
+Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).

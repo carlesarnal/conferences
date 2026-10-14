@@ -1,0 +1,14 @@
+SPEAKER RECORDINGS (use in the "Additional resources" / previous-talks fields)
+==========================================================================
+
+OCX 2026 — From data stream to prediction (stream-prediction)
+  https://www.youtube.com/watch?v=9vEvUUL82w4&list=PLPb-79YZYbg8UeF-W5TjZrFz8kBdKCfh8&index=7
+
+Open Source Summit Japan 2023 — edge-cloud
+  https://www.youtube.com/watch?v=apJYC5G47UE&list=PLbzoR-pLrL6oZyO3Iy-UaEb-so9H3mc1_&index=11&t=1517s
+
+Current 2023 — From Edge to Cloud: Creating Data Pipelines Using Open Source with Strimzi
+  https://www.confluent.io/es-es/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/
+
+DevConf 2024 — oss-maintenance
+  https://www.youtube.com/watch?v=GVYEcvDPFzw

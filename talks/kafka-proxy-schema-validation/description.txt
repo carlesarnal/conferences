@@ -1,12 +1,14 @@
-Title: Bad Messages Should Never Reach the Broker: Schema Validation at the Kafka Proxy Layer
+Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
-Schema validation usually happens at the producer client — but what about legacy producers you can't modify, third-party integrations, or teams that simply skip validation? Those schema-invalid messages still reach Kafka, and by the time a consumer fails on bad data, the damage is done and the offset has moved.
+Client-side schema validation only works if every producer is configured correctly. Legacy clients, third-party integrations and one misconfigured service are enough to put records on a topic that consumers cannot read.
 
-In this session, I'll demo a different approach: enforcing schema validation transparently at the proxy layer using Kroxylicious. A proxy filter intercepts produce requests, validates payloads against a schema registry, and rejects non-compliant messages before they ever reach the broker — with zero changes to producer code. I'll show the setup end to end: deploying the proxy alongside a Kafka cluster on Kubernetes, configuring validation rules, and watching bad messages get rejected in real time.
+This session moves validation into the path to the broker, using the Record Validation filter in Kroxylicious with schemas from Apicurio Registry (CNCF sandbox). Live: a valid order goes through; a missing field, a wrong type and an invalid enum value are rejected, and the producer gets an error naming the exact constraint.
+
+Then the behavior nobody puts on the slide: one bad record rejects its whole batch, valid records included; a producer that connects to the broker directly skips validation entirely; and when the registry is down the filter fails closed, rejecting valid data with the same exception used for invalid data. We'll go through how to handle each one in producers and deployment.
 
 Attendees will leave with:
-- An understanding of Kafka proxy-layer architecture and how Kroxylicious filters work
-- A deployable schema validation filter configuration for their own clusters
-- A clear decision framework for when proxy-layer validation complements or replaces client-side checks
+- How a Kafka proxy filter intercepts and rejects produce requests
+- When to validate in the client, the proxy, or both
+- A checklist for batch failures, bypass paths and registry outages
 
-GitHub project: kroxylicious-schema-validation
+Speaker contributed Avro and Protobuf validation to the Kroxylicious filter. Demo verified end to end on Kroxylicious 0.24.0.

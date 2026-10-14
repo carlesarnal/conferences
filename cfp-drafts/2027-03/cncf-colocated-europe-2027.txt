@@ -1,0 +1,143 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+CNCF-HOSTED CO-LOCATED EVENTS EUROPE 2027 — SUBMISSION PACKAGE
+==============================================================
+
+Status: Drafted; not submitted. Discovered September 28, 2026.
+Verified: September 28, 2026 on the official CFP page:
+  https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/co-located-events/cfp-colocated-events/
+Submit (one Sessionize CFP for all co-located events):
+  https://sessionize.com/cncf-hosted-co-located-events-europe-2027/
+Event: Monday, March 15, 2027, Barcelona (day before KubeCon EU main conference)
+Deadline: Sunday, October 18, 2026, 23:59 CEST
+Notifications: December 14, 2026. Schedule: December 16, 2026.
+Formats: 25-min solo or dual presentation; 35-min panel; 10-min lightning talk.
+Speaker benefit: complimentary All-Access In-Person ticket (co-located events + KubeCon).
+Travel: local for you (Barcelona).
+
+Rules that matter:
+- At most one non-panel session (plus one panel) per co-located event.
+- CNCF will not select talks already presented at a Linux Foundation event in the
+  past year; explain differences if a talk is similar.
+- No sales/marketing pitches.
+- Your KubeCon EU main-conference submissions are a separate event; make the
+  co-located abstracts clearly distinct from them.
+
+Recommended: three proposals, one per event below.
+
+================================================================
+1. AGENTICS DAY: MCP + AGENTS
+================================================================
+Topics listed include: Building MCP Servers & Clients; Security, Trust &
+Reliability; Enterprise Integration & Governance.
+
+Title:
+One Registry for MCP Tools and A2A Agents: Versioned Discovery Without a Central Gatekeeper
+
+Description:
+MCP servers describe tools; A2A Agent Cards describe agents. In most
+organizations both end up scattered across repositories, wikis, and
+environment variables, so nobody can answer a basic question: which versions
+of which tools and agents are running, and who depends on them?
+
+This session shows how to publish MCP server metadata and A2A Agent Cards as
+versioned artifacts in Apicurio Registry, a CNCF sandbox project, so that
+clients discover them the same way services discover API and schema
+definitions. We'll register an agent card, publish a new version, and look at
+what the registry can check — structure and declared capabilities — and what it
+cannot: whether a new version still behaves the same way. We'll finish with the
+integration tests and deprecation steps needed alongside the registry.
+
+Benefits to the ecosystem:
+MCP and A2A adoption is growing faster than the practices for managing them.
+This talk gives MCP practitioners a concrete, open-source pattern for
+versioned discovery that reuses registry techniques the cloud native community
+already runs in production, and is explicit about its limits.
+
+Differs from the KubeCon EU submission: this version is MCP-first (tool and
+server metadata), 25 minutes, and focused on the registry mechanics rather than
+multi-team governance.
+
+CNCF projects: Apicurio Registry (sandbox). Other: MCP, A2A.
+Case study: No.
+
+Before submitting: the agent demo under talks/governing-agent-swarm/ has NOT
+been verified end to end. Run it (and add MCP server metadata) before committing
+to a live demo; otherwise describe the session as a walkthrough.
+
+================================================================
+2. KEYCLOAKCON
+================================================================
+Topics listed include: Securing Applications and Cloud Native Infrastructure
+with Keycloak; Keycloak Security Best Practices.
+
+Title:
+One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
+
+Description:
+A producer can authenticate to Kafka and still have excessive permissions in
+the schema registry. A consumer can hold a valid token and still be denied its
+topic. Using one Keycloak realm for a whole data platform simplifies
+credentials, but it does not make authorization consistent on its own.
+
+This session follows a producer and a consumer through a Kafka platform built
+with Keycloak, Strimzi, and Apicurio Registry. We'll separate token issuance
+and validation, Kafka principal mapping and ACLs, and registry permissions,
+then trace one authorized request and one denial. We'll close with token
+expiry, signing-key rotation, and least-privilege access to schemas.
+
+Benefits to the ecosystem:
+Keycloak is frequently deployed in front of Kafka and schema registries, but
+the boundaries between authentication and each component's authorization are
+rarely shown together. This gives Keycloak users a reusable map of those
+boundaries and practical checks for them.
+
+CNCF projects: Keycloak (incubating), Strimzi (incubating), Apicurio Registry (sandbox).
+Case study: No.
+
+Before submitting: talks/security/README.md is incomplete (no working ACL
+denial, HTTP on some paths). Same gaps as the NDC Security package; fix once
+and use for both.
+
+================================================================
+3. CLOUD NATIVE AI + INFERENCE DAY
+================================================================
+Topics listed include: LLMs & Generative AI; End-to-End AI/ML in Production.
+
+Title:
+Your Prompts Are Unversioned: Releasing and Rolling Back LLM Prompts Like Code
+
+Description:
+Use the verified abstract in talks/prompt-templates-as-artifacts/description.txt,
+trimmed for 25 minutes. Keep the explicit limit: template checks are structural;
+output quality still needs evaluation tests.
+
+Benefits to the ecosystem:
+Prompt templates change application behavior as much as code does, yet they
+rarely get versioning or rollback. This shows a registry-based pattern for
+versioning, selecting, and rolling back prompts in cloud native AI applications.
+
+CNCF projects: Apicurio Registry (sandbox).
+
+Before submitting: talks/prompt-templates-as-artifacts/prompt-governance-demo/
+has not been verified end to end.
+
+================================================================
+SHARED FIELDS
+================================================================
+Speaker: Carles Arnal — Principal Software Engineer, IBM — Barcelona, Spain
+
+Bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.
+
+Additional resources:
+- Recordings: OCX 2026 https://www.youtube.com/watch?v=9vEvUUL82w4 ;
+  OSS Japan 2023 https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s ;
+  DevConf 2024 https://www.youtube.com/watch?v=GVYEcvDPFzw ;
+  Current 2023 https://www.confluent.io/es-es/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/

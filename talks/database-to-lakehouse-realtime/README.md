@@ -1,213 +1,105 @@
-# From Database to Lakehouse in Real-Time — Demo Walkthrough
+# The Sink Said RUNNING: CDC to Iceberg on Kubernetes — Demo Walkthrough
 
-This walkthrough accompanies the **database-to-lakehouse-realtime** talk. It demonstrates a real-time CDC pipeline from PostgreSQL through Kafka to Apache Iceberg tables, with schema governance via Apicurio Registry.
+This walkthrough accompanies the **database-to-lakehouse-realtime** talk: a change data capture
+pipeline from PostgreSQL into Apache Iceberg, with schemas managed in Apicurio Registry.
 
-The CDC infrastructure is based on the [debezium-ocp-etc-demo](debezium-ocp-etc-demo/) project, extended with an Iceberg sink.
+**Status: verified end to end on September 28, 2026**, twice from a clean namespace, on minikube
+(Kubernetes 1.28, podman driver, macOS arm64). Every number and output below was observed in
+those runs.
 
 ## Architecture
 
 ```mermaid
 graph LR
-    PG[PostgreSQL] -->|CDC| Debezium
-    Debezium --> Kafka[Kafka\nStrimzi]
-    Kafka -->|Avro| Sink[Flink / Sink\nConnector]
-    Sink -->|Iceberg tables| Iceberg[Apache Iceberg]
-    Iceberg --> Query[Trino / Spark\nQuery Engine]
-
-    Kafka -.-> Registry[Apicurio\nRegistry]
-    Sink -.->|Auto schema\nevolution| Registry
+    PG[PostgreSQL] -->|logical decoding| DBZ[Debezium source]
+    DBZ -->|Avro| Kafka[Kafka 4.3.1\nStrimzi 1.2, KRaft]
+    Kafka --> Sink[Apache Iceberg\nKafka Connect sink]
+    Sink -->|data files| S3[SeaweedFS\nS3-compatible]
+    Sink -->|commits| Cat[Iceberg REST catalog]
+    Cat --> S3
+    Trino[Trino] --> Cat
+    DBZ -.->|register schemas| Reg[Apicurio Registry 3.3.3]
+    Sink -.->|resolve schemas| Reg
 ```
 
-## Prerequisites
+| Component | Version | Notes |
+|---|---|---|
+| Strimzi | 1.2.0 | `kafka.strimzi.io/v1` API, KRaft with a `KafkaNodePool` |
+| Kafka / Kafka Connect | 4.3.1 | Custom Connect image, see `connect-image/` |
+| Debezium PostgreSQL connector | 3.6.3.Final | `pgoutput`, table `inventory.customers` |
+| Apicurio Registry + Connect converter | 3.3.3 | `io.apicurio.registry.utils.converter.AvroConverter` |
+| Apache Iceberg Kafka Connect sink | 1.11.0 | Built from the Apache source release |
+| Iceberg REST catalog | `apache/iceberg-rest-fixture:1.10.1` | Reference implementation; in-memory catalog |
+| Object storage | SeaweedFS 3.97 | MinIO container images are no longer published |
+| Trino | 480 | Iceberg REST catalog connector |
 
-1. A Kubernetes cluster with Strimzi Operator installed
-2. Docker and Docker Compose (for local variant)
-3. `kubectl`, `curl`, `jq`
-
-
-## Step 1: Deploy the CDC Infrastructure
-
-Follow the [debezium-ocp-etc-demo README](debezium-ocp-etc-demo/README.md) for deploying the core infrastructure. The key components:
+## Run It
 
 ```bash
-kubectl create namespace lakehouse-demo
-
-# Deploy Kafka, PostgreSQL, Apicurio Registry, and Kafka Connect
-# (refer to debezium-ocp-etc-demo/README.md)
+./connect-image/build.sh      # build the Connect image (JDK 17/21, Docker); loads it into minikube
+./scripts/01-deploy.sh        # Strimzi + all components in namespace lakehouse-demo
+./scripts/run-demo.sh         # insert, schema evolution, snapshots / time travel
+./scripts/99-teardown.sh      # delete the namespace
 ```
 
-This gives you:
-- PostgreSQL with the Debezium example database
-- Kafka (Strimzi) with the CDC topics
-- Apicurio Registry storing Avro schemas for each captured table
-- Kafka Connect running the Debezium PostgreSQL connector
+| Script | What it shows |
+|---|---|
+| `01-deploy.sh` | Deploys everything and waits for Debezium's initial snapshot (4 rows) to land in Iceberg |
+| `02-insert-and-query.sh` | Inserts customer 1005 and measures time until it is queryable |
+| `03-schema-evolution.sh` | `ADD COLUMN phone`: new registry version, column added to the Iceberg table |
+| `04-time-travel.sh` | Snapshot history, `FOR VERSION AS OF`, latest state per key |
 
+## Observed Results
 
-## Step 2: Deploy Apache Iceberg + Trino
+**Initial snapshot.** Debezium snapshots the 4 existing customers; they are queryable in Iceberg
+122 s after the connectors report Ready (includes table creation and the first commits).
 
-Deploy a MinIO-backed Iceberg catalog with Trino for querying:
+**Freshness.** An inserted row became queryable after **33 s and 42 s** in two runs, with
+`iceberg.control.commit.interval-ms: 10000`. Snapshots landed roughly **once a minute**. The
+connector's **default commit interval is 300000 ms (5 minutes)**. Freshness here is seconds to
+a minute, bounded by the sink's commit cycle — not sub-second.
 
-```bash
-kubectl apply -n lakehouse-demo -f - <<'EOF'
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: minio
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: minio
-  template:
-    metadata:
-      labels:
-        app: minio
-    spec:
-      containers:
-        - name: minio
-          image: minio/minio:RELEASE.2024-11-07T00-52-20Z
-          args: ["server", "/data", "--console-address", ":9001"]
-          env:
-            - name: MINIO_ROOT_USER
-              value: admin
-            - name: MINIO_ROOT_PASSWORD
-              value: password
-          ports:
-            - containerPort: 9000
-            - containerPort: 9001
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: minio
-spec:
-  selector:
-    app: minio
-  ports:
-    - name: api
-      port: 9000
-    - name: console
-      port: 9001
-EOF
+**Schema evolution.** `ALTER TABLE ... ADD COLUMN phone` produced value-schema **version 2** in
+Apicurio Registry, and the sink added the `phone` column to the Iceberg table with
+`iceberg.tables.evolve-schema-enabled: true` — no manual DDL. The updated value was queryable
+after **51 s and 59 s**. Only an additive, nullable change was tested.
+
+**Changelog, not a mirror.** `DebeziumTransform` flattens change events and adds a `_cdc` struct
+(`op`, `offset`, `source`, ...). The sink **appends**: after the update, customer 1005 has an
+`I` row and a `U` row. Current state needs a query such as:
+
+```sql
+SELECT id, first_name, last_name, phone
+FROM (SELECT *, row_number() OVER (PARTITION BY id ORDER BY _cdc.offset DESC) AS rn
+      FROM iceberg.inventory.customers)
+WHERE rn = 1 AND _cdc.op <> 'D'
 ```
 
-**Demo point:** MinIO provides S3-compatible object storage for Iceberg data files. In production, this would be AWS S3, GCS, or Azure Blob Storage.
+**Snapshots and time travel.** One Iceberg snapshot per sink commit (3 snapshots: 4, 1, 1 added
+records), not one per change event. `FOR VERSION AS OF <first snapshot>` returns the original
+4 customers.
 
+## Problems Found While Building This (useful talk material)
 
-## Step 3: Deploy the Iceberg Sink Connector
+1. **Corrupted metadata on S3-compatible storage.** Iceberg's `S3FileIO` uses AWS SDK v2, whose
+   default checksums use `aws-chunked` uploads. SeaweedFS stored the chunk framing inside the
+   object, so reading `metadata.json` failed with `Unexpected character ('f')`. Fix:
+   `AWS_REQUEST_CHECKSUM_CALCULATION=when_required` and
+   `AWS_RESPONSE_CHECKSUM_VALIDATION=when_required` on every writer (catalog and Connect).
+2. **Signed requests need an S3 identity.** SeaweedFS rejects signed requests until an identity
+   is configured (`-s3.config`).
+3. **Sink control consumer never stayed in its group.** Under the classic rebalance protocol the
+   sink's control-topic consumer hit `UNKNOWN_MEMBER_ID` on SyncGroup, so every commit timed out
+   with `committed to 0 table(s)` while the task reported RUNNING. Switching that consumer to
+   Kafka 4's consumer protocol (`iceberg.kafka.group.protocol: consumer`, KIP-848) fixed it.
+   Root cause not investigated further; worth reporting upstream with a reproducer.
+4. **Strimzi 1.x** accepts only the `v1` API, and still needs the
+   `strimzi.io/use-connector-resources` annotation for `KafkaConnector` resources.
 
-Add an Iceberg sink connector to Kafka Connect that writes CDC events into Iceberg tables:
+## Not Covered or Not Measured
 
-```bash
-kubectl apply -n lakehouse-demo -f - <<'EOF'
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaConnector
-metadata:
-  name: iceberg-sink
-  labels:
-    strimzi.io/cluster: connect-cluster
-spec:
-  class: io.tabular.iceberg.connect.IcebergSinkConnector
-  tasksMax: 1
-  config:
-    topics: "server1.inventory.customers,server1.inventory.orders"
-    iceberg.tables: "lakehouse.inventory.customers,lakehouse.inventory.orders"
-    iceberg.tables.auto-create-enabled: "true"
-    iceberg.tables.evolve-schema-enabled: "true"
-    iceberg.catalog.type: "rest"
-    iceberg.catalog.uri: "http://iceberg-rest:8181"
-    iceberg.catalog.s3.endpoint: "http://minio:9000"
-    iceberg.catalog.s3.access-key-id: "admin"
-    iceberg.catalog.s3.secret-access-key: "password"
-    iceberg.catalog.warehouse: "s3://warehouse/"
-    key.converter: "io.apicurio.registry.serde.avro.AvroKafkaDeserializer"
-    value.converter: "io.apicurio.registry.serde.avro.AvroKafkaDeserializer"
-    value.converter.apicurio.registry.url: "http://apicurio-registry:8080/apis/registry/v3"
-EOF
-```
-
-**Demo point:** The sink connector uses Apicurio Registry to deserialize Avro events and writes them into Iceberg tables. `evolve-schema-enabled: true` means schema changes in the registry automatically propagate to the Iceberg table DDL — no manual ALTER TABLE needed.
-
-
-## Step 4: Show the Pipeline in Action
-
-Insert a record in PostgreSQL:
-```bash
-kubectl exec -it postgres -n lakehouse-demo -- psql --user postgres -c \
-  "INSERT INTO inventory.customers VALUES (1005, 'Alice', 'Smith', 'alice@example.com');"
-```
-
-Within seconds, query the data in Iceberg via Trino:
-```bash
-kubectl exec -it trino -n lakehouse-demo -- trino --execute \
-  "SELECT * FROM iceberg.inventory.customers ORDER BY id;"
-```
-
-Expected output:
-```
-  id  | first_name | last_name |         email
-------+------------+-----------+-----------------------
- 1001 | Sally      | Thomas    | sally.thomas@acme.com
- 1002 | George     | Bailey    | gbailey@foobar.com
- 1003 | Edward     | Walker    | ed@walker.com
- 1004 | Anne       | Kretchmar | annek@noanswer.org
- 1005 | Alice      | Smith     | alice@example.com
-```
-
-**Demo point:** The row inserted in PostgreSQL is now queryable in Iceberg — no batch job, no ETL scheduler. The latency is sub-second from database commit to Iceberg availability.
-
-
-## Step 5: Demonstrate Schema Evolution
-
-Add a column to the source database:
-
-```bash
-kubectl exec -it postgres -n lakehouse-demo -- psql --user postgres -c \
-  "ALTER TABLE inventory.customers ADD COLUMN phone VARCHAR(20);"
-
-kubectl exec -it postgres -n lakehouse-demo -- psql --user postgres -c \
-  "UPDATE inventory.customers SET phone = '+34-555-0001' WHERE id = 1005;"
-```
-
-**Demo point:** Show three things happening automatically:
-1. Debezium detects the schema change and publishes events with the new field
-2. Apicurio Registry registers a new schema version (with the `phone` field) — BACKWARD compatible
-3. The Iceberg sink connector evolves the table schema — the `phone` column appears automatically
-
-Query Iceberg again:
-```bash
-kubectl exec -it trino -n lakehouse-demo -- trino --execute \
-  "SELECT id, first_name, last_name, phone FROM iceberg.inventory.customers WHERE id = 1005;"
-```
-
-```
-  id  | first_name | last_name |    phone
-------+------------+-----------+--------------
- 1005 | Alice      | Smith     | +34-555-0001
-```
-
-
-## Step 6: Time Travel Queries
-
-Show Iceberg's snapshot capability:
-
-```bash
-# List snapshots
-kubectl exec -it trino -n lakehouse-demo -- trino --execute \
-  "SELECT snapshot_id, committed_at FROM iceberg.inventory.\"customers\$snapshots\" ORDER BY committed_at;"
-
-# Query a previous snapshot (before Alice was added)
-kubectl exec -it trino -n lakehouse-demo -- trino --execute \
-  "SELECT * FROM iceberg.inventory.customers FOR VERSION AS OF <snapshot_id>;"
-```
-
-**Demo point:** Every CDC event creates an Iceberg snapshot. You can query the data as it was at any point in time — useful for ML training on historical data, auditing, and debugging.
-
-
-## Key Talking Points
-
-1. **Batch ETL is dead (for many use cases)** — CDC + Kafka + Iceberg delivers sub-second latency where nightly ETL takes hours. Your analysts and ML models work on fresh data.
-2. **Schema evolution flows automatically** — A column added in PostgreSQL propagates through Debezium → Apicurio Registry → Iceberg without manual intervention. The registry ensures compatibility at every stage.
-3. **Apicurio Registry is the contract layer** — It governs the schema at the Kafka boundary. The Iceberg sink trusts the registry to tell it when and how to evolve the table schema.
-4. **Time travel for ML** — Iceberg snapshots let you train models on historical data without maintaining separate feature stores. Query the data as it was when the model was trained.
-5. **100% open source** — Debezium, Strimzi, Apicurio Registry (CNCF sandbox), Apache Iceberg, Trino — no vendor lock-in.
+- Updates/deletes applied as merges (upsert) — the sink appends; deletes are `D` rows.
+- Breaking schema changes (drops, type changes) and registry compatibility rules — not tested.
+- Throughput, resource use, or latency under load — only single-row timings were measured.
+- Production concerns: compaction of small files, snapshot expiry, catalog persistence, security.
+- Flink — this demo uses Kafka Connect only.

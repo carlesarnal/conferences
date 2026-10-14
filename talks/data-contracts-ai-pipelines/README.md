@@ -1,4 +1,6 @@
-# Data Contracts for Event-Driven AI — Demo Walkthrough
+# Your Model Didn't Change, Your Input Did — Demo Walkthrough
+
+> Status: not yet verified end to end.
 
 This walkthrough accompanies the **data-contracts-ai-pipelines** talk. It demonstrates how schema registries enforce data contracts in AI pipelines, preventing silent schema changes from breaking downstream ML inference.
 
@@ -181,4 +183,4 @@ curl -s -X POST "http://localhost:8080/apis/registry/v3/groups/data-contracts/ar
 2. **Contract at produce time, not prediction time** — Schema validation happens when the event is serialized. A breaking change is caught before it enters Kafka, not when the ML model fails at 3 AM.
 3. **CDC as the golden source** — Debezium captures the exact database state. The Avro schema in the registry ensures that capture is type-safe and versioned.
 4. **Avro vs Protobuf vs JSON Schema** — Discuss when each fits AI workloads. Avro for compact binary (high-throughput CDC), Protobuf for cross-language ML services, JSON Schema for human-readable metadata.
-5. **45% of AI projects fail on data quality** — The root cause is often silent schema drift between producers and consumers. Data contracts prevent this class of failures.
+5. **Scope of schema checks** — Compatibility checks can reject incompatible schema registrations. They do not measure model quality, validate feature semantics, or protect against producers that bypass enforcement.

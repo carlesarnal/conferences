@@ -1,60 +1,20 @@
 #!/bin/bash
-# Run the complete kafka-proxy-schema-validation demo
+# Run the complete proxy validation demo, pausing between steps
 set -euo pipefail
+DIR="$(cd "$(dirname "$0")" && pwd)"
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+pause() { read -r -p "Press Enter to continue..." _; echo ""; }
 
-echo "========================================================="
-echo "  Transparent Schema Validation at the Kafka Proxy Layer"
-echo "========================================================="
-echo ""
-echo "Prerequisites:"
-echo "  - docker compose up -d (from parent directory)"
-echo "  - Kroxylicious proxy built and running (see README)"
-echo "  - curl and jq installed"
-echo ""
-
-read -p "Press Enter to start..." _
-
-echo ""
-echo "STEP 1: Register the order schema"
-echo "==================================="
-"$SCRIPT_DIR/01-register-schema.sh"
-echo ""
-read -p "Press Enter to continue..." _
+"$DIR/00-start.sh";            pause
+"$DIR/01-register-schema.sh";  pause
+"$DIR/02-create-topic.sh";     pause
+"$DIR/03-produce-valid.sh";    pause
+"$DIR/04-produce-invalid.sh";  pause
+"$DIR/05-verify-kafka.sh";     pause
+"$DIR/06-mixed-batch.sh";      pause
+"$DIR/05-verify-kafka.sh";     pause
+"$DIR/07-bypass.sh";           pause
+"$DIR/08-registry-outage.sh"
 
 echo ""
-echo "STEP 2: Create the Kafka topic"
-echo "================================"
-"$SCRIPT_DIR/02-create-topic.sh"
-echo ""
-read -p "Press Enter to continue..." _
-
-echo ""
-echo "STEP 3: Produce valid messages (through proxy)"
-echo "================================================="
-"$SCRIPT_DIR/03-produce-valid.sh"
-echo ""
-read -p "Press Enter to continue..." _
-
-echo ""
-echo "STEP 4: Produce invalid messages (rejected by proxy)"
-echo "======================================================"
-"$SCRIPT_DIR/04-produce-invalid.sh"
-echo ""
-read -p "Press Enter to continue..." _
-
-echo ""
-echo "STEP 5: Verify only valid messages in Kafka"
-echo "=============================================="
-"$SCRIPT_DIR/05-verify-kafka.sh"
-echo ""
-
-echo "========================================================="
-echo "  Demo complete!"
-echo ""
-echo "  Key takeaways:"
-echo "  1. Transparent — producers don't know the proxy exists"
-echo "  2. Invalid messages never reach the broker"
-echo "  3. Same registry, enforced at infrastructure layer"
-echo "========================================================="
+echo "Demo complete. Clean up with: $DIR/99-stop.sh"

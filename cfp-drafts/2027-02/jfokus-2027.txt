@@ -1,0 +1,187 @@
+JFokus 2027 — CFP Submissions
+==============================
+
+Conference: Feb 8-10, 2027 — Stockholm Waterfront Congress Centre, Sweden
+CFP deadline: Organizer text says Sep 30; supplied Sessionize page closes
+  Oct 1, 2026, 08:30 CEST. Use Sep 30 as the conservative submission date.
+URL: https://jfokus.se/
+Max submissions: 4 per speaker
+Attendees: ~2000, Java/JVM focus + AI/ML/Big Data/Cloud tracks
+Formats: 45-min sessions, 15-min lightning, 3.5h deep dive, 90-min sessions, HOL
+Travel: limited budget, case-by-case — state needs in the form if required
+NOTE: They select talks as submissions arrive — EARLY SUBMISSION = better odds.
+
+================================================================
+SUBMISSION 1: Data Contracts for AI (Java + AI angle)
+================================================================
+
+Session Title:
+Why Your AI Pipeline Broke at 3 AM: Data Contracts for Event-Driven Machine Learning
+
+Description:
+An inference service can fail even when its model has not changed: an upstream producer changes a field type, and the consumer can no longer read its inputs. Producers and consumers evolve independently, so their data contracts need explicit compatibility rules.
+
+Using a Kafka-based AI pipeline as the architectural context, I'll demonstrate registering Avro contracts in Apicurio Registry, accepting a compatible change, and rejecting an incompatible schema version. We'll examine where Java serializers and deployment checks must enforce these contracts, and why registry rules alone cannot stop producers that bypass them. Structural compatibility is only one layer: feature semantics and model quality still require application-level tests.
+
+Attendees will leave with:
+- A concrete pattern for implementing data contracts in streaming AI architectures
+- A comparison of schema evolution strategies (Avro, Protobuf, JSON Schema) and when each fits ML workloads
+- A reproducible setup they can deploy to enforce schema governance across their own pipelines
+
+Session format: 45 min Regular session
+Level: Intermediate
+Categories: Java, AI/Machine Learning, Big Data, Cloud
+Main Tag: Java
+Other Tags: Kafka, AI/ML, Event-Driven Architecture, Quarkus
+This talk has been presented at other conferences: Confirm actual delivery history before selecting.
+Target audience: Java developers and architects building event-driven or AI-powered systems
+Travel from: Barcelona, Spain
+Travel compensation: Confirm actual funding needs; employer coverage is not established.
+Message to program committee:
+This session connects Java/Kafka integration with AI input contracts. The
+demo focuses on schema registration and compatibility checks; the pipeline
+architecture explains where these checks fit and where they do not suffice.
+
+
+================================================================
+SUBMISSION 2: Edge to Cloud
+================================================================
+
+Session Title:
+From Database Changes to Cloud Search: CDC Pipelines on Kubernetes
+
+Description:
+A row changes in PostgreSQL. How does that change reach a search index without a nightly batch job? This talk follows a change-data-capture pipeline built with open-source components on Kubernetes.
+
+I'll walk through capturing changes with Debezium, streaming Avro events through Kafka on Strimzi, managing schemas with Apicurio Registry, and connecting stream processing to Elasticsearch. We'll examine schema evolution, consumer lag, replay, and the trade-offs involved in keeping a derived search index consistent with its source. The focus is a demonstration architecture, not a claim of measured production latency.
+
+Attendees will leave with:
+- A reproducible, fully containerized CDC pipeline they can deploy on any Kubernetes cluster
+- Practical lessons on schema evolution, compatibility enforcement, and production pitfalls
+- A clear framework for when CDC outperforms traditional ETL and where the tradeoffs lie
+
+Session format: 45 min Regular session
+Level: Intermediate
+Categories: Java, Cloud, Big Data
+Main Tag: Java
+Other Tags: Kafka, CDC, Kubernetes, Quarkus, Debezium
+This talk has been presented at other conferences: Confirm which earlier versions
+  were delivered at Current 2023 / Data Saturday Oslo 2024 before selecting Yes.
+Target audience: Java developers building data pipelines or event-driven systems
+Travel from: Barcelona, Spain
+Travel compensation: Confirm actual funding needs; employer coverage is not established.
+Message to program committee:
+The session connects Debezium, Kafka, and JVM application development with
+the operational concerns of CDC pipelines. It uses a demo architecture and
+does not claim an end-user production deployment or benchmark results.
+
+
+================================================================
+SUBMISSION 3: Kafka Proxy Schema Validation (deep JVM)
+================================================================
+
+Session Title:
+Bad Messages Should Never Reach the Broker: Schema Validation at the Kafka Proxy Layer
+
+Description:
+Schema validation usually happens at the producer client — but what about legacy producers you can't modify, third-party integrations, or teams that simply skip validation? Those schema-invalid messages still reach Kafka, and by the time a consumer fails on bad data, the damage is done and the offset has moved.
+
+In this session, I'll demo a different approach: enforcing schema validation transparently at the proxy layer using Kroxylicious, a protocol-aware Kafka proxy written in Java. A proxy filter intercepts produce requests, validates payloads against schemas stored in Apicurio Registry (CNCF sandbox), and rejects non-compliant messages before they ever reach the broker — with zero changes to producer code. I'll show the setup end to end: the Java filter implementation, registry integration, and deployment on Kubernetes.
+
+Attendees will leave with:
+- An understanding of Kafka proxy-layer architecture and how Kroxylicious filters work
+- A deployable schema validation filter configuration for their own clusters
+- A clear decision framework for when proxy-layer validation complements or replaces client-side checks
+
+Session format: 45 min Regular session
+Level: Intermediate to Advanced
+Categories: Java, Cloud, Architecture
+Main Tag: Java
+Other Tags: Kafka, Kroxylicious, Schema Validation, Kubernetes
+This talk has been presented at other conferences: Confirm actual delivery history before selecting.
+Target audience: Java developers and platform engineers running Kafka in production
+Travel from: Barcelona, Spain
+Travel compensation: Confirm actual funding needs; employer coverage is not established.
+Message to program committee:
+Kroxylicious is a Java-native Kafka proxy — this is a deeply technical JVM
+talk (produce-request handling, validation filters, registry integration) that goes beyond
+typical "how to use Kafka" content. Ideal for JFokus attendees who want to
+understand how Kafka infrastructure works under the hood.
+
+
+================================================================
+SUBMISSION 4: Real-Time Lakehouse (accepted at JavaZone)
+================================================================
+
+Session Title:
+Kill the Nightly Batch: Building a Real-Time Lakehouse with CDC, Kafka, and Apache Iceberg
+
+Description:
+Batch ETL runs nightly. Your analysts query stale data. Your ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline — and you can build it entirely with open-source tools on Kubernetes.
+
+I'll demonstrate a CDC-to-lakehouse pipeline: Debezium captures PostgreSQL changes, Kafka carries the events, and Flink writes to Apache Iceberg for downstream queries. We'll examine a supported schema evolution, a breaking change, and the role of registry compatibility checks. The session explains how checkpointing, table commits, and consumer compatibility affect freshness and correctness; schema checks do not guarantee data quality on their own.
+
+Attendees will leave with:
+- A deployable CDC-to-Iceberg pipeline architecture using only open-source components on Kubernetes
+- Practical patterns for handling schema evolution across the Kafka-to-Iceberg boundary
+- A clear framework for when streaming lakehouse replaces batch ETL and where hybrid patterns still win
+
+Session format: 45 min Regular session
+Level: Intermediate
+Categories: Java, Big Data, Cloud
+Main Tag: Java
+Other Tags: Kafka, Apache Iceberg, CDC, Flink, Kubernetes
+This talk has been presented at other conferences: JavaZone acceptance is confirmed;
+  confirm actual delivery before selecting Yes. Community Over Code Asia status
+  is conflicting in earlier records and must be checked before citing it.
+Target audience: Java developers and data engineers modernizing batch data infrastructure
+Travel from: Barcelona, Spain
+Travel compensation: Confirm actual funding needs; employer coverage is not established.
+Message to program committee:
+An earlier version was accepted at JavaZone 2026. The Flink, Kafka, and
+Debezium components connect the lakehouse architecture to JFokus's JVM audience.
+
+
+================================================================
+SPEAKER PROFILE FIELDS (form)
+================================================================
+
+Speaker: Carles Arnal
+Email: carnalca@redhat.com
+Company: IBM
+Job Title: Principal Software Engineer
+Phone number: (fill in)
+Blog: (leave blank or personal site)
+Bluesky: (fill in if you have one)
+Co-speakers: none
+
+Conference speaking experience (verify delivery and exact titles before pasting):
+- JavaZone 2026 (Oslo) — Real-Time Lakehouse talk
+- Community Over Code Asia 2026 — conflicting acceptance/rejection records; omit until confirmed
+- FOST Munich 2026 — Agent Discovery talk
+- API Days Amsterdam 2026 — Agent Discovery talk
+- OCX 2026 — Streaming ML talk
+- Plus: Current 2023, Data Saturday Oslo 2024, OSS Japan 2023, DevConf US 2024
+  (full list on Sessionize)
+
+Describe your needs for travel expenses support:
+State whether travel support is needed, the estimated amount, and whether
+attendance depends on it. Funding from IBM has not been confirmed. Requesting
+support is explicitly allowed by the CFP; do not state that travel is covered.
+
+Speaker Bio — NOTE: form has the OLD version prefilled. Replace prefilled bio with:
+  Carles Arnal is a core maintainer of Apicurio Registry
+  (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to
+  Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also
+  an associate professor at BarcelonaTech (UPC) and speaks regularly at
+  international conferences on event-driven architectures, real-time data
+  pipelines, and AI-ready platforms.
+
+How much of this abstract is created by AI:
+  These draft descriptions were generated by AI from existing talk materials.
+  If pasted unchanged, use 100% for the abstract wording. If you substantially
+  rewrote it, estimate the actual AI-created share of the text you submitted.
+  Technical experience and authorship of the wording are separate questions.
+
+IMPORTANT: Jfokus selects talks on a rolling basis as submissions arrive.
+Submit EARLY (this week) for the best odds — do not wait for the Sep 30 deadline.

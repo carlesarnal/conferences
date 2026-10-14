@@ -1,0 +1,16 @@
+Open Source Summit Europe 2027
+==============================
+
+Status: New in the September 28, 2026 discovery round; no submission.
+Event: November 20, 2027 (start), Glasgow, UK
+CFP: Not open yet (expect around mid-2027)
+URL: https://events.linuxfoundation.org/open-source-summit-europe-2027/
+Source: developers.events event list; verify dates on the LF page.
+
+Why it fits: Maintainer and open-source governance audience.
+
+Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+- cncf-sandbox-journey
+- kafka-proxy-schema-validation (upstream contribution story)
+
+Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).

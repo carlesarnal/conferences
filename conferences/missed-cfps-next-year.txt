@@ -4,7 +4,7 @@ MISSED CFPs — TRACK FOR 2027 SUBMISSIONS
 These conferences had their 2026 CFP closed before we could submit.
 Estimated CFP windows below so we don't miss them next time.
 
-NOTE: Carles is a CNCF Ambassador + Apicurio Registry sandbox maintainer.
+NOTE: Carles is a core maintainer of Apicurio Registry (CNCF sandbox).
 This strengthens submissions to all CNCF/LF events (KubeCon, KCDs, KubeDays,
 OSS Summit, etc.) and provides community credibility at all conferences.
 

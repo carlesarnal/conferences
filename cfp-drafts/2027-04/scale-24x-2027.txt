@@ -1,0 +1,55 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+SCaLE 24x SUBMISSIONS
+======================
+
+Dates: Apr 1-4, 2027, Pasadena Convention Center, CA
+CFP deadline: Nov 1, 2026
+Verified: September 21, 2026, on https://www.socallinuxexpo.org/scale/24x
+Status: Drafted; not submitted.
+URL: https://www.socallinuxexpo.org/scale/24x
+Largest community-run open source conference in North America.
+
+
+SUBMISSION 1: Real-Time Lakehouse
+----------------------------------
+
+Title:
+The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+
+Abstract:
+Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline built entirely with open-source tools on Kubernetes.
+
+In a live demo, I'll build a complete pipeline: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds via Trino or Spark. All open-source, all deployable, all reproducible.
+
+Audience Level: Intermediate
+
+
+SUBMISSION 2: Agent Governance
+-------------------------------
+
+Title:
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+
+Abstract:
+Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which. This is the same discovery and compatibility crisis that hit APIs a decade ago. I'll show how to apply proven registry-based governance patterns using the A2A Protocol -- agents publishing discoverable Agent Cards, negotiating capabilities, and failing fast on breaking changes. All open source.
+
+Audience Level: Intermediate
+
+
+SUBMISSION 3: CNCF Sandbox Journey
+------------------------------------
+
+Title:
+What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
+
+Abstract:
+Getting into the CNCF Sandbox requires months of governance restructuring and uncomfortable decisions. I'll walk through the concrete steps, surprises, and mistakes from bringing Apicurio Registry to the foundation. What the due diligence process actually asks, what changed after acceptance, and whether it's worth it for your project.
+
+Audience Level: Intermediate
+
+
+Speaker Bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.

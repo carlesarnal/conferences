@@ -1,0 +1,29 @@
+# Kafka Connect using the image built from connect-image/ (Debezium, Apicurio converter, Iceberg sink)
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaConnect
+metadata:
+  name: lakehouse-connect
+  annotations:
+    # Manage connectors through KafkaConnector resources (required even with the v1 API)
+    strimzi.io/use-connector-resources: "true"
+spec:
+  version: 4.3.1
+  replicas: 1
+  bootstrapServers: lakehouse-kafka-bootstrap:9092
+  image: localhost/lakehouse-connect:1.0
+  groupId: lakehouse-connect
+  offsetStorageTopic: lakehouse-connect-offsets
+  configStorageTopic: lakehouse-connect-configs
+  statusStorageTopic: lakehouse-connect-status
+  config:
+    config.storage.replication.factor: 1
+    offset.storage.replication.factor: 1
+    status.storage.replication.factor: 1
+  template:
+    connectContainer:
+      env:
+        # The Iceberg sink writes data files with AWS SDK v2; see 03-storage-catalog.yaml
+        - name: AWS_REQUEST_CHECKSUM_CALCULATION
+          value: when_required
+        - name: AWS_RESPONSE_CHECKSUM_VALIDATION
+          value: when_required

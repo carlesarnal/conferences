@@ -1,0 +1,171 @@
+NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
+talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
+differs from those files is outdated.
+
+NDC SECURITY OSLO 2027 — SUBMISSION PACKAGE
+==========================================
+
+Status: Drafted; not submitted.
+Verified: September 21, 2026
+Event: February 15-18, 2027, Radisson Blu Scandinavia Hotel, Oslo
+Deadline: October 18, 2026, 23:59 CEST (UTC+02:00)
+Submit: https://sessionize.com/ndc-security-2027/
+CFP: https://ndcsecurity.com/call-for-papers
+Travel and accommodation: Covered, per the official Sessionize CFP.
+Regular talks: 60 minutes. Lightning: 10 minutes. Workshops: 60-120 minutes
+or two days. Organizers recommend 3-4 proposals at most; this is guidance,
+not a verified hard limit. These two focused proposals are the recommendation.
+The authenticated form's exact fields/options have not been inspected.
+
+SUBMISSION 1 — RECOMMENDED FIRST
+--------------------------------
+
+Title:
+One Identity Provider, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
+
+Description:
+A producer can authenticate to Kafka and still have excessive permissions in
+the schema registry. A consumer can possess a valid token and still be denied
+access to its topic. Sharing an identity provider makes credentials easier to
+manage, but it does not make authorization policies consistent automatically.
+
+This session follows a producer and a consumer through a Kafka data platform
+using Keycloak, Strimzi, and Apicurio Registry. We'll separate token issuance
+and validation, Kafka principal mapping and ACLs, registry permissions, and
+transport security. We'll examine how OAuth2/OIDC and TLS serve different
+purposes, and where mutual TLS is a separate design choice rather than an
+automatic consequence of enabling OAuth.
+
+Through configuration examples and focused demonstrations, we'll trace an
+authenticated request and an authorization failure, then discuss token expiry,
+signing-key rotation, service identities, and least-privilege access to schemas.
+The examples use open-source projects; the trust-boundary analysis applies
+to other event-driven platforms too.
+
+Attendees will leave with:
+- A map of the authentication and authorization boundaries in a Kafka platform
+- A method for diagnosing token-validation failures separately from permission failures
+- Practical checks for topic access, schema access, and credential lifecycle
+
+Suggested format: Regular talk (60 minutes)
+Suggested level: Intermediate
+Suggested topics: Application Security; Cloud and Containers; Architecture
+Language: English
+Audience: Application developers, platform engineers, and security engineers
+working with Kafka or distributed service identities.
+Case study, if asked: No — technical architecture and demonstration.
+Previously presented, if asked: Confirm actual delivery of the security talk.
+Co-speakers: None planned.
+
+Message to program committee:
+I am a core maintainer of Apicurio Registry and a Quarkus committer. This
+session focuses on the boundaries between identity and permissions across a
+data platform. It uses open-source examples and failure analysis rather than
+a product overview, and does not claim that one identity provider eliminates
+all trust gaps or establishes compliance.
+
+Proposed 60-minute outline:
+  0-8:   Threat model and the producer/consumer/schema-registry paths
+  8-20:  Keycloak token issuance, validation, and Kafka principal mapping
+  20-32: Kafka ACLs versus registry permissions
+  32-45: Focused request and authorization-failure demonstrations
+  45-55: TLS choices, token expiry, key rotation, and operational checks
+  55-60: Questions
+
+Preparation note (not form text):
+The local walkthrough in talks/security/README.md is a starting point, not a
+verified end-to-end demo. It uses HTTP on some paths and does not configure
+mTLS throughout; the authorization-failure example is incomplete. Rehearse
+the promised demonstrations and implement missing ACL/permission steps before
+delivery. Do not present the existing walkthrough as a production-hardened setup.
+
+SUBMISSION 2 — OPTIONAL SECOND PROPOSAL
+---------------------------------------
+
+Title:
+Validate Before Kafka: Schema Enforcement at the Proxy Boundary
+
+Description:
+Client-side validation depends on every producer doing the right thing.
+Legacy clients, third-party integrations, and configuration mistakes can
+still send records that consumers cannot parse. What changes when validation
+is enforced on the path to the broker?
+
+Using Kroxylicious and Apicurio Registry, this session explores a Kafka proxy
+that checks record payloads against schemas before forwarding produce requests.
+I'll demonstrate valid and invalid records, explain where the filter sits in
+the Kafka protocol path, and examine how failures are returned to producers.
+
+We'll then stress-test the architecture on paper: what happens when the
+registry is unavailable, producers bypass the proxy, or an invalid record
+appears inside a batch? We'll discuss schema caching, failure policies,
+network controls, observability, and the cost of adding another component
+to the write path.
+
+Schema validation is one input-validation control. It does not authenticate
+producers, enforce business semantics, or make schema-valid payloads safe.
+The goal is a clear understanding of where proxy enforcement adds protection,
+and where Kafka authorization and application-level checks remain essential.
+
+Attendees will leave with:
+- An understanding of the validation boundary between producer, proxy, and broker
+- A decision framework for client-side versus proxy-side schema enforcement
+- A failure-mode checklist covering bypass routes, registry outages, and retries
+
+Suggested format: Regular talk (60 minutes)
+Suggested level: Intermediate
+Suggested topics: Security Tooling; Architecture; Cloud and Containers
+Language: English
+Audience: Kafka platform engineers, backend developers, and security engineers.
+Case study, if asked: No — architecture and demonstration.
+Previously presented, if asked: Confirm actual delivery history.
+
+Message to program committee:
+This proposal treats schema validation as a limited defense-in-depth measure,
+not a general attack detector. It complements the identity proposal by focusing
+on payload enforcement and failure handling. The core examples use a Java-based
+Kafka proxy, but the deployment and trust-boundary lessons are language-neutral.
+
+Proposed 60-minute outline:
+  0-10:  Client-side validation gaps and the threat model
+  10-22: Kafka produce requests and proxy filter placement
+  22-37: Valid/invalid record demonstration and error handling
+  37-50: Registry outages, caching, bypass paths, and batch behavior
+  50-55: Deployment trade-offs and limits of schema validation
+  55-60: Questions
+
+Preparation note (not form text):
+Confirm the actual filter/version's supported payload formats, batch rejection
+semantics, caching, and failure behavior. Demonstrate only verified behavior;
+present unimplemented outage/bypass scenarios as architectural analysis.
+
+SHARED SPEAKER FIELDS
+---------------------
+Name: Carles Arnal
+Email: carnalca@redhat.com
+Job title: Principal Software Engineer
+Company: IBM
+Travel from: Barcelona, Spain (confirm current departure city)
+Travel support request, if needed: Return travel from Barcelona and accommodation
+for the conference under the speaker policy; confirm dates/budget with organizers.
+Phone/address: Fill in privately in the form.
+
+Bio:
+Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
+Principal Software Engineer at IBM. He is a Quarkus committer and an associate
+professor at BarcelonaTech (UPC), with over a decade of industry experience.
+His work focuses on event-driven architectures, real-time data pipelines,
+and AI-ready platforms.
+
+Resources:
+- GitHub profile: https://github.com/carlesarnal
+- Apicurio Registry: https://github.com/Apicurio/apicurio-registry
+- Security walkthrough: talks/security/README.md (local; not a public URL)
+- Recordings: OCX 2026 https://www.youtube.com/watch?v=9vEvUUL82w4 ;
+  OSS Japan 2023 https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s ;
+  DevConf 2024 https://www.youtube.com/watch?v=GVYEcvDPFzw ;
+  Current 2023 https://www.confluent.io/es-es/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/
+
+AI disclosure, if asked:
+Draft wording generated with AI assistance from existing talk materials;
+review technical claims and report the actual AI-written share of submitted text.

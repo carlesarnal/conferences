@@ -1,4 +1,6 @@
-# Real-Time Reddit Classification Pipeline — Demo Walkthrough
+# Classify It Before a Human Sees It — Demo Walkthrough
+
+> Status: not yet verified end to end. Do not quote latency figures until they are measured.
 
 This walkthrough accompanies the **stream-prediction** talk. It demonstrates a fully open-source, end-to-end system for real-time content classification deployed on Kubernetes.
 

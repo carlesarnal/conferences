@@ -1,0 +1,16 @@
+Touraine Tech 2027
+==================
+
+Status: New in the September 28, 2026 discovery round; no submission.
+Event: February 18, 2027, Tours, France
+CFP: Closes November 1, 2026 (Conference Hall)
+URL: https://conference-hall.io/touraine-tech-2027
+Source: developers.events CFP list; verify before submitting.
+
+Why it fits: Community developer conference; JVM and cloud topics common.
+
+Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+- kafka-proxy-schema-validation (demo verified)
+- database-to-lakehouse-realtime (demo verified)
+
+Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).
