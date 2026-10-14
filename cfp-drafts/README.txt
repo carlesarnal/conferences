@@ -23,18 +23,18 @@ Oct 16  jcon-europe-2027 (target)        2027-04  drafted — both demos verifie
 Oct 18  cncf-colocated-europe-2027       2027-03  new — Agentics Day, KeycloakCon, CN AI + Inference Day
 Oct 18  ndc-security-oslo-2027           2027-02  drafted — security demo needs fixing
 Oct 18  ai-con-usa-2027                  2027-06  new, lower priority
-Oct 24  keycloak-devday-2027             2027-04  new — security talk once demo is done
 Oct 23  voxxed-days-switzerland-2027     2027-02  CFP open — Ticino, CERN, Zurich
+Oct 24  keycloak-devday-2027             2027-04  new — security talk once demo is done
 Oct 31  java-day-istanbul-2027           2027-04  new — Java + cloud native data + agentic tracks
+Nov     berlin-buzzwords-2027            2027-06  CFP opens in November
 Nov 1   touraine-tech-2027               2027-02  new
 Nov 1   scale-24x-2027                   2027-04  drafted
 Nov 8   foss-backstage-2027              2027-03  new — story talks (verify CFP)
+Nov 22  devfest-nantes-2027              2027-03  new — mostly French talks; verify CFP
 Nov 27  programmable-2027                2027-03  new — Australia; clashes with KubeCon EU
 Nov 30  civo-navigate-london-2027        2027-09  new, lower priority
 Dec 1   containerdays-ai-context-2027    2027-02  new — London (Warsaw Dec 15)
 Dec 1   voxxed-days-amsterdam-2027       2027-03  new
-Nov     berlin-buzzwords-2027            2027-06  CFP opens in November
-Nov 22  devfest-nantes-2027              2027-03  new — mostly French talks; verify CFP
 Dec 13  incontro-devops-italia-2027      2027-03  new
 Jan 31  coderioja-2027                   2027-02  new, small, near Barcelona
 Open    dataengbytes-2027 (Brisbane/Auckland) 2027-10  new — Melbourne/Sydney windows open later
