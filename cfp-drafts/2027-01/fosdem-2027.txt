@@ -4,32 +4,70 @@ Event: January 30-31, 2027, Brussels
 URL: https://fosdem.org/
 CFP: Check individual devroom calls; dates, lengths and limits vary.
 Abstracts revised October 23, 2026 from talks/<topic>/description.txt.
-The short versions below target roughly 20 minutes, subject to devroom rules.
+The source abstracts below require a 20-minute selection, subject to devroom rules:
+keep one trace; omit the agent publisher regression and lakehouse current-state
+query if needed for time. Do not present these as rehearsed short versions yet.
 Preparation requirements and evidence: talks/PREPARATION.txt.
 
 SUBMISSION 1: Lakehouse (Data / Cloud devroom)
 Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 
 Description:
-A Kafka Connect task reports RUNNING while its logs report commits to zero tables. We trace one insert from PostgreSQL through Debezium and Kafka to an Iceberg snapshot queried by Trino. A recorded control-consumer investigation shows the change that restored commits and the limits of what it proves. Attendees get a compact source-to-query checklist distinguishing process health, consumption, committed data and query visibility.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
+
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
+
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
+
+Attendees will leave with:
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 SUBMISSION 2: Agent Discovery (AI / ML devroom)
 Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 
 Description:
-A translator removes its declared translation skill. In a connected Quarkus workflow, an MCP weather tool feeds an A2A summarizer and translator through registry-discovered endpoints. We reject the changed Agent Card in Apicurio Registry, inspect the unchanged accepted registration and rerun the workflow. Application code owns the sequence; registry checks protect publication, not the remote implementation. Attendees get a responsibility map and executable publication checks, focused on one change for this shorter session.
+A translator publishes a new Agent Card with its translation skill removed. Can callers catch that change before adopting the new contract? A shared registry can check the publication, but it cannot prove that the running translator still behaves as advertised. That boundary matters when agents and tools evolve independently.
+
+This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator. Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We remove the declared translation skill and inspect the rejected publication, the unchanged accepted registration and a successful workflow rerun. An additive change demonstrates the accepted path. The weather data is fictional; the protocol calls and handoffs execute end to end.
+
+My merged Quarkus LangChain4j fix supplies a second lesson: restarting an agent with a changed card must update its registration even when the declared agent version stays the same. We examine the regression test alongside the workflow's publication checks. Together they establish a responsibility matrix for fresh metadata, application-owned sequencing and runtime verification, including when static endpoints are simpler.
+
+Attendees will leave with:
+- Criteria for choosing registry-backed discovery over static endpoint configuration
+- A runnable MCP-to-A2A workflow with tests for actual handoffs and contract publication
+- A responsibility matrix for registry checks, application orchestration and deployment testing
 
 SUBMISSION 3: Sandbox Journey (Community devroom)
 Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
 
 Description:
-In January 2024, I deferred Apicurio Registry's Sandbox application over branding questions and the xRegistry relationship. The renewed application passed its vote in March 2026, with contribution agreement and onboarding as separate steps. Following the public records, we examine project scope, ecosystem fit and ownership of the remaining work. Maintainers leave with a question/evidence/gap/owner worksheet grounded in one project's documented decisions rather than a formula promising admission.
+In January 2024, I closed Apicurio Registry's Sandbox application while we resolved branding questions and explored the xRegistry relationship. In March 2026, the renewed application passed its TOC vote; the contribution agreement and onboarding were separate steps. What changed between describing useful software and defining a project ready to join a foundation?
+
+This session follows the public application threads and onboarding checklist through three questions: which repositories and project identity are in scope, how the implementation relates to neighboring standards, and who owns the work after the vote. We connect each answer to public evidence, distinguishing documented events from hindsight and one project's choices from CNCF's current requirements.
+
+Maintainers leave with an evidence worksheet: application question, supporting reference, unresolved gap and owner. We use it to turn broad claims about governance and ecosystem fit into reviewable material, then carry responsibilities into onboarding and ongoing stewardship. Acceptance is a milestone, not a substitute for that work.
+
+Attendees will leave with:
+- A worksheet linking application claims to public project evidence
+- A distinction between current CNCF requirements and one project's experience
+- Questions for planning stewardship and contribution processes after acceptance
 
 SUBMISSION 4: Kafka Proxy (Cloud devroom)
 Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
 Description:
-A valid order reaches Kafka through a validation proxy; a schema-invalid order returns a precise error to its producer. What happens when both are sent in the same batch? Using Kroxylicious 0.24.0 and Apicurio Registry, this session follows the observed mixed-batch rejection and explains its implications for retries, ordering and duplicates. Attendees get a compact failure matrix and criteria for combining client validation with proxy enforcement.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
+
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
+
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
+
+Attendees will leave with:
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both
 
 Preparation (not form text):
 Base proxy/lakehouse demos were tested in September; the current connected-agent
@@ -47,3 +85,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

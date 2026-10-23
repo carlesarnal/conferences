@@ -12,23 +12,48 @@ Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 Level: Intermediate
 
 Description:
-The sink task reports RUNNING while its logs report commits to zero tables. Using PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry, Iceberg and Trino, this session asks what evidence proves a database change has become useful to an analyst.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
 
-One insert connects an emitted event, consumed offset, committed snapshot and query result. A recorded control-consumer failure explains the configuration change that restored commits and the limits of the diagnosis. Local freshness observations include polling/query overhead, so a commit setting is not treated as an end-to-end guarantee. Attendees get a progress checklist and a current-state query over the append-only changelog.
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
+
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
+
+Attendees will leave with:
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 SUBMISSION 2: Agent Discovery
 Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 Level: Intermediate
 
 Description:
-A translator removes its declared translation skill. We follow a connected Quarkus workflow from an MCP weather tool through an A2A summarizer and translator, with endpoints discovered from Apicurio Registry. A rejected skill removal leaves the accepted registration unchanged; a workflow rerun and an accepted additive publication make both paths concrete. The responsibility matrix separates discovery, application-owned sequencing, publication checks and runtime verification. The local demo uses fictional weather and real protocol calls.
+A translator publishes a new Agent Card with its translation skill removed. Can callers catch that change before adopting the new contract? A shared registry can check the publication, but it cannot prove that the running translator still behaves as advertised. That boundary matters when agents and tools evolve independently.
+
+This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator. Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We remove the declared translation skill and inspect the rejected publication, the unchanged accepted registration and a successful workflow rerun. An additive change demonstrates the accepted path. The weather data is fictional; the protocol calls and handoffs execute end to end.
+
+My merged Quarkus LangChain4j fix supplies a second lesson: restarting an agent with a changed card must update its registration even when the declared agent version stays the same. We examine the regression test alongside the workflow's publication checks. Together they establish a responsibility matrix for fresh metadata, application-owned sequencing and runtime verification, including when static endpoints are simpler.
+
+Attendees will leave with:
+- Criteria for choosing registry-backed discovery over static endpoint configuration
+- A runnable MCP-to-A2A workflow with tests for actual handoffs and contract publication
+- A responsibility matrix for registry checks, application orchestration and deployment testing
 
 SUBMISSION 3: Sandbox Journey
 Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
 Level: Beginner; community/project-leadership audience
 
 Description:
-In January 2024, I deferred Apicurio Registry's Sandbox application over branding questions and the xRegistry relationship. In March 2026, the renewed application passed its TOC vote; contribution agreement and onboarding remained separate steps. Using the public application threads and onboarding checklist, we examine project scope, ecosystem fit and ownership. A question/evidence/gap/owner worksheet turns those lessons into preparation work for another project, without claiming one change caused acceptance or future growth.
+In January 2024, I closed Apicurio Registry's Sandbox application while we resolved branding questions and explored the xRegistry relationship. In March 2026, the renewed application passed its TOC vote; the contribution agreement and onboarding were separate steps. What changed between describing useful software and defining a project ready to join a foundation?
+
+This session follows the public application threads and onboarding checklist through three questions: which repositories and project identity are in scope, how the implementation relates to neighboring standards, and who owns the work after the vote. We connect each answer to public evidence, distinguishing documented events from hindsight and one project's choices from CNCF's current requirements.
+
+Maintainers leave with an evidence worksheet: application question, supporting reference, unresolved gap and owner. We use it to turn broad claims about governance and ecosystem fit into reviewable material, then carry responsibilities into onboarding and ongoing stewardship. Acceptance is a milestone, not a substitute for that work.
+
+Attendees will leave with:
+- A worksheet linking application claims to public project evidence
+- A distinction between current CNCF requirements and one project's experience
+- Questions for planning stewardship and contribution processes after acceptance
 
 Preparation (not form text):
 The lakehouse base was tested in September and the current connected-agent
@@ -42,3 +67,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

@@ -2,9 +2,9 @@ Title: Rebuilding a Search Index While the Database Keeps Changing
 
 Your search index is disposable only if you can replace it correctly. While a replacement loads, a customer record changes twice and another is deleted. A successful bulk load says little about whether searches will return the right state after cutover.
 
-This design walkthrough uses PostgreSQL, Debezium, Kafka on Strimzi and Elasticsearch to follow those records into a separate replacement index. We define stable document identity, repeatable updates, delete handling and a per-partition progress checkpoint. Each decision serves the same question: what evidence makes it reasonable to switch the read alias while source writes continue?
+This session runs PostgreSQL, Debezium, Kafka and Elasticsearch through that sequence. Two snapshot records form the baseline; two updates, a delete and an insert arrive while the replacement loads. We replay the complete ordered history again, assert the same document contents, switch the read alias and verify another source update after cutover. The seven captured events make the recovery evidence inspectable.
 
-The recovery plan branches on retained history. If the stream contains the required baseline and changes, replay can reconstruct the view; otherwise, a new snapshot must be coordinated with subsequent changes. We check known insert/update/delete fixtures at a declared progress checkpoint, then define acceptable remaining lag and how new writes continue after alias cutover. The result is a rebuild runbook with an explicit freshness target, rather than an unsupported claim of instantaneous equality with the database.
+The tested example uses one partition and complete retained history. We explain why that is sufficient for this trace, and what changes when required history has expired or multiple partitions are involved. A new-snapshot recovery path is a separate design discussion, not a demonstrated result. Attendees get an executable rebuild trace and explicit cutover checks rather than a guarantee of instantaneous equality with the database.
 
 Attendees will leave with:
 - A recovery sequence for rebuilding a derived index while writes continue

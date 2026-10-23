@@ -20,7 +20,16 @@ Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-
 Session Type: Conference (45 minutes)
 
 Abstract:
-A translator removes its declared translation skill. We follow a tested Quarkus workflow from an MCP weather tool through an A2A summarizer and translator, using Apicurio Registry for endpoint metadata. We inspect the rejected publication, unchanged accepted registration and successful rerun, followed by a compatible addition. The longer format examines the executable handoff checks and my merged fix for stale Agent Cards after restart. Attendees get a responsibility matrix separating fresh metadata, application-owned orchestration, publication checks and runtime verification; a registered card does not prove deployed behavior.
+A translator publishes a new Agent Card with its translation skill removed. Can callers catch that change before adopting the new contract? A shared registry can check the publication, but it cannot prove that the running translator still behaves as advertised. That boundary matters when agents and tools evolve independently.
+
+This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator. Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We remove the declared translation skill and inspect the rejected publication, the unchanged accepted registration and a successful workflow rerun. An additive change demonstrates the accepted path. The weather data is fictional; the protocol calls and handoffs execute end to end.
+
+My merged Quarkus LangChain4j fix supplies a second lesson: restarting an agent with a changed card must update its registration even when the declared agent version stays the same. We examine the regression test alongside the workflow's publication checks. Together they establish a responsibility matrix for fresh metadata, application-owned sequencing and runtime verification, including when static endpoints are simpler.
+
+Attendees will leave with:
+- Criteria for choosing registry-backed discovery over static endpoint configuration
+- A runnable MCP-to-A2A workflow with tests for actual handoffs and contract publication
+- A responsibility matrix for registry checks, application orchestration and deployment testing
 
 Audience Level: Intermediate
 
@@ -34,7 +43,16 @@ The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 Session Type: Tools in Action (30 minutes)
 
 Abstract:
-The sink reports RUNNING while its logs report commits to zero tables. We trace one insert through PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry and Iceberg to a Trino result. A recorded control-consumer investigation explains the change that restored commits without claiming a proven underlying root cause. Attendees get an event/offset/snapshot/query checklist and a current-state query over the append-only changelog. Local timings illustrate why a commit interval is not an end-to-end freshness guarantee.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
+
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
+
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
+
+Attendees will leave with:
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 Audience Level: Intermediate
 
@@ -48,7 +66,16 @@ Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipeli
 Session Type: Conference (45 minutes)
 
 Abstract:
-A feature changes from 30 seconds to 30,000 milliseconds while its Avro type stays long. We develop a test pair: an incompatible revision exercises registry compatibility policy, and a normalization invariant requires both representations to yield the same model input. The walkthrough identifies publication, Java serializer and CI boundaries and distinguishes old-reader/new-writer compatibility from its reverse. Attendees get a concrete way to test input meaning without treating structural validation as a model-quality guarantee.
+A feature value changes from 30 seconds to 30,000 milliseconds. Its Avro type stays long. Deserialization succeeds, but an inference service that expects seconds now receives a value a thousand times larger. What should a contract check before that input reaches the model?
+
+This session develops two complementary checks around one feature. First, an incompatible schema revision tests the writer/reader compatibility policy in Apicurio Registry. Then a fixture supplies the same duration in seconds and milliseconds, with its unit explicitly declared. Both must normalize to 30 before inference; interpreting 30,000 as seconds must fail the check. We place these controls in schema publication, producer integration and CI, using an Avro/Kafka example on Strimzi.
+
+The distinction is practical: backward compatibility asks whether a new reader can read old data; it does not certify every deployed reader or preserve the meaning of a number. A registry rejection protects its publication boundary, while the feature test checks the transformation used by inference. Attendees learn how to combine those controls without mistaking either for a guarantee of model quality.
+
+Attendees will leave with:
+- A workflow combining Avro compatibility checks with feature-input tests
+- A clear account of where contracts are enforced and where they can be bypassed
+- A test pattern for schema-compatible changes in units and feature meaning
 
 Audience Level: Intermediate
 
@@ -62,3 +89,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

@@ -14,7 +14,7 @@ with producers, topics and schema validation.
 Value: Teams gain a way to distinguish invalid records from infrastructure
 failures and choose a bounded recovery action. The failure matrix connects the
 producer's error to the broker's contents and the enforcement path.
-Evidence: talks/kafka-proxy-schema-validation/README.md; demo verified September
+Evidence: talks/kafka-proxy-schema-validation/kroxylicious-schema-validation/README.md; demo verified September
 28 on Kroxylicious 0.24.0. Authored contribution:
 https://github.com/kroxylicious/kroxylicious/pull/3498
 Reviewer note: JSON Schema is exercised; Avro/Protobuf contribution evidence is
@@ -28,7 +28,7 @@ Basic Kafka/SQL knowledge; introduce Iceberg snapshots through the example.
 Value: Teams can diagnose data progress independently of connector health and
 define freshness at the point users query the table, rather than infer it from
 a configured commit interval.
-Evidence: talks/database-to-lakehouse-realtime/README.md and its scripts contain
+Evidence: talks/database-to-lakehouse-realtime/database-to-lakehouse-demo/README.md and its scripts contain
 the locally observed timings, snapshot queries and control-consumer investigation.
 Reviewer note: local reproduction, not a production scale claim; the table is
 an append-only changelog. progress-ledger.txt supplies the trace template; populate
@@ -41,7 +41,7 @@ A2A Agent Cards and MCP tools; no protocol implementation expertise required.
 Value: A connected workflow makes the division between discovery, orchestration,
 publication compatibility and runtime verification concrete. Teams can decide
 whether registry-backed discovery is worth its operational dependency.
-Evidence: talks/agent-discovery/connected-workflow.txt; nine tests and live
+Evidence: talks/agent-discovery/agent-discovery-demo/README.md; nine tests and live
 workflow checks recorded October 23. Source:
 https://github.com/quarkiverse/quarkus-langchain4j/pull/2932
 https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026
@@ -67,7 +67,7 @@ Audience/level: Intermediate; Kafka application/platform engineers familiar with
 tokens and basic ACLs. Introduce the component-specific permission model.
 Value: Diagnose token rejection separately from Kafka and registry authorization,
 and avoid expanding permissions as a troubleshooting shortcut.
-Evidence: talks/security/README.md and keycloak-strimzi-apicurio-security contain
+Evidence: talks/security/keycloak-strimzi-apicurio-security/README.md and keycloak-strimzi-apicurio-security contain
 configuration scaffolding. The three denial cases still need end-to-end checks.
 Reviewer note: a shared realm is not universal token acceptance; no mTLS or
 verified signing-key-rotation demonstration is claimed.

@@ -31,6 +31,43 @@ The normal website checkout's rebranding branch was preserved.
 
 ## Verification and remaining work
 
+### Latest implementation pass
+
+Each topic directory now contains only `description.txt` and its maintained
+repository. Superseded parent walkthroughs, copied scripts and old implementation
+trees were removed; Git history retains them. Current READMEs, licenses, runnable
+Compose files and evidence are necessary parts of the maintained implementations.
+
+- A2A/MCP: official SDK HTTP integration passes discovery, equal fixture output,
+  invalid input, progress and caller-visible cancellation. `observations.json`
+  records protocol versions. MCP compute cessation is not established.
+- Prompts: actual Registry selection/reload/rollback and Ollama evaluation run.
+  All candidates failed the fixed format criteria; promotion was correctly blocked.
+  `results.json` retains answers, hashes and model digest. The implementation is
+  Python using JSON artifacts and application-owned rendering checks.
+- Security: real Keycloak + Strimzi OAuth Kafka + Registry Compose test passes
+  invalid token, read-only lookup, denied mutation and broker ACL checks with
+  positive controls. No Kubernetes/TLS guarantee is inferred.
+- Search: actual PostgreSQL/Debezium/Kafka/Elasticsearch trace passes snapshot,
+  concurrent updates/delete/insert, ordered replay, alias cutover and later update.
+  One partition and complete history; expired-history recovery is not exercised.
+- Streaming: actual Spark 3.5.3 experiment with a trained tiny classifier records
+  baseline, injected overload and delay-removed cases. File input isolates Spark;
+  collected output is not an HTTP serving measurement. Twelve events per case,
+  one run, two CPUs and 3GB; raw results are in `experiment/results.json`.
+
+The entries below record the previous packaging pass, not current gap status.
+
+Latest CI verification (all passed):
+- Protocol integration: https://github.com/carlesarnal/a2a-mcp-comparison/actions/runs/39987810894
+- Registry release checks (without hosted/local model dependency): https://github.com/carlesarnal/apicurio-registry-support-chat/actions/runs/39987836289
+- Security integration: https://github.com/carlesarnal/keycloak-strimzi-apicurio-security/actions/runs/39987860264
+- CDC/search integration: https://github.com/carlesarnal/debezium-ocp-etc-demo/actions/runs/39987797061
+- Spark experiment: https://github.com/carlesarnal/reddit-realtime-classification/actions/runs/39987887632
+
+Ollama evaluation ran locally; CI validates Registry selection and reload without
+claiming to evaluate model output. The blog drafts remain unpublished.
+
 - Proxy: real Compose integration passed locally and in GitHub Actions with broker
   assertions for six cases. CI run: https://github.com/carlesarnal/kroxylicious-schema-validation/actions/runs/39972012976
 - Data contracts: real Registry rejection/preservation check and three semantic

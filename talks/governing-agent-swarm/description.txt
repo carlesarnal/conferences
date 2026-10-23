@@ -2,9 +2,9 @@ Title: A2A or MCP? Choosing an Interface for the Same Capability
 
 You have a summarization service and two plausible interfaces: expose an MCP tool or publish an A2A agent. Both can accept text and return a summary. The useful comparison starts when the caller needs to understand task progress, cancel work, or respond to a failed invocation.
 
-This design session holds the summarization capability constant and compares the caller contract, using Quarkus examples. We trace discovery and a successful invocation through each interface, then work through a failed request: what the caller knows, what remains uncertain and which recovery behavior the implementation must supply. Task state and cancellation anchor the comparison; authentication requirements appear in the final decision table.
+This session holds a deterministic summarization capability constant and invokes it over real HTTP through the official Python A2A and MCP SDKs. Both return the same eight-word result. A blank input becomes a failed A2A task and an MCP error result; progress appears as queryable A2A task state or MCP progress notifications. We then cancel a request and inspect what each client can actually observe.
 
-For each requirement, the table separates protocol support, advertised implementation support and behavior tested against pinned versions. Unsupported and untested are different entries. We also identify the extra contract tests needed when exposing both interfaces. The result is a way to choose from caller requirements rather than labels: an A2A endpoint need not contain a reasoning loop, and an MCP tool need not perform simple work.
+The versioned observations distinguish A2A's canceled task record from MCP's canceled client request and subsequent usable session. Neither local implementation supplies durable restart recovery or production authentication. A decision table ties those limits to caller requirements rather than labels: an A2A endpoint need not contain a reasoning loop, and an MCP tool need not perform simple work.
 
 Attendees will leave with:
 - A decision table for exposing the same capability through A2A, MCP, or both

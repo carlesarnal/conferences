@@ -4,6 +4,11 @@ LATEST PACKAGING STATUS: see REPOSITORIES.md. The data-contract fixture and real
 Registry check now pass; proxy recovery assertions also pass. Prompt selection,
 prediction-age and replay-invariant model tests pass, but are not equivalent to
 full application integration. Historical tasks below retain the broader goals.
+NEW IMPLEMENTATIONS: protocol HTTP comparison, Registry/Ollama prompt workflow,
+OAuth/ACL integration, full retained-history CDC/search trace and isolated Spark
+load experiment now execute. See each repository's README and machine-readable
+results. Python replaces the old protocol/prompt Java plans; Compose verification
+does not establish Kubernetes deployment behavior. Below is historical planning.
 Descriptions are proposal wording. Tasks here are preparation requirements,
 not claims that new demonstrations or experiments have already been completed.
 Previous demo verification refers to the September runs documented in the
@@ -44,7 +49,7 @@ Base pipeline: previously verified. New focus: progress, not installation.
 
 AGENT DISCOVERY
 Current demo: connected workflow from PR #2932, pinned at 682928b714574e1ca8f0405c4319b36cd244dc0e.
-See talks/agent-discovery/connected-workflow.txt. Nine tests and a fresh live
+See talks/agent-discovery/agent-discovery-demo/README.md. Nine tests and a fresh live
 smoke run passed October 23. No deprecation gate; no LLM routing/planning.
 - Clearly separate registered card, running code and consumer selection policy.
 - A rejected card update does not prevent deploying incompatible implementation

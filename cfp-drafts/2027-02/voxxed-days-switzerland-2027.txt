@@ -16,11 +16,16 @@ Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for
 Audience: Intermediate
 
 Description:
-A translator publishes a new Agent Card with its translation skill removed. What should reject that change, and what does the rejection actually protect? This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator.
+A translator publishes a new Agent Card with its translation skill removed. Can callers catch that change before adopting the new contract? A shared registry can check the publication, but it cannot prove that the running translator still behaves as advertised. That boundary matters when agents and tools evolve independently.
 
-Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We inspect the rejected skill removal, confirm that the accepted registration is unchanged, and rerun the connected workflow. An additive change demonstrates the accepted path. My merged Agent Card republishing fix supplies the second lesson: a restarted agent must refresh changed metadata even when its declared agent version is unchanged.
+This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator. Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We remove the declared translation skill and inspect the rejected publication, the unchanged accepted registration and a successful workflow rerun. An additive change demonstrates the accepted path. The weather data is fictional; the protocol calls and handoffs execute end to end.
 
-Attendees get a runnable discovery pattern and a responsibility matrix for publication checks, orchestration and runtime verification. A valid card does not prove that deployed code honors it; static endpoint configuration may still be the simpler choice.
+My merged Quarkus LangChain4j fix supplies a second lesson: restarting an agent with a changed card must update its registration even when the declared agent version stays the same. We examine the regression test alongside the workflow's publication checks. Together they establish a responsibility matrix for fresh metadata, application-owned sequencing and runtime verification, including when static endpoints are simpler.
+
+Attendees will leave with:
+- Criteria for choosing registry-backed discovery over static endpoint configuration
+- A runnable MCP-to-A2A workflow with tests for actual handoffs and contract publication
+- A responsibility matrix for registry checks, application orchestration and deployment testing
 
 Elevator Pitch:
 A registry can reject an incompatible Agent Card, but it cannot stop someone deploying incompatible agent code. A connected MCP-to-A2A workflow makes that boundary visible: actual handoffs, a rejected skill removal, an unchanged accepted registration and a successful rerun. Java developers get executable checks and a clear division of responsibilities.
@@ -50,11 +55,16 @@ Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 Audience: Intermediate
 
 Description:
-The sink task reports RUNNING; its logs report commits to zero tables. We trace one insert through PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry and the Iceberg Kafka Connect sink to a Trino result, asking what evidence proves progress at each boundary.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
 
-A recorded investigation examines control-consumer failures and the configuration change that restored commits, without claiming a proven underlying root cause. Two local freshness observations, 33 and 42 seconds with a 10-second commit interval, include polling/query overhead. They show why configuration is not a freshness guarantee. Snapshot and current-state queries distinguish a stored change event from its effect.
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
 
-Attendees get a progress checklist and a method for investigating a connector that looks healthy but is not delivering data.
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
+
+Attendees will leave with:
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 Elevator Pitch:
 A Kafka Connect task reported RUNNING while its Iceberg table received no commits. That failure is the starting point for this talk. Rather than touring a stack, I trace where a database change becomes visible and show how to distinguish process health from data progress. The example gives Java and data engineers a troubleshooting method they can use beyond this particular pipeline.
@@ -76,11 +86,16 @@ Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 Audience: Intermediate
 
 Description:
-A valid order is rejected with the same exception type as malformed data because the registry is unavailable. Should its producer retry or repair it? This session examines how proxy validation changes the producer's failure contract, using Kroxylicious and Apicurio Registry.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
 
-Drawing on my Avro/Protobuf validation contribution, the demo uses JSON Schema on Kroxylicious 0.24.0. A mixed batch, direct-to-broker bypass and registry outage expose distinct boundaries: valid records can be rejected with invalid ones, invalid records can bypass the proxy, and a dependency failure can look like a data error.
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
 
-A failure matrix connects what the producer sees, what reaches Kafka, and whether to correct input, retry, or change deployment controls. Attendees learn when client-side validation and proxy enforcement complement each other, with attention to ordering and duplicate handling.
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
+
+Attendees will leave with:
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both
 
 Elevator Pitch:
 I contributed Avro and Protobuf validation to Kroxylicious. This talk goes beyond showing a filter reject bad JSON: one invalid record affects its batch, direct broker access bypasses validation, and a registry outage can reject valid data. Java developers get a live example, a look at the filter code, and practical guidance on handling the failures that adding validation creates.
@@ -118,3 +133,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

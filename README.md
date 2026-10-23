@@ -24,13 +24,13 @@ Abstracts: `talks/<topic>/description.txt`. Editorial review and evidence status
 |---|---|---|---|
 | `kafka-proxy-schema-validation` | Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas | `talks/kafka-proxy-schema-validation/kroxylicious-schema-validation` | six integration cases passed locally and in CI Oct 23 |
 | `database-to-lakehouse-realtime` | The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress? | `talks/database-to-lakehouse-realtime` | base demo verified Sep 2026; progress checklist pending |
-| `agent-discovery` | Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI | [connected workflow](talks/agent-discovery/connected-workflow.txt) | pinned PR #2932 sample; tests and live smoke passed Oct 23 |
-| `governing-agent-swarm` | A2A or MCP? Choosing an Interface for the Same Capability | `talks/governing-agent-swarm/a2a-mcp-comparison` | evidence framework ready; paired implementation pending |
-| `security` | One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry | `talks/security` | not verified |
+| `agent-discovery` | Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI | [connected workflow](talks/agent-discovery/agent-discovery-demo/README.md) | pinned PR #2932 sample; tests and live smoke passed Oct 23 |
+| `governing-agent-swarm` | A2A or MCP? Choosing an Interface for the Same Capability | `talks/governing-agent-swarm/a2a-mcp-comparison` | official SDK HTTP comparison passed |
+| `security` | One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry | `talks/security/keycloak-strimzi-apicurio-security` | real OAuth/ACL Compose checks passed |
 | `data-contracts-ai-pipelines` | Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines | `talks/data-contracts-ai-pipelines/data-contracts-ai-demo` | Registry and semantic checks passed locally and in CI Oct 23 |
-| `prompt-templates-as-artifacts` | Beyond Git: Releasing and Rolling Back Runtime Prompt Templates | `talks/prompt-templates-as-artifacts/apicurio-registry-support-chat` | selection model tested; integrated rollback/evaluation pending |
-| `stream-prediction` | Why Are Predictions Late? Diagnosing Streaming Inference on Kubernetes | [reddit-realtime-classification](https://github.com/carlesarnal/reddit-realtime-classification) | replay/load experiment not implemented |
-| `edge-cloud` | Rebuilding a Search Index While the Database Keeps Changing | [debezium-ocp-etc-demo](https://github.com/carlesarnal/debezium-ocp-etc-demo) | recovery scenario not implemented |
+| `prompt-templates-as-artifacts` | Beyond Git: Releasing and Rolling Back Runtime Prompt Templates | `talks/prompt-templates-as-artifacts/apicurio-registry-support-chat` | real Registry/Ollama run; candidate promotion correctly blocked |
+| `stream-prediction` | Why Are Predictions Late? Diagnosing Streaming Inference on Kubernetes | [reddit-realtime-classification](https://github.com/carlesarnal/reddit-realtime-classification/tree/talk/evidence-2026-10-23) | real Spark isolation experiment measured; no K8s benchmark |
+| `edge-cloud` | Rebuilding a Search Index While the Database Keeps Changing | [debezium-ocp-etc-demo](https://github.com/carlesarnal/debezium-ocp-etc-demo/tree/talk/evidence-2026-10-23) | real retained-history CDC and alias-cutover checks passed |
 | `cncf-sandbox-journey` | Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry | — (community talk) | public deferral/application/onboarding records inspected |
 | `oss-maintenance` | Beyond the First Pull Request: Making Contribution Work Sustainable | — (community talk) | public workflow and reviewed PR inspected; hand-off trace to prepare |
 

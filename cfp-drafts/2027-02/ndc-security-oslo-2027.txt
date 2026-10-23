@@ -26,27 +26,16 @@ Title:
 One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
 
 Description:
-A producer should be able to publish records without necessarily being able to
-change their schemas. Another service can hold a valid token yet be denied a
-topic. How do you diagnose the boundary without broadening permissions until
-the request succeeds?
+A service can have permission to publish Kafka records without having permission to change their schemas. Another can present a valid token and still be denied a topic. How do you distinguish an identity problem from an authorization decision without broadening permissions until the request works?
 
-We assign one producer separate data and schema privileges across Keycloak,
-Kafka on Strimzi and Apicurio Registry. Three diagnostic cases change one
-condition at a time: an invalid token, a valid identity denied a Kafka operation,
-and a valid identity denied a schema mutation. A successful control accompanies
-each denial, connecting symptoms to token checks, principal mapping, ACLs or
-registry permissions.
+We exercise Keycloak, a Kafka broker using Strimzi's OAuth libraries and Apicurio Registry in a reproducible local integration lab. An invalid token returns 401; a read-only identity can fetch a schema but receives 403 when publishing a version, with accepted content unchanged. Kafka accepts an authorized producer and rejects another authenticated identity with TopicAuthorizationException; broker reads verify which record actually arrived.
 
-We'll build a troubleshooting table of symptoms, enforcing components and
-diagnostic checks, then discuss token renewal and signing-key rotation as
-separate operational concerns. Sharing a realm does not make permissions
-interchangeable, and transport encryption does not replace authorization.
+The configuration walkthrough connects issuer and audience checks to principal mapping, Kafka ACLs and registry authorization. The lab exposed an outdated auth setting that left Registry authentication disabled, showing why negative controls matter. We map these findings to Kubernetes deployment responsibilities while labeling the local plaintext/admin listener as lab-only. The takeaway is a tested diagnostic method, not a production security template.
 
 Attendees will leave with:
-- A map of the authentication and authorization boundaries in a Kafka platform
-- A method for diagnosing token-validation failures separately from permission failures
-- Practical checks for topic access, schema access, and credential lifecycle
+- A map of authentication and authorization boundaries across Kafka and its registry
+- A troubleshooting table for token failures versus permission failures
+- Least-privilege checks for producing, consuming and changing schemas
 
 Suggested format: Regular talk (60 minutes)
 Suggested level: Intermediate
@@ -74,7 +63,7 @@ Proposed 60-minute outline:
   55-60: Questions
 
 Preparation note (not form text):
-The local walkthrough in talks/security/README.md is a starting point, not a
+The local walkthrough in talks/security/keycloak-strimzi-apicurio-security/README.md is a starting point, not a
 verified end-to-end demo. It uses HTTP on some paths and does not configure
 mTLS throughout; the authorization-failure example is incomplete. Rehearse
 the promised demonstrations and implement missing ACL/permission steps before
@@ -87,32 +76,16 @@ Title:
 Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
 Description:
-A valid record is rejected while the schema registry is unavailable. The
-producer receives the same exception type used for malformed data. Adding a
-validation proxy changes the write path's failure contract as well as its
-protection against invalid records.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
 
-Using Kroxylicious and Apicurio Registry, this session explores a Kafka proxy
-that checks record payloads against schemas before forwarding produce requests.
-I'll demonstrate valid and invalid records, explain where the filter sits in
-the Kafka protocol path, and examine how failures are returned to producers.
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
 
-In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed
-batch, direct broker access bypasses validation, and a registry outage rejects
-valid data with the same exception type used for bad input. We'll build a
-failure matrix linking client result, broker outcome and recovery choice, with
-attention to retry bounds, ordering and duplicates. Caching and deployment
-policies are architectural discussion unless exercised in the demo.
-
-Schema validation is one input-validation control. It does not authenticate
-producers, enforce business semantics, or make schema-valid payloads safe.
-The goal is a clear understanding of where proxy enforcement adds protection,
-and where Kafka authorization and application-level checks remain essential.
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
 
 Attendees will leave with:
-- An understanding of the validation boundary between producer, proxy, and broker
-- A decision framework for client-side versus proxy-side schema enforcement
-- A failure-mode checklist covering bypass routes, registry outages, and retries
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both
 
 Suggested format: Regular talk (60 minutes)
 Suggested level: Intermediate
@@ -162,7 +135,7 @@ and AI-ready platforms.
 Resources:
 - GitHub profile: https://github.com/carlesarnal
 - Apicurio Registry: https://github.com/Apicurio/apicurio-registry
-- Security walkthrough: talks/security/README.md (local; not a public URL)
+- Security walkthrough: talks/security/keycloak-strimzi-apicurio-security/README.md (local; not a public URL)
 - Recordings: OCX 2026 https://www.youtube.com/watch?v=9vEvUUL82w4 ;
   OSS Japan 2023 https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s ;
   DevConf 2024 https://www.youtube.com/watch?v=GVYEcvDPFzw ;
@@ -178,3 +151,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

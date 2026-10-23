@@ -30,25 +30,16 @@ Level: Intermediate
 Suggested tags: Java, Kafka, Architecture, Data Quality
 
 Description:
-A valid order is rejected. Its producer sees the same exception type as for
-malformed data, but the registry is unavailable. Should it retry or repair the
-record? Proxy validation changes the producer's failure contract.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
 
-Drawing on my Avro/Protobuf validation contribution to Kroxylicious, we use a
-JSON Schema example with Apicurio Registry to trace producer errors and broker
-contents. The Java filter walkthrough explains where those decisions occur.
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
 
-The operational trade-offs are the focus. In the tested Kroxylicious 0.24.0
-setup, an invalid record rejects its mixed batch, direct broker access bypasses
-validation, and a registry outage rejects valid data with the same exception
-type used for bad input. We'll examine the filter code and build a failure
-matrix connecting producer result, broker outcome and recovery choice.
-Selective replay requires care with ordering and duplicate handling.
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
 
 Attendees will leave with:
-- A failure matrix for schema errors, batch rejection, bypass and registry outages
-- A method for separating data failures from infrastructure failures before retrying
-- Criteria for combining client validation and proxy enforcement
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both
 
 Message to the program committee:
 I contributed the Avro and Protobuf schema validation support to Kroxylicious's
@@ -92,27 +83,16 @@ Level: Intermediate
 Suggested tags: Java, Kafka, Data Engineering, Apache Iceberg
 
 Description:
-The sink reports RUNNING while its logs report commits to zero tables. That
-observed failure starts an investigation into the difference between a healthy
-process and a database change becoming queryable by an analyst.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
 
-We'll trace one insert through a running PostgreSQL, Debezium, Kafka on
-Strimzi, Apicurio Registry and Apache Iceberg Kafka Connect pipeline to a Trino
-query result. A recorded control-consumer investigation shows the configuration
-change that restored commits, separating observed recovery from an unproven
-underlying root cause.
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
 
-Two local runs took 33 and 42 seconds despite a configured 10-second commit
-interval. These observations include query and polling overhead and are not
-production benchmarks. We'll distinguish capture, consumption, table commits
-and query visibility, then use snapshot history to verify progress. The table
-is an append-only changelog, so seeing events differs from reconstructing
-current row state.
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
 
 Attendees will leave with:
-- A progress checklist from source event to query-visible snapshot
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
 - A method for investigating a RUNNING connector that is not committing data
-- A distinction between commit intervals, measured freshness and current-state queries
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 Message to the program committee:
 The base demo was exercised on Strimzi 1.2, Kafka 4.3, Debezium 3.6,
@@ -171,3 +151,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

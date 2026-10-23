@@ -21,9 +21,16 @@ Session Type:
 Conference (45 minutes)
 
 Abstract:
-A feature changes from 30 seconds to 30,000 milliseconds while its Avro type stays long. Deserialization succeeds, but a consumer expecting seconds receives a value a thousand times larger.
+A feature value changes from 30 seconds to 30,000 milliseconds. Its Avro type stays long. Deserialization succeeds, but an inference service that expects seconds now receives a value a thousand times larger. What should a contract check before that input reaches the model?
 
-We develop two checks around that feature: an incompatible revision exercises Apicurio Registry's reader/writer compatibility policy, and a normalization invariant requires both representations to yield the same model input. Java serializers and CI provide concrete enforcement points. The longer format allows a closer look at the fixture and deployment checks while keeping model-quality claims separate from input correctness.
+This session develops two complementary checks around one feature. First, an incompatible schema revision tests the writer/reader compatibility policy in Apicurio Registry. Then a fixture supplies the same duration in seconds and milliseconds, with its unit explicitly declared. Both must normalize to 30 before inference; interpreting 30,000 as seconds must fail the check. We place these controls in schema publication, producer integration and CI, using an Avro/Kafka example on Strimzi.
+
+The distinction is practical: backward compatibility asks whether a new reader can read old data; it does not certify every deployed reader or preserve the meaning of a number. A registry rejection protects its publication boundary, while the feature test checks the transformation used by inference. Attendees learn how to combine those controls without mistaking either for a guarantee of model quality.
+
+Attendees will leave with:
+- A workflow combining Avro compatibility checks with feature-input tests
+- A clear account of where contracts are enforced and where they can be bypassed
+- A test pattern for schema-compatible changes in units and feature meaning
 
 Audience Level:
 Intermediate
@@ -42,7 +49,16 @@ Session Type:
 Tools in Action (30 minutes)
 
 Abstract:
-The sink reports RUNNING while its logs report commits to zero tables. We trace one insert through PostgreSQL, Debezium, Kafka, Apicurio Registry and Iceberg to a Trino result. A recorded control-consumer investigation shows a change that restored commits and the limits of that diagnosis. Attendees get a checklist connecting event, offset, snapshot and query visibility, including why a commit setting is not a freshness guarantee and a changelog is not automatically current state.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
+
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
+
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
+
+Attendees will leave with:
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries
 
 Audience Level:
 Intermediate
@@ -61,9 +77,16 @@ Session Type:
 Conference (45 minutes)
 
 Abstract:
-A valid order is rejected with the same exception type as malformed data because its schema registry is unavailable. Should the producer retry or repair it? Drawing on my Avro/Protobuf validation contribution, this session examines the Java-based Kroxylicious filter through a JSON Schema demo with Apicurio Registry.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
 
-We'll trace a valid order and a rejected record, then examine observed behavior on Kroxylicious 0.24.0: mixed-batch rejection, direct broker access bypassing validation, and a registry outage rejecting valid data. A failure matrix connects producer result, broker outcome and recovery choice, with attention to ordering and duplicate handling.
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
+
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
+
+Attendees will leave with:
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both
 
 Audience Level:
 Intermediate
@@ -81,3 +104,8 @@ talks/CFP-PACKAGING.txt for audience, value and evidence fields.
 talks/PREPARATION.txt distinguishes tested demos from planned work.
 Event-specific scope above still applies. Dates and CFP availability
 were not reverified in this editorial pass.
+
+IMPLEMENTATION UPDATE: current source text and runnable repository are listed in
+talks/REPOSITORIES.md. Protocol comparison and prompt lab now use Python; security
+and search are verified Compose integrations. Streaming isolates Spark with file
+input. Earlier reviewer notes/format plans must be checked against these boundaries.

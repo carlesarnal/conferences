@@ -8,6 +8,11 @@ and preparation state; they are retained as history, not current readiness claim
 POST-PACKAGING UPDATE: data-contract semantic and real Registry checks now pass
 locally and in CI; proxy recovery assertions also pass in both. See REPOSITORIES.md
 for the latest execution status. Scores below were not automatically increased.
+IMPLEMENTATION FOLLOW-UP: five previously missing labs now run with results in
+their repositories: protocol comparison, prompt selection/evaluation, security,
+CDC/search and isolated Spark. Scope differs from the former Java/Kubernetes
+plans and the abstracts now state those boundaries. Do not use the old gap table
+as current implementation status or award five-star delivery without rehearsal.
 
 SECOND PASS — EVIDENCE-AWARE SELF-REVIEW
 --------------------------------------
