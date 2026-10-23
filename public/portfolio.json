@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-23",
+  "profile": {
+    "name": "Carles Arnal",
+    "role": "Principal Software Engineer",
+    "company": "IBM",
+    "location": "Barcelona, Spain",
+    "headline": "Making distributed systems work together.",
+    "intro": "I build open-source infrastructure for the contracts between services, data and AI. Principal Software Engineer at IBM, Apicurio Registry core maintainer and Quarkus committer.",
+    "bio": "My work sits where applications meet infrastructure: how services exchange data, how contracts evolve, and how teams can change a system without losing confidence in it. I work on Apicurio Registry, contribute to the Java and cloud-native ecosystem, and turn implementation lessons into talks and practical examples.",
+    "teaching": "Alongside engineering, I teach at BarcelonaTech (UPC). I enjoy making difficult systems understandable through small examples, clear diagrams and code people can run themselves.",
+    "email": "carlesarnal92@gmail.com",
+    "github": "https://github.com/carlesarnal",
+    "linkedin": "https://www.linkedin.com/in/carlesarnal-824b44a5",
+    "portrait": "https://avatars.githubusercontent.com/u/12640103?v=4",
+    "interests": ["Distributed systems", "Schema and API governance", "Event-driven applications", "Cloud-native Java", "AI application integration"]
+  },
+  "experience": [
+    {"organization":"IBM","role":"Principal Software Engineer","period":"July 2025 — Present","description":"Technical ownership of Apicurio Registry's distributed architecture following the transition from Red Hat. Working across product direction, reliability, security and the continuity of the open-source project."},
+    {"organization":"Red Hat","role":"Software Engineer → Senior → Principal","period":"April 2020 — July 2025","description":"Core engineering on Apicurio Registry: Kafka and Pulsar integrations, a multi-tenant managed service, identity-provider integration, Kubernetes deployment and CI/CD automation.","progression":"Software Engineer, April 2020 · Senior, July 2022 · Principal, April 2024"},
+    {"organization":"Netquest","role":"Senior Software Engineer","period":"September 2017 — April 2020","description":"Modernized a Java monolith into Spring Boot services on AWS. Built APIs for web and mobile applications and introduced Redis caching."},
+    {"organization":"Boreal Open Systems","role":"Software Engineer → Technical Lead","period":"February 2016 — September 2017","description":"Led a team while building Spring backends and delivering mobile and web applications from architecture through integration."},
+    {"organization":"MoraBanc","role":"Software Engineer","period":"January 2015 — February 2016","description":"Built REST and SOAP services for digital banking with Spring and JBoss. Worked with OSGi, COBOL/MQ integration and Java monitoring tools for financial systems."},
+    {"organization":"Independent","role":"Freelance Software Engineer","period":"August 2013 — January 2015","description":"Designed and delivered mobile and web applications, building a foundation in end-to-end software development."}
+  ],
+  "teaching_roles": [
+    {"organization":"Universitat Politècnica de Catalunya","role":"Associate Professor","period":"September 2022 — Present","description":"Teaching software engineering and mentoring students in distributed systems and object-oriented programming."},
+    {"organization":"Universitat Oberta de Catalunya","role":"Associate Professor","period":"May 2021 — September 2024","description":"Teaching web development and supervising master's theses."}
+  ],
+  "education": [
+    {"institution":"Universitat Oberta de Catalunya","qualification":"Master's degree in Data Science","period":"2024–2025"},
+    {"institution":"Universitat Jaume I","qualification":"Degree in Computer Engineering","period":"2010–2014"}
+  ],
+  "languages": ["Catalan · Native/bilingual", "Spanish · Native/bilingual", "English · Full professional", "French · Limited working"],
+  "patents": ["Message schema migration in messaging systems", "Managing a presentation mode for application programming interface functions"],
+  "recognition": ["Red Hat Patent Program Inventor — Level 1"],
+  "roles": [
+    {"title": "Principal Software Engineer", "organization": "IBM", "description": "Engineering open-source infrastructure, with a focus on distributed systems, schema governance and application integration."},
+    {"title": "Core maintainer", "organization": "Apicurio Registry", "url": "https://github.com/Apicurio/apicurio-registry", "description": "Working on the registry and integrations that help teams manage schemas, API definitions and agent metadata."},
+    {"title": "Committer", "organization": "Quarkus", "url": "https://github.com/quarkusio/quarkus", "description": "Contributing to the cloud-native Java ecosystem and the integration points application developers rely on."},
+    {"title": "Teaching", "organization": "BarcelonaTech · UPC", "url": "https://www.upc.edu/en", "description": "Helping students connect software engineering concepts with practical implementation."}
+  ],
+  "principles": [
+    {"title": "Contracts make change possible.", "description": "A useful interface tells consumers what they can depend on—and makes incompatible changes visible before they become surprises."},
+    {"title": "A running process is not a working system.", "description": "I care about observable outcomes: the event stored, the data queryable, the request authorized and the workflow completed."},
+    {"title": "Share the implementation.", "description": "Open source makes an explanation inspectable. I pair architectural ideas with code, reproducible examples and honest trade-offs."}
+  ],
+  "contributions": [
+    {"project": "Kroxylicious", "title": "Avro and Protobuf validation on the Kafka write path", "description": "Authored schema-validation support for the Record Validation filter, bringing additional schema formats into proxy-side enforcement.", "url": "https://github.com/kroxylicious/kroxylicious/pull/3498", "status": "Merged", "kind": "Implementation"},
+    {"project": "Quarkus LangChain4j", "title": "Keep Agent Cards current after a restart", "description": "Authored a publisher fix and regression test so changed Agent Cards are republished even when the declared agent version stays the same.", "url": "https://github.com/quarkiverse/quarkus-langchain4j/pull/2897", "status": "Merged", "kind": "Reliability"},
+    {"project": "Apicurio Registry", "title": "From project scope to CNCF stewardship", "description": "Participated in the Sandbox application, including the earlier deferral and the renewed application that led to acceptance.", "url": "https://github.com/cncf/sandbox/issues/461", "status": "Public record", "kind": "Stewardship"}
+  ],
+  "projects": [
+    {"name": "Apicurio Registry", "label": "Core maintainer", "description": "An open-source home for schemas and API definitions, with versioning, validation and compatibility rules for independently evolving applications.", "url": "https://github.com/Apicurio/apicurio-registry", "tags": ["Java", "Contracts", "Open source"], "featured": true},
+    {"name": "Agent discovery & contract governance", "label": "Runnable integration", "description": "A connected MCP-to-A2A workflow that separates endpoint discovery, application orchestration and Agent Card publication checks.", "url": "https://github.com/carlesarnal/agent-discovery-demo/tree/talk/evidence-2026-10-23", "tags": ["Quarkus", "A2A", "MCP"], "featured": true},
+    {"name": "Validate before Kafka", "label": "Integration tests", "description": "A released Kroxylicious proxy, a schema registry and assertions for invalid records, mixed batches, bypass routes and dependency failures.", "url": "https://github.com/carlesarnal/kroxylicious-schema-validation/tree/talk/evidence-2026-10-23", "tags": ["Kafka", "Schemas", "Testing"], "featured": true},
+    {"name": "Data contracts for AI inputs", "label": "Executable example", "description": "A real Registry compatibility check paired with a feature-normalization test: an unchanged numeric type can still carry a different meaning.", "url": "https://github.com/carlesarnal/data-contracts-ai-demo", "tags": ["Avro", "Python", "AI inputs"], "featured": false},
+    {"name": "CDC-to-Iceberg progress", "label": "Kubernetes lab", "description": "Follow a database change through Debezium, Kafka, an Iceberg commit and a Trino query. Diagnose data progress independently of process health.", "url": "https://github.com/carlesarnal/database-to-lakehouse-demo/tree/talk/evidence-2026-10-23", "tags": ["Debezium", "Iceberg", "Kubernetes"], "featured": false},
+    {"name": "A2A or MCP?", "label": "Protocol comparison", "description": "The same deterministic capability behind two official SDKs, comparing output, errors, progress and caller-visible cancellation.", "url": "https://github.com/carlesarnal/a2a-mcp-comparison", "tags": ["A2A", "MCP", "Python"], "featured": false},
+    {"name": "Separate trust boundaries", "label": "Security integration", "description": "Keycloak, Strimzi OAuth and Registry permissions exercised through positive controls, denied writes and broker-content checks.", "url": "https://github.com/carlesarnal/keycloak-strimzi-apicurio-security/tree/talk/evidence-2026-10-23", "tags": ["OIDC", "Kafka", "Authorization"], "featured": false},
+    {"name": "Runtime prompt releases", "label": "Release lab", "description": "Version selection, cache refresh and rollback against Registry, with recorded local-model evaluations and explicit promotion criteria.", "url": "https://github.com/carlesarnal/apicurio-registry-support-chat/tree/talk/evidence-2026-10-23", "tags": ["Registry", "Ollama", "Python"], "featured": false},
+    {"name": "Why are predictions late?", "label": "Measured experiment", "description": "An isolated Spark Structured Streaming experiment examining how processing delay and source admission affect prediction freshness.", "url": "https://github.com/carlesarnal/reddit-realtime-classification/tree/talk/evidence-2026-10-23", "tags": ["Spark", "ML", "Performance"], "featured": false},
+    {"name": "Rebuild search while writes continue", "label": "Recovery integration", "description": "A PostgreSQL-to-Elasticsearch trace through Debezium and Kafka, testing updates, deletes, replay and read-alias cutover.", "url": "https://github.com/carlesarnal/debezium-ocp-etc-demo/tree/talk/evidence-2026-10-23", "tags": ["CDC", "Kafka", "Elasticsearch"], "featured": false},
+    {"name": "The Sandbox journey", "label": "Maintainer workshop", "description": "Public application records and a worksheet for connecting project claims to evidence, unresolved questions and owners.", "url": "https://github.com/carlesarnal/cncf-sandbox-journey", "tags": ["CNCF", "Governance"], "featured": false},
+    {"name": "Maintainer hand-offs", "label": "Community playbook", "description": "An ownership-aware contribution workflow: distinguish waiting on authors from waiting on maintainers, and make the next action visible.", "url": "https://github.com/carlesarnal/oss-maintainer-playbook", "tags": ["Open source", "Developer experience"], "featured": false}
+  ],
+  "talks": [
+    {"id": "apidays-amsterdam-2026", "year": 2026, "event": "API Days Amsterdam", "location": "Amsterdam, Netherlands", "title": "Agent discovery and governance", "title_kind": "topic", "summary": "Discovery and contracts for independently evolving agents and tools.", "topic": "AI & APIs", "status": "delivered", "confirmation": "speaker", "repository": "https://github.com/carlesarnal/agent-discovery-demo", "featured": true},
+    {"id": "ocx-2026", "year": 2026, "event": "OCX", "location": "", "title": "From data stream to prediction", "summary": "Connecting event streaming, classification and application-facing results.", "topic": "Data & streaming", "status": "delivered", "confirmation": "recording", "recording": "https://www.youtube.com/watch?v=9vEvUUL82w4", "event_url": "https://www.ocxconf.org/event/2026/agenda?session=8e9346d3-d1b4-4f71-a6c3-1fe12a4ea272", "repository": "https://github.com/carlesarnal/reddit-realtime-classification", "featured": true},
+    {"id": "data-saturday-oslo-2024", "year": 2024, "event": "Data Saturday Oslo", "location": "Oslo, Norway", "title": "Edge-to-cloud data pipelines", "title_kind": "topic", "summary": "Change data capture and event-driven integration using open-source tools.", "topic": "Data & streaming", "status": "delivered", "confirmation": "speaker", "event_url": "https://datasaturdays.com/Event/20240831-datasaturday0052", "repository": "https://github.com/carlesarnal/debezium-ocp-etc-demo", "featured": false},
+    {"id": "devconf-us-2024", "year": 2024, "event": "DevConf.US", "location": "", "title": "Open-source maintenance", "title_kind": "topic", "summary": "The work of maintaining an open-source project and helping contributors participate.", "topic": "Open source", "status": "delivered", "confirmation": "recording", "recording": "https://www.youtube.com/watch?v=GVYEcvDPFzw", "event_url": "https://pretalx.com/devconf-us-2024/speaker/WBSMYA/", "featured": true},
+    {"id": "oss-japan-2023", "year": 2023, "event": "Open Source Summit Japan", "location": "Japan", "title": "Edge-to-cloud data pipelines", "title_kind": "topic", "summary": "Building a CDC pipeline with Debezium, Strimzi and Apicurio Registry.", "topic": "Data & streaming", "status": "delivered", "confirmation": "recording", "recording": "https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s", "repository": "https://github.com/carlesarnal/debezium-ocp-etc-demo", "featured": false},
+    {"id": "current-2023", "year": 2023, "event": "Current", "location": "", "title": "From Edge to Cloud: Creating Data Pipelines Using Open Source with Strimzi", "summary": "An open-source integration path from database changes to downstream consumers.", "topic": "Data & streaming", "status": "delivered", "confirmation": "recording", "recording": "https://www.confluent.io/es-es/events/current/2023/from-edge-to-cloud-creating-data-pipelines-using-open-source-with-strimzi-on/", "repository": "https://github.com/carlesarnal/debezium-ocp-etc-demo", "featured": false}
+  ],
+  "upcoming": [
+    {"event": "Cloud Native AI Summit Europe", "location": "Paris, France", "date": "2026-12-02", "date_label": "2–3 December 2026", "title": "Agent Sprawl Is the New Microservice Sprawl", "status": "accepted", "url": "https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026"}
+  ],
+  "writing": [
+    {"title": "Beyond OpenShift: Making Apicurio Registry Work with Any OAuth Provider via Dex", "description": "Connecting identity providers through an OIDC bridge, and the practical differences between authentication, identity and authorization.", "publication": "Apicurio Blog", "url": "https://www.apicur.io/blog/2026/03/26/universal-oauth-with-dex"},
+    {"title": "OpenTelemetry Distributed Tracing with Apicurio Registry", "description": "Following schema-related requests through an event-driven application with distributed tracing.", "publication": "Apicurio Blog", "url": "https://www.apicur.io/blog/2026/01/19/opentelemetry-distributed-tracing"},
+    {"title": "Apicurio Registry Joins the Cloud Native Computing Foundation", "description": "The project's move into the CNCF Sandbox and the work behind its open-source stewardship.", "publication": "Apicurio Blog", "url": "https://www.apicur.io/blog/2026/06/18/apicurio-registry-joins-cncf"}
+  ]
+}

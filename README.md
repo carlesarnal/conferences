@@ -2,7 +2,15 @@
 
 Personal knowledge base tracking my conference talk abstracts and acceptances as a Principal Software Engineer in the Apicurio community (CNCF sandbox project).
 
-## Structure
+## Professional website
+
+The reviewed public portfolio for [carlesarnal.github.io](https://carlesarnal.github.io/)
+is maintained in [public/portfolio.json](public/portfolio.json). See
+[public/README.md](public/README.md) for the content and deployment workflow.
+Only that explicit export is used by the website; confidential reviews and CFP
+planning are not part of the public feed.
+
+## Repository contents
 
 - **`talks/`** — Talk abstracts and walkthrough demos organized by topic. Each talk directory contains the abstract (`description.txt` or named `.txt`), a demo walkthrough (`README.md`), and optionally the cloned demo project.
 - **`conferences/`** — Accepted conferences, linking each to its talk and demo project.
