@@ -1,10 +1,13 @@
 Cloud Native AI Summit EUROPE 2026 — CFP Submissions
 
 OUTCOME (Sep 28, 2026): Submission 1, Agent Sprawl — ACCEPTED.
+ATTENDANCE (Oct 23, 2026): Company funding approved; attending and presenting.
+Supersedes the October 14 non-attendance decision. Upcoming, not yet delivered.
 Submissions 2 (prompts), 3 (streaming ML), 4 (data contracts) — rejected.
 Demo: branch cloud-native-paris-2026 of github.com/carlesarnal/agent-discovery-demo,
-verified end to end Sep 29 (./scripts/paris-2026-demo.sh). See that README's
-'Known limitations' — say them on stage; do not claim capability negotiation.
+updated locally to the connected workflow from PR #2932, pinned at 682928b7.
+Tests and live smoke passed Oct 23. See talks/agent-discovery/connected-workflow.txt.
+No deprecation-routing or runtime-negotiation claim in this updated demo.
 ======================================================
 
 Conference: Dec 2-3, 2026 — CNIT Forest, Paris, France

@@ -1,50 +1,53 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
-
-DATA INNOVATION SUMMIT 2027
-============================
-
-Dates: May 18-20, 2027, Kistamässan, Stockholm
-CFP: Speaker nomination form available; no closing date published on that form.
-Verified: September 21, 2026
-Apply: https://hyperight.com/nominate/
-Select event: Data Innovation Summit; region: Nordics.
-Organizers prioritize applied enterprise case studies. These drafts describe
-demonstrations; do not label them production case studies without evidence.
+DATA INNOVATION SUMMIT 2027 — DRAFT PROPOSALS
+===========================================
+Event: May 18-20, 2027, Stockholm
+Apply: https://hyperight.com/nominate/ (Data Innovation Summit / Nordics)
+CFP: Nomination form available; no deadline published there (checked Sep 21).
 URL: https://datainnovationsummit.com/
-3000+ attendees, 300+ speakers, 15 stages. Data platforms, AI governance, data engineering, ML pipelines.
+Status: Drafted; not submitted.
+Organizers prioritize applied enterprise case studies. These are demo-based
+proposals, not evidence of an enterprise deployment.
+Abstracts revised October 23, 2026. Preparation: talks/PREPARATION.txt.
 
+SUBMISSION 1: Lakehouse
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
+Suggested track: Data Engineering / Data Platforms
+Level: Intermediate
 
-SUBMISSION 1: Real-Time Lakehouse
-----------------------------------
+Description:
+The sink reports RUNNING while its logs report commits to zero tables. This session traces an insert through Debezium, Kafka on Strimzi, Apicurio Registry and the Iceberg sink to a Trino result, identifying the evidence that proves progress at each boundary.
 
-Title:
-The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+A recorded control-consumer investigation shows the configuration change that restored commits, without claiming a proven underlying root cause. Local timings illustrate why a commit interval is not a freshness guarantee. Snapshot and current-state queries distinguish receiving a change from reconstructing its effect. Attendees get a source-to-query progress checklist grounded in a reproducible local pipeline.
 
-Abstract:
-Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline built entirely with open-source tools on Kubernetes.
+Three takeaways:
+- Check progress from source event to query-visible snapshot.
+- Separate connector health from successful data commits.
+- Distinguish changelog visibility from current-state reconstruction.
 
-In a live demo, I'll build a complete pipeline end to end: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds via Trino or Spark. I'll show how Flink's Dynamic Iceberg Sink handles automatic schema evolution, eliminating the manual DDL changes that plague traditional data lakes.
+SUBMISSION 2: Data Contracts
+Title: Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
+Suggested track: AI Governance / Data Quality
+Level: Intermediate
 
-Audience Level: Intermediate
-Track: Data Engineering / Data Platforms
+Description:
+A feature changes from 30 seconds to 30,000 milliseconds while its Avro type stays long. Deserialization succeeds, but a consumer expecting seconds receives a value a thousand times larger.
 
+We develop a structural/semantic test pair around that feature: an incompatible schema revision exercises Apicurio Registry's reader/writer compatibility policy, while a normalization invariant requires both unit representations to produce the same model input. The walkthrough places each check at its publication, producer or CI boundary. Attendees learn what these controls establish without inferring model quality from successful validation.
 
-SUBMISSION 2: Data Contracts for AI
--------------------------------------
+Three takeaways:
+- Combine Avro compatibility checks with feature-input tests.
+- Identify enforcement points and bypass paths.
+- Test units and feature meaning without claiming to guarantee model accuracy.
 
-Title:
-Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
+Preparation (not form text):
+Lakehouse base demo tested in September; progress checklist still needed.
+The data-contract structural/semantic experiment needs implementation and testing.
+The nomination form also needs biography and picture URL; use current supplied
+profile details. Recordings: conferences/recordings.txt.
 
-Abstract:
-Independently evolving producers and consumers can break AI pipelines when an upstream field type changes. Explicit data contracts help teams detect structural incompatibilities before rolling out a new schema.
-
-I'll demonstrate compatible and incompatible schema registrations using Apicurio Registry, then explain where serializer and deployment checks fit into a Kafka-based AI pipeline. Structural compatibility does not validate feature semantics or model quality, and enforcement depends on integrating the checks into the write path.
-
-Audience Level: Intermediate
-Track: AI Governance / Data Quality
-
-
-Speaker Bio:
-Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

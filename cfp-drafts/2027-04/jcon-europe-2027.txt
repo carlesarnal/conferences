@@ -1,6 +1,6 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Abstracts and reviewer notes revised October 23, 2026 from talks/ descriptions.
+Preparation requirements: talks/PREPARATION.txt. Prior demo tests do not
+establish readiness of new supporting material.
 
 JCON EUROPE 2027 — SUBMISSION PACKAGE
 ====================================
@@ -15,10 +15,11 @@ Formats: 45-minute session INCLUDING Q&A (organizers suggest 30-35 min talk +
 Travel support: NOT provided. Speaker pass + 5 guest passes + speaker dinner.
 Selection: Practical applicability and shared experience are explicit criteria.
 
-Recommendation: both demos are verified. Submit both; the proxy talk first.
+Recommendation: proxy first, then lakehouse. Prepare the failure/progress
+checklists and review the revised scope before submitting.
 
 ================================================================
-SUBMISSION 1 — READY TO SUBMIT (demo verified September 28, 2026)
+SUBMISSION 1 — KAFKA PROXY (base demo verified September 28, 2026)
 ================================================================
 
 Title:
@@ -29,29 +30,25 @@ Level: Intermediate
 Suggested tags: Java, Kafka, Architecture, Data Quality
 
 Description:
-Client-side schema validation only works when every producer is configured
-correctly. Legacy clients, third-party integrations, and misconfigured
-services can still write records that downstream consumers cannot parse.
+A valid order is rejected. Its producer sees the same exception type as for
+malformed data, but the registry is unavailable. Should it retry or repair the
+record? Proxy validation changes the producer's failure contract.
 
-This session moves validation onto the path to the broker. Using the Record
-Validation filter in Kroxylicious, an open-source Kafka proxy written in Java,
-together with Apicurio Registry, we'll validate record values against a
-registered schema before produce requests reach Kafka. In a live demo, a valid
-order goes through; orders with a missing field, a wrong type, and an invalid
-enum value are rejected, and the producer receives an error naming the exact
-constraint that failed.
+Drawing on my Avro/Protobuf validation contribution to Kroxylicious, we use a
+JSON Schema example with Apicurio Registry to trace producer errors and broker
+contents. The Java filter walkthrough explains where those decisions occur.
 
-Then we'll look at what the design means in practice. One invalid record
-rejects its entire batch, including valid records sent alongside it. A
-producer that connects to the broker directly skips validation. And when the
-registry is unreachable, the filter fails closed, rejecting valid records with
-the same exception type used for invalid data. We'll walk through the Java
-filter code and discuss how to handle each case in producers and deployment.
+The operational trade-offs are the focus. In the tested Kroxylicious 0.24.0
+setup, an invalid record rejects its mixed batch, direct broker access bypasses
+validation, and a registry outage rejects valid data with the same exception
+type used for bad input. We'll examine the filter code and build a failure
+matrix connecting producer result, broker outcome and recovery choice.
+Selective replay requires care with ordering and duplicate handling.
 
 Attendees will leave with:
-- An understanding of how a Kroxylicious filter intercepts and rejects produce requests
-- A decision framework for client-side versus proxy-side validation
-- A checklist for batch failures, bypass paths, and registry availability
+- A failure matrix for schema errors, batch rejection, bypass and registry outages
+- A method for separating data failures from infrastructure failures before retrying
+- Criteria for combining client validation and proxy enforcement
 
 Message to the program committee:
 I contributed the Avro and Protobuf schema validation support to Kroxylicious's
@@ -63,12 +60,12 @@ broker, and fail-closed behavior during a registry outage. The filter is a
 Preview feature upstream, and I'll say so.
 
 Proposed timing (45 minutes total):
-  0-5:   Why client-side validation leaves gaps
+  0-5:   A valid order rejected: data error or registry outage?
   5-11:  Kroxylicious architecture and where the filter sits
   11-19: Demo: valid order, three rejections with producer-side errors
   19-25: Demo: mixed batch, direct-to-broker bypass, registry outage
-  25-31: Java filter walkthrough: produce-request handling and schema lookup
-  31-34: When to use proxy validation, and what it cannot do
+  25-31: Java filter walkthrough and failure matrix
+  31-34: Recovery choices, ordering and duplicates
   34-45: Q&A
 
 Additional resources:
@@ -77,68 +74,64 @@ Additional resources:
 - Demo: push talks/kafka-proxy-schema-validation/ to a public repository and
   link it here (not yet public).
 
-Before the talk (not blocking submission):
+Preparation (not form text):
+[ ] Prepare the failure matrix and demonstrate one producer recovery path.
 [ ] Record a backup video of run-demo.sh.
 [ ] Publish the demo repository.
 [ ] Re-run against the Kroxylicious release current at the time of the talk.
 
 ================================================================
-SUBMISSION 2 — READY TO SUBMIT (demo verified September 28, 2026)
+SUBMISSION 2 — LAKEHOUSE (base demo verified September 28, 2026)
 ================================================================
 
 Title:
-The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 
 Format: 45-minute session (about 32 minutes of content + Q&A)
 Level: Intermediate
 Suggested tags: Java, Kafka, Data Engineering, Apache Iceberg
 
 Description:
-Nightly batch jobs leave analytics and ML teams working on stale data. Change
-data capture can stream row-level changes from an operational database into
-an open table format instead. This session builds that pipeline with
-open-source JVM tools on Kubernetes, and is honest about what "real time"
-means in practice.
+The sink reports RUNNING while its logs report commits to zero tables. That
+observed failure starts an investigation into the difference between a healthy
+process and a database change becoming queryable by an analyst.
 
-Debezium captures changes from PostgreSQL, Kafka carries them as Avro events
-with schemas managed in Apicurio Registry, and Apache Iceberg's Kafka Connect
-sink writes them to Iceberg tables that Trino can query. In a live demo, we'll
-insert a row and time how long it takes to become queryable, then add a
-column in PostgreSQL and follow it through a new schema version in the
-registry to an evolved Iceberg table, with no manual DDL.
+We'll trace one insert through a running PostgreSQL, Debezium, Kafka on
+Strimzi, Apicurio Registry and Apache Iceberg Kafka Connect pipeline to a Trino
+query result. A recorded control-consumer investigation shows the configuration
+change that restored commits, separating observed recovery from an unproven
+underlying root cause.
 
-Along the way, we'll look at the details that decide whether this works:
-freshness is bounded by the sink's commit cycle (the default commit interval
-is five minutes), the table is an append-only changelog that needs "latest
-row per key" queries, and each commit creates a snapshot you can time-travel
-to. We'll also cover the failures hit while building the demo, from corrupted
-metadata on S3-compatible storage to a sink that reported RUNNING while
-committing nothing.
+Two local runs took 33 and 42 seconds despite a configured 10-second commit
+interval. These observations include query and polling overhead and are not
+production benchmarks. We'll distinguish capture, consumption, table commits
+and query visibility, then use snapshot history to verify progress. The table
+is an append-only changelog, so seeing events differs from reconstructing
+current row state.
 
 Attendees will leave with:
-- A reproducible CDC-to-Iceberg pipeline built from open-source components
-- A clear picture of how a schema change propagates across each boundary
-- Practical criteria for commit intervals, changelog queries, and when streaming ingestion is worth its cost
+- A progress checklist from source event to query-visible snapshot
+- A method for investigating a RUNNING connector that is not committing data
+- A distinction between commit intervals, measured freshness and current-state queries
 
 Message to the program committee:
-The demo runs on current releases (Strimzi 1.2 with Kafka 4.3, Debezium 3.6,
-Apicurio Registry 3.3, Apache Iceberg 1.11) and every behavior in the abstract
-is shown live and was measured: rows queryable in Iceberg 30-45 seconds after
-the insert with a 10-second commit interval, automatic column addition, and
-snapshot time travel. I'm a core maintainer of Apicurio Registry, the schema
-registry in the pipeline. An earlier version of this topic was accepted at
-JavaZone 2026; this version is rebuilt on the Apache Iceberg sink.
+The base demo was exercised on Strimzi 1.2, Kafka 4.3, Debezium 3.6,
+Apicurio Registry 3.3 and Apache Iceberg 1.11. The live segment traces a running
+pipeline; the failure investigation uses captured logs. Timings are local
+observations, not evidence of production performance. I maintain Apicurio
+Registry; an earlier version of this topic was accepted at JavaZone 2026.
 
 Proposed timing (45 minutes total):
-  0-4:   Batch versus streaming ingestion: the actual trade-offs
-  4-10:  Architecture: Debezium, Kafka, registry, Iceberg sink, REST catalog, Trino
-  10-17: Demo: insert a row, time it into Iceberg; commit intervals explained
-  17-24: Demo: add a column; registry version 2 and the evolved table
-  24-29: Changelog semantics, latest-per-key queries, snapshots and time travel
-  29-34: What broke while building it, and what's not covered (merges, breaking changes)
+  0-4:   RUNNING versus making data available
+  4-10:  Architecture and progress signals
+  10-19: Trace one insert to a query-visible snapshot
+  19-28: Investigation: coordinator logs and no table commits
+  28-34: Progress checklist, observed timings and changelog semantics
   34-45: Q&A
 
-Before the talk (not blocking submission):
+Preparation (not form text):
+[ ] Prepare the progress checklist and captured failure logs.
+[ ] Do not attribute all observed delay to the commit interval without isolating stages.
 [ ] Publish talks/database-to-lakehouse-realtime/ to a public repository.
 [ ] Record a backup video: the pipeline needs ~2 minutes to become ready.
 [ ] Consider testing a breaking schema change and a DELETE for Q&A.
@@ -171,3 +164,10 @@ Resources:
 
 AI disclosure, if asked: draft wording was generated with AI assistance;
 report the actual share of the submitted text after your edits.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

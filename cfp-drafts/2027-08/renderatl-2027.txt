@@ -1,9 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Updated October 23, 2026: current titles and exact abstract sources below.
+Preparation requirements: talks/PREPARATION.txt. Dates remain discovery estimates.
 
 Split from us-2027.txt on September 28, 2026.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 RENDERATL 2027 (Atlanta)
@@ -14,12 +13,14 @@ URL: https://www.renderatl.com/
 Includes AI Summit + OpenJS Summit. Part of Atlanta Tech Week.
 
 Submission 1: Agent Governance
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Abstract: talks/agent-discovery/description.txt
 Track: AI Summit
 Audience: Intermediate
 
 Submission 2: Multi-Agent Governance
-Title: A2A or MCP? Composing Agents and Tools Without Building a Distributed Monolith
+Title: A2A or MCP? Choosing an Interface for the Same Capability
+Abstract: talks/governing-agent-swarm/description.txt
 Track: AI Summit
 Audience: Intermediate
 
@@ -29,3 +30,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

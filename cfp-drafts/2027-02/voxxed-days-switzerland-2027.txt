@@ -1,35 +1,120 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+VOXXED DAYS SWITZERLAND 2027 — SUBMISSION MATERIAL
+================================================
+Updated: October 23, 2026 — wording only; CFP dates not reverified.
+Events: Ticino Feb 19 / CERN Mar 5 / Zurich Mar 9
+CFP: October 23, 2026 per the September discovery; confirm in each portal.
+Ticino: https://vdt27.cfp.dev/
+CERN: https://vdcern27.cfp.dev/
+Zurich: https://vdz27.cfp.dev/
+Same platform does not establish cross-event submission: check each event's receipt.
+Status: Drafted; no submission confirmed.
+Supporting fields below are reviewer-only. Preparation notes are not form text.
 
-Split from europe-2027.txt on September 28, 2026.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
-below may contain unverified claims. Check dates and CFP on the official site.
-
-VOXXED DAYS 2027 (Ticino Feb 19 / CERN Mar 5 / Zurich Mar 9)
---------------------------------------------------------------
-CFP: OPEN — closes October 23, 2026 (per developers.events, September 28)
-Ticino (Feb 19): https://vdt27.cfp.dev/
-CERN (Mar 5):    https://vdcern27.cfp.dev/
-Zurich (Mar 9):  https://vdz27.cfp.dev/
-Verify the deadline on cfp.dev (JavaScript-only; could not be fetched).
-Same CFP system for all three. Submit once, select multiple events.
-
-Submission 1: Agent Governance
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+SUBMISSION 1: AGENT DISCOVERY
+----------------------------
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 Audience: Intermediate
 
-Submission 2: Real-Time Lakehouse
-Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Description:
+A translator publishes a new Agent Card with its translation skill removed. What should reject that change, and what does the rejection actually protect? This session follows a tested Quarkus workflow: an MCP weather tool feeds an A2A summarizer, whose output feeds an A2A translator.
+
+Apicurio Registry supplies endpoint metadata; application code owns the roles and sequence. We inspect the rejected skill removal, confirm that the accepted registration is unchanged, and rerun the connected workflow. An additive change demonstrates the accepted path. My merged Agent Card republishing fix supplies the second lesson: a restarted agent must refresh changed metadata even when its declared agent version is unchanged.
+
+Attendees get a runnable discovery pattern and a responsibility matrix for publication checks, orchestration and runtime verification. A valid card does not prove that deployed code honors it; static endpoint configuration may still be the simpler choice.
+
+Elevator Pitch:
+A registry can reject an incompatible Agent Card, but it cannot stop someone deploying incompatible agent code. A connected MCP-to-A2A workflow makes that boundary visible: actual handoffs, a rejected skill removal, an unchanged accepted registration and a successful rerun. Java developers get executable checks and a clear division of responsibilities.
+
+Notes:
+I am a core maintainer of Apicurio Registry and a Quarkus committer. The current demo uses local models through Ollama and a connected MCP weather -> A2A summarizer -> A2A translator workflow. I would start with the services already running and show the actual handoffs, a rejected Agent Card change and a compatible addition. I authored merged publisher fix #2897 and open workflow sample #2932; links and status are in talks/EVIDENCE.txt. The typed MCP wrapper is backup material. Paris acceptance is confirmed and funded; that presentation is still upcoming.
+
+Supporting Materials — slideDeckURL:
+Leave blank until a public rendered deck URL is available. The HTML source is:
+https://github.com/carlesarnal/agent-discovery-demo/blob/cloud-native-paris-2026/presentation.html
+That source is the Paris version; review it against this abstract before sharing.
+
+Supporting Materials — videoURL:
+https://www.youtube.com/watch?v=9vEvUUL82w4
+Context: OCX 2026, earlier streaming-ML presentation; delivery sample, not this talk.
+
+Other reviewer resource (can be added to Notes):
+https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026
+Authored publisher fix (merged):
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2897
+Authored connected sample (open when checked October 23):
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2932
+
+SUBMISSION 2: LAKEHOUSE
+----------------------
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 Audience: Intermediate
 
-Submission 3: Kafka Proxy
+Description:
+The sink task reports RUNNING; its logs report commits to zero tables. We trace one insert through PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry and the Iceberg Kafka Connect sink to a Trino result, asking what evidence proves progress at each boundary.
+
+A recorded investigation examines control-consumer failures and the configuration change that restored commits, without claiming a proven underlying root cause. Two local freshness observations, 33 and 42 seconds with a 10-second commit interval, include polling/query overhead. They show why configuration is not a freshness guarantee. Snapshot and current-state queries distinguish a stored change event from its effect.
+
+Attendees get a progress checklist and a method for investigating a connector that looks healthy but is not delivering data.
+
+Elevator Pitch:
+A Kafka Connect task reported RUNNING while its Iceberg table received no commits. That failure is the starting point for this talk. Rather than touring a stack, I trace where a database change becomes visible and show how to distinguish process health from data progress. The example gives Java and data engineers a troubleshooting method they can use beyond this particular pipeline.
+
+Notes:
+The pipeline uses Debezium, Kafka Connect, Apicurio Registry, Apache Iceberg and Trino. It will be deployed before the session; the live portion follows an insert and its query visibility, with logs from the earlier failure. The measured timings are local observations, not a production benchmark. A shorter session could focus on the RUNNING/no-commits investigation and progress checklist. An earlier version of the lakehouse topic was accepted at JavaZone 2026.
+
+Supporting Materials — slideDeckURL:
+Leave blank: no public deck URL has been supplied for this version.
+
+Supporting Materials — videoURL:
+https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s
+Context: OSS Japan 2023, earlier edge-to-cloud presentation; related subject and
+delivery sample, not a recording of this Iceberg session.
+
+SUBMISSION 3: KAFKA PROXY
+------------------------
 Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 Audience: Intermediate
 
-Speaker bio:
+Description:
+A valid order is rejected with the same exception type as malformed data because the registry is unavailable. Should its producer retry or repair it? This session examines how proxy validation changes the producer's failure contract, using Kroxylicious and Apicurio Registry.
+
+Drawing on my Avro/Protobuf validation contribution, the demo uses JSON Schema on Kroxylicious 0.24.0. A mixed batch, direct-to-broker bypass and registry outage expose distinct boundaries: valid records can be rejected with invalid ones, invalid records can bypass the proxy, and a dependency failure can look like a data error.
+
+A failure matrix connects what the producer sees, what reaches Kafka, and whether to correct input, retry, or change deployment controls. Attendees learn when client-side validation and proxy enforcement complement each other, with attention to ordering and duplicate handling.
+
+Elevator Pitch:
+I contributed Avro and Protobuf validation to Kroxylicious. This talk goes beyond showing a filter reject bad JSON: one invalid record affects its batch, direct broker access bypasses validation, and a registry outage can reject valid data. Java developers get a live example, a look at the filter code, and practical guidance on handling the failures that adding validation creates.
+
+Notes:
+The demo uses the released Record Validation filter in Kroxylicious 0.24.0 and Apicurio Registry. The live examples use JSON Schema; my Avro and Protobuf contribution provides implementation background rather than a claim that those formats are demonstrated. I will distinguish observed behavior in this version from general deployment guidance. This can also be a shorter session focused on mixed-batch rejection and producer error handling. Contribution: https://github.com/kroxylicious/kroxylicious/pull/3498
+
+Supporting Materials — slideDeckURL:
+Leave blank: no public deck URL has been supplied for this talk.
+
+Supporting Materials — videoURL:
+https://www.youtube.com/watch?v=apJYC5G47UE&t=1517s
+Context: OSS Japan 2023, earlier data-pipeline presentation; delivery sample,
+not a recording of the proxy-validation talk.
+
+SHARED SPEAKER BIO
+------------------
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
 Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+PREPARATION — NOT FORM TEXT
+--------------------------
+See talks/PREPARATION.txt for the full task list. Previous verification covers
+the base agent, proxy and lakehouse demos; prepare the new failure/progress
+checklists and match the selected session duration. Confirm the form's length
+limits. A recording link is a delivery sample, not a claim of a score or acceptance.
+No presentation video or public slide URL should be invented for this version.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

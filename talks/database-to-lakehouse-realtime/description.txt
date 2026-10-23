@@ -1,12 +1,12 @@
-Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 
-Streaming database changes into Apache Iceberg looks like three components and a diagram. Building it on current releases took longer: metadata files corrupted on S3-compatible storage, a sink that reported RUNNING while committing nothing, and "real time" that turned out to depend on one setting most people never change.
+The sink task reports RUNNING. Its logs report commits to zero tables. The source database keeps changing, but an analyst sees nothing new. This happened while building a PostgreSQL-to-Iceberg pipeline: process health and data progress told different stories.
 
-In this session, we build the pipeline live with Strimzi, Debezium, Apicurio Registry (CNCF sandbox), the Apache Iceberg Kafka Connect sink and Trino. We time a new row from PostgreSQL into Iceberg (30-45 seconds with a 10-second commit interval; the default is five minutes), add a column and follow it through a new registry version to an evolved table, and query an append-only changelog for current state and past snapshots.
+We follow one insert through Debezium, Kafka on Strimzi, an Avro schema in Apicurio Registry, an Iceberg table commit and a Trino query. Each stage supplies a different piece of evidence: an emitted event, a consumed offset, a committed snapshot or a query-visible row. A recorded investigation then examines the sink's control-consumer failures and the configuration change that restored commits, separating the observed recovery from an unproven underlying root cause.
+
+Two local runs made an insert queryable after 33 and 42 seconds with a 10-second commit interval. These measurements include polling and query overhead; they illustrate why a setting is not a freshness guarantee. We finish by querying the append-only changelog as current row state, making explicit the difference between seeing an update event and seeing its effect.
 
 Attendees will leave with:
-- A reproducible CDC-to-Iceberg pipeline on Kubernetes using only open source
-- The settings that decide freshness, and the trade-offs of shortening them
-- The failure modes we hit and how to detect them before your analysts do
-
-Demo: talks/database-to-lakehouse-realtime (verified end to end, September 2026)
+- A source-to-query progress ledger: event identity, consumed offset, committed snapshot and visible row
+- A method for investigating a RUNNING connector that is not committing data
+- A practical distinction between commit intervals, measured freshness and current-state queries

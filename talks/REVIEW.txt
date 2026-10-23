@@ -1,32 +1,213 @@
-TALK REVIEW — KubeCon rubric (Content / Originality / Relevance / Speaker / Not a pitch)
-Reviewed against the public rubric only. Speaker scores assume the recordings in
-conferences/recordings.txt are linked.
+TALK REVIEW — October 23, 2026
+=============================
+Initial rewrite basis: public KubeCon rubric and Carles's own material.
+Context: 30-minute Cloud Native Application Development session unless noted.
+These are editorial assessments of written proposals, not acceptance forecasts.
+Current review: see SECOND PASS below. Older sections record earlier assessments
+and preparation state; they are retained as history, not current readiness claims.
+POST-PACKAGING UPDATE: data-contract semantic and real Registry checks now pass
+locally and in CI; proxy recovery assertions also pass in both. See REPOSITORIES.md
+for the latest execution status. Scores below were not automatically increased.
 
-Talk                              Before (avg)              After rewrite (expected)
---------------------------------  ------------------------  ---------------------------------
-database-to-lakehouse-realtime    3.5 4 3.5 4 5   (4.0)     4.5 4 4 4 5   (4.3)  READY
-kafka-proxy-schema-validation     4 4 3.5 4 5     (4.1)     4.5 4.5 4 4 5 (4.4)  READY
-agent-discovery                   3.5 3.5 4 4 3   (3.6)     4.5 4 4.5 4 4 (4.2)  READY
-governing-agent-swarm             3 3 4 4 3       (3.4)     4 4 4.5 4 4   (4.1)  needs MCP/A2A comparison segment
-security                          3 3 3.5 4 5     (3.7)     4 3.5 4 4 5   (4.1)  demo incomplete
-data-contracts-ai-pipelines       3.5 3 3.5 4 5   (3.8)     4 3.5 4 4 5   (4.1)  demo unverified
-prompt-templates-as-artifacts     3.5 3.5 3.5 4 4 (3.7)     4 3.5 4 4 4   (3.9)  demo unverified
-stream-prediction                 3 3 3.5 4 5     (3.7)     4 3.5 3.5 4 5 (4.0)  demo unverified
-edge-cloud                        3 2.5 3.5 4 5   (3.6)     3.5 3 3.5 4 5 (3.8)  old topic; rebuild demo
-cncf-sandbox-journey              3 2.5 3 4 4     (3.3)     4 3.5 3 4 4   (3.7)  needs real specifics
-oss-maintenance                   2.5 2.5 3 4 5   (3.4)     4 3.5 3 4 5   (3.9)  needs real stories
+SECOND PASS — EVIDENCE-AWARE SELF-REVIEW
+--------------------------------------
+Rubric: Content / Originality / Relevance. Relevance assumes Cloud Native
+Application Development; the last two entries show community-track relevance too.
+These ratings assess current proposals and available evidence, not hoped-for
+results. All Speaker ratings remain provisional 3 with appropriate resources
+attached; recordings have not been watched. Not a Product Pitch: 5 throughout.
 
-What moved scores
-- Removed unverifiable claims (sub-second, "ran in production", mTLS, negotiation).
-- Led every abstract with one specific failure instead of a generic trend.
-- Added measured numbers and observed failure modes where the demo is verified.
-- Named CNCF projects; stated limits openly (reads as expertise, not pitch).
-- Titles now promise a finding, not a topic.
+Topic                          C    O    R    Main reason / remaining limitation
+-----------------------------  ---  ---  ---  ---------------------------------
+kafka-proxy-schema-validation   4.5  4    4.5  Authored filter work + observed failures
+database-to-lakehouse-realtime  4.5  4    4.5  Concrete investigation; root cause open
+agent-discovery                4.5  4    4.5  Tested handoffs + merged publisher fix
+security                       3.5  3.5  4.5  Clear diagnostic method; denials untested
+data-contracts-ai-pipelines    3.5  3.5  4.5  Precise invariant; fixture not implemented
+prompt-templates-as-artifacts  3.5  3.5  4    Runtime selection/rollback unverified
+governing-agent-swarm          3.5  3.5  4    Paired implementation still missing
+stream-prediction              3.5  3.5  4.5  Existing pipeline; experiment unmeasured
+edge-cloud                     3.5  3.5  4    Useful design; rebuild not demonstrated
+cncf-sandbox-journey           4    4    2.5  Now documented firsthand; community 4.5
+oss-maintenance                4    3.5  3    Public workflow + review; community 4.5
 
-To reach the top 10% (avg 4.5+)
-1. Only submit talks whose demo is verified; finish the TODOs first.
-2. Link a recording for every submission (Speaker 4 -> 4.5).
-3. One submission per event; send the strongest fit for the track.
-4. Add an upstream angle when true (Kroxylicious filter, quarkus-langchain4j fix):
-   reviewers rate maintainers who fixed the problem highly on Speaker and Originality.
-5. Merge or alternate agent-discovery and governing-agent-swarm; never both at once.
+Reviewer comments on the current proposals:
+1. Proxy: a clear failure contract grounded in observed outcomes and an authored
+   contribution. Show one recovery action without generalizing selective resend.
+   The new failure-matrix.txt organizes the evidence; it is not another test run.
+2. Lakehouse: useful distinction between health and progress. The new ledger
+   makes the takeaway concrete. Populate it during rehearsal and keep the recovery
+   observation separate from claims about the underlying cause or latency.
+3. Agents: stronger now that the speaker's merged stale-card fix supplements the
+   connected demo. Keep the publisher regression as a short evidence segment;
+   the typed MCP wrapper is backup, not a third full story. Fix and sample have
+   different merge status, documented in EVIDENCE.txt.
+4. Security: the separate serializer/registry and producer/broker paths clarify
+   the practical contribution. An audience needs observed positive and negative
+   controls, not just a proposed permission matrix. Verify them before delivery.
+5. Data contracts: the two-unit fixture has an explicit expected result. Show
+   how units are declared and which check fails when normalization is omitted;
+   otherwise the semantic claim remains a useful but unimplemented exercise.
+6. Prompts: identifying the artifact selected for a response makes rollback
+   observable. Implement that provenance and refresh behavior, then evaluate
+   instruction changes with recorded model/settings and fixed criteria.
+7. A2A/MCP: compare caller-visible requirements rather than protocol marketing.
+   The same-capability implementations and versioned observations are required
+   before this becomes evidence-led rather than a conceptual comparison.
+8. Streaming: previous implementation and delivery support speaker alignment.
+   The proposed experiment is new. Do not assign causal certainty to a timeline
+   alone or call replayed source timestamps current ingress time.
+9. Search: the cutover target now acknowledges continuing writes and remaining
+   lag. Validate insert/update/delete behavior and the retained-history assumption
+   before presenting it as an achieved recovery rather than a design walkthrough.
+10. Sandbox: the public deferral, renewed vote and onboarding sequence resolve
+    the earlier lack of specificity. Do not attribute acceptance to one change
+    or assume the speaker personally handled every onboarding task.
+11. Maintenance: a published ownership-aware lifecycle and actual review replace
+    generic community advice. Explain the both-sides-blocked case and distinguish
+    documented policy from measured improvements in retention or review time.
+
+What the review calibration changes:
+- Do not reward our own unimplemented experiments more generously than others'.
+- State actual outcomes where available; a promised checklist is not evidence.
+- A talk with a narrow, complete argument is stronger than adding every relevant
+  topic. Extra features belong in backup slides or another distinct proposal.
+- Attach relevant work by this speaker, with authored/reviewed roles made clear.
+- Choose the audience where the contribution matters; community talks should not
+  be forced into an application-development ranking.
+
+New public evidence inspected: EVIDENCE.txt. No new demos or recordings were run
+or viewed in this pass. This is not an official score for a self-authored KubeCon
+submission and is not evidence of superiority over all other presentations.
+
+HISTORICAL ASSESSMENTS
+----------------------
+
+C = Content; O = Originality; R = Relevance (out of 5).
+Before = latest review of the previous wording. Revised = current wording,
+conditional on delivering the planned examples. Preparation status is separate.
+
+Topic                          Before C/O/R   Revised C/O/R   Preparation status
+-----------------------------  -------------  --------------  ------------------
+kafka-proxy-schema-validation   4.5/4/4        4.5/4/4         Base demo tested; failure matrix needed
+database-to-lakehouse-realtime  4/4/4.5        4.5/4/4.5       Base demo tested; progress trace/checklist needed
+agent-discovery                4/3.5/4.5      4/3.5/4.5       Base demo tested; clarify deployment boundary
+security                       4/3.5/4.5      4/3.5/4.5       Three failure cases need verification
+prompt-templates-as-artifacts  4/3.5/4        4/3.5/4         Runtime rollback/evaluation not verified
+stream-prediction              3.5/3.5/4      4/3.5/4         Repeatable load experiment not implemented
+data-contracts-ai-pipelines    3.5/3/4        4/3.5/4         Structural/semantic test pair needed
+governing-agent-swarm          3.5/3/4        4/3.5/4         Same-capability comparison not implemented
+edge-cloud                     3/2.5/4        3.5/3.5/4       Index recovery scenario not implemented
+cncf-sandbox-journey           2.5/3/2.5      3/3/2.5         Firsthand specifics needed; community R=4
+oss-maintenance                2.5/3/2.5      3/3/2.5         Firsthand specifics needed; community R=4
+
+Speaker: provisional, not a numeric score here. The supplied recordings are
+evidence to assess, not an automatic four or five. Review delivery and subject
+alignment; select relevant links from conferences/recordings.txt. Include the
+Kroxylicious contribution for the proxy talk. A demo check is not a presentation
+quality assessment. Paris Agent Sprawl is accepted and company funding is now
+approved (October 23); Carles will present. Do not cite it as delivered yet.
+
+Not a Product Pitch: 5 for the current wording of all eleven proposals. They
+describe open-source examples and transferable lessons with no clear sales
+content. Maintaining the featured project is not itself a reason to penalize
+the proposal. Use 3 only for an identified uncertainty, not a generic suspicion.
+
+No averages or percentile thresholds: the published rubric does not establish
+that an average of 4.5 means top 10%. Weighting and competing submissions are
+unknown. Strong wording cannot establish originality or technical results.
+
+PRIORITIES AND REMAINING WEAKNESSES
+----------------------------------
+1. Kafka proxy: strongest narrow demo/contribution combination. Improve recovery
+   guidance; scope observations to the tested release instead of universal claims.
+2. Lakehouse: distinctive failure investigation. Prioritize progress evidence over
+   stack setup. Investigate timing before attributing delay to one configuration.
+3. Agent discovery: coherent lifecycle demo. Registered contracts do not police
+   runtime deployments, and discovery does not reveal every dependency.
+4. Security: practical authorization boundaries. Configuration examples must be
+   backed by correct token, ACL and registry-denial tests.
+5. Prompts: explain why runtime distribution complements Git. The evaluation and
+   consumer rollback are the value; they remain work to deliver.
+6. Streaming ML: measured load behavior could distinguish it from pipeline tours.
+   The abstract describes an experiment, not results already obtained.
+7. Data contracts: the same-schema/different-units example makes the AI input
+   consequence concrete. Verify normalization checks and enforcement boundaries.
+8. A2A/MCP: compare one capability and pinned protocol versions. Do not equate
+   the protocol choice with where intelligence lives or assume symmetry of features.
+9. CDC/search: new rebuild/catch-up focus is stronger but needs actual recovery
+   evidence. Retention, delete semantics and cutover need explicit assumptions.
+10. Sandbox: accurate baseline now, but generic until actual application decisions
+    are documented. Best fit is a community or project-leadership audience.
+11. OSS maintenance: a useful workflow exercise, not yet a distinctive experience
+    report. Replace hypothetical examples with Carles's verified experiences.
+
+OCTOBER 23 — CURRENT EDITORIAL ASSESSMENT
+---------------------------------------
+All eleven abstracts now center on a question, a worked example and a reusable
+artifact or decision. Source material: the existing personal abstracts, local
+demo records, preparation notes and the public rubric fetched October 23.
+No comparative ranking against confidential submissions was performed.
+
+Follow-up: after the user explicitly confirmed reuse permission, de-identified
+review notes were used to check general editorial weaknesses: unsupported
+guarantees, missing observations, unclear contribution and over-broad scope.
+Distinctive third-party examples, claims and results were not incorporated.
+The resulting final checks are recorded in CFP-PACKAGING.txt. Permission is
+user-reported, not an independently verified organizer grant. No acceptance
+ranking or guarantee follows from this comparison.
+
+Evidence-led priorities for the next CFP:
+1. Kafka proxy: strongest contribution-backed topic. Lead with a valid record
+   rejected during a registry outage, then show the client/broker failure matrix.
+   The demonstrated format is JSON Schema; the authored contribution is Avro/
+   Protobuf. Keep these distinct. Finish the matrix and safe recovery guidance.
+2. Agent discovery: strongest recently checked connected implementation. Lead
+   with a rejected skill removal and the unchanged running workflow. Keep roles
+   selected by application code, and registry publication separate from runtime
+   implementation guarantees. Rehearse the event's actual slot.
+3. Lakehouse: strongest recorded integration investigation. Lead with RUNNING
+   and zero commits. Explain what changed and what remains unproven; the local
+   freshness figures are observations, not a measured service-level guarantee.
+
+Promising drafts that need the promised evidence before being presented as demos:
+- Security: one producer, three separately attributable denial cases. Needs
+  successful controls and actual denied requests; configuration alone is weak.
+- Data contracts: one feature and two checks, including a numerical invariant
+  (30 seconds and 30,000 milliseconds normalize to the same model input).
+- Prompts: source revision -> artifact -> consumer selection. Distinguish
+  pre-promotion rejection from post-promotion rollback; implement both paths.
+- A2A/MCP: hold the capability constant and compare the caller contract. The
+  existing mixed workflow does not establish same-capability interface parity.
+- Streaming ML: event-to-queryable-prediction diagnosis. Needs a replay dataset
+  and controlled measurements; the current API/dashboard is supporting context.
+- CDC/search: identity, deletes, catch-up and alias cutover. A design talk is
+  supportable now; a demonstrated recovery claim requires the new experiment.
+
+Community-track proposals:
+- Sandbox: the claim-to-evidence worksheet provides a concrete attendee outcome.
+  Add confirmed application decisions for a distinctive firsthand account.
+- OSS maintenance: the contributor hand-off exercise is more useful than broad
+  community-growth advice. Add public examples Carles actually handled, including
+  the limits of maintainer capacity. Avoid claiming measured retention effects.
+
+Portfolio differentiation:
+- Agent discovery decides where to find and check a declared contract; A2A/MCP
+  decides which caller interface to expose. Do not reuse the same central demo.
+- Proxy validation concerns the broker write path; data contracts concerns the
+  model input's structure and meaning; prompt releases concerns runtime selection.
+- Lakehouse measures query visibility; streaming ML measures prediction age;
+  CDC/search designs reconstruction and cutover. Their evidence should differ.
+
+No score increase is assigned merely because the wording is sharper. Submission
+strength still depends on verified artifacts, delivery, audience fit and the
+event's selection criteria. These revisions do not make every topic suitable for
+every CFP. See CFP-PACKAGING.txt for audience, value and supporting-resource notes.
+
+NEXT WORK
+---------
+See talks/PREPARATION.txt for per-talk deliverables and 30-minute outlines.
+Abstracts contain only submission text; preparation notes are not for CFP fields.
+Use each event's actual format and submission limit. Multiple distinct proposals
+can be appropriate; no blanket rule requires one submission per event.
+Do not submit near-duplicate agent talks without making their learning goals distinct.

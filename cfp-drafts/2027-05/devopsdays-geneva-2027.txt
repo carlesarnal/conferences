@@ -1,5 +1,5 @@
 Split from europe-2027.txt on September 28, 2026.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 DEVOPSDAYS GENEVA 2027
@@ -8,7 +8,11 @@ Dates: May 25-26, Geneva
 CFP: ~Jan-Mar 2027
 URL: https://devopsdays.org/
 
-Same submissions as DevOpsDays Zurich.
+Suggested topics:
+- Search-index recovery: talks/edge-cloud/description.txt
+- Sandbox application: talks/cncf-sandbox-journey/description.txt
+Preparation: talks/PREPARATION.txt. Recovery code and firsthand application
+examples are still needed before these become demonstrated experience reports.
 
 Speaker bio:
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
@@ -16,3 +20,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

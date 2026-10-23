@@ -1,0 +1,33 @@
+CONNECTED WORKFLOW — October 23, 2026
+====================================
+Current talk basis: Quarkus LangChain4j PR #2932, open when checked.
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2932
+Pinned source: 682928b714574e1ca8f0405c4319b36cd244dc0e
+
+Demo adaptation: cloud-native-paris-2026 in carlesarnal/agent-discovery-demo.
+Current local worktree:
+/var/folders/41/1lg2xxbj1dlcdf7gyq8_zr640000gn/T/opencode/paris-2932
+
+Commands from the demo worktree:
+  python3 scripts/workflow.py prepare
+  bash scripts/paris-2026-demo.sh
+  python3 scripts/workflow.py governance  (second terminal)
+  python3 scripts/workflow.py smoke       (stop interactive run first)
+
+Fresh checks passed October 23: sample builds and nine automated tests;
+real MCP -> A2A summary -> A2A translation; precise removed-skill rejection;
+rejected version absent; accepted content/version/globalId retained; briefing
+rerun after rejection and after compatible publication; automatic cleanup.
+
+The new sample has no deprecation gate, arbitrary LLM workflow planning or
+deployment pinning. Weather is fictional. Observed registry metadata is not a
+transactional snapshot. MCP registration is explicit; A2A publication uses the
+extension's programmatic publisher. Local-only and unauthenticated.
+
+The old independent-request/deprecation walkthrough is historical. Use the
+new entry point and presentation for this abstract, not scripts/09-deprecate-agent.sh.
+The later October 23 visual redesign was checked in Chrome across desktop and
+mobile layouts, including navigation, notes and reduced motion. The full guide
+was pushed in demo commit 44fcd2b. A timed live rehearsal remains necessary.
+Paris acceptance remains recorded; company funding is now approved and Carles
+will attend and present (October 23 update). The presentation is still upcoming.

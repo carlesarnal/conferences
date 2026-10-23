@@ -13,6 +13,12 @@ demos were rebuilt and verified end to end on September 28 (Kroxylicious 0.24.0
 proxy validation; Strimzi 1.2 / Debezium 3.6 / Iceberg 1.11 lakehouse). Both
 JCON proposals are ready; see cfp-drafts/2027-04/jcon-europe-2027.txt.
 Cloud Native AI Summit Paris (Dec 2-3, 2026): Agent Sprawl ACCEPTED; other three rejected.
+UPDATE OCTOBER 23: Company funding for Paris is approved. Carles will attend and
+present Agent Sprawl, superseding the October 14 non-attendance decision.
+Approved amount was not specified. The talk is upcoming, not yet delivered.
+The supplied travel policy is
+an additional approval process for non-exempt travel, not an absolute travel ban;
+its extension into 2027 is undecided. This supersedes earlier travel-policy notes.
 OSS Japan 2026: two rejected, one waitlisted; feedback requested September 28.
 
 RECOMMENDATION

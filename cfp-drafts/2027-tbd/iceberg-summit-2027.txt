@@ -1,9 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Updated October 23, 2026: current titles and exact abstract sources below.
+Preparation requirements: talks/PREPARATION.txt. Dates remain discovery estimates.
 
 Split from us-2027.txt on September 28, 2026. Event month is an ESTIMATE.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 ICEBERG SUMMIT 2027 (San Francisco)
@@ -13,8 +12,10 @@ CFP: ~Nov 2026-Jan 2027
 URL: https://www.icebergsummit.org/
 
 Submission 1: Real-Time Lakehouse
-Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
-Note: THE event for this talk. Focus on Flink Dynamic Iceberg Sink, schema evolution, and real-time ingestion patterns.
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
+Abstract: talks/database-to-lakehouse-realtime/description.txt
+Note: Focus on Kafka Connect, committed snapshots and query-visible progress;
+the maintained demo does not use Flink.
 
 Speaker bio:
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
@@ -22,3 +23,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

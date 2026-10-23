@@ -1,12 +1,12 @@
 Title: Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
 
-An inference service can break with no model change at all: an upstream team renames a field or changes its type, and the consumer quietly gets nulls or stops reading. In event-driven AI pipelines, producers and consumers evolve independently, and nothing stops them from drifting apart.
+A feature value changes from 30 seconds to 30,000 milliseconds. Its Avro type stays long. Deserialization succeeds, but an inference service that expects seconds now receives a value a thousand times larger. What should a contract check before that input reaches the model?
 
-This session treats the event schema as a contract. With Kafka on Strimzi and Apicurio Registry (CNCF sandbox), we'll register Avro contracts, accept a compatible change and see an incompatible one rejected before it reaches the topic. Then the harder part: where enforcement actually happens (serializers, CI, deployment), what slips through when a producer bypasses it, and why structural compatibility says nothing about whether the values still mean the same thing to the model.
+This session develops two complementary checks around one feature. First, an incompatible schema revision tests the writer/reader compatibility policy in Apicurio Registry. Then a fixture supplies the same duration in seconds and milliseconds, with its unit explicitly declared. Both must normalize to 30 before inference; interpreting 30,000 as seconds must fail the check. We place these controls in schema publication, producer integration and CI, using an Avro/Kafka example on Strimzi.
+
+The distinction is practical: backward compatibility asks whether a new reader can read old data; it does not certify every deployed reader or preserve the meaning of a number. A registry rejection protects its publication boundary, while the feature test checks the transformation used by inference. Attendees learn how to combine those controls without mistaking either for a guarantee of model quality.
 
 Attendees will leave with:
-- A contract workflow for streaming AI pipelines, from schema registration to CI checks
-- How Avro, Protobuf and JSON Schema compatibility rules differ for ML features
-- A list of the failures schema rules cannot catch, and what to use for them
-
-TODO before submitting: verify the demo end to end (talks/data-contracts-ai-pipelines).
+- A workflow combining Avro compatibility checks with feature-input tests
+- A clear account of where contracts are enforced and where they can be bypassed
+- A test pattern for schema-compatible changes in units and feature meaning

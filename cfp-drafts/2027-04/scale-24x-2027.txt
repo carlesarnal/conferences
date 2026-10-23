@@ -1,55 +1,44 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
-
-SCaLE 24x SUBMISSIONS
-======================
-
-Dates: Apr 1-4, 2027, Pasadena Convention Center, CA
-CFP deadline: Nov 1, 2026
-Verified: September 21, 2026, on https://www.socallinuxexpo.org/scale/24x
-Status: Drafted; not submitted.
+SCaLE 24x — DRAFT PROPOSALS
+==========================
+Event: April 1-4, 2027, Pasadena Convention Center, California
+CFP deadline: November 1, 2026 (checked September 21)
 URL: https://www.socallinuxexpo.org/scale/24x
-Largest community-run open source conference in North America.
+Status: Drafted; not submitted.
+Abstracts revised October 23, 2026 from talks/<topic>/description.txt.
+Preparation requirements: talks/PREPARATION.txt. Confirm format/limits in CFP.
 
+SUBMISSION 1: Lakehouse
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
+Level: Intermediate
 
-SUBMISSION 1: Real-Time Lakehouse
-----------------------------------
+Description:
+The sink task reports RUNNING while its logs report commits to zero tables. Using PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry, Iceberg and Trino, this session asks what evidence proves a database change has become useful to an analyst.
 
-Title:
-The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+One insert connects an emitted event, consumed offset, committed snapshot and query result. A recorded control-consumer failure explains the configuration change that restored commits and the limits of the diagnosis. Local freshness observations include polling/query overhead, so a commit setting is not treated as an end-to-end guarantee. Attendees get a progress checklist and a current-state query over the append-only changelog.
 
-Abstract:
-Batch ETL runs nightly. Analysts query stale data. ML models train on yesterday's features. The streaming-first lakehouse replaces all of that with a single, real-time pipeline built entirely with open-source tools on Kubernetes.
+SUBMISSION 2: Agent Discovery
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Level: Intermediate
 
-In a live demo, I'll build a complete pipeline: Debezium captures row-level changes from PostgreSQL, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds via Trino or Spark. All open-source, all deployable, all reproducible.
+Description:
+A translator removes its declared translation skill. We follow a connected Quarkus workflow from an MCP weather tool through an A2A summarizer and translator, with endpoints discovered from Apicurio Registry. A rejected skill removal leaves the accepted registration unchanged; a workflow rerun and an accepted additive publication make both paths concrete. The responsibility matrix separates discovery, application-owned sequencing, publication checks and runtime verification. The local demo uses fictional weather and real protocol calls.
 
-Audience Level: Intermediate
+SUBMISSION 3: Sandbox Journey
+Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
+Level: Beginner; community/project-leadership audience
 
+Description:
+In January 2024, I deferred Apicurio Registry's Sandbox application over branding questions and the xRegistry relationship. In March 2026, the renewed application passed its TOC vote; contribution agreement and onboarding remained separate steps. Using the public application threads and onboarding checklist, we examine project scope, ecosystem fit and ownership. A question/evidence/gap/owner worksheet turns those lessons into preparation work for another project, without claiming one change caused acceptance or future growth.
 
-SUBMISSION 2: Agent Governance
--------------------------------
+Preparation (not form text):
+The lakehouse base was tested in September and the current connected-agent
+workflow on October 23; the progress ledger and application worksheet are now
+drafted and need rehearsal. Sandbox sources are
+documented in talks/EVIDENCE.txt. Recordings: conferences/recordings.txt.
 
-Title:
-Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
-
-Abstract:
-Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which. This is the same discovery and compatibility crisis that hit APIs a decade ago. I'll show how to apply proven registry-based governance patterns using the A2A Protocol -- agents publishing discoverable Agent Cards, negotiating capabilities, and failing fast on breaking changes. All open source.
-
-Audience Level: Intermediate
-
-
-SUBMISSION 3: CNCF Sandbox Journey
-------------------------------------
-
-Title:
-What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
-
-Abstract:
-Getting into the CNCF Sandbox requires months of governance restructuring and uncomfortable decisions. I'll walk through the concrete steps, surprises, and mistakes from bringing Apicurio Registry to the foundation. What the due diligence process actually asks, what changed after acceptance, and whether it's worth it for your project.
-
-Audience Level: Intermediate
-
-
-Speaker Bio:
-Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

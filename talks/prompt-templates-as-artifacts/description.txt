@@ -1,12 +1,12 @@
-Title: Your Prompts Are Unversioned: Releasing and Rolling Back LLM Prompts Like Code
+Title: Beyond Git: Releasing and Rolling Back Runtime Prompt Templates
 
-Prompt templates change application behavior as much as code does, yet most live in environment variables or hardcoded strings: no history, no review, no rollback when an "improved" prompt makes answers worse.
+The prompt was reverted in Git. A running service is still using the newer template. When prompts are released independently of applications, source history does not answer the operational question: which version produced this response, and when will a rollback reach its consumers?
 
-This session treats prompts as versioned artifacts. With Apicurio Registry (CNCF sandbox), we'll register and render templates, have a Quarkus + LangChain4j application load a selected version at runtime, and roll a change forward and back without a redeploy. Structural rules reject breaking changes such as removing a variable the template still uses or changing its type. And we'll be honest about the limit: a compatible prompt can still produce worse answers, so versioning has to be paired with evaluation tests.
+This session designs a release path from Git revision to an immutable Apicurio Registry artifact and explicit version selection in a Quarkus/LangChain4j application. Two candidate changes exercise different checks: one alters the template's required-variable contract; the other preserves its inputs but changes its instructions. Structural validation addresses the first. A small evaluation set with predeclared criteria assesses the second, with model and evaluation configuration recorded alongside the prompt version.
+
+We distinguish rejecting a candidate before promotion from rolling back one already selected by consumers. A response's selected artifact version provides the observable check: changing a release pointer is not proof that a cached consumer changed its prompt. Startup-only loading, explicit reload and caching produce different behavior. A release checklist ties these decisions together and identifies when bundling the prompt with the application is sufficient.
 
 Attendees will leave with:
-- A release workflow for prompts: version, review, select, roll back
-- Which prompt changes structural rules can catch, and which need evaluation
-- When prompt governance is worth it and when it's overkill
-
-TODO before submitting: verify the prompt demo end to end and add a small evaluation step.
+- A prompt-release workflow linking source revision, artifact version and consumer selection
+- Separate checks for template compatibility and model-output quality
+- A rollback plan that accounts for running consumers and caches

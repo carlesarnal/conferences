@@ -1,6 +1,6 @@
 # A2A or MCP? — Demo Walkthrough
 
-> The talk now reuses the verified [agent-discovery-demo](https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026), which has both A2A agents and an MCP server. The curl-based walkthrough below is older and kept for reference.
+> Preparation status: the [connected agent workflow](https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026) exercises different capabilities over MCP and A2A. It does not implement the same-capability comparison promised by the current abstract. That paired implementation is new work in [PREPARATION.txt](../PREPARATION.txt). The curl-based walkthrough below is historical, not the current talk's runnable sequence.
 
 This walkthrough accompanies the **governing-agent-swarm** talk. It demonstrates governance patterns for multi-agent AI systems using Apicurio Registry for agent discovery, communication contracts, and model metadata validation.
 

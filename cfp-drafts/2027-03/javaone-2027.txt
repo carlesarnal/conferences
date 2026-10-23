@@ -15,3 +15,10 @@ Suggested talks (paste abstracts from talks/<topic>/description.txt):
 - agent-discovery (Quarkus + LangChain4j agents, verified demo)
 
 Speaker bio and recordings: cfp-drafts/2027-03/cncf-colocated-europe-2027.txt, conferences/recordings.txt
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

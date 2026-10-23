@@ -1,6 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Abstracts revised October 23, 2026 from talks/ descriptions.
+The recorded October 18 deadline has passed; no submission is recorded here.
+Retain as a draft unless an extension or a submission receipt is confirmed.
+Preparation requirements: talks/PREPARATION.txt. The 60-minute format leaves
+room for configuration detail and discussion beyond the core examples.
 
 NDC SECURITY OSLO 2027 — SUBMISSION PACKAGE
 ==========================================
@@ -21,26 +23,25 @@ SUBMISSION 1 — RECOMMENDED FIRST
 --------------------------------
 
 Title:
-One Identity Provider, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
+One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
 
 Description:
-A producer can authenticate to Kafka and still have excessive permissions in
-the schema registry. A consumer can possess a valid token and still be denied
-access to its topic. Sharing an identity provider makes credentials easier to
-manage, but it does not make authorization policies consistent automatically.
+A producer should be able to publish records without necessarily being able to
+change their schemas. Another service can hold a valid token yet be denied a
+topic. How do you diagnose the boundary without broadening permissions until
+the request succeeds?
 
-This session follows a producer and a consumer through a Kafka data platform
-using Keycloak, Strimzi, and Apicurio Registry. We'll separate token issuance
-and validation, Kafka principal mapping and ACLs, registry permissions, and
-transport security. We'll examine how OAuth2/OIDC and TLS serve different
-purposes, and where mutual TLS is a separate design choice rather than an
-automatic consequence of enabling OAuth.
+We assign one producer separate data and schema privileges across Keycloak,
+Kafka on Strimzi and Apicurio Registry. Three diagnostic cases change one
+condition at a time: an invalid token, a valid identity denied a Kafka operation,
+and a valid identity denied a schema mutation. A successful control accompanies
+each denial, connecting symptoms to token checks, principal mapping, ACLs or
+registry permissions.
 
-Through configuration examples and focused demonstrations, we'll trace an
-authenticated request and an authorization failure, then discuss token expiry,
-signing-key rotation, service identities, and least-privilege access to schemas.
-The examples use open-source projects; the trust-boundary analysis applies
-to other event-driven platforms too.
+We'll build a troubleshooting table of symptoms, enforcing components and
+diagnostic checks, then discuss token renewal and signing-key rotation as
+separate operational concerns. Sharing a realm does not make permissions
+interchangeable, and transport encryption does not replace authorization.
 
 Attendees will leave with:
 - A map of the authentication and authorization boundaries in a Kafka platform
@@ -67,8 +68,8 @@ all trust gaps or establishes compliance.
 Proposed 60-minute outline:
   0-8:   Threat model and the producer/consumer/schema-registry paths
   8-20:  Keycloak token issuance, validation, and Kafka principal mapping
-  20-32: Kafka ACLs versus registry permissions
-  32-45: Focused request and authorization-failure demonstrations
+  20-32: Kafka ACL denial with a valid identity
+  32-45: Registry mutation denial and troubleshooting table
   45-55: TLS choices, token expiry, key rotation, and operational checks
   55-60: Questions
 
@@ -83,24 +84,25 @@ SUBMISSION 2 — OPTIONAL SECOND PROPOSAL
 ---------------------------------------
 
 Title:
-Validate Before Kafka: Schema Enforcement at the Proxy Boundary
+Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
 Description:
-Client-side validation depends on every producer doing the right thing.
-Legacy clients, third-party integrations, and configuration mistakes can
-still send records that consumers cannot parse. What changes when validation
-is enforced on the path to the broker?
+A valid record is rejected while the schema registry is unavailable. The
+producer receives the same exception type used for malformed data. Adding a
+validation proxy changes the write path's failure contract as well as its
+protection against invalid records.
 
 Using Kroxylicious and Apicurio Registry, this session explores a Kafka proxy
 that checks record payloads against schemas before forwarding produce requests.
 I'll demonstrate valid and invalid records, explain where the filter sits in
 the Kafka protocol path, and examine how failures are returned to producers.
 
-We'll then stress-test the architecture on paper: what happens when the
-registry is unavailable, producers bypass the proxy, or an invalid record
-appears inside a batch? We'll discuss schema caching, failure policies,
-network controls, observability, and the cost of adding another component
-to the write path.
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed
+batch, direct broker access bypasses validation, and a registry outage rejects
+valid data with the same exception type used for bad input. We'll build a
+failure matrix linking client result, broker outcome and recovery choice, with
+attention to retry bounds, ordering and duplicates. Caching and deployment
+policies are architectural discussion unless exercised in the demo.
 
 Schema validation is one input-validation control. It does not authenticate
 producers, enforce business semantics, or make schema-valid payloads safe.
@@ -135,9 +137,9 @@ Proposed 60-minute outline:
   55-60: Questions
 
 Preparation note (not form text):
-Confirm the actual filter/version's supported payload formats, batch rejection
-semantics, caching, and failure behavior. Demonstrate only verified behavior;
-present unimplemented outage/bypass scenarios as architectural analysis.
+The JSON-schema demo exercised batch rejection, bypass and registry outage in
+September. Prepare the failure matrix and one producer-handling example;
+do not generalize the observed behavior to every release or payload format.
 
 SHARED SPEAKER FIELDS
 ---------------------
@@ -169,3 +171,10 @@ Resources:
 AI disclosure, if asked:
 Draft wording generated with AI assistance from existing talk materials;
 review technical claims and report the actual AI-written share of submitted text.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

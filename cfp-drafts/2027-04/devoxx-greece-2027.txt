@@ -1,6 +1,5 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Abstracts revised October 23, 2026 from talks/ descriptions.
+Preparation requirements: talks/PREPARATION.txt. Confirm actual formats and limits.
 
 DEVOXX GREECE 2027 SUBMISSIONS
 ===============================
@@ -9,19 +8,19 @@ Dates: ~April 2027, Athens
 CFP: ~Oct-Nov 2026
 URL: https://devoxx.gr/
 
-Same format as Devoxx Belgium/France. All talks relevant.
+Proposed Java/data topics below; confirm this edition's tracks and formats.
 
 
 SUBMISSION 1: Agent Governance (Conference track)
 --------------------------------------------------
 
 Title:
-Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 
 Session Type: Conference (45 minutes)
 
 Abstract:
-Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which. This is the same discovery and compatibility crisis that hit APIs a decade ago. In a live demo, I'll apply proven governance patterns to AI agents using the A2A Protocol -- agents publishing discoverable Agent Cards, negotiating capabilities at runtime, and failing fast on breaking changes. The patterns apply to any registry infrastructure.
+A translator removes its declared translation skill. We follow a tested Quarkus workflow from an MCP weather tool through an A2A summarizer and translator, using Apicurio Registry for endpoint metadata. We inspect the rejected publication, unchanged accepted registration and successful rerun, followed by a compatible addition. The longer format examines the executable handoff checks and my merged fix for stale Agent Cards after restart. Attendees get a responsibility matrix separating fresh metadata, application-owned orchestration, publication checks and runtime verification; a registered card does not prove deployed behavior.
 
 Audience Level: Intermediate
 
@@ -30,12 +29,12 @@ SUBMISSION 2: Real-Time Lakehouse (Tools in Action)
 ----------------------------------------------------
 
 Title:
-The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 
 Session Type: Tools in Action (30 minutes)
 
 Abstract:
-Batch ETL runs nightly. Analysts query stale data. Live demo of a streaming-first alternative: Debezium captures PostgreSQL changes, streams through Kafka with schema enforcement, and lands in Apache Iceberg tables -- queryable within seconds. All open-source on Kubernetes. I'll show how Flink handles automatic schema evolution across the Kafka-to-Iceberg boundary.
+The sink reports RUNNING while its logs report commits to zero tables. We trace one insert through PostgreSQL, Debezium, Kafka on Strimzi, Apicurio Registry and Iceberg to a Trino result. A recorded control-consumer investigation explains the change that restored commits without claiming a proven underlying root cause. Attendees get an event/offset/snapshot/query checklist and a current-state query over the append-only changelog. Local timings illustrate why a commit interval is not an end-to-end freshness guarantee.
 
 Audience Level: Intermediate
 
@@ -49,10 +48,17 @@ Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipeli
 Session Type: Conference (45 minutes)
 
 Abstract:
-Schema changes in Kafka producers can break downstream inference services. This talk shows how data contracts fit into event-driven AI architectures, using a demonstration of compatible and incompatible schema registrations. We'll discuss enforcement in serializers and deployment checks, and distinguish structural compatibility from feature semantics and model quality.
+A feature changes from 30 seconds to 30,000 milliseconds while its Avro type stays long. We develop a test pair: an incompatible revision exercises registry compatibility policy, and a normalization invariant requires both representations to yield the same model input. The walkthrough identifies publication, Java serializer and CI boundaries and distinguishes old-reader/new-writer compatibility from its reverse. Attendees get a concrete way to test input meaning without treating structural validation as a model-quality guarantee.
 
 Audience Level: Intermediate
 
 
 Speaker Bio:
-Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+Carles Arnal is a Principal Software Engineer at IBM, a core maintainer of Apicurio Registry and a Quarkus committer. He is an associate professor at BarcelonaTech (UPC). His work focuses on event-driven applications, data contracts and agent integration, with hands-on examples using Kafka, Strimzi, Debezium and Iceberg.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

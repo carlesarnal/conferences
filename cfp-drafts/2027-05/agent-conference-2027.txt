@@ -1,30 +1,95 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
-
-Split from us-2027.txt on September 28, 2026.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
-below may contain unverified claims. Check dates and CFP on the official site.
+Updated October 23, 2026: adapted to the speaker-interest form supplied by Carles.
+Status: Prepared; submission not confirmed.
 
 AGENT CONFERENCE 2027 (NYC)
 -----------------------------
 Dates: May 17-18, Hilton Midtown, NYC
-CFP: ~late 2026/early 2027
+CFP: Speaker-interest form supplied by user; deadline not supplied.
 URL: https://www.agentconference.com/
-Enterprise agentic AI focus. 4000+ attendees. Three tracks.
+Dates/location above come from earlier research; not reverified in this update.
+
+RECOMMENDED FORM ANSWERS
+------------------------
+
+Why would you be a credible speaker for the conference?
+I'm a Principal Software Engineer at IBM, a core maintainer of Apicurio Registry
+(a CNCF sandbox project), a Quarkus committer and an associate professor at
+BarcelonaTech. My work connects schema and API governance with agent discovery
+using A2A and MCP. I bring hands-on open-source experience and a working demo
+showing registry discovery, connected MCP/A2A handoffs and tested publication checks.
+I've spoken at OCX, Open Source Summit Japan, Current and DevConf.
+
+Recent talk or panel video link:
+https://www.youtube.com/watch?v=9vEvUUL82w4
+Context for reviewers, if space permits: OCX 2026, streaming ML on Kubernetes;
+an example of my speaking style, not a recording of the proposed agent session.
+
+What topic would you like to speak about?
+Agent sprawl: discovering agents and checking their declared contracts across teams
+
+What knowledge, lessons, or examples could the audience take away?
+As teams add AI agents, finding an endpoint is only part of the problem. They
+also need to understand what each agent advertises, how changes affect callers,
+and which checks belong in registry publication versus application deployment.
+
+Using a tested Quarkus example, an MCP weather tool feeds an A2A summarizer and
+translator through registry-discovered endpoints. We remove a declared skill,
+inspect the rejected Agent Card publication and unchanged accepted registration,
+then rerun the workflow and publish a compatible addition. The application owns
+the sequence. Metadata compatibility does not prove remote implementation behavior.
+
+Attendees will leave with a checklist of decisions to make before expanding
+agent adoption: where capability information lives, how contract changes are
+reviewed, what consumers must check, and which integration and behavioral tests
+are needed alongside a registry.
+
+Target audience — recommended selections:
+- CTOs & Engineering exec
+- Other: AI architects, platform engineering leads and developers building agent systems
+
+Session formats — recommended, subject to Carles's preference:
+- Solo presentation
+- Fireside chat / 1:1 interview on stage
+- Panel discussion
+Only select moderator if willing to prepare and lead that format.
+
+Open to being assigned to a panel with relevant speakers?
+Suggested: Yes, if comfortable with an architecture/governance discussion.
+
+Guests:
+Leave blank unless there are specific people Carles is willing to invite.
+
+Company communications, legal or PR approval:
+Carles must confirm the applicable requirement before selecting an answer.
+Travel/budget approval is separate; it does not establish speaking-clearance rules.
+If clearance is required and not secured, select "Yes, approval is required".
+
+Scheduling constraints or other notes:
+I'm based in Barcelona. In-person attendance would be subject to company travel
+and budget approval; I cannot confirm travel yet.
+
+Internal scheduling note (not form text): earlier plans list Data Innovation
+Summit in Stockholm on May 18-20, overlapping this event on May 18. No submission
+or acceptance there is confirmed; resolve if it becomes a commitment.
+
+ALTERNATIVE TOPICS — NOT THREE CONFIRMED SUBMISSIONS
+--------------------------------------------------
 
 Submission 1: Agent Governance
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Abstract: talks/agent-discovery/description.txt
 Track: Agentic Engineering
 Audience: Intermediate
 
 Submission 2: Multi-Agent Governance
-Title: A2A or MCP? Composing Agents and Tools Without Building a Distributed Monolith
+Title: A2A or MCP? Choosing an Interface for the Same Capability
+Abstract: talks/governing-agent-swarm/description.txt
 Track: Agentic Enterprises
 Audience: Intermediate
 
 Submission 3: Prompt Governance
-Title: Your Prompts Are Unversioned: Releasing and Rolling Back LLM Prompts Like Code
+Title: Beyond Git: Releasing and Rolling Back Runtime Prompt Templates
+Abstract: talks/prompt-templates-as-artifacts/description.txt
 Track: Agentic Engineering
 Audience: Intermediate
 
@@ -34,3 +99,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

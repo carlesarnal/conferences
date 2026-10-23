@@ -95,7 +95,9 @@ defaultFilters:
 batch as an invalid record is also rejected:
 `Failed to append record because it was part of a batch which had one more more invalid records`.
 Only `ORD-001` is in the topic afterwards. Producers must treat this as a batch-level
-failure: resend the valid records, and don't retry the invalid one.
+failure. Before selectively resending records, establish which writes were rejected
+and how ordering and duplicate handling are preserved. Correct invalid data separately
+from bounded retries for infrastructure failures.
 
 **Bypass — accepted by the broker.** An invalid record sent to `kafka:9092` directly is
 stored. Proxy validation only covers clients that go through the proxy; enforce the path

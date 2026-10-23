@@ -1,9 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Updated October 23, 2026: current titles and exact abstract sources below.
+Preparation requirements: talks/PREPARATION.txt.
 
 Split from us-2027.txt on September 28, 2026. Event month is an ESTIMATE.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 DATA + AI SUMMIT 2027 (San Francisco)
@@ -14,11 +13,13 @@ URL: https://www.databricks.com/dataaisummit
 800+ sessions, ~10k attendees. Iceberg/lakehouse is a major track.
 
 Submission 1: Real-Time Lakehouse
-Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
+Abstract: talks/database-to-lakehouse-realtime/description.txt
 Note: PERFECT FIT -- Iceberg is a headline track. Emphasize open-source alternative to proprietary lakehouse services.
 
 Submission 2: Data Contracts for AI
 Title: Your Model Didn't Change, Your Input Did: Data Contracts for Streaming AI Pipelines
+Abstract: talks/data-contracts-ai-pipelines/description.txt
 Note: Data quality + AI pipeline governance is a growing theme at this event.
 
 Speaker bio:
@@ -27,3 +28,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

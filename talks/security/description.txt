@@ -1,13 +1,12 @@
 Title: One Keycloak Realm, Separate Trust Boundaries: Securing Kafka and Its Schema Registry
 
-A producer can authenticate to Kafka and still have far too much power in the schema registry. A consumer can hold a valid token and still be denied its topic. Putting one identity provider in front of a data platform simplifies credentials, but it doesn't make authorization consistent on its own.
+A service can have permission to publish Kafka records without having permission to change their schemas. Another can present a valid token and still be denied a topic. How do you distinguish an identity problem from an authorization decision without broadening permissions until the request works?
 
-This session follows a producer and a consumer through a Kafka platform built with Keycloak, Strimzi and Apicurio Registry. We'll separate token issuance and validation, Kafka principal mapping and ACLs, and registry permissions, then trace one authorized request and one denial live. We finish with what usually breaks in production: token expiry in long-running consumers, signing-key rotation, and who is allowed to change a schema.
+We follow one producer through Keycloak, Kafka on Strimzi and Apicurio Registry, assigning record publication, schema lookup and schema mutation as distinct operations. The serializer's registry request and the producer's broker request cross different authorization boundaries. Three diagnostic cases change one condition at a time: an invalid token, a valid identity denied a Kafka operation, and a valid identity denied a schema mutation. Each pairs the denial with a successful control and identifies the enforcing component.
+
+The configuration walkthrough connects issuer and audience checks to principal mapping, Kafka ACLs and registry authorization. We turn those distinctions into a troubleshooting table: symptom, evidence to inspect, enforcing component and the smallest justified configuration change. Token renewal and signing-key rotation remain separate operational concerns; sharing a realm does not make tokens or permissions interchangeable.
 
 Attendees will leave with:
-- A map of the authentication and authorization boundaries in a Kafka platform
-- How to tell a token problem from a permission problem quickly
-- A checklist for topic access, schema access and credential lifecycle
-
-CNCF projects: Keycloak, Strimzi, Apicurio Registry.
-TODO before submitting: complete the demo (working ACL denial, registry permissions); remove mTLS claims unless implemented.
+- A map of authentication and authorization boundaries across Kafka and its registry
+- A troubleshooting table for token failures versus permission failures
+- Least-privilege checks for producing, consuming and changing schemas

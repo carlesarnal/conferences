@@ -1,0 +1,79 @@
+PUBLIC EVIDENCE FOR CFP REVIEWERS — October 23, 2026
+===================================================
+GitHub records below were inspected during this review. They establish the
+recorded contribution or discussion, not fresh execution of the code. Videos
+remain unassessed delivery samples. Local test results retain their original dates.
+
+KROXYLICIOUS: AUTHORED AND MERGED
+https://github.com/kroxylicious/kroxylicious/pull/3498
+Author: carlesarnal. Merged April 29, 2026.
+Adds Avro and Protobuf schema validation support. This is direct subject-matter
+evidence for the proxy talk. The local demo exercises JSON Schema, not those
+two formats. Local observed results are in the talk's README.
+
+AGENT CARD PUBLISHING: AUTHORED AND MERGED
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2897
+Author: carlesarnal. Merged September 30, 2026.
+Updates Agent Card publication on restart, including changed content when the
+declared agent version is unchanged. Includes ApicurioRegistryA2ARepublishTest.
+Inspected PR metadata, description and file list; not rerun here. Release inclusion
+has not been checked. Say "merged fix," not "available in every released SDK."
+
+CONNECTED WORKFLOW: AUTHORED, STILL OPEN
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2932
+Author: carlesarnal. Open when checked; commit:
+682928b714574e1ca8f0405c4319b36cd244dc0e
+Local record: nine tests and a live smoke check passed October 23. Do not imply
+the upstream project has merged/released the sample. Current adaptation:
+https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026
+
+SANDBOX: DOCUMENTED FIRSTHAND DECISIONS
+https://github.com/cncf/sandbox/issues/72
+Carles's December 8, 2023 answer distinguishes CloudEvents integration and
+operator-managed deployment from managing arbitrary Kubernetes APIs/artifacts.
+Later comments clarify the question; the exchange is useful evidence that
+ecosystem-fit terminology needs precision, not a claim about current features.
+Carles's January 23, 2024 comment defers the contribution over branding issues
+and records engagement with the Discovery API/xRegistry effort.
+Direct decision record:
+https://github.com/cncf/sandbox/issues/72#issuecomment-1906355967
+
+https://github.com/cncf/sandbox/issues/461
+Renewed application describes narrower project scope, the Studio consolidation
+and xRegistry engagement. Treat these as application statements, not independently
+audited feature/market claims. Vote passed March 12, 2026. A subsequent message
+requires the contribution agreement before official onboarding can begin.
+
+https://github.com/cncf/sandbox/issues/495
+Onboarding issue links the accepted application and lists contribution agreement,
+trademark, governance, security, hosting and project-service tasks. Do not claim
+Carles personally performed every task or infer duration from issue closure.
+
+MAINTENANCE: PUBLISHED WORKFLOW AND REVIEW INVOLVEMENT
+https://github.com/Apicurio/apicurio-registry/blob/main/.github/PR_LIFECYCLE.md
+Inspected current document. Describes explicit waiting-on-author/maintainer
+states, reviewer assignment, verification gates and escalation. A PR blocked
+only on a maintainer is not auto-closed for contributor inactivity. If blocked
+on both sides, the documented contributor timer takes precedence.
+Use as a design case; pin the file revision before delivery. Documentation was
+read, not the complete automation implementation or its effectiveness evaluated.
+
+https://github.com/Apicurio/apicurio-registry/pull/10409
+Carles's approving review is recorded October 7, 2026. Public bot comments
+show reviewer suggestion, approval/fast-check state and the remaining full-suite
+gate. The PR merged October 7. This is a real hand-off example, not proof that
+Carles authored the patch or that automation reduced review time.
+
+https://github.com/Apicurio/apicurio-registry/pull/10493
+Carles has review participation on an ARD conformance CI change, merged October 8.
+Potential backup evidence of integration/conformance work, not another section
+to add to the agent talk. PR-reported checks were not independently rerun here.
+
+RECORDINGS AND BIO
+Use conferences/recordings.txt. OCX aligns with streaming ML; Current and OSS
+Japan with CDC; DevConf with maintainership. Identify each as an earlier talk,
+not a recording of a newly proposed experiment or this exact session.
+Core maintainer of Apicurio Registry, Quarkus committer, Principal Software
+Engineer at IBM and teaching at BarcelonaTech are existing profile claims.
+Tie the reviewer note to the relevant authored or reviewed artifact, rather
+than expecting job title or a list of projects to demonstrate expertise.

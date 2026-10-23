@@ -1,5 +1,11 @@
 # Agent Sprawl Is the New Microservice Sprawl — Demo Walkthrough
 
+> October 23 update: the current talk uses the connected MCP → A2A → A2A sample
+> from [Quarkus LangChain4j #2932](https://github.com/quarkiverse/quarkus-langchain4j/pull/2932).
+> See [connected-workflow.txt](connected-workflow.txt) for the pinned revision,
+> commands and fresh verification. It has no deprecation-routing gate.
+> The older walkthrough below does not describe this new execution path.
+
 > The maintained, verified demo for this talk is [agent-discovery-demo, branch cloud-native-paris-2026](https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026) (`./scripts/paris-2026-demo.sh`). The walkthrough below is older and kept for reference.
 
 This walkthrough accompanies the **agent-discovery** talk. It demonstrates how Apicurio Registry manages AI-native artifact types — A2A Agent Cards, prompt templates, and model schemas — enabling agent discovery, versioning, and compatibility enforcement.
@@ -244,3 +250,10 @@ curl -s "http://localhost:8080/apis/registry/v3/groups/prompts/artifacts/summari
 3. **Prompt governance** — Prompt templates are version-controlled with compatibility rules. Adding a variable is a compatible change; removing one breaks downstream agents.
 4. **Schema registry principles apply to AI** — Versioning, compatibility checking, and lifecycle management are the same patterns whether you're governing Kafka schemas or AI agent contracts.
 5. **CNCF sandbox** — Apicurio Registry is a CNCF sandbox project, aligning AI governance with the cloud-native ecosystem.
+# Future CFP scope — second editorial pass
+
+The current `description.txt` now uses the merged Agent Card republishing fix
+as its short second implementation lesson. The typed MCP wrapper remains useful
+backup material. This is a future-CFP revision: the accepted Paris deck and guide
+were not edited in this pass. See `../EVIDENCE.txt` for verified PR status and
+`../PREPARATION.txt` for the revised timing and regression segment to prepare.

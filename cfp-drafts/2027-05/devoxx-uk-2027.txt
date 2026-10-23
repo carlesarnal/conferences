@@ -1,5 +1,5 @@
 Split from europe-2027.txt on September 28, 2026. Event month is an ESTIMATE.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 DEVOXX UK 2027
@@ -8,10 +8,11 @@ Dates: ~May 2027, London
 CFP: ~Dec 2026-Jan 2027
 URL: https://www.devoxx.co.uk/
 
-Same format as Devoxx France/Belgium. Reuse devoxx-france-2027 submissions:
-1. Data Contracts for AI (Conference track)
-2. Real-Time Lakehouse (Tools in Action)
-3. Kafka Proxy (Conference track)
+Use current descriptions; verify this edition's formats before selecting:
+1. Data Contracts: talks/data-contracts-ai-pipelines/description.txt
+2. Lakehouse Progress: talks/database-to-lakehouse-realtime/description.txt
+3. Kafka Proxy: talks/kafka-proxy-schema-validation/description.txt
+Preparation: talks/PREPARATION.txt.
 
 Speaker bio:
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
@@ -19,3 +20,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

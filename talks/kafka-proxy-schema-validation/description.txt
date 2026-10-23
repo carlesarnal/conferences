@@ -1,14 +1,12 @@
 Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
-Client-side schema validation only works if every producer is configured correctly. Legacy clients, third-party integrations and one misconfigured service are enough to put records on a topic that consumers cannot read.
+A valid order is rejected. The producer sees the same exception type it would receive for malformed data, but the schema registry is unavailable. Should it retry, repair the record, or stop? Moving schema validation into a Kafka proxy changes more than where bad data is caught: it changes the producer's failure contract.
 
-This session moves validation into the path to the broker, using the Record Validation filter in Kroxylicious with schemas from Apicurio Registry (CNCF sandbox). Live: a valid order goes through; a missing field, a wrong type and an invalid enum value are rejected, and the producer gets an error naming the exact constraint.
+Drawing on my contribution to Kroxylicious's Avro and Protobuf validation support, this session examines that contract through a reproducible JSON Schema example with Apicurio Registry. We follow an order from producer to broker, then compare a schema-invalid record, a mixed batch, a registry outage and a direct-to-broker bypass.
 
-Then the behavior nobody puts on the slide: one bad record rejects its whole batch, valid records included; a producer that connects to the broker directly skips validation entirely; and when the registry is down the filter fails closed, rejecting valid data with the same exception used for invalid data. We'll go through how to handle each one in producers and deployment.
+In the tested Kroxylicious 0.24.0 setup, one invalid record rejects its mixed batch, the outage rejects valid data, and bypassing the proxy stores an invalid record. These observations become a failure matrix connecting client errors to broker contents and recovery choices. We examine the ordering and duplicate-handling questions behind resending valid records, and the network and authorization controls needed to make the proxy an enforcement point.
 
 Attendees will leave with:
-- How a Kafka proxy filter intercepts and rejects produce requests
-- When to validate in the client, the proxy, or both
-- A checklist for batch failures, bypass paths and registry outages
-
-Speaker contributed Avro and Protobuf validation to the Kroxylicious filter. Demo verified end to end on Kroxylicious 0.24.0.
+- A failure matrix for schema errors, batch rejection, bypass routes and registry outages
+- An error-handling decision tree using constraint details and SCHEMA_RESOLUTION_ERROR, not exception type alone
+- Criteria for choosing client-side validation, proxy enforcement, or both

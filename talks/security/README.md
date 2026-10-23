@@ -1,6 +1,6 @@
 # One Keycloak Realm, Separate Trust Boundaries — Demo Walkthrough
 
-> Status: not yet verified end to end. Known gaps: the authorization-failure step is incomplete and Keycloak is reached over plain HTTP; the talk does not claim mTLS.
+> Status: not yet verified end to end. Historical configuration scaffolding: service-account setup, ACL commands and the authorization-failure step need completion. Keycloak is reached over plain HTTP. The current abstract requires three independently verified denial cases and successful controls; see [PREPARATION.txt](../PREPARATION.txt). A shared realm does not imply interchangeable tokens or permissions.
 
 This walkthrough accompanies the **security** talk. It demonstrates how to integrate Keycloak as a centralized identity provider with Strimzi (Kafka on Kubernetes) and Apicurio Registry so that Kafka and the schema registry share one identity model.
 
@@ -13,7 +13,7 @@ graph TD
     Kafka <-->|Token Validation| Keycloak
     Apps -->|OAuth2 Token Auth| Registry[Apicurio Registry]
     Registry <-->|OIDC| Keycloak
-    Kafka -.->|Schema Fetch| Registry
+    Clients -.->|Serializer schema fetch| Registry
 ```
 
 ## Prerequisites
@@ -329,7 +329,7 @@ curl -s -H "Authorization: Bearer $PRODUCER_TOKEN" \
   http://localhost:8081/apis/registry/v3/groups | jq
 ```
 
-**Demo point:** The same OAuth2 token that authenticates to Kafka also authenticates to Apicurio Registry. No separate credentials — one identity model for the entire data platform.
+**Check before presenting:** registry acceptance depends on its issuer, audience and authorization configuration. Do not infer that a Kafka token should be accepted by the registry merely because both use the same realm. Test a permitted registry request and a denied mutation separately.
 
 
 ## Key Talking Points

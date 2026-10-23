@@ -1,0 +1,46 @@
+KAFKA VALIDATION FAILURE MATRIX
+==============================
+Derived from the September 28, 2026 local observations in README.md.
+Kroxylicious 0.24.0; Apicurio Registry 3.3.3; Kafka 3.9.1; JSON Schema.
+This document organizes existing results; it is not a new run or benchmark.
+
+CASE: Valid order through proxy
+Observed: ORD-001 accepted and found in the topic.
+Decision: normal producer acknowledgement processing.
+
+CASE: Missing currency, wrong amount type, invalid currency enum
+Observed: InvalidRecordException with the JSON path and failed constraint.
+Decision: correct or quarantine input using the application's established policy.
+Repeating the same invalid payload is not a repair.
+
+CASE: Valid ORD-005 shares a batch with an invalid record
+Observed: mixed batch rejected; ORD-005 absent; only ORD-001 remains at this step.
+Decision: treat the result at the batch boundary. Before selective resend, establish
+which writes failed and preserve ordering/idempotence requirements. The demo does
+not verify a general selective-retry algorithm or exactly-once outcomes.
+
+CASE: Invalid record sent directly to broker
+Observed: accepted and stored without proxy validation.
+Decision: inspect the endpoint/path and enforce routing with network and broker
+authorization controls. A retry strategy cannot repair a bypassed control.
+Those production controls are recommendations, not exercised in this local demo.
+
+CASE: Valid record while registry is unavailable
+Observed: InvalidRecordException with context=SCHEMA_RESOLUTION_ERROR; rejected,
+including after an earlier successful schema fetch in this setup.
+Decision: inspect resolution details and dependency health before treating it as
+bad input. A bounded retry may be appropriate after recovery, subject to delivery
+semantics and retry policy. Do not build classification on exception class alone.
+
+READ THIS AS A DECISION TREE
+1. Is the producer using the enforced endpoint? If not, fix the path.
+2. Is the error a demonstrated schema-constraint failure? Correct the input.
+3. Does resolution context identify an infrastructure problem? Investigate that
+   dependency; do not rewrite valid input merely to make it pass.
+4. Is the outcome ambiguous or outside the tested cases? Preserve evidence and
+   apply the application's delivery policy; do not assume nothing was appended.
+
+REMAINING DEMONSTRATION
+Exercise one producer recovery path and capture its broker result. Pin the
+version when discussing error details; no stability of internal message text or
+unmeasured caching/availability guarantee is asserted by this matrix.

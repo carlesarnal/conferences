@@ -1,9 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Updated October 23, 2026: current titles and exact abstract sources below.
+Preparation requirements: talks/PREPARATION.txt.
 
 Split from australia-2027.txt on September 28, 2026. Event month is an ESTIMATE.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 KUBEDAY AUSTRALIA 2027
@@ -14,16 +13,19 @@ URL: https://events.linuxfoundation.org/kubeday-australia/
 CNCF event -- CNCF sandbox maintainer — strong advantage at CNCF events.
 
 Submission 1: CNCF Sandbox Journey
-Title: What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
+Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
+Abstract: talks/cncf-sandbox-journey/description.txt
 Audience: Intermediate
 Note: Strongest submission here -- CNCF event + sandbox maintainer — strong fit.
 
 Submission 2: Agent Governance
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Abstract: talks/agent-discovery/description.txt
 Audience: Intermediate
 
 Submission 3: Streaming ML on K8s
-Title: Classify It Before a Human Sees It: Operating Streaming ML Inference on Kubernetes
+Title: Why Are Predictions Late? Diagnosing Streaming Inference on Kubernetes
+Abstract: talks/stream-prediction/description.txt
 Audience: Intermediate
 Note: Strong K8s angle for a KubeDay event.
 
@@ -33,3 +35,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

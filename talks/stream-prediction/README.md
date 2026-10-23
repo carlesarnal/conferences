@@ -1,6 +1,6 @@
-# Classify It Before a Human Sees It — Demo Walkthrough
+# Why Are Predictions Late? — Existing Pipeline Walkthrough
 
-> Status: not yet verified end to end. Do not quote latency figures until they are measured.
+> Status: not yet verified end to end. This describes the existing live-feed pipeline. The current abstract's fixed replay, controlled load changes and event-to-queryable-prediction measurements are new work in [PREPARATION.txt](../PREPARATION.txt). Do not quote latency figures until measured.
 
 This walkthrough accompanies the **stream-prediction** talk. It demonstrates a fully open-source, end-to-end system for real-time content classification deployed on Kubernetes.
 
@@ -195,8 +195,8 @@ Open http://localhost:3000 (admin/admin):
 
 ## Key Talking Points
 
-1. **Dual-model inference** — Running DistilBERT and scikit-learn in parallel provides reliability without ground truth. The confusion matrix and agreement metrics let you detect model drift.
-2. **Schema governance** — Apicurio Registry enforces BACKWARD compatibility on the Kafka schemas. Evolving the prediction format won't break downstream consumers.
+1. **Dual-model inference** — Agreement and disagreement can guide investigation, but neither proves accuracy without ground truth. The revised talk uses one classification path to isolate processing behavior.
+2. **Schema governance** — BACKWARD compatibility checks whether a new reader can read old data. It does not automatically protect old consumers reading a new prediction format; validate the required reader/writer combinations and enforcement path.
 3. **Resilience** — Dead Letter Queues at every stage (producer, Spark, consumer), backpressure control via `maxOffsetsPerTrigger`, and health checks on every component.
 4. **Observability** — End-to-end distributed tracing with OpenTelemetry, Prometheus metrics, and Grafana dashboards. Every message can be traced from Reddit API to final prediction.
 5. **100% open source** — Strimzi, Spark, Apicurio Registry (CNCF sandbox), Quarkus, Prometheus, Grafana, Jaeger — all running on Kubernetes.

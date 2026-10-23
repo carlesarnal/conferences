@@ -1,21 +1,47 @@
 CFP DRAFTS — INDEX
 ==================
-Updated: September 30, 2026 (three discovery rounds + reorganisation)
+Abstract synchronization: October 23, 2026. Event/CFP research dates remain
+those recorded in each file; this wording review does not reverify deadlines.
 
 Folders are named by EVENT month (YYYY-MM). 2027-tbd = event date unknown.
 "~" = estimated month. Past 2026 events were removed; they remain in git history.
 Status: submitted / drafted / watch (CFP not open) / new (found Sep 28).
 
-Verified talk abstracts live in talks/<topic>/description.txt. Several older
-drafts (mainly those split from the regional files) still carry unverified
-wording; prefer the talks/ versions when pasting.
-Demos verified end to end (Sep 28): kafka-proxy-schema-validation,
-database-to-lakehouse-realtime. Not yet verified: security, agents, prompts,
-data contracts, stream prediction.
+Current abstracts: talks/<topic>/description.txt. Complete submission packages
+contain revised, event-specific wording; topic-only planning files link directly
+to the current descriptions rather than duplicating abstracts. Older discovery
+stubs that list topic identifiers also refer to those current descriptions.
+Preparation tasks and evidence gaps: talks/PREPARATION.txt. Audience, community
+value and supporting-resource notes: talks/CFP-PACKAGING.txt.
+Second-pass public-source review: talks/EVIDENCE.txt. It verifies authored
+Kroxylicious and Agent Card publisher PRs, the open connected-workflow sample,
+Sandbox deferral/application/onboarding records and public maintainer hand-offs.
+Use these topic-specific sources in reviewer fields. The publisher regression
+is the agent talk's second lesson; the typed MCP wrapper is backup material.
+Sandbox and maintenance now have concrete public records. The semantic-contract
+fixture and real Registry check pass locally and in CI. Integrated security,
+prompt, protocol-comparison, load and index-rebuild tests still need completion;
+small deterministic models are not substitutes. See talks/REPOSITORIES.md.
+Referenced abstracts resolve to the current talks/ versions.
+Base demos tested in September: Kafka proxy and lakehouse. The current connected
+agent workflow was tested October 23. New checklists, same-capability comparisons, evaluations, load/recovery
+experiments and community stories have separate preparation requirements.
+Existing recordings: conferences/recordings.txt. Paris was accepted but Carles
+will present: company funding approved October 23. The event is still upcoming.
+
+Submitted records excluded from abstract synchronization: Paris 2026, KCD Suisse
+Romande 2026, KubeCon EU 2027, JFokus 2027 and AI DevWorld 2027. Their local files
+include prior edits and are not verified copies of the final portal text.
+Do not assume local edits update submitted proposals.
+Voxxed Switzerland: elevator pitch, reviewer notes, slide-source guidance and
+video links now included for all three proposed talks.
 
 
-DEADLINES — NEXT 8 WEEKS (verify on the official page before submitting)
+RECORDED DEADLINES (historical research; verify before submitting)
 -------------------------------------------------------------------------
+As of October 23, entries dated October 9–18 are in the past. Draft status
+does not establish that those CFPs remain open. No extension or new submission
+is inferred from this editorial update.
 Oct 9   javaone-2027                     2027-03  new — Java flagship, US travel
 Oct 12  future-tech-2027                 2027-03  new, lower priority
 Oct 15  snowcamp-2027                    2027-01  new
@@ -43,7 +69,7 @@ Open    dataengbytes-2027 (Brisbane/Auckland) 2027-10  new — Melbourne/Sydney 
 BY EVENT MONTH
 --------------
 2026-12  (awaiting results; outside the 2027-only plan)
-  cloud-native-ai-summit-eu-2026    Dec 2-3, Paris          ACCEPTED — Agent Sprawl (others rejected)
+  cloud-native-ai-summit-eu-2026    Dec 2-3, Paris          ACCEPTED — Agent Sprawl; attending, company funding approved
   kcd-suisse-romande-2026           Dec 9-10, Geneva        submitted
 
 2027-01

@@ -1,12 +1,12 @@
-Title: What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
+Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
 
-Applying to the CNCF Sandbox looks like a form. In practice it forced us to answer questions we had avoided for years: who decides, who owns the trademark, how a company-started project shows it is vendor-neutral, and what happens to contributors who aren't on the payroll.
+In January 2024, I closed Apicurio Registry's Sandbox application while we resolved branding questions and explored the xRegistry relationship. In March 2026, the renewed application passed its TOC vote; the contribution agreement and onboarding were separate steps. What changed between describing useful software and defining a project ready to join a foundation?
 
-This is a maintainer's account of taking Apicurio Registry from a company-led project into the CNCF Sandbox: the governance documents we had to write from scratch, the parts of the contribution process we changed, the review feedback we didn't expect, and what actually changed in the year after acceptance, good and bad.
+This session follows the public application threads and onboarding checklist through three questions: which repositories and project identity are in scope, how the implementation relates to neighboring standards, and who owns the work after the vote. We connect each answer to public evidence, distinguishing documented events from hindsight and one project's choices from CNCF's current requirements.
+
+Maintainers leave with an evidence worksheet: application question, supporting reference, unresolved gap and owner. We use it to turn broad claims about governance and ecosystem fit into reviewable material, then carry responsibilities into onboarding and ongoing stewardship. Acceptance is a milestone, not a substitute for that work.
 
 Attendees will leave with:
-- A checklist of what to have in place before applying, based on a real application
-- How to make a company-started project credibly vendor-neutral
-- What Sandbox status does and doesn't change for adoption, contributors and maintainer workload
-
-TODO before submitting: add the real timeline, two concrete review questions, and one before/after number (contributors, adopters or companies involved). Without specifics this talk will not score above average.
+- A worksheet linking application claims to public project evidence
+- A distinction between current CNCF requirements and one project's experience
+- Questions for planning stewardship and contribution processes after acceptance

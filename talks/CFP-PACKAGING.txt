@@ -1,0 +1,210 @@
+CFP PACKAGING — October 23, 2026
+===============================
+Use description.txt for the abstract. These notes supply audience, value and
+evidence fields without making the abstract a stack inventory. Tailor to the
+actual track and duration. Status comes from local records, not fresh demo runs.
+Keep submitted/accepted records historical; local revisions do not update a CFP.
+Do not claim an artifact exists until the preparation task is complete.
+Second-pass update: talks/EVIDENCE.txt contains newly inspected public sources.
+The current evidence-aware ratings and comments are at the top of REVIEW.txt.
+
+KAFKA PROXY VALIDATION
+Audience/level: Intermediate; Kafka developers and platform engineers familiar
+with producers, topics and schema validation.
+Value: Teams gain a way to distinguish invalid records from infrastructure
+failures and choose a bounded recovery action. The failure matrix connects the
+producer's error to the broker's contents and the enforcement path.
+Evidence: talks/kafka-proxy-schema-validation/README.md; demo verified September
+28 on Kroxylicious 0.24.0. Authored contribution:
+https://github.com/kroxylicious/kroxylicious/pull/3498
+Reviewer note: JSON Schema is exercised; Avro/Protobuf contribution evidence is
+separate. No throughput/overhead claim. failure-matrix.txt now organizes observed
+results; the producer recovery demonstration is still pending.
+Fit: Kafka, event-driven development, platform engineering.
+
+LAKEHOUSE
+Audience/level: Intermediate; engineers operating CDC or analytical ingestion.
+Basic Kafka/SQL knowledge; introduce Iceberg snapshots through the example.
+Value: Teams can diagnose data progress independently of connector health and
+define freshness at the point users query the table, rather than infer it from
+a configured commit interval.
+Evidence: talks/database-to-lakehouse-realtime/README.md and its scripts contain
+the locally observed timings, snapshot queries and control-consumer investigation.
+Reviewer note: local reproduction, not a production scale claim; the table is
+an append-only changelog. progress-ledger.txt supplies the trace template; populate
+its identifiers and observations during rehearsal.
+Fit: data engineering, streaming, lakehouse operations, cloud-native applications.
+
+AGENT DISCOVERY
+Audience/level: Intermediate; developers integrating agents/services. Introduce
+A2A Agent Cards and MCP tools; no protocol implementation expertise required.
+Value: A connected workflow makes the division between discovery, orchestration,
+publication compatibility and runtime verification concrete. Teams can decide
+whether registry-backed discovery is worth its operational dependency.
+Evidence: talks/agent-discovery/connected-workflow.txt; nine tests and live
+workflow checks recorded October 23. Source:
+https://github.com/quarkiverse/quarkus-langchain4j/pull/2932
+https://github.com/carlesarnal/agent-discovery-demo/tree/cloud-native-paris-2026
+Reviewer note: pinned PR sample, fictional weather, real protocol handoffs;
+local unauthenticated demo. Paris acceptance is not prior delivery.
+New authored evidence: merged Agent Card publisher fix #2897 and its regression
+test. Use it as the short second lesson; the typed MCP wrapper is backup. Link
+the fix separately from open sample PR #2932 and do not imply release inclusion.
+Fit: agent application development, Java/Quarkus, API integration.
+
+A2A OR MCP
+Audience/level: Intermediate; developers choosing an agent/tool interface.
+Value: Compare the caller contract for the same work, rather than infer task
+lifecycle or intelligence from a protocol label. The decision table distinguishes
+specified, advertised, tested and unsupported capabilities.
+Evidence: mixed MCP/A2A workflow exists; the paired summarization implementation
+and failure comparison remain preparation work. No parity result is claimed.
+Reviewer note: use a design-session description until the comparison is runnable.
+Fit: API design, agent interoperability, Java application architecture.
+
+SECURITY
+Audience/level: Intermediate; Kafka application/platform engineers familiar with
+tokens and basic ACLs. Introduce the component-specific permission model.
+Value: Diagnose token rejection separately from Kafka and registry authorization,
+and avoid expanding permissions as a troubleshooting shortcut.
+Evidence: talks/security/README.md and keycloak-strimzi-apicurio-security contain
+configuration scaffolding. The three denial cases still need end-to-end checks.
+Reviewer note: a shared realm is not universal token acceptance; no mTLS or
+verified signing-key-rotation demonstration is claimed.
+Fit: security, identity, Kafka, platform engineering.
+
+DATA CONTRACTS FOR AI
+Audience/level: Intermediate; data/backend engineers feeding models. Basic Avro
+and Kafka concepts help; ML training knowledge is not required.
+Value: A paired structural/semantic example shows why successful deserialization
+can still yield a wrong feature value, and where to enforce each check.
+Evidence: registry scripts exist; the normalization fixture and integrated CI
+checks remain preparation work. No accuracy improvement has been measured.
+Reviewer note: show compatibility direction explicitly and keep the semantic
+assertion about model input, not invented model-output degradation.
+Fit: data contracts, streaming, AI application correctness.
+
+PROMPT RELEASES
+Audience/level: Intermediate; application developers operating LLM integrations.
+Value: Link source review to runtime artifact selection, distinguish candidate
+rejection from rollback, and identify how consumer refresh affects recovery.
+Evidence: prompt registration/compatibility scaffolding exists; consumer selection,
+evaluation and rollback remain to be verified. Use the existing prompt-governance
+demo as a starting point, not proof of the complete release workflow.
+Reviewer note: the model/evaluation configuration belongs with the evidence.
+A registry does not replace Git or prove output quality.
+Fit: LLM application engineering, software delivery, Java/Quarkus.
+
+STREAMING ML
+Audience/level: Intermediate; streaming/application engineers familiar with Kafka.
+Value: Diagnose late predictions by separating backlog, batch scheduling and
+processing capacity; change the stage that evidence identifies as limiting.
+Evidence: existing implementation and the OCX recording listed in
+conferences/recordings.txt. The fixed-replay load experiment is new work.
+Reviewer note: no unmeasured latency or scale claims. Agreement between two
+models is not accuracy evidence; keep one classification path for this session.
+Fit: streaming operations, performance, ML infrastructure.
+
+CDC TO SEARCH
+Audience/level: Intermediate; engineers maintaining search or other derived views.
+Value: Turn "we can rebuild it" into a recovery sequence with identity, delete,
+retention and catch-up checks before switching reads.
+Evidence: the historical CDC pipeline and prior recordings exist; the new
+concurrent-write/rebuild scenario is not implemented. See PREPARATION.txt.
+Reviewer note: describe a design walkthrough until the new recovery is exercised.
+Do not present the historical recording as a recording of this revised session.
+Fit: databases, streaming, search, application resilience.
+
+SANDBOX JOURNEY
+Audience/level: Beginner; maintainers and project leaders considering foundation
+participation. Prefer community/governance tracks over application development.
+Value: Convert application claims into evidence, explicit gaps and owners, then
+carry those responsibilities beyond the acceptance milestone.
+Evidence: public Sandbox issues #72, #461 and onboarding #495 were inspected.
+Carles's January 2024 deferral is a documented firsthand decision. The renewed
+vote and later onboarding provide the follow-up. See EVIDENCE.txt for exact links;
+verify current requirements for each delivery.
+Reviewer note: application-worksheet.txt is the drafted deliverable; acceptance or contributor
+growth is not a promised result of following it.
+
+OSS MAINTENANCE
+Audience/level: Beginner; maintainers and contributors on capacity-limited teams.
+Value: An issue brief and review hand-off checklist make the next action and its
+owner visible while allowing the project to limit commitments it cannot sustain.
+Evidence: published PR_LIFECYCLE.md and Carles's review in PR #10409 were inspected.
+Use the ownership-aware waiting/escalation policy and the actual approval-to-CI
+hand-off as examples. See EVIDENCE.txt; DevConf remains a related delivery sample.
+Reviewer note: handoff-checklist.txt contains a worked trace and exercise.
+Frame review-wait/participation signals as feedback, not causal
+proof of community growth. Fit: community, maintainership, open-source practice.
+
+BEFORE SUBMITTING
+-----------------
+- Select the topic whose question matches the track; do not add AI or Kubernetes
+  keywords to force a fit. Use the event's actual submission limits.
+- Attach one relevant implementation/evidence link and one appropriate recording.
+  Identify the prior version accurately; describe new material only if prepared.
+- State prerequisites and the actual demo/design/experience format. A future
+  demonstration is a delivery commitment, not an already completed result.
+- For 25 minutes, use one central example and move secondary cases to backup.
+  For 45 minutes, deepen evidence and audience questions before adding topics.
+- Replace candidate evidence links with publicly accessible, stable artifacts;
+  publish measured results only with environment and method recorded.
+
+FINAL EDITORIAL CHECKS
+----------------------
+1. Contribution: name the decision or observation that makes the talk more than
+   an integration overview. For proxy/lakehouse/agents, put the recorded behavior
+   in the abstract; for unfinished experiments, describe the question honestly.
+2. Evidence: attach an input, expected observation, actual observation and a
+   reproducible path. A repository, title or count of tests alone is insufficient.
+3. Boundary: state exactly what is checked. Metadata publication is not deployed
+   behavior; process health is not data progress; structure is not feature meaning.
+4. Contrast: include a simpler alternative and when it is enough. Static endpoints,
+   application-bundled prompts and existing configuration are valid choices.
+5. Scope: the headline, demo and takeaways must answer the same question. Put
+   adjacent protocols, formats, models and roadmap features in backup material.
+6. Evidence limits: retain measured conditions and implementation status. Avoid
+   replacing a missing result with a promised metric or a broader guarantee.
+
+Per-talk closing question for rehearsal:
+- Proxy: can the audience choose a safe next action from the actual error context?
+- Lakehouse: can they locate the last proven stage of source-to-query progress?
+- Agents: can they say what the rejected card change protects and what it cannot?
+- A2A/MCP: can they choose from caller requirements using tested versioned behavior?
+- Security: can they identify the enforcing component before changing permissions?
+- Data contracts: can they explain why the numerical invariant complements Avro?
+- Prompts: can they identify the selected artifact and when rollback reaches it?
+- Streaming ML: can they locate delay before selecting a processing change?
+- CDC/search: can they name the evidence required before switching the read alias?
+- Sandbox: can they turn one unsupported application claim into evidence or a task?
+- Maintenance: can they assign the next action without promising unavailable capacity?
+
+SPEAKER POSITIONING — COPY-READY BASE
+-------------------------------------
+Carles Arnal is a Principal Software Engineer at IBM, a core maintainer of
+Apicurio Registry and a Quarkus committer. He builds and tests integrations
+across event-driven applications, data contracts and agent protocols, and
+teaches at BarcelonaTech (UPC). His public work includes Kroxylicious schema
+validation and Quarkus LangChain4j Agent Card publication. He has presented
+at OCX, Open Source Summit Japan, Current and DevConf.
+
+Topic-specific reviewer notes:
+- Proxy: I authored the merged Avro/Protobuf validation contribution. The live
+  JSON Schema example explores observed producer/broker behavior, not a claim
+  that every format or performance characteristic was tested.
+- Agents: I authored the merged republishing fix and the open connected-workflow
+  sample. The sample has recorded end-to-end checks; upstream release status is
+  separate from local verification.
+- Lakehouse/streaming/search: I bring a working pipeline and related delivery
+  experience. The submission identifies which results are recorded and which
+  new experiment still needs completion; no enterprise-scale result is implied.
+- Sandbox: I participated in the application and publicly recorded its 2024
+  deferral. The session uses public decision and onboarding records, not an
+  invented retrospective of foundation-driven growth.
+- Maintenance: I review contributions in the project whose published lifecycle
+  supplies the example. I distinguish my review participation from authorship
+  of other contributors' patches and from claims about automation effectiveness.
+- Security/contracts/prompts/A2A-MCP: My registry/Quarkus work establishes domain
+  alignment. The particular proposed checks still require the verification in
+  PREPARATION.txt; a maintainer title does not substitute for that evidence.

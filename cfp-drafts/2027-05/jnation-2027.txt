@@ -9,8 +9,15 @@ Source: Official site (2026 edition). Watch for the 2027 CFP.
 
 Why it fits: Java/JVM developer conference in Portugal run by Coimbra JUG; 25- and 50-min sessions; Java, cloud, security, AI, architecture tracks. Short trip from Barcelona.
 
-Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+Suggested talks (abstracts: talks/<topic>/description.txt; evidence: talks/PREPARATION.txt):
 - kafka-proxy-schema-validation
 - database-to-lakehouse-realtime
 
 Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

@@ -1,8 +1,8 @@
 # Your Model Didn't Change, Your Input Did — Demo Walkthrough
 
-> Status: not yet verified end to end.
+> Status: historical scaffold, not yet verified end to end. The current abstract uses one structural compatibility check and a seconds/milliseconds feature-normalization test; the latter is not implemented here. API requests and serializer integration below also need verification. See [PREPARATION.txt](../PREPARATION.txt).
 
-This walkthrough accompanies the **data-contracts-ai-pipelines** talk. It demonstrates how schema registries enforce data contracts in AI pipelines, preventing silent schema changes from breaking downstream ML inference.
+This walkthrough accompanies the **data-contracts-ai-pipelines** talk. Registry compatibility checks protect schema publication; producer integration and feature-input tests are separate controls. This scaffold does not establish an enforced producer-to-inference pipeline.
 
 The demo reuses infrastructure patterns from the [debezium-ocp-etc-demo](debezium-ocp-etc-demo/) project.
 
@@ -72,7 +72,7 @@ curl -X POST "http://localhost:8080/apis/registry/v3/groups/data-contracts/artif
     ]
   }'
 
-# Enforce BACKWARD compatibility — new versions must not break existing consumers
+# BACKWARD: a new reader must be able to read data written with the old schema
 curl -X POST "http://localhost:8080/apis/registry/v3/groups/data-contracts/artifacts/customer-events-value/rules" \
   -H "Content-Type: application/json" \
   -d '{"ruleType": "COMPATIBILITY", "config": "BACKWARD"}'
@@ -80,7 +80,7 @@ curl -X POST "http://localhost:8080/apis/registry/v3/groups/data-contracts/artif
 echo "Data contract registered with BACKWARD compatibility"
 ```
 
-**Demo point:** Open the Registry UI and show the schema. This is the data contract — the CDC producer (Debezium) serializes events using this Avro schema, and downstream consumers (including ML services) depend on it. The BACKWARD rule means new versions can add fields with defaults but cannot remove or rename existing fields.
+**Check before presenting:** show the actual schema selected by the CDC converter and consumer rather than assume a manually registered schema is used. BACKWARD compatibility concerns a new reader reading old data. Removing a field can be backward-compatible because the new reader ignores it; adding a required field without a default can make old records unreadable by the new reader.
 
 
 ## Step 3: Define the Output Contract (Predictions Schema)
@@ -174,13 +174,13 @@ curl -s -X POST "http://localhost:8080/apis/registry/v3/groups/data-contracts/ar
   }'
 ```
 
-**Demo point:** This **fails** — the registry rejects it because removing `first_name` and `last_name` and adding `full_name` breaks backward compatibility. The ML inference service that depends on `first_name` would crash. **The data contract prevented a production incident.**
+**Expected check, not a verified result:** adding required `full_name` without a default prevents the new reader from reading old records under BACKWARD compatibility. The removed fields raise a separate question for old readers consuming new data. Assert the registry response and the relevant reader/writer behavior independently; this scaffold does not demonstrate a prevented production incident.
 
 
 ## Key Talking Points
 
-1. **Data contracts = schema + compatibility rules** — A schema alone is documentation. A schema with BACKWARD compatibility enforced at the registry level is a contract.
-2. **Contract at produce time, not prediction time** — Schema validation happens when the event is serialized. A breaking change is caught before it enters Kafka, not when the ML model fails at 3 AM.
-3. **CDC as the golden source** — Debezium captures the exact database state. The Avro schema in the registry ensures that capture is type-safe and versioned.
-4. **Avro vs Protobuf vs JSON Schema** — Discuss when each fits AI workloads. Avro for compact binary (high-throughput CDC), Protobuf for cross-language ML services, JSON Schema for human-readable metadata.
+1. **Structure and meaning** — Schema compatibility and feature semantics require different checks. The current talk pairs one Avro revision with a unit-normalization fixture.
+2. **Enforcement points** — Registry publication rules, configured serializers and CI tests enforce different boundaries. A registry alone does not inspect every Kafka write.
+3. **CDC integration** — Verify the converter's emitted schema, envelope and consumer input before claiming a manually registered contract governs the pipeline.
+4. **Keep the scope narrow** — Use Avro and one feature; additional format comparisons belong in backup material.
 5. **Scope of schema checks** — Compatibility checks can reject incompatible schema registrations. They do not measure model quality, validate feature semantics, or protect against producers that bypass enforcement.

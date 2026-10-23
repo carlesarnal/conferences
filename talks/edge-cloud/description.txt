@@ -1,13 +1,12 @@
-Title: Keeping Search in Sync Without Glue Code: CDC from PostgreSQL to Elasticsearch on Kubernetes
+Title: Rebuilding a Search Index While the Database Keeps Changing
 
-Every team that adds search ends up with the same job: keep the index in sync with the database. Nightly reindexing is stale; dual writes from the application drift apart on the first partial failure.
+Your search index is disposable only if you can replace it correctly. While a replacement loads, a customer record changes twice and another is deleted. A successful bulk load says little about whether searches will return the right state after cutover.
 
-This session replaces both with change data capture. Debezium reads PostgreSQL's log, Kafka on Strimzi carries Avro events with schemas in Apicurio Registry (CNCF sandbox), and a Quarkus stream processor keeps Elasticsearch updated. We'll change rows live, evolve a schema, and break things on purpose: a connector restart, a poison message, an incompatible schema change, and look at how the pipeline recovers and what it costs to operate.
+This design walkthrough uses PostgreSQL, Debezium, Kafka on Strimzi and Elasticsearch to follow those records into a separate replacement index. We define stable document identity, repeatable updates, delete handling and a per-partition progress checkpoint. Each decision serves the same question: what evidence makes it reasonable to switch the read alias while source writes continue?
+
+The recovery plan branches on retained history. If the stream contains the required baseline and changes, replay can reconstruct the view; otherwise, a new snapshot must be coordinated with subsequent changes. We check known insert/update/delete fixtures at a declared progress checkpoint, then define acceptable remaining lag and how new writes continue after alias cutover. The result is a rebuild runbook with an explicit freshness target, rather than an unsupported claim of instantaneous equality with the database.
 
 Attendees will leave with:
-- A reproducible CDC-to-search pipeline built from open-source components on Kubernetes
-- Recovery patterns for restarts, poison messages and schema changes
-- When CDC is worth it compared with dual writes and batch reindexing
-
-Presented at Current 2023 and Open Source Summit Japan 2023; this version is rebuilt on current releases.
-TODO before submitting: rebuild and verify the demo; replace any latency claim with a measured number.
+- A recovery sequence for rebuilding a derived index while writes continue
+- The roles of stable keys, ordering, deletes and event retention
+- Checks for validating catch-up and controlling the switch to a replacement index

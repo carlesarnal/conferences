@@ -1,77 +1,49 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
-
-FOSDEM 2027 SUBMISSIONS
-=======================
-
-Dates: January 30-31, 2027, Brussels (verified September 21)
-CFP: Watch individual devroom calls; dates and formats vary.
+FOSDEM 2027 — DRAFT PROPOSALS
+=============================
+Event: January 30-31, 2027, Brussels
 URL: https://fosdem.org/
+CFP: Check individual devroom calls; dates, lengths and limits vary.
+Abstracts revised October 23, 2026 from talks/<topic>/description.txt.
+The short versions below target roughly 20 minutes, subject to devroom rules.
+Preparation requirements and evidence: talks/PREPARATION.txt.
 
-NOTE: The 20-minute formats below are draft assumptions. Match the selected
-devroom's actual 2027 requirements. Review legacy abstract claims before reuse.
+SUBMISSION 1: Lakehouse (Data / Cloud devroom)
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
 
+Description:
+A Kafka Connect task reports RUNNING while its logs report commits to zero tables. We trace one insert from PostgreSQL through Debezium and Kafka to an Iceberg snapshot queried by Trino. A recorded control-consumer investigation shows the change that restored commits and the limits of what it proves. Attendees get a compact source-to-query checklist distinguishing process health, consumption, committed data and query visibility.
 
-SUBMISSION 1: Real-Time Lakehouse (Data devroom)
---------------------------------------------------
+SUBMISSION 2: Agent Discovery (AI / ML devroom)
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
 
-Title:
-The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Description:
+A translator removes its declared translation skill. In a connected Quarkus workflow, an MCP weather tool feeds an A2A summarizer and translator through registry-discovered endpoints. We reject the changed Agent Card in Apicurio Registry, inspect the unchanged accepted registration and rerun the workflow. Application code owns the sequence; registry checks protect publication, not the remote implementation. Attendees get a responsibility map and executable publication checks, focused on one change for this shorter session.
 
-Session Type:
-20-minute talk
+SUBMISSION 3: Sandbox Journey (Community devroom)
+Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
 
-Abstract:
-Batch ETL runs nightly. Analysts query stale data. The streaming-first lakehouse replaces it with a single real-time pipeline built entirely with open-source tools. Live demo: Debezium captures row-level PostgreSQL changes, streams them through Kafka with schema enforcement, and lands them in Apache Iceberg tables -- queryable within seconds. I'll show how Flink's Dynamic Iceberg Sink handles automatic schema evolution, eliminating manual DDL. Presented at JavaZone and Community Over Code Asia in 2026.
-
-Room suggestion: Data or Cloud devroom
-
-
-SUBMISSION 2: Agent Governance (AI/ML devroom)
------------------------------------------------
-
-Title:
-Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
-
-Session Type:
-20-minute talk
-
-Abstract:
-Five teams. Twenty agents. Three frameworks. No one knows which agents talk to which. This is the same discovery and compatibility crisis that hit APIs a decade ago, except agents evolve faster and fail more quietly. I'll show how to apply proven registry-based governance patterns to AI agents using the A2A Protocol -- agents publishing discoverable Agent Cards, negotiating capabilities at runtime, and failing fast on breaking changes. The patterns apply to any registry infrastructure.
-
-Room suggestion: AI and ML devroom
-
-
-SUBMISSION 3: CNCF Sandbox Journey (Community devroom)
--------------------------------------------------------
-
-Title:
-What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
-
-Session Type:
-20-minute talk
-
-Abstract:
-Getting into the CNCF Sandbox requires months of governance restructuring, community alignment, and uncomfortable technical decisions. This talk pulls back the curtain from a maintainer who went through it. I'll cover the concrete steps, surprises, and mistakes: aligning governance with foundation expectations, adapting a contribution model that worked fine for years, navigating due diligence we weren't prepared for. Plus what changed after acceptance -- more contributors, more visibility, more responsibility than expected.
-
-Room suggestion: Community or Legal and Policy devroom
-
+Description:
+In January 2024, I deferred Apicurio Registry's Sandbox application over branding questions and the xRegistry relationship. The renewed application passed its vote in March 2026, with contribution agreement and onboarding as separate steps. Following the public records, we examine project scope, ecosystem fit and ownership of the remaining work. Maintainers leave with a question/evidence/gap/owner worksheet grounded in one project's documented decisions rather than a formula promising admission.
 
 SUBMISSION 4: Kafka Proxy (Cloud devroom)
--------------------------------------------
+Title: Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
 
-Title:
-Validate Before Kafka: What Happens When a Proxy Enforces Your Schemas
+Description:
+A valid order reaches Kafka through a validation proxy; a schema-invalid order returns a precise error to its producer. What happens when both are sent in the same batch? Using Kroxylicious 0.24.0 and Apicurio Registry, this session follows the observed mixed-batch rejection and explains its implications for retries, ordering and duplicates. Attendees get a compact failure matrix and criteria for combining client validation with proxy enforcement.
 
-Session Type:
-20-minute talk
+Preparation (not form text):
+Base proxy/lakehouse demos were tested in September; the current connected-agent
+workflow was checked October 23. Prepare the
+new failure/progress checklists and scope each demo to its devroom duration.
+Sandbox now has public application and deferral evidence in talks/EVIDENCE.txt;
+prepare the selected excerpts and worksheet before delivery.
+Recordings: conferences/recordings.txt (Current/OSS Japan for pipelines;
+DevConf for community content). Paris is accepted and attendance is funded;
+do not cite it as delivered before the event.
 
-Abstract:
-Schema validation usually happens at the producer -- but legacy producers, third-party integrations, and teams that skip validation still send bad messages to Kafka. By the time a consumer fails, the offset has moved. I'll demo enforcing schema validation transparently at the proxy layer using Kroxylicious -- a filter intercepts produce requests, validates against a registry, and rejects non-compliant messages before they reach the broker. Zero changes to producer code.
-
-Room suggestion: Cloud or Monitoring and Observability devroom
-
-
-Speaker Bio:
-Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox). A Principal Software Engineer at IBM, he contributes to Quarkus, Apache Kafka, Strimzi, Debezium, and Apache Iceberg. Carles is also an associate professor at BarcelonaTech (UPC) and speaks regularly at international conferences on event-driven architectures, real-time data pipelines, and AI-ready platforms.
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

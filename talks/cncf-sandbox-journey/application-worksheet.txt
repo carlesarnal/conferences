@@ -1,0 +1,35 @@
+SANDBOX APPLICATION: QUESTION -> EVIDENCE -> GAP -> OWNER
+=======================================================
+Worked examples from public Apicurio records; reusable blank rows follow.
+These are historical project decisions, not a substitute for current CNCF rules.
+
+QUESTION: What exactly is being contributed?
+EVIDENCE: #72 January 2024 deferral mentions branding issues; #461 identifies
+Registry's repository scope and describes Studio consolidation.
+GAP TO CHECK: Does today's proposed repository/product boundary match the text?
+OWNER: The project's application lead, with maintainers of affected components.
+
+QUESTION: How does the project relate to an existing standard?
+EVIDENCE: #72 records xRegistry engagement; #461 distinguishes a runtime
+implementation from the specification and describes planned alignment.
+GAP TO CHECK: Separate implemented conformance from intended alignment; name
+the exact specification version and evidence supporting any compliance claim.
+OWNER: Maintainer responsible for interoperability and the relevant liaison.
+
+QUESTION: Does a passed vote complete admission/onboarding work?
+EVIDENCE: #461 records the March 2026 passed vote and subsequent contribution
+agreement requirement; #495 records the onboarding checklist.
+GAP TO CHECK: Which project and foundation tasks remain, and who owns each?
+OWNER: Application lead plus named project/foundation contacts for each task.
+
+YOUR PROJECT
+Question:
+Current published requirement, if applicable:
+Claim you intend to make:
+Public source and revision/date:
+What the evidence actually establishes:
+Unresolved gap:
+Owner and next action:
+When this evidence must be checked again:
+
+Source URLs and limits of interpretation: ../EVIDENCE.txt.

@@ -9,8 +9,15 @@ Source: Official event site.
 
 Why it fits: Largest independent data-engineering community in Oceania, vendor-neutral, deep technical talks. Australia is a priority destination. Melbourne/Sydney (Oct 12/15) pair with KubeDay Australia and Cloud Native AI Summit Melbourne (~Oct) for one Australian trip. You were declined at DataEngBytes Sydney 2024 with the older edge-to-cloud abstract; the rebuilt lakehouse talk is a much stronger fit.
 
-Suggested talks (use the verified abstracts in talks/<topic>/description.txt):
+Suggested talks (abstracts: talks/<topic>/description.txt; evidence: talks/PREPARATION.txt):
 - database-to-lakehouse-realtime (demo verified; lead)
 - data-contracts-ai-pipelines
 
 Speaker bio: see cfp-drafts/2027-03/cncf-colocated-europe-2027.txt (shared fields).
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

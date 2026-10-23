@@ -1,5 +1,5 @@
 Split from us-2027.txt on September 28, 2026.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 KUBECON NA 2027 (New Orleans)
@@ -8,11 +8,12 @@ Dates: Nov 8-11, New Orleans
 CFP: ~May-Jun 2027
 URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/
 
-Reuse KubeCon EU 2027 submissions (see kubecon-eu-2027.txt):
-1. Agent Governance (AI + ML track)
-2. CNCF Sandbox Journey (Community track)
-3. Real-Time Lakehouse (Application Development track)
-+ CNCF Project Opportunity: Lightning Talk + ContribFest
+Use revised topics, not the submitted EU wording:
+1. Agent Discovery: talks/agent-discovery/description.txt
+2. Sandbox Journey: talks/cncf-sandbox-journey/description.txt
+3. Lakehouse Progress: talks/database-to-lakehouse-realtime/description.txt
+Preparation: talks/PREPARATION.txt. Confirm tracks, limits and project-opportunity
+eligibility in the NA CFP when published.
 
 Speaker bio:
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
@@ -20,3 +21,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

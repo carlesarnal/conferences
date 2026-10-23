@@ -1,9 +1,8 @@
-NOTE (Sep 30, 2026): titles updated to the rewritten talks. Paste abstracts from
-talks/<topic>/description.txt (see talks/REVIEW.txt); any abstract text below that
-differs from those files is outdated.
+Updated October 23, 2026: current titles and exact abstract sources below.
+Preparation requirements: talks/PREPARATION.txt.
 
 Split from japan-2027.txt on September 28, 2026. Event month is an ESTIMATE.
-Use the verified abstracts in talks/<topic>/description.txt; older wording
+Use current abstracts in talks/<topic>/description.txt; evidence status and older wording
 below may contain unverified claims. Check dates and CFP on the official site.
 
 KUBECON JAPAN 2027
@@ -14,17 +13,20 @@ URL: https://events.linuxfoundation.org/kubecon-cloudnativecon-japan/
 Submit to BOTH main CFP + CNCF Project Opportunities (Lightning Talk + ContribFest).
 
 Main CFP Submission 1: Agent Governance
-Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Lifecycle for Multi-Agent AI
+Title: Agent Sprawl Is the New Microservice Sprawl: Discovery and Governance for Multi-Agent AI
+Abstract: talks/agent-discovery/description.txt
 Track: AI + ML
 Audience: Intermediate
 
 Main CFP Submission 2: CNCF Sandbox Journey
-Title: What the CNCF Sandbox Actually Asks For: Lessons from Bringing Apicurio Registry In
+Title: Preparing a CNCF Sandbox Application: A Maintainer's View from Apicurio Registry
+Abstract: talks/cncf-sandbox-journey/description.txt
 Track: Community / Project Leadership
 Audience: Intermediate
 
 Main CFP Submission 3: Real-Time Lakehouse
-Title: The Sink Said RUNNING: Building a CDC-to-Iceberg Pipeline on Kubernetes, Honestly
+Title: The Sink Said RUNNING: Is Your CDC-to-Iceberg Pipeline Making Progress?
+Abstract: talks/database-to-lakehouse-realtime/description.txt
 Track: Application Development / Data
 Audience: Intermediate
 
@@ -32,7 +34,9 @@ CNCF Project Opportunity (does NOT count toward 3-submission limit):
 - Project Lightning Talk (5 min): Apicurio Registry update -- A2A Agent Card support, Iceberg integration, roadmap
 - ContribFest (75 min): Hands-on session for new contributors. Good-first-issues, dev environment setup, first PR
 
-Note: Same structure as KubeCon EU submission. CNCF sandbox maintainer — strong advantage at CNCF events. Eligible for Lightning Talks, ContribFest, Maintainer Summit.
+Note: Use current abstract sources above, not the submitted EU versions.
+Check 2027 project-opportunity eligibility; attendance and speaking eligibility
+at Maintainer Summit are different and must not be assumed from Sandbox status.
 
 Speaker bio:
 Carles Arnal is a core maintainer of Apicurio Registry (CNCF sandbox) and a
@@ -40,3 +44,10 @@ Principal Software Engineer at IBM. He is a Quarkus committer and an associate
 professor at BarcelonaTech (UPC), with over a decade of industry experience.
 His work focuses on event-driven architectures, real-time data pipelines,
 and AI-ready platforms.
+
+CURRENT PROPOSAL GUIDANCE — October 23, 2026
+Use talks/<topic>/description.txt for current wording and
+talks/CFP-PACKAGING.txt for audience, value and evidence fields.
+talks/PREPARATION.txt distinguishes tested demos from planned work.
+Event-specific scope above still applies. Dates and CFP availability
+were not reverified in this editorial pass.

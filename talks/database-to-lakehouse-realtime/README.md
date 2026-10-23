@@ -56,8 +56,10 @@ graph LR
 
 **Freshness.** An inserted row became queryable after **33 s and 42 s** in two runs, with
 `iceberg.control.commit.interval-ms: 10000`. Snapshots landed roughly **once a minute**. The
-connector's **default commit interval is 300000 ms (5 minutes)**. Freshness here is seconds to
-a minute, bounded by the sink's commit cycle — not sub-second.
+connector's **default commit interval is 300000 ms (5 minutes)**. Observed freshness here is
+seconds to a minute, not sub-second. These timings include polling and query overhead;
+the configured interval is not a freshness bound, and the stages responsible for the
+remaining delay were not isolated in these runs.
 
 **Schema evolution.** `ALTER TABLE ... ADD COLUMN phone` produced value-schema **version 2** in
 Apicurio Registry, and the sink added the `phone` column to the Iceberg table with

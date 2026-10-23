@@ -1,6 +1,6 @@
-# Your Prompts Are Unversioned — Demo Walkthrough
+# Beyond Git: Runtime Prompt Releases — Historical Demo Walkthrough
 
-> Status: not yet verified end to end.
+> Status: not yet verified end to end. The current abstract adds explicit consumer version selection, evaluation, promotion and rollback. Those steps are preparation work, not verified behavior of this walkthrough. See [PREPARATION.txt](../PREPARATION.txt). Use `prompt-governance-demo/` for the existing registration scaffolding; the support-chat path below is a historical reference and must be checked before use.
 
 This walkthrough accompanies the **prompt-templates-as-artifacts** talk. It demonstrates how to treat prompt templates as first-class registry artifacts in Apicurio Registry, using a RAG-powered support chatbot as the case study.
 
@@ -154,7 +154,7 @@ curl -s -X POST "http://localhost:8081/support/chat/$SESSION_ID?systemPromptVers
   -d '{"message": "What artifact types does Apicurio support?"}' | jq '.answer'
 ```
 
-**Demo point:** The response now includes code examples because version 2 of the prompt instructs the LLM to do so. The key insight: **you changed the application's behavior by updating a registry artifact, not by redeploying code**. Version 1 is still available for other consumers that haven't migrated.
+**Intended check, not an observed result:** verify which template version the application actually selects and record the response. An instruction to include code does not guarantee compliance. Compare versions against fixed evaluation criteria, and record consumer refresh/cache behavior before claiming a runtime update or rollback worked.
 
 
 ## Step 7: Search Model Schemas

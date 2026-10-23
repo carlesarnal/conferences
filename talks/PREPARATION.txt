@@ -1,0 +1,179 @@
+TALK PREPARATION — October 23, 2026
+=================================
+LATEST PACKAGING STATUS: see REPOSITORIES.md. The data-contract fixture and real
+Registry check now pass; proxy recovery assertions also pass. Prompt selection,
+prediction-age and replay-invariant model tests pass, but are not equivalent to
+full application integration. Historical tasks below retain the broader goals.
+Descriptions are proposal wording. Tasks here are preparation requirements,
+not claims that new demonstrations or experiments have already been completed.
+Previous demo verification refers to the September runs documented in the
+walkthroughs and the October 23 connected-agent checks. No demos were rerun
+during this editorial pass. CFP-PACKAGING.txt supplies separate submission fields.
+Recordings: conferences/recordings.txt. Select a relevant recording and assess
+its delivery; a URL alone does not establish a Speaker score.
+
+KAFKA PROXY VALIDATION
+Base demo: previously verified. Supporting artifact now drafted:
+- failure-matrix.txt: scenario, client result, broker result, recovery.
+  It organizes September observations; validate against the next rehearsal.
+- Start with valid input rejected by a registry outage. Include the full error
+  context, not just its exception type. Label JSON Schema as the demonstrated
+  format and Avro/Protobuf as the authored contribution.
+- Include schema-invalid record, mixed batch, registry outage and broker bypass.
+- Distinguish observed behavior on 0.24.0 from recommendations for other versions.
+- Demonstrate producer handling of one failure. Review ordering and duplicate
+  handling before recommending selective resend; avoid unlimited retries.
+- Link https://github.com/kroxylicious/kroxylicious/pull/3498 as contribution evidence.
+30-minute plan: problem 3; architecture 4; demo 10; matrix 8; questions 5.
+
+LAKEHOUSE
+Base pipeline: previously verified. New focus: progress, not installation.
+- Pre-deploy; trace one insert, connector progress and a query-visible snapshot.
+- Retain logs for the RUNNING/no-commits case. Label recovery as a recorded
+  investigation unless the failure is reproducibly demonstrated live.
+- Timings 33/42 seconds are local observations including query/polling overhead.
+  A 10-second commit setting does not explain all of that delay. Do not claim
+  an established root cause without isolating stages in a new measurement.
+- Populate progress-ledger.txt: source event, Kafka offset, consumed offset,
+   committed snapshot, query visibility, freshness of reconstructed state.
+- Keep the control-consumer recovery separate from the freshness investigation;
+  a configuration change restoring commits does not explain the 33/42-second lag.
+- Move additive schema evolution and detailed storage failures to backup material.
+30-minute plan: symptom 3; architecture 4; insert trace 8; failure analysis 8;
+  checklist 3; questions 4.
+
+AGENT DISCOVERY
+Current demo: connected workflow from PR #2932, pinned at 682928b714574e1ca8f0405c4319b36cd244dc0e.
+See talks/agent-discovery/connected-workflow.txt. Nine tests and a fresh live
+smoke run passed October 23. No deprecation gate; no LLM routing/planning.
+- Clearly separate registered card, running code and consumer selection policy.
+- A rejected card update does not prevent deploying incompatible implementation
+  code. Demonstrate or diagram the deployment check needed to connect them.
+- Registry metadata is not a full dependency graph or a capability negotiation.
+- PR #2897 merge verified September 30, 2026 via GitHub on October 23. Release
+  inclusion remains unchecked. Prepare a short before/after publisher regression
+  segment; move the typed MCP wrapper lesson to backup to keep scope bounded.
+- Paris Agent Sprawl is accepted; company funding is approved and Carles will
+  attend and present (October 23 update). It is not a delivered talk yet.
+30-minute plan: problem 3; architecture 3; connected briefing 6; rejected and
+  accepted publication 7; publisher regression 3; boundaries 4; questions 4.
+
+A2A OR MCP
+Existing demo has different agent/tool capabilities. The proposed same-capability
+comparison is NEW work, not already verified by the weather/translator demo.
+- Expose the same summarization implementation through both interfaces.
+- Pin protocol/SDK versions; compare advertised behavior and actual support.
+- Build a table covering discovery, inputs/results, task state, cancellation,
+  authorization and retry/recovery. Distinguish unsupported from untested.
+- Trace a successful invocation and one failure; discuss remaining table rows.
+- Keep the same input and summarization implementation in both paths. Record
+  caller-visible differences without presenting untested support as equivalence.
+- Distinguish this talk from agent-discovery before submitting both to one CFP;
+  use the event's actual submission limit, not a blanket one-talk rule.
+30-minute plan: question 3; common capability 4; paired traces 10; table 9;
+  questions 4.
+
+SECURITY
+Configuration walkthrough exists; advertised failure cases need verification.
+- Verify invalid/expired-token denial, Kafka ACL denial and registry-mutation
+  denial separately, with one successful request as a control for each.
+- Record symptom, enforcing component and diagnostic check in a table.
+- Confirm issuer/audience configuration and registry authorization mode for the
+   versions used. Sharing a realm does not make tokens or permissions universal.
+- Repair the legacy walkthrough's service-account setup and actual ACL commands;
+  distinguish the serializer's registry connection from the broker's connection.
+- Keep key rotation as discussion unless exercised; no mTLS claim.
+30-minute plan: boundaries 4; three failure paths 15; table 5; operations 2;
+  questions 4.
+
+DATA CONTRACTS FOR AI
+Existing scripts are not proof of an enforced producer-to-inference pipeline.
+- Keep Avro only; distinguish backward/new-reader versus forward/old-reader
+  compatibility when choosing the failure example and policy.
+- Assert rejection of incompatible schema registration. Separately show where
+  serializers or CI enforce it; do not describe the registry as a broker firewall.
+- Add a deterministic seconds-to-milliseconds feature fixture with unchanged
+   Avro type. Test the expected normalized feature value or unit metadata.
+- Use 30 seconds / 30,000 milliseconds as a paired input with expected normalized
+  value 30. Assert the failed check when the consumer ignores the changed units.
+- Show failure before inference; do not invent a measured model-accuracy drop.
+- Publish the structural/semantic test pair and wire it into CI.
+30-minute plan: feature failure 4; schema check 7; semantic test 8; enforcement
+  boundaries 7; questions 4.
+
+PROMPT RELEASES
+Prior agent-demo runs exercised prompt registration and compatibility checks.
+Consumer version selection, evaluation and rollback still need verification.
+- Retain Git for authorship/review; map source revision to immutable artifact.
+- Show an explicit consumer version, candidate promotion and previous-version
+   selection. State whether refresh is per-request, cached, or startup-only.
+- Demonstrate candidate rejection separately from rolling back an already
+  selected version. Record source, artifact, model and evaluation configuration.
+- Add a fixed small evaluation set with criteria decided before seeing results.
+  Include an instruction change that preserves template inputs; record actual
+  outcomes and variability rather than guarantee the LLM fails deterministically.
+- Explain when a normal application redeploy is simpler than a runtime registry.
+30-minute plan: Git vs runtime distribution 4; release flow 8; checks/evaluation
+  8; rollback/cache behavior 6; questions 4.
+
+STREAMING ML
+Existing implementation/OCX recording support the topic, not the new experiment.
+- Add a replayable sample dataset with fixed event IDs and source timestamps.
+- Choose one classification path; explain two models only if the experiment
+  actually compares them. Do not conflate two-model execution with necessity.
+- Run baseline, overload, then one changed setting at a time with comparable
+  inputs and resources. Separate warm-up from observation windows.
+- Capture input/processed rates, batch duration, backlog, prediction age, and
+   hardware/model versions. No latency figures until those runs are measured.
+- Define prediction age at the queryable result, not just model completion.
+  Control input clocks and distinguish processing duration from source-event age.
+30-minute plan: symptom 3; measurement design 5; experiment 12; diagnosis 6;
+  questions 4.
+
+CDC TO SEARCH
+The new recovery scenario is not implemented in the old 2024 walkthrough.
+- Verify the actual connector/processor path before claiming a Quarkus step.
+- Implement rebuilding a separate index while writes continue; use stable keys,
+  deterministic updates and explicit delete handling.
+- Declare ordering assumptions (per key/partition, not a global Kafka order).
+- Exercise replay within retention and explain the separate snapshot path when
+  required history is unavailable. Compaction and tombstone retention matter.
+- Check known insert/update/delete fixtures before switching the read alias.
+- Define a per-partition progress checkpoint; no global order is implied. Test
+  two updates to one key and a delete while the replacement index is loading.
+- Do not describe this revision as rebuilt or previously delivered until true.
+30-minute plan: recovery problem 4; design 6; one recovery trace 10; retention
+  and cutover checks 6; questions 4.
+
+SANDBOX JOURNEY
+No software demo needed. Public application/decision evidence now located in
+EVIDENCE.txt: #72, #461 and onboarding #495. Current requirements still need a
+delivery-date check; do not assume historical application fields stay unchanged.
+- Confirm two or three events: question raised, decision made, supporting
+  document, and result. Distinguish personal involvement from general advice.
+- Confirm dates; no assumed year-after-acceptance history or contributor growth.
+- Do not claim trademark work, governance rewrites or review surprises unless
+  they happened. Numbers are optional; honest specific decisions are essential.
+- application-worksheet.txt now supplies documented examples and blank rows;
+  prepare public excerpts and confirm their historical context before delivery.
+- Use the actual application to populate the exercise; if a specific experience
+  cannot be confirmed, keep it a preparation exercise rather than a story claim.
+30-minute plan: project context 3; documented application decisions 15;
+  worksheet 6; questions 6. Best fit: community/maintainer track.
+
+OSS MAINTENANCE
+No software demo needed. The revised description now uses the public PR lifecycle
+and a reviewed PR (#10409); sources inspected and recorded in EVIDENCE.txt.
+- Pin the lifecycle document and prepare the actual hand-off trace. Do not claim
+  authorship of its automation or a measured community outcome without evidence.
+- Record what happened, what was changed and what can actually be inferred.
+- Avoid invented review delays, contributor losses, conflict stories, burnout
+  outcomes or a five-year tenure. Use public examples with appropriate context.
+- handoff-checklist.txt now supplies states, owners and the #10409 review trace.
+  Check its use with limited maintainer capacity during rehearsal.
+- Include a confirmed example of narrowing or declining scope if available;
+  do not imply maintainers can promise review capacity they do not have.
+- Review-wait and repeat-participation metrics are candidate signals, not proof
+  that a single process change caused contributor growth.
+30-minute plan: contributor path 4; concrete examples 12; workflow exercise 8;
+  questions 6. Best fit: community/maintainer track.

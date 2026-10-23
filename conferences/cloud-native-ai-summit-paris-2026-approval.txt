@@ -1,3 +1,7 @@
+Status update (October 23, 2026): Company funding is approved; Carles will attend
+Paris and present Agent Sprawl. This supersedes the earlier non-attendance decision.
+The request below is historical; its EUR 1,650 estimate is not a confirmed approved amount.
+
 I've been accepted to speak at Cloud Native AI Summit Europe in Paris (Dec 2-3).
 
 The talk is about the growing number of AI agents companies deploy across teams, and how to discover, version and govern them with open standards like A2A and MCP, including a live demo.

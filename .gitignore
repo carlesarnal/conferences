@@ -2,6 +2,9 @@
 .DS_Store
 conferences/cfp-tracker.md
 
+# Confidential program-committee submissions and reviews (local only)
+/reviews/
+
 # Cloned GitHub projects inside talk directories
 **/reddit-realtime-classification/
 **/debezium-ocp-etc-demo/
@@ -9,3 +12,9 @@ conferences/cfp-tracker.md
 **/kroxylicious-schema-validation/
 **/model-metadata/
 **/database-to-lakehouse-demo/
+/talks/agent-discovery/agent-discovery-demo/
+/talks/security/keycloak-strimzi-apicurio-security/
+/talks/data-contracts-ai-pipelines/data-contracts-ai-demo/
+/talks/governing-agent-swarm/a2a-mcp-comparison/
+/talks/cncf-sandbox-journey/cncf-sandbox-journey/
+/talks/oss-maintenance/oss-maintainer-playbook/

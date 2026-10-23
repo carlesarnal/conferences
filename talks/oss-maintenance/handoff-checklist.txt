@@ -1,0 +1,33 @@
+CONTRIBUTOR HAND-OFF CHECKLIST
+=============================
+Based on the inspected Apicurio PR lifecycle; design exercise, not measured
+proof of improved retention. Source links and actual review: ../EVIDENCE.txt.
+
+STATE                    NEXT OWNER       VISIBLE EVIDENCE / NEXT ACTION
+Ready for review         Maintainer       Reviewer identified; request review
+Changes requested        Contributor      Specific request; push or ask a question
+Approved, checks pending CI + maintainer  Current approval; required checks pending
+Checks fail              Context-specific Failure evidence; identify who can fix it
+Maintainer overdue       Maintainer       Escalation signal; no author inactivity blame
+Both sides blocked       Explicit policy  Determine which action unblocks the other
+
+The documented project policy lets the contributor inactivity timer take
+precedence when both sides are blocked. Discuss that trade-off rather than
+claiming every delayed PR is exempt from stale handling.
+
+WORKED TRACE: Apicurio Registry PR #10409
+1. Public reviewer suggestion identifies a candidate; a suggestion is not an
+   assignment or proof that a reviewer has accepted the work.
+2. Carles's approval is recorded on October 7, 2026.
+3. Bot comments distinguish approval/fast-check success from the full-suite gate.
+4. The PR merged later that day. Do not infer reduced waiting time or causality
+   from this single trace; use it to illustrate the distinct responsibilities.
+
+EXERCISE
+Choose one transition in your project. Can a newcomer tell:
+- Who owns the next action?
+- What evidence makes the transition valid, and for which commit?
+- What to do when that owner is unavailable?
+- Whether a bot message describes current state or an obsolete event?
+Record one change, an owner and a way to observe whether it helps.
+No bot is required: a documented convention can be the simplest implementation.
