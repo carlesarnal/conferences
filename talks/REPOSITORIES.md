@@ -43,6 +43,10 @@ The normal website checkout's rebranding branch was preserved.
 - Search: three replay-model tests passed; no full snapshot/alias integration run.
 - Security/lakehouse: Kubernetes API at the selected local context was unavailable.
   Configurations are not claimed freshly verified. Security remains incomplete.
+  A restart attempt recovered the API but resumed Kubernetes 1.28.3 with unhealthy
+  pre-existing workloads and an unrelated review namespace. The profile was
+  stopped again to restore its initial state. No cluster reset or workload deletion
+  was performed; use an isolated compatible cluster for remaining experiments.
 - A2A/MCP: evidence-table validation passed, but the paired implementation is not
   complete; `--require-observed` deliberately fails until observations exist.
 - Community talks: public-record exercises prepared; no causal growth claim.
