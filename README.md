@@ -10,6 +10,12 @@ is maintained in [public/portfolio.json](public/portfolio.json). See
 Only that explicit export is used by the website; confidential reviews and CFP
 planning are not part of the public feed.
 
+Long-form articles are maintained in
+[distributed-deep-dives](https://github.com/carlesarnal/distributed-deep-dives).
+Its publication manifest connects the eleven talk implementations to the personal
+site and Apicurio blog articles. Edit articles there and regenerate the site copies
+with its `scripts/publish_articles.py`; avoid duplicating implementation code here.
+
 ## Repository contents
 
 - **`talks/`** — Talk abstracts and walkthrough demos organized by topic. Each talk directory contains the abstract (`description.txt` or named `.txt`), a demo walkthrough (`README.md`), and optionally the cloned demo project.
